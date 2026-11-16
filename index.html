@@ -2,7 +2,7 @@
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Création de sites web professionnels sur-mesure et sur modèles. Livraison garantie en 5 jours.">
     <title>Star Design</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
@@ -44,29 +44,51 @@
                 radial-gradient(at 80% 0%, rgba(217, 78, 52, 0.08) 0px, transparent 40%),
                 radial-gradient(at 20% 100%, rgba(30, 86, 63, 0.05) 0px, transparent 40%);
         }
+        
+        /* Cacher la scrollbar horizontale sur mobile tout en gardant le scroll */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #FAF7F2; }
         ::-webkit-scrollbar-thumb { background: #D5CFC2; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #B8B0A0; }
+        
         .card-hover { transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -12px rgba(20, 20, 19, 0.12); }
-        .pricing-shadow-left { box-shadow: 12px 12px 0px #141413; }
-        .pricing-shadow-right { box-shadow: 12px 12px 0px #D94E34; }
-        .pricing-shadow-domain { box-shadow: 8px 8px 0px #164230; }
+        .pricing-shadow-left { box-shadow: 8px 8px 0px #141413; }
+        .pricing-shadow-right { box-shadow: 8px 8px 0px #D94E34; }
+        .pricing-shadow-domain { box-shadow: 6px 6px 0px #164230; }
+        @media (min-width: 640px) {
+            .pricing-shadow-left { box-shadow: 12px 12px 0px #141413; }
+            .pricing-shadow-right { box-shadow: 12px 12px 0px #D94E34; }
+            .pricing-shadow-domain { box-shadow: 8px 8px 0px #164230; }
+        }
+        
         .gradient-border { background: linear-gradient(white, white) padding-box, linear-gradient(to right, #D94E34, #1E563F) border-box; border: 2px solid transparent; }
+        
+        @keyframes badgeEntrance {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-badge {
+            animation: badgeEntrance 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-terracotta-500 selection:text-white relative">
 
-    <!-- ================= BARRE DE NAVIGATION ================= -->
+    <!-- ================= BARRE DE NAVIGATION (Optimisée Mobile) ================= -->
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-cream-100/90 border-b border-ink-900/10 transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-ink-900 text-cream-100 flex items-center justify-center shadow-sm group-hover:bg-terracotta-500 transition-colors">
-                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5L14.8 8.8L22.5 12L14.8 15.2L12 22.5L9.2 15.2L1.5 12L9.2 8.8L12 1.5Z" /></svg>
+        <!-- Hauteur réduite sur mobile (h-16 au lieu de h-20), marges ajustées -->
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-ink-900 text-cream-100 flex items-center justify-center shadow-sm group-hover:bg-terracotta-500 transition-colors">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5L14.8 8.8L22.5 12L14.8 15.2L12 22.5L9.2 15.2L1.5 12L9.2 8.8L12 1.5Z" /></svg>
                 </div>
                 <div class="flex items-center">
-                    <span class="font-display font-bold text-2xl tracking-tight text-ink-900">Star<span class="text-terracotta-500">Design</span>.</span>
+                    <span class="font-display font-bold text-lg sm:text-2xl tracking-tight text-ink-900">Star<span class="text-terracotta-500">Design</span>.</span>
                 </div>
             </a>
 
@@ -77,14 +99,16 @@
                 <a href="#catalogue" class="hover:text-terracotta-500 transition-colors" data-i18n="nav_catalog">Catalogue</a>
             </nav>
 
-            <div class="flex items-center gap-2.5 sm:gap-3">
-                <div class="inline-flex items-center p-1 rounded-xl bg-cream-200 border border-ink-900/15">
-                    <button onclick="setLanguage('fr')" id="lang-btn-fr" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white transition-all">FR €</button>
-                    <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 transition-all">EN $</button>
+            <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+                <div class="flex items-center p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-cream-200 border border-ink-900/15">
+                    <button onclick="setLanguage('fr')" id="lang-btn-fr" class="px-1.5 sm:px-2.5 py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold bg-ink-900 text-white transition-all">FR €</button>
+                    <button onclick="setLanguage('en')" id="lang-btn-en" class="px-1.5 sm:px-2.5 py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold text-ink-600 hover:text-ink-900 transition-all">EN $</button>
                 </div>
-                <button onclick="openOrderModal(null)" class="flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-ink-900 hover:bg-terracotta-500 text-xs sm:text-sm font-semibold text-white transition-all shadow-sm">
-                    <span data-i18n="nav_contact">Nous contacter</span>
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                <!-- Sur mobile : "Contact" court et padding réduit -->
+                <button onclick="openOrderModal(null)" class="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl bg-ink-900 hover:bg-terracotta-500 text-[10px] sm:text-sm font-semibold text-white transition-all shadow-sm">
+                    <span class="hidden sm:inline" data-i18n="nav_contact">Nous contacter</span>
+                    <span class="inline sm:hidden" data-i18n="nav_contact_short">Contact</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
             </div>
         </div>
@@ -93,23 +117,31 @@
     <!-- ================= HERO SECTION ================= -->
     <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 bg-hero-pro border-b border-ink-900/10 overflow-hidden">
         <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink-900 leading-[1.06] mb-6">
+            <div class="text-center max-w-6xl mx-auto">
+                <h1 class="max-w-4xl mx-auto font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink-900 leading-[1.06] mb-6">
                     <span data-i18n="hero_title_1">Votre site web professionnel,</span>
                     <span class="font-serif italic font-normal text-5xl sm:text-7xl lg:text-8xl text-terracotta-500 block" data-i18n="hero_title_2">prêt à briller en 5 jours.</span>
                 </h1>
-                <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8">
-                    <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-ink-900/10 shadow-sm">
-                        <div class="w-7 h-7 rounded-lg bg-forest-100 text-forest-700 flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="w-4 h-4"></i></div>
-                        <span class="text-xs sm:text-sm font-bold text-ink-900" data-i18n="service_badge_1">Certificat SSL & Protection DDoS</span>
-                    </div>
-                    <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-ink-900/10 shadow-sm">
-                        <div class="w-7 h-7 rounded-lg bg-terracotta-100 text-terracotta-600 flex items-center justify-center shrink-0"><i data-lucide="database" class="w-4 h-4"></i></div>
-                        <span class="text-xs sm:text-sm font-bold text-ink-900" data-i18n="service_badge_2">Base de données sécurisée</span>
-                    </div>
-                    <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-ink-900/10 shadow-sm">
-                        <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-4 h-4"></i></div>
-                        <span class="text-xs sm:text-sm font-bold text-ink-900" data-i18n="service_badge_3">Modifications en moins de 24h</span>
+                
+                <!-- Scroll horizontal garanti sur mobile (min-w-max) -->
+                <div class="w-full overflow-x-auto no-scrollbar pb-4 mt-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <div class="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-center gap-3 sm:gap-4 min-w-max sm:min-w-0">
+                        <div class="inline-flex shrink-0 items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-ink-900/10 shadow-sm animate-badge hover:-translate-y-1 hover:shadow-md transition-all duration-300" style="animation-delay: 0.1s;">
+                            <div class="w-7 h-7 rounded-lg bg-forest-100 text-forest-700 flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="w-4 h-4"></i></div>
+                            <span class="text-xs sm:text-sm font-bold text-ink-900" data-i18n="service_badge_1">Certificat SSL & Protection DDoS</span>
+                        </div>
+                        <div class="inline-flex shrink-0 items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-ink-900/10 shadow-sm animate-badge hover:-translate-y-1 hover:shadow-md transition-all duration-300" style="animation-delay: 0.2s;">
+                            <div class="w-7 h-7 rounded-lg bg-terracotta-100 text-terracotta-600 flex items-center justify-center shrink-0"><i data-lucide="database" class="w-4 h-4"></i></div>
+                            <span class="text-xs sm:text-sm font-bold text-ink-900" data-i18n="service_badge_2">Base de données sécurisée</span>
+                        </div>
+                        <div class="inline-flex shrink-0 items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-ink-900/10 shadow-sm animate-badge hover:-translate-y-1 hover:shadow-md transition-all duration-300" style="animation-delay: 0.3s;">
+                            <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-4 h-4"></i></div>
+                            <span class="text-xs sm:text-sm font-bold text-ink-900" data-i18n="service_badge_3">Modifications en moins de 24h</span>
+                        </div>
+                        <div class="inline-flex shrink-0 items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-ink-900/10 shadow-sm animate-badge hover:-translate-y-1 hover:shadow-md transition-all duration-300" style="animation-delay: 0.4s;">
+                            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
+                            <span class="text-xs sm:text-sm font-bold text-ink-900" data-i18n="service_badge_4">Hébergement UE (RGPD)</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,7 +266,7 @@
         </div>
     </section>
 
-    <!-- ================= BANNIÈRE 100% PERSONNALISÉ (AVANT RÉALISATIONS) ================= -->
+    <!-- ================= BANNIÈRE 100% PERSONNALISÉ ================= -->
     <section id="sur-mesure" class="py-12 bg-cream-200/70 border-b border-ink-900/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="rounded-3xl bg-gradient-to-r from-ink-900 via-ink-800 to-forest-900 text-white p-6 sm:p-10 border-2 border-ink-900 shadow-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
@@ -256,7 +288,7 @@
         </div>
     </section>
 
-    <!-- ================= RÉALISATIONS (SITES EN LIGNE) ================= -->
+    <!-- ================= RÉALISATIONS ================= -->
     <section id="realisations" class="py-16 bg-cream-100/50 border-b border-ink-900/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
@@ -286,7 +318,7 @@
         </div>
     </section>
 
-    <!-- ================= CATALOGUE (MAQUETTES RÉALISTES) ================= -->
+    <!-- ================= CATALOGUE ================= -->
     <section id="catalogue" class="py-14 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
             <div>
@@ -400,18 +432,16 @@
         </div>
     </footer>
 
-    <!-- POP-UP FLOTTANT RÉALISATIONS (Accès rapide) -->
-    <a href="#realisations" class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 bg-white border-2 border-ink-900 px-4 py-3 rounded-2xl shadow-[6px_6px_0px_#141413] flex items-center gap-3 transition-transform hover:-translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_#141413] group">
-        <div class="w-8 h-8 rounded-full bg-terracotta-500 text-white flex items-center justify-center">
-            <i data-lucide="eye" class="w-4 h-4"></i>
-        </div>
-        <div class="flex flex-col">
+    <!-- POP-UP FLOTTANT RÉALISATIONS (Optimisé mobile) -->
+    <a href="#realisations" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-40 bg-white border-2 border-ink-900 p-2 sm:px-4 sm:py-3 rounded-full sm:rounded-2xl shadow-[4px_4px_0px_#141413] sm:shadow-[6px_6px_0px_#141413] flex items-center gap-0 sm:gap-3 transition-transform hover:-translate-y-1 hover:translate-x-1 group">
+        <div class="w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-terracotta-500 text-white flex items-center justify-center"><i data-lucide="eye" class="w-5 h-5 sm:w-4 sm:h-4"></i></div>
+        <div class="hidden sm:flex flex-col">
             <span class="text-[10px] uppercase font-bold text-ink-400 tracking-wider leading-none" data-i18n="floating_top">En direct</span>
             <span class="text-sm font-display font-bold leading-none mt-1" data-i18n="floating_real">Voir nos sites</span>
         </div>
     </a>
 
-    <!-- ================= MODALE D'APERÇU (NOUVELLE SIMULATION DE PAGE) ================= -->
+    <!-- ================= MODALE D'APERÇU ================= -->
     <div id="preview-modal" class="fixed inset-0 z-50 hidden bg-ink-900/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
         <div class="bg-cream-100 border-2 border-ink-900 rounded-3xl w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
             <div class="px-4 sm:px-6 py-4 bg-white border-b border-ink-900/10 flex items-center justify-between gap-4 shrink-0">
@@ -460,7 +490,6 @@
                 <div class="space-y-2.5">
                     <label class="block text-xs font-bold uppercase tracking-wider text-ink-900" data-i18n="modal_choose_plan_label">Choisissez votre offre * :</label>
 
-                    <!-- Option "Questions" désormais toujours affichée, plus cachée ! -->
                     <label id="plan-card-questions" onclick="selectPlan('questions')" class="block p-3.5 rounded-2xl border-2 border-ink-900/15 bg-white cursor-pointer hover:border-ink-900/40 transition-all">
                         <div class="flex items-start justify-between gap-3">
                             <div class="flex items-start gap-3">
@@ -595,8 +624,8 @@
 
         const translations = {
             fr: {
-                nav_pricing: "Nos Tarifs", nav_custom: "100% Sur-Mesure", nav_real: "Nos Réalisations", nav_catalog: "Catalogue", nav_process: "Fonctionnement", nav_contact: "Nous contacter",
-                hero_title_1: "Votre site web professionnel,", hero_title_2: "prêt à briller en 5 jours.", service_badge_1: "Certificat SSL & Protection DDoS", service_badge_2: "Base de données sécurisée", service_badge_3: "Modifications en moins de 24h",
+                nav_pricing: "Nos Tarifs", nav_custom: "100% Sur-Mesure", nav_real: "Nos Réalisations", nav_catalog: "Catalogue", nav_process: "Fonctionnement", nav_contact: "Nous contacter", nav_contact_short: "Contact",
+                hero_title_1: "Votre site web professionnel,", hero_title_2: "prêt à briller en 5 jours.", service_badge_1: "Certificat SSL & Protection DDoS", service_badge_2: "Base de données sécurisée", service_badge_3: "Modifications en moins de 24h", service_badge_4: "Hébergement UE (RGPD)",
                 card1_header: "Création du Site Seul", card1_badge: "Achat Unique", card1_sub: "Code HTML livré • Sans abonnement", card1_once: "Une seule fois", tooltip_tva: "TVA non applicable", card1_desc: "On crée votre site et on vous livre les fichiers HTML. Vous gérez vous-même votre hébergement.", card1_feat1: "Fichiers HTML complets livrés en 5j", card1_feat2: "Modèle au choix ou 100% Sur-Mesure", card1_feat4: "Vous gérez l'hébergement & la suite", card1_cta1: "Choisir l'offre Site Seul",
                 card2_header: "Abonnement Site + Maint.", card2_commitment: "Engagement 1 an", card2_sub: "Création du site + Hébergement inclus", per_month: "/ mois", card2_desc: "On crée votre site, on l'héberge et on s'occupe de toute la maintenance technique.", card2_feat1: "Création du site + Hébergement inclus", card2_feat2: "Maintenance & Modifs en - de 24h", card2_feat3: "Certificat SSL & Protection DDoS", card2_cta: "Choisir l'Abonnement",
                 card3_header: "Abonnement + Domaine", card3_badge: "100% Clé en Main", card3_sub: "Abonnement 19.99€ + Domaine 1€/mois", card3_desc: "Toute l'offre abonnement avec votre nom de domaine personnalisé (+1€/m) inclus.", card3_feat1: "Nom de domaine (.fr, .com...) inclus", card3_feat2: "Création du site + Hébergement haute dispo", card3_feat4: "SSL, Anti-DDoS & BDD sécurisée (Eng. 1 an)", card3_cta: "Choisir Abonnement + Domaine",
@@ -612,7 +641,7 @@
                 success_title: "Demande envoyée !", success_desc: "Merci ! L'équipe Star Design vous recontacte très vite.", success_close: "Fermer", card_delivery_badge: "Livré en 5j", card_price_label: "Site seul", card_maint_label: "Abonnement", card_domain_note: "+1€/m domaine", card_preview_btn: "Aperçu", card_choose_btn: "Choisir", custom_project_name: "Site 100% Personnalisé"
             },
             en: {
-                nav_pricing: "Pricing", nav_custom: "100% Custom", nav_real: "Live Projects", nav_catalog: "Catalog", nav_process: "How it works", nav_contact: "Contact us", hero_title_1: "Your professional website,", hero_title_2: "ready in 5 days.", service_badge_1: "SSL & DDoS Protection", service_badge_2: "Secure Database", service_badge_3: "Edits in < 24h",
+                nav_pricing: "Pricing", nav_custom: "100% Custom", nav_real: "Live Projects", nav_catalog: "Catalog", nav_process: "How it works", nav_contact: "Contact us", nav_contact_short: "Contact", hero_title_1: "Your professional website,", hero_title_2: "ready in 5 days.", service_badge_1: "SSL & DDoS Protection", service_badge_2: "Secure Database", service_badge_3: "Edits in < 24h", service_badge_4: "EU Hosting (GDPR)",
                 card1_header: "Site Creation Only", card1_badge: "One-Time", card1_sub: "HTML delivered • No sub", card1_once: "One-time fee", tooltip_tva: "VAT not applicable", card1_desc: "We build your site and give you the files. You handle hosting.", card1_feat1: "HTML files delivered in 5d", card1_feat2: "Template or Custom", card1_feat4: "You manage hosting", card1_cta1: "Choose Site Only",
                 card2_header: "Site + Maintenance", card2_commitment: "1-yr commit", card2_sub: "Creation + Hosting", per_month: "/ mo", card2_desc: "We build, host and maintain your site.", card2_feat1: "Creation + Hosting", card2_feat2: "Maintenance < 24h", card2_feat3: "SSL & DDoS", card2_cta: "Choose Subscription",
                 card3_header: "Sub + Domain", card3_badge: "All-In", card3_sub: "Sub $19.99 + Domain $1/mo", card3_desc: "Full sub + custom domain.", card3_feat1: "Domain included", card3_feat2: "Creation + Hosting", card3_feat4: "SSL & DDoS (1yr)", card3_cta: "Choose Sub + Domain",
@@ -654,14 +683,14 @@
             const btnFr = document.getElementById('lang-btn-fr');
             const btnEn = document.getElementById('lang-btn-en');
             if (lang === 'fr') {
-                btnFr.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white transition-all";
-                btnEn.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 transition-all";
+                btnFr.className = "px-1.5 sm:px-2.5 py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold bg-ink-900 text-white transition-all";
+                btnEn.className = "px-1.5 sm:px-2.5 py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold text-ink-600 hover:text-ink-900 transition-all";
                 document.getElementById('price-site-display').textContent = "29.99€";
                 document.getElementById('price-maint-display').textContent = "19.99€";
                 document.getElementById('price-full-display').textContent = "20.99€";
             } else {
-                btnEn.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white transition-all";
-                btnFr.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 transition-all";
+                btnEn.className = "px-1.5 sm:px-2.5 py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold bg-ink-900 text-white transition-all";
+                btnFr.className = "px-1.5 sm:px-2.5 py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold text-ink-600 hover:text-ink-900 transition-all";
                 document.getElementById('price-site-display').textContent = "$29.99";
                 document.getElementById('price-maint-display').textContent = "$19.99";
                 document.getElementById('price-full-display').textContent = "$20.99";
