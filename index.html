@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Création de sites web professionnels sur-mesure et sur modèles. Livraison garantie en 5 jours.">
+    <meta name="description" content="Création de sites web professionnels sur-mesure et fonctionnels. Livraison garantie en 5 jours.">
     <title>Star Design</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <script>
@@ -41,50 +39,33 @@
         .bg-hero-pro {
             background-color: #FAF7F2;
             background-image: 
-                radial-gradient(at 80% 0%, rgba(217, 78, 52, 0.08) 0px, transparent 40%),
-                radial-gradient(at 20% 100%, rgba(30, 86, 63, 0.05) 0px, transparent 40%);
+                radial-gradient(at 80% 0%, rgba(217, 78, 52, 0.06) 0px, transparent 40%),
+                radial-gradient(at 20% 100%, rgba(30, 86, 63, 0.04) 0px, transparent 40%);
         }
-        
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #FAF7F2; }
         ::-webkit-scrollbar-thumb { background: #D5CFC2; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #B8B0A0; }
-        
         .card-hover { transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -12px rgba(20, 20, 19, 0.12); }
-        .pricing-shadow-left { box-shadow: 6px 6px 0px #141413; }
-        .pricing-shadow-right { box-shadow: 6px 6px 0px #D94E34; }
-        .pricing-shadow-domain { box-shadow: 4px 4px 0px #164230; }
-        @media (min-width: 1024px) {
-            .pricing-shadow-left { box-shadow: 12px 12px 0px #141413; }
-            .pricing-shadow-right { box-shadow: 12px 12px 0px #D94E34; }
-            .pricing-shadow-domain { box-shadow: 8px 8px 0px #164230; }
-        }
-        
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(20, 20, 19, 0.08); }
         .gradient-border { background: linear-gradient(white, white) padding-box, linear-gradient(to right, #D94E34, #1E563F) border-box; border: 2px solid transparent; }
-        
-        @keyframes badgeEntrance { 0% { opacity: 0; transform: translateY(15px); } 100% { opacity: 1; transform: translateY(0); } }
-        .animate-badge { animation: badgeEntrance 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
     </style>
 </head>
 <body class="antialiased selection:bg-terracotta-500 selection:text-white relative">
 
-    <!-- ================= BARRE DE NAVIGATION ================= -->
+    <!-- ================= NAVIGATION ================= -->
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-cream-100/90 border-b border-ink-900/10 transition-all">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
                 <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-ink-900 text-cream-100 flex items-center justify-center shadow-sm group-hover:bg-terracotta-500 transition-colors">
                     <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5L14.8 8.8L22.5 12L14.8 15.2L12 22.5L9.2 15.2L1.5 12L9.2 8.8L12 1.5Z" /></svg>
                 </div>
-                <div class="flex items-center">
-                    <span class="font-display font-bold text-lg sm:text-2xl tracking-tight text-ink-900">Star<span class="text-terracotta-500">Design</span>.</span>
-                </div>
+                <span class="font-display font-bold text-lg sm:text-2xl tracking-tight text-ink-900">Star<span class="text-terracotta-500">Design</span>.</span>
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-ink-600">
-                <a href="#tarifs" class="hover:text-terracotta-500 transition-colors" data-i18n="nav_pricing">Nos Tarifs</a>
+                <a href="#tarifs" class="hover:text-terracotta-500 transition-colors" data-i18n="nav_pricing">Nos Formules</a>
                 <a href="#sur-mesure" class="hover:text-terracotta-500 transition-colors font-bold text-ink-900" data-i18n="nav_custom">100% Sur-Mesure</a>
                 <a href="#realisations" class="hover:text-terracotta-500 transition-colors" data-i18n="nav_real">Nos Réalisations</a>
                 <a href="#catalogue" class="hover:text-terracotta-500 transition-colors" data-i18n="nav_catalog">Catalogue</a>
@@ -105,143 +86,194 @@
     </header>
 
     <!-- ================= HERO SECTION ================= -->
-    <section class="relative pt-12 pb-14 md:pt-20 md:pb-24 bg-hero-pro border-b border-ink-900/10 overflow-hidden">
+    <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 bg-hero-pro border-b border-ink-900/10 overflow-hidden">
         <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-10">
-            <div class="text-center max-w-6xl mx-auto">
-                <h1 class="max-w-4xl mx-auto font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink-900 leading-[1.06] mb-8">
-                    <span data-i18n="hero_title_1">Votre site web professionnel,</span>
-                    <span class="font-serif italic font-normal text-5xl sm:text-7xl lg:text-8xl text-terracotta-500 block" data-i18n="hero_title_2">prêt à briller en 5 jours.</span>
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink-900 leading-[1.08] mb-6">
+                    <span data-i18n="hero_title_1">Sites sur-mesure,</span>
+                    <span class="font-serif italic font-normal text-5xl sm:text-7xl lg:text-8xl text-terracotta-500 block mt-1" data-i18n="hero_title_2">prêts en 5 jours.</span>
                 </h1>
                 
-                <!-- LES BADGES (2 lignes sur mobile) -->
-                <div class="grid grid-cols-2 lg:flex lg:flex-row items-stretch justify-center gap-2 sm:gap-4 max-w-4xl mx-auto">
-                    <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border border-ink-900/10 shadow-sm text-center sm:text-left transition-transform hover:-translate-y-1">
+                <p class="text-ink-600 text-sm sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="hero_subtitle">
+                    Réservation de tables, prise de rendez-vous en ligne, agendas ou e-commerce : nous codons exactement ce dont votre activité a besoin.
+                </p>
+
+                <div class="grid grid-cols-2 lg:flex lg:flex-row items-stretch justify-center gap-2.5 sm:gap-4 max-w-4xl mx-auto">
+                    <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border border-ink-900/10 shadow-sm text-center sm:text-left">
                         <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-forest-100 text-forest-700 flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i></div>
-                        <span class="text-[10px] sm:text-sm font-bold text-ink-900 leading-tight" data-i18n="service_badge_1">Certificat SSL<br class="sm:hidden"> & Protection DDoS</span>
+                        <span class="text-[10px] sm:text-sm font-bold text-ink-900 leading-tight" data-i18n="service_badge_1">SSL & Protection DDoS</span>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border border-ink-900/10 shadow-sm text-center sm:text-left transition-transform hover:-translate-y-1">
+                    <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border border-ink-900/10 shadow-sm text-center sm:text-left">
                         <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-terracotta-100 text-terracotta-600 flex items-center justify-center shrink-0"><i data-lucide="database" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i></div>
-                        <span class="text-[10px] sm:text-sm font-bold text-ink-900 leading-tight" data-i18n="service_badge_2">Base de données<br class="sm:hidden"> sécurisée</span>
+                        <span class="text-[10px] sm:text-sm font-bold text-ink-900 leading-tight" data-i18n="service_badge_2">Base de données sécurisée</span>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border border-ink-900/10 shadow-sm text-center sm:text-left transition-transform hover:-translate-y-1">
+                    <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border border-ink-900/10 shadow-sm text-center sm:text-left">
                         <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i></div>
-                        <span class="text-[10px] sm:text-sm font-bold text-ink-900 leading-tight" data-i18n="service_badge_3">Modifications en<br class="sm:hidden"> moins de 24h</span>
+                        <span class="text-[10px] sm:text-sm font-bold text-ink-900 leading-tight" data-i18n="service_badge_3">Modifs en moins de 24h</span>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border border-ink-900/10 shadow-sm text-center sm:text-left transition-transform hover:-translate-y-1">
+                    <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border border-ink-900/10 shadow-sm text-center sm:text-left">
                         <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i></div>
-                        <span class="text-[10px] sm:text-sm font-bold text-ink-900 leading-tight" data-i18n="service_badge_4">Hébergement UE<br class="sm:hidden"> (RGPD)</span>
+                        <span class="text-[10px] sm:text-sm font-bold text-ink-900 leading-tight" data-i18n="service_badge_4">Hébergement UE (RGPD)</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= TARIFS ================= -->
-    <section id="tarifs" class="pt-8 pb-10 sm:pt-16 sm:pb-12 bg-white border-b border-ink-900/10">
-        <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-10">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-7 items-start">
-                
-                <!-- CARTE 01 : 4 items complets -->
-                <div class="rounded-3xl bg-cream-50 border-2 border-ink-900 pricing-shadow-left p-4 sm:p-6 flex flex-col overflow-hidden cursor-pointer lg:cursor-auto transition-colors hover:bg-cream-100 lg:hover:bg-cream-50" onclick="togglePricing('card1')">
-                    <div class="flex items-center justify-between gap-2 pb-2 sm:pb-3 border-b border-ink-900/10">
-                        <span class="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-ink-900" data-i18n="card1_header">Site Seul</span>
-                        <span class="px-2 py-0.5 rounded-full text-[9px] sm:text-[11px] font-bold bg-cream-200 text-ink-900" data-i18n="card1_badge">Achat Unique</span>
-                    </div>
-                    <div class="pt-3 pb-2 lg:pb-4 flex items-center justify-between">
-                        <div class="flex items-baseline gap-1.5 flex-wrap">
-                            <span class="font-display text-4xl lg:text-5xl font-bold tracking-tighter text-ink-900 leading-none" id="price-site-display">29.99€</span>
-                            <span class="text-[10px] font-bold uppercase text-ink-500" data-i18n="card1_once">Une fois</span>
+    <!-- ================= FORMULES ================= -->
+    <section id="tarifs" class="pt-12 pb-14 sm:pt-20 sm:pb-16 bg-white border-b border-ink-900/10">
+        <div class="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink-900 mt-2" data-i18n="pricing_title">Nos formules</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+                <!-- 1. SITE SEUL -->
+                <div class="rounded-3xl bg-cream-50 border border-ink-900/15 p-6 flex flex-col justify-between transition-all hover:border-ink-900/40">
+                    <div>
+                        <div class="flex items-center justify-between pb-3 border-b border-ink-900/10">
+                            <span class="font-display font-bold text-base uppercase text-ink-900" data-i18n="offer1_name">Site Seul</span>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-cream-200 text-ink-900" data-i18n="offer1_badge">Unique</span>
                         </div>
-                        <div class="lg:hidden p-1.5 rounded-full bg-ink-900/5 text-ink-600"><i data-lucide="chevron-down" id="icon-card1" class="w-5 h-5"></i></div>
-                    </div>
-                    <div id="content-card1" class="hidden lg:block">
-                        <p class="text-[11px] sm:text-xs text-ink-600 mb-4 leading-relaxed border-t border-ink-900/10 pt-3" data-i18n="card1_desc">On crée votre site et on vous livre les fichiers HTML. Vous gérez vous-même votre hébergement.</p>
-                        <div class="space-y-2 text-[11px] sm:text-xs text-ink-800 font-medium mb-4">
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-cream-100 border border-ink-900/5"><i data-lucide="code-2" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card1_feat1">Fichiers HTML livrés en 5j</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-cream-100 border border-ink-900/5"><i data-lucide="palette" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card1_feat2">Modèle au choix ou 100% Sur-Mesure</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-cream-100 border border-ink-900/5"><i data-lucide="smartphone" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card1_feat3">100% Responsive Mobile & PC</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-cream-200/60 border border-ink-900/5 text-ink-600"><i data-lucide="user-check" class="w-4 h-4 text-ink-600 shrink-0"></i><span data-i18n="card1_feat4">Vous gérez l'hébergement & la suite</span></div>
+                        <div class="py-4 border-b border-ink-900/10">
+                            <div class="flex items-baseline gap-1">
+                                <span class="font-display text-4xl font-bold tracking-tighter text-ink-900" id="price-site-display">29.99€</span>
+                                <span class="text-xs text-ink-500 font-medium" data-i18n="offer1_once">/ achat unique</span>
+                            </div>
+                            <p class="text-xs text-ink-600 mt-2 leading-relaxed" data-i18n="offer1_desc">Fichiers HTML livrés. Vous gérez vous-même l'hébergement.</p>
                         </div>
-                        <button onclick="event.stopPropagation(); openOrderModalWithPlan(null, 'html_only')" class="w-full py-2.5 sm:py-3 px-4 rounded-xl bg-ink-900 hover:bg-terracotta-500 text-white font-bold text-[11px] sm:text-sm flex items-center justify-between transition-all">
-                            <span data-i18n="card1_cta1">Choisir Site Seul</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        <div class="py-4 space-y-2.5 text-xs text-ink-800 font-medium">
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer1_f1">Code HTML complet livré en 5j</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer1_f2">100% Responsive Mobile & PC</span></div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-ink-900/10 space-y-2">
+                        <button onclick="openOrderModalWithPlan(null, 'html_only')" class="w-full py-3 rounded-xl bg-ink-900 hover:bg-terracotta-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                            <span data-i18n="btn_choose">Choisir cette offre</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                         </button>
+                        <button onclick="openDetailsModal('site_seul')" class="w-full py-2 text-ink-600 hover:text-ink-900 text-xs font-semibold underline text-center" data-i18n="btn_details">En savoir plus</button>
                     </div>
                 </div>
 
-                <!-- CARTE 02 : 4 items complets -->
-                <div class="rounded-3xl bg-forest-900 text-cream-100 border-2 border-ink-900 pricing-shadow-domain p-4 sm:p-6 flex flex-col overflow-hidden cursor-pointer lg:cursor-auto transition-colors hover:bg-forest-800 lg:hover:bg-forest-900" onclick="togglePricing('card2')">
-                    <div class="flex items-center justify-between gap-2 pb-2 sm:pb-3 border-b border-white/15">
-                        <span class="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-white" data-i18n="card2_header">Site + Maint.</span>
-                        <span class="px-2 py-0.5 rounded-full text-[9px] sm:text-[11px] font-bold bg-white/15 text-white" data-i18n="card2_commitment">Engagé 1 an</span>
-                    </div>
-                    <div class="pt-3 pb-2 lg:pb-4 flex items-center justify-between">
-                        <div class="flex items-baseline gap-1.5 flex-wrap">
-                            <span class="font-display text-4xl lg:text-5xl font-bold tracking-tighter text-white leading-none" id="price-maint-display">19.99€</span>
-                            <span class="text-[10px] sm:text-sm font-bold text-terracotta-500" data-i18n="per_month">/ mois</span>
+                <!-- 2. STANDARD -->
+                <div class="rounded-3xl bg-white border border-ink-900/15 p-6 flex flex-col justify-between transition-all hover:border-ink-900/40">
+                    <div>
+                        <div class="flex items-center justify-between pb-3 border-b border-ink-900/10">
+                            <span class="font-display font-bold text-base uppercase text-ink-900" data-i18n="offer2_name">Standard</span>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-forest-100 text-forest-800" data-i18n="offer2_badge">Essentiel</span>
                         </div>
-                        <div class="lg:hidden p-1.5 rounded-full bg-white/10 text-white"><i data-lucide="chevron-down" id="icon-card2" class="w-5 h-5"></i></div>
-                    </div>
-                    <div id="content-card2" class="hidden lg:block">
-                        <p class="text-[11px] sm:text-xs text-cream-200/80 mb-4 leading-relaxed border-t border-white/10 pt-3" data-i18n="card2_desc">On crée votre site, on l'héberge et on s'occupe de toute la maintenance technique.</p>
-                        <div class="space-y-2 text-[11px] sm:text-xs text-cream-100 font-medium mb-4">
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10"><i data-lucide="sparkles" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card2_feat1">Création + Hébergement inclus</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10"><i data-lucide="zap" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card2_feat2">Maintenance & Modifs en -24h</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10"><i data-lucide="shield-check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card2_feat3">Certificat SSL & Protection DDoS</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10"><i data-lucide="database" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card2_feat4">Base de données sécurisée incluse</span></div>
+                        <div class="py-4 border-b border-ink-900/10">
+                            <div class="flex items-baseline gap-1">
+                                <span class="font-display text-4xl font-bold tracking-tighter text-ink-900" id="price-maint-display">19.99€</span>
+                                <span class="text-xs text-terracotta-500 font-bold" data-i18n="per_month">/ mois</span>
+                            </div>
+                            <p class="text-xs text-ink-600 mt-2 leading-relaxed" data-i18n="offer2_desc">Création + Hébergement + Prise de RDV / Réservations (sans paiement en ligne).</p>
                         </div>
-                        <button onclick="event.stopPropagation(); openOrderModalWithPlan(null, 'maintenance')" class="w-full py-2.5 sm:py-3 px-4 rounded-xl bg-white hover:bg-terracotta-500 text-ink-900 hover:text-white font-bold text-[11px] sm:text-sm flex items-center justify-between transition-all">
-                            <span data-i18n="card2_cta">Choisir Abonnement</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        <div class="py-4 space-y-2.5 text-xs text-ink-800 font-medium">
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-forest-600 shrink-0"></i><span data-i18n="offer_f_crea">Création du site + Hébergement inclus</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-forest-600 shrink-0"></i><span data-i18n="offer_f_rdv">Prise de RDV & Réservations possibles</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-forest-600 shrink-0"></i><span data-i18n="offer_f_maint">Maintenance & Modifs en moins de 24h</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-forest-600 shrink-0"></i><span data-i18n="offer_f_ssl">Certificat SSL & Protection DDoS</span></div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-ink-900/10 space-y-2">
+                        <button onclick="openOrderModalWithPlan(null, 'maintenance')" class="w-full py-3 rounded-xl bg-ink-900 hover:bg-terracotta-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                            <span data-i18n="btn_choose">Choisir cette offre</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                         </button>
+                        <button onclick="openDetailsModal('standard')" class="w-full py-2 text-ink-600 hover:text-ink-900 text-xs font-semibold underline text-center" data-i18n="btn_details">En savoir plus</button>
                     </div>
                 </div>
 
-                <!-- CARTE 03 : 4 items complets -->
-                <div class="rounded-3xl bg-ink-900 text-cream-100 border-2 border-terracotta-500 pricing-shadow-right p-4 sm:p-6 flex flex-col overflow-hidden cursor-pointer lg:cursor-auto transition-colors hover:bg-ink-800 lg:hover:bg-ink-900" onclick="togglePricing('card3')">
-                    <div class="flex items-center justify-between gap-2 pb-2 sm:pb-3 border-b border-white/15">
-                        <span class="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-white" data-i18n="card3_header">Abo + Domaine</span>
-                        <span class="px-2 py-0.5 rounded-full text-[9px] sm:text-[11px] font-bold bg-terracotta-500 text-white" data-i18n="card3_badge">Clé en Main</span>
-                    </div>
-                    <div class="pt-3 pb-2 lg:pb-4 flex items-center justify-between">
-                        <div class="flex items-baseline gap-1.5 flex-wrap">
-                            <span class="font-display text-4xl lg:text-5xl font-bold tracking-tighter text-white leading-none" id="price-full-display">20.99€</span>
-                            <span class="text-[10px] sm:text-sm font-bold text-terracotta-500" data-i18n="per_month">/ mois</span>
+                <!-- 3. PREMIUM -->
+                <div class="rounded-3xl bg-forest-900 text-white border-2 border-forest-600 p-6 flex flex-col justify-between shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-terracotta-500 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl-xl" data-i18n="badge_pop">Populaire</div>
+                    <div>
+                        <div class="flex items-center justify-between pb-3 border-b border-white/15">
+                            <span class="font-display font-bold text-base uppercase text-white" data-i18n="offer3_name">Premium</span>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/20 text-white" data-i18n="offer3_badge">Complet</span>
                         </div>
-                        <div class="lg:hidden p-1.5 rounded-full bg-white/10 text-white"><i data-lucide="chevron-down" id="icon-card3" class="w-5 h-5"></i></div>
-                    </div>
-                    <div id="content-card3" class="hidden lg:block">
-                        <p class="text-[11px] sm:text-xs text-cream-200/80 mb-4 leading-relaxed border-t border-white/10 pt-3" data-i18n="card3_desc">Toute l'offre abonnement avec votre nom de domaine personnalisé inclus.</p>
-                        <div class="space-y-2 text-[11px] sm:text-xs text-cream-100 font-medium mb-4">
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-terracotta-500/20 border border-terracotta-500/40 text-white"><i data-lucide="globe" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span class="font-bold" data-i18n="card3_feat1">Nom de domaine (.fr, .com...) inclus</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10"><i data-lucide="sparkles" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card3_feat2">Création + Hébergement haute dispo</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10"><i data-lucide="zap" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card3_feat3">Maintenance & Modifs en -24h</span></div>
-                            <div class="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10"><i data-lucide="shield-check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="card3_feat4">SSL, Anti-DDoS & BDD sécurisée (1 an)</span></div>
+                        <div class="py-4 border-b border-white/15">
+                            <div class="flex items-baseline gap-1">
+                                <span class="font-display text-4xl font-bold tracking-tighter text-white" id="price-full-display">20.99€</span>
+                                <span class="text-xs text-terracotta-500 font-bold" data-i18n="per_month">/ mois</span>
+                            </div>
+                            <p class="text-xs text-cream-200 mt-2 leading-relaxed" data-i18n="offer3_desc">Tout l'abonnement Standard avec votre base de données sécurisée et domaine.</p>
                         </div>
-                        <button onclick="event.stopPropagation(); openOrderModalWithPlan(null, 'full_pack')" class="w-full py-2.5 sm:py-3 px-4 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-[11px] sm:text-sm flex items-center justify-between transition-all shadow-md">
-                            <span data-i18n="card3_cta">Choisir Abo + Domaine</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        <div class="py-4 space-y-2.5 text-xs text-cream-100 font-medium">
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_crea">Création du site + Hébergement inclus</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_rdv">Gestion RDV & Réservations possibles</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_maint">Maintenance & Modifs en moins de 24h</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_e_dom">Nom de domaine inclus (.fr, .com...)</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_db">Base de données sécurisée incluse</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_ssl">Certificat SSL & Protection DDoS</span></div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-white/15 space-y-2">
+                        <button onclick="openOrderModalWithPlan(null, 'full_pack')" class="w-full py-3 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md">
+                            <span data-i18n="btn_choose">Choisir cette offre</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                         </button>
+                        <button onclick="openDetailsModal('premium')" class="w-full py-2 text-cream-300 hover:text-white text-xs font-semibold underline text-center" data-i18n="btn_details">En savoir plus</button>
+                    </div>
+                </div>
+
+                <!-- 4. ENTREPRISE -->
+                <div class="rounded-3xl bg-ink-900 text-white border-2 border-terracotta-500 p-6 flex flex-col justify-between shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-forest-600 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl-xl" data-i18n="badge_ecom">E-Commerce</div>
+                    <div>
+                        <div class="flex items-center justify-between pb-3 border-b border-white/15">
+                            <span class="font-display font-bold text-base uppercase text-white" data-i18n="offer4_name">Entreprise</span>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-terracotta-500 text-white" data-i18n="offer4_badge">Tout Inclus</span>
+                        </div>
+                        <div class="py-4 border-b border-white/15">
+                            <div class="flex items-baseline gap-1">
+                                <span class="font-display text-4xl font-bold tracking-tighter text-white">39.99€</span>
+                                <span class="text-xs text-terracotta-500 font-bold" data-i18n="per_month">/ mois</span>
+                            </div>
+                            <p class="text-xs text-cream-200 mt-2 leading-relaxed" data-i18n="offer4_desc">Solution complète incluant la gestion des paiements en ligne et nom de domaine.</p>
+                        </div>
+                        <div class="py-4 space-y-2.5 text-xs text-cream-100 font-medium">
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_e_pay">Paiements en ligne sécurisés (Stripe/CB)</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_e_dom">Nom de domaine offert (.fr, .com...)</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_crea">Création sur-mesure & Hébergement</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_maint">Modifications prioritaires en -24h</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_rdv">Gestion RDV & Réservations possibles</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_db">Base de données sécurisée incluse</span></div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0"></i><span data-i18n="offer_f_ssl">Certificat SSL & Protection DDoS</span></div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-white/15 space-y-2">
+                        <button onclick="openOrderModalWithPlan(null, 'enterprise')" class="w-full py-3 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md">
+                            <span data-i18n="btn_choose">Choisir cette offre</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <button onclick="openDetailsModal('entreprise')" class="w-full py-2 text-cream-300 hover:text-white text-xs font-semibold underline text-center" data-i18n="btn_details">En savoir plus</button>
                     </div>
                 </div>
 
             </div>
+
+            <!-- Note sur les 5 jours -->
+            <p class="text-center text-[11px] text-ink-400 mt-8 italic" data-i18n="disclaimer_5j">
+                * Note : Le délai garanti de 5 jours s'applique aux standards du web. Si votre projet requiert une technologie non maîtrisée par nos équipes, un délai supplémentaire sera validé ensemble.
+            </p>
         </div>
     </section>
 
-    <!-- ================= BANNIÈRE 100% PERSONNALISÉ ================= -->
+    <!-- ================= BANNIÈRE SUR-MESURE ================= -->
     <section id="sur-mesure" class="py-12 bg-cream-200/70 border-b border-ink-900/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="rounded-3xl bg-gradient-to-r from-ink-900 via-ink-800 to-forest-900 text-white p-6 sm:p-10 border-2 border-ink-900 shadow-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+            <div class="rounded-3xl bg-gradient-to-r from-ink-900 via-ink-800 to-forest-900 text-white p-6 sm:p-10 border border-ink-900/20 shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
                 <div class="max-w-2xl space-y-3">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta-500 text-white text-xs font-bold uppercase tracking-wider">
                         <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                        <span data-i18n="custom_tag">Vous voulez un design unique ?</span>
+                        <span data-i18n="custom_tag">Besoin d'une fonction spécifique ?</span>
                     </div>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white" data-i18n="custom_title">Nous créons votre site 100% sur-mesure !</h2>
-                    <p class="text-cream-200/90 text-sm sm:text-base leading-relaxed max-w-xl" data-i18n="custom_desc">Les modèles de notre catalogue servent d'inspiration, mais nous concevons aussi votre site internet entièrement sur-mesure de A à Z. C'est le même prix, et toujours livré en 5 jours.</p>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white" data-i18n="custom_title">Nous codons du sur-mesure pour vous !</h2>
+                    <p class="text-cream-200/90 text-sm sm:text-base leading-relaxed max-w-xl" data-i18n="custom_desc">Un agenda de réservation particulier, une interface spécifique ou une connexion à un logiciel externe ? Nous apprenons de nouvelles compétences pour répondre précisément à vos besoins.</p>
                 </div>
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto shrink-0">
-                    <button onclick="openOrderModal('custom')" class="px-8 py-4 rounded-2xl bg-white hover:bg-cream-100 text-ink-900 font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg transition-all">
+                    <button onclick="openOrderModal('custom')" class="px-8 py-4 rounded-2xl bg-white hover:bg-cream-100 text-ink-900 font-bold text-sm flex items-center justify-center gap-2.5 shadow-md transition-all">
                         <i data-lucide="wand-2" class="w-5 h-5 text-terracotta-500"></i>
-                        <span data-i18n="custom_btn">Demander mon site personnalisé</span>
+                        <span data-i18n="custom_btn">Discuter de mon projet</span>
                     </button>
                 </div>
             </div>
@@ -249,30 +281,42 @@
     </section>
 
     <!-- ================= RÉALISATIONS ================= -->
-    <section id="realisations" class="py-12 sm:py-16 bg-cream-100/50 border-b border-ink-900/10">
+    <section id="realisations" class="py-16 sm:py-24 bg-cream-100/60 border-b border-ink-900/10 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta-500 block mb-2" data-i18n="real_eyebrow">En Ligne</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink-900 tracking-tight" data-i18n="real_title">Nos réalisations</h2>
-                </div>
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-terracotta-500 block mb-2" data-i18n="real_eyebrow">En Ligne</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-ink-900 tracking-tight" data-i18n="real_title">Nos réalisations</h2>
+                <p class="text-ink-600 text-sm mt-3" data-i18n="real_sub">Découvrez nos derniers projets livrés, optimisés pour PC, tablettes et mobiles.</p>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <a href="https://christophe-jeannin.fr/" target="_blank" class="group block rounded-3xl overflow-hidden border-2 border-ink-900/10 hover:border-terracotta-500 transition-colors shadow-sm hover:shadow-xl bg-white">
-                    <div class="h-64 sm:h-80 bg-ink-900 relative overflow-hidden">
-                         <iframe src="https://christophe-jeannin.fr/" class="absolute top-0 left-0 w-[125%] h-[125%] origin-top-left scale-[0.8] pointer-events-none" scrolling="no"></iframe>
-                         <div class="absolute inset-0 bg-ink-900/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div class="p-5 sm:p-6 flex justify-between items-center">
-                        <div>
-                            <h3 class="font-display text-lg sm:text-xl font-bold text-ink-900">Christophe Jeannin</h3>
-                            <p class="text-ink-600 text-xs sm:text-sm mt-0.5" data-i18n="real_desc">Site vitrine & Portfolio professionnel</p>
-                        </div>
-                        <div class="w-10 h-10 rounded-full bg-cream-200 flex items-center justify-center group-hover:bg-terracotta-500 group-hover:text-white transition-colors">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
+
+            <div class="relative max-w-5xl mx-auto bg-gradient-to-b from-cream-200/80 to-cream-300/40 border border-ink-900/10 rounded-[2.5rem] p-6 sm:p-12 shadow-xl">
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+                    <div class="w-56 sm:w-64 bg-black rounded-[2.5rem] p-3 shadow-2xl border-4 border-zinc-800 shrink-0 transform lg:-translate-y-4">
+                        <div class="h-4 w-24 bg-black mx-auto rounded-b-xl mb-2 z-20 relative"></div>
+                        <div class="rounded-[2rem] overflow-hidden bg-white h-[450px] relative">
+                            <iframe src="https://christophe-jeannin.fr/" class="absolute top-0 left-0 w-[200%] h-[200%] origin-top-left scale-[0.5] pointer-events-none"></iframe>
                         </div>
                     </div>
-                </a>
+                    <div class="flex flex-col sm:flex-row items-center gap-6 w-full justify-center">
+                        <div class="w-full max-w-md bg-zinc-900 rounded-2xl p-2.5 shadow-2xl border border-zinc-700">
+                            <div class="rounded-lg overflow-hidden bg-white h-[240px] sm:h-[260px] relative">
+                                <iframe src="https://christophe-jeannin.fr/" class="absolute top-0 left-0 w-[166%] h-[166%] origin-top-left scale-[0.6] pointer-events-none"></iframe>
+                            </div>
+                            <div class="h-3 bg-zinc-800 rounded-b-xl mt-1.5 flex items-center justify-center"><div class="w-12 h-1 bg-zinc-600 rounded-full"></div></div>
+                        </div>
+                        <div class="w-64 sm:w-72 bg-zinc-900 rounded-2xl p-2 shadow-xl border border-zinc-700 hidden sm:block">
+                            <div class="rounded-xl overflow-hidden bg-white h-[320px] relative">
+                                <iframe src="https://christophe-jeannin.fr/" class="absolute top-0 left-0 w-[150%] h-[150%] origin-top-left scale-[0.66] pointer-events-none"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="https://christophe-jeannin.fr/" target="_blank" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-ink-900 hover:bg-terracotta-500 text-white font-bold text-sm shadow-lg transition-all">
+                        <span>Visiter christophe-jeannin.fr en direct</span>
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -293,7 +337,7 @@
             <div class="flex flex-col lg:flex-row gap-3 sm:gap-4 items-stretch lg:items-center justify-between">
                 <div class="relative flex-grow max-w-md xl:max-w-xl">
                     <i data-lucide="search" class="w-4 h-4 sm:w-5 sm:h-5 text-ink-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-                    <input type="text" id="search-input" placeholder="Métier, style (ex: minimaliste...)" class="w-full pl-10 sm:pl-12 pr-10 py-3 sm:py-3.5 bg-cream-100 border border-ink-900/15 focus:border-ink-900 focus:bg-white rounded-xl text-ink-900 placeholder-ink-400 text-xs sm:text-sm font-medium focus:outline-none transition-all">
+                    <input type="text" id="search-input" placeholder="Métier, style (ex: minimaliste, restaurant...)" class="w-full pl-10 sm:pl-12 pr-10 py-3 sm:py-3.5 bg-cream-100 border border-ink-900/15 focus:border-ink-900 focus:bg-white rounded-xl text-ink-900 placeholder-ink-400 text-xs sm:text-sm font-medium focus:outline-none transition-all">
                     <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-ink-400 hover:text-ink-900 p-1"><i data-lucide="x" class="w-4 h-4"></i></button>
                 </div>
                 <div class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 no-scrollbar" id="category-filters">
@@ -309,9 +353,7 @@
             </div>
         </div>
 
-        <div id="templates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <!-- Injecté par JavaScript -->
-        </div>
+        <div id="templates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
 
         <div id="empty-state" class="hidden text-center py-12 sm:py-20 px-4 rounded-3xl bg-white border border-ink-900/15 max-w-xl mx-auto my-8 shadow-sm">
             <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-terracotta-50 text-terracotta-500 flex items-center justify-center mx-auto mb-4"><i data-lucide="wand-2" class="w-6 h-6 sm:w-8 sm:h-8"></i></div>
@@ -387,16 +429,35 @@
         </div>
     </footer>
 
-    <!-- POP-UP FLOTTANT RÉALISATIONS -->
-    <a href="#realisations" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-40 bg-white border-2 border-ink-900 p-2 sm:px-4 sm:py-3 rounded-full sm:rounded-2xl shadow-[4px_4px_0px_#141413] sm:shadow-[6px_6px_0px_#141413] flex items-center gap-0 sm:gap-3 transition-transform hover:-translate-y-1 hover:translate-x-1 group">
-        <div class="w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-terracotta-500 text-white flex items-center justify-center"><i data-lucide="eye" class="w-5 h-5 sm:w-4 sm:h-4"></i></div>
-        <div class="hidden sm:flex flex-col">
-            <span class="text-[10px] uppercase font-bold text-ink-400 tracking-wider leading-none" data-i18n="floating_top">En direct</span>
-            <span class="text-sm font-display font-bold leading-none mt-1" data-i18n="floating_real">Voir nos sites</span>
-        </div>
-    </a>
+    <!-- ================= VRAI CHATBOT INTELLIGENT AVEC CRÉNEAUX 30MIN ================= -->
+    <div id="chat-widget" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50">
+        <button onclick="toggleChat()" id="chat-toggle-btn" class="bg-ink-900 hover:bg-terracotta-500 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full sm:rounded-2xl shadow-xl flex items-center gap-2.5 transition-all hover:scale-105 group">
+            <i data-lucide="message-square-text" class="w-5 h-5"></i>
+            <span class="hidden sm:inline font-display font-bold text-sm" data-i18n="chat_btn_text">Discuter avec l'agence</span>
+        </button>
 
-    <!-- ================= MODALE D'APERÇU (SANS PRIX) ================= -->
+        <div id="chat-window" class="hidden absolute bottom-16 right-0 w-[90vw] sm:w-[380px] bg-white border-2 border-ink-900 rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[540px]">
+            <div class="bg-ink-900 text-white px-5 py-4 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <div>
+                        <h4 class="font-display font-bold text-sm">Star Design Assistant</h4>
+                        <p class="text-[10px] text-cream-300">En ligne • Répond à vos questions</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-cream-300 hover:text-white p-1"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-cream-50 text-xs sm:text-sm"></div>
+
+            <div class="p-3 bg-white border-t border-ink-900/10 flex items-center gap-2 shrink-0">
+                <input type="text" id="chat-input" onkeypress="handleChatKey(event)" placeholder="Posez votre question..." class="flex-1 px-4 py-2.5 rounded-xl bg-cream-100 border border-ink-900/15 text-xs sm:text-sm focus:outline-none focus:border-ink-900">
+                <button onclick="sendChatMessage()" class="p-2.5 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white transition-colors"><i data-lucide="send" class="w-4 h-4"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODALE D'APERÇU ================= -->
     <div id="preview-modal" class="fixed inset-0 z-50 hidden bg-ink-900/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
         <div class="bg-cream-100 border-2 border-ink-900 rounded-3xl w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
             <div class="px-3 sm:px-6 py-3 sm:py-4 bg-white border-b border-ink-900/10 flex items-center justify-between gap-2 sm:gap-4 shrink-0">
@@ -411,7 +472,6 @@
                     <button onclick="closePreviewModal()" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-cream-200 hover:bg-cream-300 text-ink-900 transition-colors"><i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5"></i></button>
                 </div>
             </div>
-            <!-- Conteneur aperçu web -->
             <div id="preview-content" class="overflow-y-auto bg-cream-100 flex-grow px-2 sm:px-0"></div>
         </div>
     </div>
@@ -449,13 +509,7 @@
                         <div class="flex items-start justify-between gap-2">
                             <div class="flex items-start gap-2 sm:gap-3">
                                 <input type="radio" name="site_plan" value="questions" id="radio-plan-questions" class="mt-0.5 sm:mt-1 w-3.5 h-3.5 sm:w-4 sm:h-4 accent-terracotta-500">
-                                <div>
-                                    <div class="font-display font-bold text-ink-900 text-[11px] sm:text-sm flex items-center gap-1.5 sm:gap-2 flex-wrap">
-                                        <span data-i18n="plan0_title">J'ai des questions</span>
-                                        <span class="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] rounded-full bg-ink-900 text-white uppercase font-bold" data-i18n="plan0_badge">Contact</span>
-                                    </div>
-                                    <p class="text-[10px] sm:text-xs text-ink-600 mt-1 leading-relaxed" data-i18n="plan0_desc">Nous vous répondons rapidement par email.</p>
-                                </div>
+                                <div><div class="font-display font-bold text-ink-900 text-[11px] sm:text-sm"><span data-i18n="plan0_title">J'ai des questions</span></div></div>
                             </div>
                         </div>
                     </label>
@@ -464,14 +518,9 @@
                         <div class="flex items-start justify-between gap-2">
                             <div class="flex items-start gap-2 sm:gap-3">
                                 <input type="radio" name="site_plan" value="html_only" id="radio-plan-html" class="mt-0.5 sm:mt-1 w-3.5 h-3.5 sm:w-4 sm:h-4 accent-terracotta-500">
-                                <div>
-                                    <div class="font-display font-bold text-ink-900 text-[11px] sm:text-sm flex items-center gap-1.5 sm:gap-2 flex-wrap">
-                                        <span data-i18n="plan1_title">1. Site seul (HTML)</span>
-                                        <span class="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] rounded-full bg-cream-200 text-ink-800 uppercase font-bold" data-i18n="plan1_badge">Sans abonnement</span>
-                                    </div>
-                                </div>
+                                <div><div class="font-display font-bold text-ink-900 text-[11px] sm:text-sm"><span data-i18n="offer1_name">Site Seul</span></div></div>
                             </div>
-                            <div class="text-right shrink-0"><span class="font-display font-bold text-xs sm:text-sm text-ink-900 block" id="plan1-price-tag">29.99 €</span></div>
+                            <div class="text-right shrink-0"><span class="font-display font-bold text-xs sm:text-sm text-ink-900 block">29.99 €</span></div>
                         </div>
                     </label>
 
@@ -479,29 +528,29 @@
                         <div class="flex items-start justify-between gap-2">
                             <div class="flex items-start gap-2 sm:gap-3">
                                 <input type="radio" name="site_plan" value="maintenance" id="radio-plan-maint" class="mt-0.5 sm:mt-1 w-3.5 h-3.5 sm:w-4 sm:h-4 accent-terracotta-500">
-                                <div>
-                                    <div class="font-display font-bold text-ink-900 text-[11px] sm:text-sm flex items-center gap-1.5 sm:gap-2 flex-wrap">
-                                        <span data-i18n="plan2_title">2. Abo Site + Maint.</span>
-                                        <span class="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] rounded-full bg-forest-700 text-white uppercase font-bold" data-i18n="card2_commitment">Engagé 1 an</span>
-                                    </div>
-                                </div>
+                                <div><div class="font-display font-bold text-ink-900 text-[11px] sm:text-sm"><span data-i18n="offer2_name">Standard</span></div></div>
                             </div>
-                            <div class="text-right shrink-0"><span class="font-display font-bold text-xs sm:text-sm text-forest-800 block" id="plan2-price-tag">19.99 € / mois</span></div>
+                            <div class="text-right shrink-0"><span class="font-display font-bold text-xs sm:text-sm text-forest-800 block">19.99 € / mois</span></div>
                         </div>
                     </label>
 
                     <label id="plan-card-full" onclick="selectPlan('full_pack')" class="block p-3 rounded-2xl border-2 border-terracotta-500 bg-terracotta-50/60 cursor-pointer transition-all">
                         <div class="flex items-start justify-between gap-2">
                             <div class="flex items-start gap-2 sm:gap-3">
-                                <input type="radio" name="site_plan" value="full_pack" id="radio-plan-full" checked class="mt-0.5 sm:mt-1 w-3.5 h-3.5 sm:w-4 sm:h-4 accent-terracotta-500">
-                                <div>
-                                    <div class="font-display font-bold text-ink-900 text-[11px] sm:text-sm flex items-center gap-1.5 sm:gap-2 flex-wrap">
-                                        <span data-i18n="plan3_title">3. Abo + Domaine</span>
-                                        <span class="px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] rounded-full bg-terracotta-500 text-white uppercase font-bold" data-i18n="plan3_badge">Tout Inclus</span>
-                                    </div>
-                                </div>
+                                <input type="radio" name="site_plan" value="full_pack" id="radio-plan-full" class="mt-0.5 sm:mt-1 w-3.5 h-3.5 sm:w-4 sm:h-4 accent-terracotta-500">
+                                <div><div class="font-display font-bold text-ink-900 text-[11px] sm:text-sm"><span data-i18n="offer3_name">Premium</span></div></div>
                             </div>
-                            <div class="text-right shrink-0"><span class="font-display font-bold text-xs sm:text-sm text-terracotta-600 block" id="plan3-price-tag">20.99 € / mois</span></div>
+                            <div class="text-right shrink-0"><span class="font-display font-bold text-xs sm:text-sm text-terracotta-600 block">20.99 € / mois</span></div>
+                        </div>
+                    </label>
+
+                    <label id="plan-card-enterprise" onclick="selectPlan('enterprise')" class="block p-3 rounded-2xl border-2 border-ink-900 bg-ink-900 text-white cursor-pointer transition-all">
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="flex items-start gap-2 sm:gap-3">
+                                <input type="radio" name="site_plan" value="enterprise" id="radio-plan-enterprise" class="mt-0.5 sm:mt-1 w-3.5 h-3.5 sm:w-4 sm:h-4 accent-terracotta-500">
+                                <div><div class="font-display font-bold text-white text-[11px] sm:text-sm"><span data-i18n="offer4_name">Entreprise</span></div></div>
+                            </div>
+                            <div class="text-right shrink-0"><span class="font-display font-bold text-xs sm:text-sm text-terracotta-500 block">39.99 € / mois</span></div>
                         </div>
                     </label>
                 </div>
@@ -513,7 +562,15 @@
                     </div>
                     <div>
                         <label class="block text-[10px] sm:text-xs font-bold text-ink-800 mb-1" data-i18n="modal_email_label">Email ou Téléphone *</label>
-                        <input type="text" required class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-ink-900/15 text-ink-900 text-xs sm:text-sm focus:outline-none focus:border-ink-900">
+                        <input type="text" id="client-contact" required oninput="checkPhoneForRDV(this.value)" placeholder="ex: +33612345678" class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-ink-900/15 text-ink-900 text-xs sm:text-sm focus:outline-none focus:border-ink-900">
+                    </div>
+                </div>
+
+                <div id="rdv-container" class="hidden p-3.5 rounded-2xl bg-forest-50 border border-forest-600/30 space-y-2">
+                    <div class="flex items-center gap-2 text-forest-800 font-bold text-xs"><i data-lucide="phone-call" class="w-4 h-4 text-forest-600"></i><span data-i18n="rdv_title">Numéro éligible ! Planifions un rendez-vous :</span></div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button type="button" onclick="triggerRDV('phone')" class="py-2 px-3 bg-white hover:bg-forest-100 text-forest-900 text-xs font-bold rounded-xl border border-forest-600/20 flex items-center justify-center gap-1.5 transition-all"><i data-lucide="phone" class="w-3.5 h-3.5"></i> <span data-i18n="rdv_phone">Appel</span></button>
+                        <button type="button" onclick="triggerRDV('whatsapp')" class="py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition-all"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i> <span data-i18n="rdv_wa">WhatsApp</span></button>
                     </div>
                 </div>
 
@@ -525,7 +582,7 @@
                 <div class="p-3 sm:p-4 rounded-2xl bg-ink-900 text-white flex items-center justify-between gap-2">
                     <div>
                         <span class="text-[9px] sm:text-xs text-cream-300 block" data-i18n="modal_total_label">Sélection :</span>
-                        <span id="modal-selected-plan-name" class="text-[10px] sm:text-xs font-bold text-terracotta-500 line-clamp-1">Offre 3 : Abonnement + Domaine</span>
+                        <span id="modal-selected-plan-name" class="text-[10px] sm:text-xs font-bold text-terracotta-500 line-clamp-1">Premium</span>
                     </div>
                     <span id="modal-total-summary" class="font-display font-bold text-sm sm:text-lg text-white shrink-0">20.99 € / mois</span>
                 </div>
@@ -542,6 +599,17 @@
         </div>
     </div>
 
+    <!-- ================= MODALE "EN SAVOIR PLUS" ================= -->
+    <div id="details-modal" class="fixed inset-0 z-50 hidden bg-ink-900/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-white border-2 border-ink-900 rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+            <div class="px-6 py-4 bg-cream-100 border-b border-ink-900/10 flex items-center justify-between shrink-0">
+                <h3 class="font-display text-lg font-bold text-ink-900" id="details-modal-title">Détails de l'offre</h3>
+                <button onclick="closeDetailsModal()" class="p-2 rounded-xl bg-cream-200 hover:bg-cream-300 text-ink-900 transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm text-ink-800" id="details-modal-content"></div>
+        </div>
+    </div>
+
     <!-- ================= MODALE TEXTES LÉGAUX ================= -->
     <div id="legal-modal" class="fixed inset-0 z-50 hidden bg-ink-900/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
         <div class="bg-white border-2 border-ink-900 rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
@@ -553,11 +621,10 @@
         </div>
     </div>
 
-    <!-- TEXTES LÉGAUX FR/EN CACHÉS -->
-    <template id="template-mentions-fr"><h2 class="text-lg sm:text-xl font-bold text-ink-900 mb-3">Mentions Légales</h2><h3 class="font-bold text-ink-900 mt-5 mb-1.5">1. Éditeur du site</h3><p>Star Design est édité par <strong>[Prénom Nom]</strong>, micro-entrepreneur.<br>SIRET : <em>[En attente]</em><br>Siège social : <em>[Adresse]</em></p><h3 class="font-bold text-ink-900 mt-5 mb-1.5">2. Hébergement</h3><p>Hébergé par <strong>IONOS SARL</strong>. 7 place de la Gare, 57200 Sarreguemines. Données UE (RGPD).</p></template>
-    <template id="template-cgv-fr"><h2 class="text-lg sm:text-xl font-bold text-ink-900 mb-3">Conditions Générales de Vente (CGV)</h2><p>TVA non applicable, art. 293 B du CGI. L'offre "Abonnement" entraîne un <strong>engagement ferme de 12 mois</strong>.</p></template>
-    <template id="template-mentions-en"><h2 class="text-lg sm:text-xl font-bold">Legal Notice</h2><p>Published by micro-entrepreneur. Hosted by IONOS SARL.</p></template>
-    <template id="template-cgv-en"><h2 class="text-lg sm:text-xl font-bold">Terms of Sale</h2><p>VAT not applicable. 12-month firm commitment for subscriptions.</p></template>
+    <template id="template-mentions-fr"><h2 class="text-lg sm:text-xl font-bold text-ink-900 mb-3">Mentions Légales</h2><p>Star Design - Micro-entreprise. Hébergé par IONOS SARL (France/Allemagne, conforme RGPD).</p></template>
+    <template id="template-cgv-fr"><h2 class="text-lg sm:text-xl font-bold text-ink-900 mb-3">Conditions Générales de Vente</h2><p>TVA non applicable, art. 293 B du CGI. Engagement de 12 mois pour les abonnements.</p></template>
+    <template id="template-mentions-en"><h2 class="text-lg font-bold">Legal Notice</h2><p>Star Design - Hosted by IONOS SARL (EU/GDPR compliant).</p></template>
+    <template id="template-cgv-en"><h2 class="text-lg font-bold">Terms of Sale</h2><p>VAT not applicable. 12-month commitment for subscriptions.</p></template>
 
     <!-- ================= LOGIQUE JAVASCRIPT ================= -->
     <script>
@@ -566,35 +633,194 @@
         let currentCategory = 'tous';
         let currentSearchQuery = '';
 
+        // Script du VRAI Chatbot Intelligent (Option A) avec sélecteur de créneaux 30min
+        let chatState = 0; 
+        let chatUser = { name: '', contact: '', date: '', time: '' };
+
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.classList.toggle('hidden');
+            if(!win.classList.contains('hidden') && chatState === 0) {
+                initChatBot();
+            }
+        }
+
+        function initChatBot() {
+            const msgBox = document.getElementById('chat-messages');
+            msgBox.innerHTML = `
+                <div class="bg-white p-3.5 rounded-2xl border border-ink-900/10 shadow-sm max-w-[90%]">
+                    👋 Bonjour ! Bienvenue chez Star Design. Posez-moi vos questions sur nos formules, nos technologies, ou demandez un rendez-vous !
+                </div>
+            `;
+            chatState = 1;
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const val = input.value.trim();
+            if(!val) return;
+
+            const msgBox = document.getElementById('chat-messages');
+            msgBox.innerHTML += `<div class="bg-ink-900 text-white p-3 rounded-2xl ml-auto max-w-[85%]">${val}</div>`;
+            input.value = '';
+            msgBox.scrollTop = msgBox.scrollHeight;
+
+            setTimeout(() => {
+                processSmartChat(val);
+            }, 600);
+        }
+
+        function handleChatKey(e) { if(e.key === 'Enter') sendChatMessage(); }
+
+        function processSmartChat(userText) {
+            const msgBox = document.getElementById('chat-messages');
+            const lower = userText.toLowerCase();
+
+            let botReply = "";
+
+            if(chatState === 2) {
+                // Étape 2 : Réception du nom et contact
+                chatUser.contact = userText;
+                
+                // Génération des créneaux de 30 min (10h00 à 19h30)
+                let timeSlots = ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00'];
+                let slotsHTML = timeSlots.map(slot => `<button type="button" onclick="selectBotSlot('${slot}')" class="px-2.5 py-1 bg-cream-100 hover:bg-terracotta-500 hover:text-white border border-ink-900/10 rounded-lg text-[11px] font-bold transition-all">${slot}</button>`).join('');
+
+                const isFrench = chatUser.contact.includes('+3');
+                let channelOptions = `
+                    <div class="flex gap-2 pt-2">
+                        <button type="button" onclick="finishBotChat('WhatsApp')" class="px-3 py-1.5 bg-emerald-600 text-white text-xs font-bold rounded-lg">💬 WhatsApp</button>
+                        <button type="button" onclick="finishBotChat('Teams')" class="px-3 py-1.5 bg-indigo-600 text-white text-xs font-bold rounded-lg">💻 Teams</button>
+                    </div>
+                `;
+                if(isFrench) {
+                    channelOptions = `
+                        <div class="flex gap-2 pt-2 flex-wrap">
+                            <button type="button" onclick="finishBotChat('Appel')" class="px-3 py-1.5 bg-forest-700 text-white text-xs font-bold rounded-lg">📞 Appel</button>
+                            <button type="button" onclick="finishBotChat('WhatsApp')" class="px-3 py-1.5 bg-emerald-600 text-white text-xs font-bold rounded-lg">💬 WhatsApp</button>
+                            <button type="button" onclick="finishBotChat('Teams')" class="px-3 py-1.5 bg-indigo-600 text-white text-xs font-bold rounded-lg">💻 Teams</button>
+                        </div>
+                    `;
+                }
+
+                botReply = `
+                    Parfait ! Choisissez une date (du Lundi au Samedi) :<br>
+                    <input type="date" id="bot-date-input" class="mt-1 p-2 bg-cream-100 border rounded-lg text-xs w-full mb-2"><br>
+                    Puis un créneau de 30 min :<br>
+                    <div class="grid grid-cols-4 gap-1.5 my-2 max-h-32 overflow-y-auto pr-1">${slotsHTML}</div>
+                    <div id="selected-slot-display" class="text-[11px] font-bold text-terracotta-600 mb-1">Aucun créneau sélectionné</div>
+                    ${channelOptions}
+                `;
+                chatState = 3;
+            } else {
+                if(lower.includes('tarif') || lower.includes('prix') || lower.includes('combien') || lower.includes('coûte')) {
+                    botReply = "Nos tarifs s'adaptent à vos besoins[cite: 6] :<br>• <b>Site Seul</b> : 29.99€ (achat unique)<br>• <b>Standard</b> : 19.99€/mois (avec résa/RDV)<br>• <b>Premium</b> : 20.99€/mois (avec BDD)<br>• <b>Entreprise</b> : 39.99€/mois (e-commerce & paiements).<br><br>Voulez-vous planifier un rendez-vous ?";
+                } 
+                else if(lower.includes('technologie') || lower.includes('tech') || lower.includes('code') || lower.includes('langage')) {
+                    botReply = "On code en HTML5/CSS3, Tailwind CSS et JavaScript moderne pour des sites ultra-rapides[cite: 6]. Hébergement sécurisé en Europe (IONOS / UE)[cite: 6].";
+                }
+                else if(lower.includes('reduction') || lower.includes('réduction') || lower.includes('promo')) {
+                    botReply = "Nos prix sont déjà très serrés[cite: 6], mais pour un engagement annuel on peut voir ça. Souhaitez-vous un rendez-vous ?";
+                }
+                else if(lower.includes('delai') || lower.includes('temps') || lower.includes('jours')) {
+                    botReply = "⏱️ Tous nos sites standard sont livrés en <b>5 jours maximum</b>[cite: 6] !";
+                }
+                else if(lower.includes('humain') || lower.includes('rdv') || lower.includes('rendez-vous') || lower.includes('parler') || lower.includes('contact') || lower.includes('oui') || lower.includes('appel')) {
+                    botReply = `
+                        C'est parti ! Indiquez-moi votre <b>nom</b> et votre <b>numéro de téléphone ou email</b> :
+                        <div class="mt-2"><input type="text" id="bot-user-info" placeholder="Ex: Jean Dupont, +33612345678" class="w-full p-2 bg-cream-100 border rounded-lg text-xs"></div>
+                        <button type="button" onclick="saveBotUser()" class="mt-2 w-full py-2 bg-terracotta-500 text-white text-xs font-bold rounded-lg">Valider mes coordonnées</button>
+                    `;
+                    chatState = 2;
+                } else {
+                    botReply = "J'ai bien noté votre message ! Souhaitez-vous planifier un rendez-vous gratuit (téléphone, WhatsApp ou visio) avec notre équipe ?";
+                }
+            }
+
+            msgBox.innerHTML += `<div class="bg-white p-3.5 rounded-2xl border border-ink-900/10 shadow-sm max-w-[90%]">${botReply}</div>`;
+            msgBox.scrollTop = msgBox.scrollHeight;
+        }
+
+        function saveBotUser() {
+            const info = document.getElementById('bot-user-info').value.trim();
+            if(!info) return;
+            chatUser.contact = info;
+            processSmartChat("oui"); // Passe à l'étape des créneaux
+        }
+
+        function selectBotSlot(slot) {
+            chatUser.time = slot;
+            const dateVal = document.getElementById('bot-date-input') ? document.getElementById('bot-date-input').value : 'Date du jour';
+            chatUser.date = dateVal;
+            document.getElementById('selected-slot-display').textContent = `Créneau choisi : ${dateVal} à ${slot} (30 min)`;
+        }
+
+        function finishBotChat(channel) {
+            const msgBox = document.getElementById('chat-messages');
+            msgBox.innerHTML += `
+                <div class="bg-white p-3.5 rounded-2xl border border-ink-900/10 shadow-sm max-w-[90%]">
+                    ✅ <b>Rendez-vous planifié !</b> Votre créneau de 30 min (${chatUser.date || 'Prochainement'} à ${chatUser.time || '14:00'}) a bien été enregistré via <b>${channel}</b>. À très vite !
+                </div>
+            `;
+            msgBox.scrollTop = msgBox.scrollHeight;
+
+            if(channel === 'WhatsApp') {
+                setTimeout(() => { window.open(`https://wa.me/?text=Bonjour,%20je%20confirme%20mon%20rendez-vous%20de%2030%20min%20avec%20Star%20Design.`, '_blank'); }, 1200);
+            }
+        }
+
         const translations = {
             fr: {
-                nav_pricing: "Nos Tarifs", nav_custom: "100% Sur-Mesure", nav_real: "Nos Réalisations", nav_catalog: "Catalogue", nav_process: "Fonctionnement", nav_contact: "Nous contacter", nav_contact_short: "Contact",
-                hero_title_1: "Votre site web professionnel,", hero_title_2: "prêt à briller en 5 jours.", service_badge_1: "Certificat SSL & Protection DDoS", service_badge_2: "Base de données sécurisée", service_badge_3: "Modifications en moins de 24h", service_badge_4: "Hébergement UE (RGPD)",
-                card1_header: "Site Seul", card1_badge: "Achat Unique", card1_sub: "Code HTML livré • Sans abonnement", card1_once: "Une fois", tooltip_tva: "TVA non applicable", card1_desc: "On crée votre site et on vous livre les fichiers HTML. Vous gérez vous-même votre hébergement.", card1_feat1: "Fichiers HTML livrés en 5j", card1_feat2: "Modèle ou 100% Sur-Mesure", card1_feat3: "100% Responsive Mobile & PC", card1_feat4: "Vous gérez l'hébergement & la suite", card1_cta1: "Choisir Site Seul",
-                card2_header: "Site + Maint.", card2_commitment: "Engagé 1 an", card2_sub: "Création du site + Hébergement inclus", per_month: "/ mois", card2_desc: "On crée votre site, on l'héberge et on s'occupe de toute la maintenance technique.", card2_feat1: "Création + Hébergement inclus", card2_feat2: "Maintenance & Modifs en -24h", card2_feat3: "Certificat SSL & Protection DDoS", card2_feat4: "Base de données sécurisée incluse", card2_cta: "Choisir Abonnement",
-                card3_header: "Abo + Domaine", card3_badge: "Clé en Main", card3_sub: "Abonnement 19.99€ + Domaine 1€/mois", card3_desc: "Toute l'offre abonnement avec votre nom de domaine personnalisé inclus.", card3_feat1: "Nom de domaine (.fr, .com...) inclus", card3_feat2: "Création + Hébergement haute dispo", card3_feat3: "Maintenance & Modifs en -24h", card3_feat4: "SSL, Anti-DDoS & BDD sécurisée (1 an)", card3_cta: "Choisir Abo + Domaine",
-                real_eyebrow: "En Ligne", real_title: "Nos réalisations", real_desc: "Site vitrine & Portfolio professionnel", floating_top: "En direct", floating_real: "Voir nos sites",
-                custom_tag: "Vous voulez un design unique ?", custom_title: "Nous créons votre site 100% sur-mesure !", custom_desc: "Les modèles de notre catalogue servent d'inspiration, mais nous concevons aussi votre site internet entièrement sur-mesure de A à Z. C'est le même prix, et toujours livré en 5 jours.", custom_btn: "Demander mon site personnalisé",
-                cat_eyebrow: "Le Catalogue", cat_title: "Trouvez le style qui vous correspond", cat_count_label: "modèles affichés", search_placeholder: "Métier, style (ex: minimaliste...)", filter_all: "Tous", filter_custom: "Sur-Mesure", filter_minimal: "Minimaliste", filter_resto: "Restaurant", filter_artisan: "Artisan & BTP", filter_shop: "Boutique", filter_luxury: "Luxe & Sombre", filter_corp: "Corporate",
+                nav_pricing: "Nos Formules", nav_custom: "100% Sur-Mesure", nav_real: "Nos Réalisations", nav_catalog: "Catalogue", nav_process: "Fonctionnement", nav_contact: "Nous contacter", nav_rdv: "Prendre RDV", nav_contact_short: "Contact",
+                hero_title_1: "Sites sur-mesure,", hero_title_2: "prêts en 5 jours.",
+                hero_subtitle: "Réservation, prise de rendez-vous en ligne,ou e-commerce: nous codons exactement ce dont votre activité a besoin.",
+                service_badge_1: "SSL & Protection DDoS", service_badge_2: "Base de données sécurisée", service_badge_3: "Modifs en moins de 24h", service_badge_4: "Hébergement UE (RGPD)",
+                pricing_eyebrow: "Tarifs clairs & sans surprise", pricing_title: "Nos 4 formules adaptées à votre projet",
+                offer1_name: "Site Seul", offer1_badge: "Unique", offer1_once: "/ achat unique", offer1_desc: "Fichiers HTML livrés. Vous gérez vous-même l'hébergement.", offer1_f1: "Code HTML complet livré en 5j", offer1_f2: "100% Responsive Mobile & PC", offer1_cta1: "Choisir Site Seul",
+                offer2_name: "Standard", offer2_badge: "Essentiel", offer2_desc: "Création + Hébergement + Prise de RDV / Réservations (sans paiement en ligne).",
+                offer3_name: "Premium", offer3_badge: "Complet", offer3_desc: "Tout l'abonnement Standard avec votre base de données sécurisée et domaine.", badge_pop: "Populaire",
+                offer4_name: "Entreprise", offer4_badge: "Tout Inclus", badge_ecom: "E-Commerce", offer4_desc: "Solution complète incluant la gestion des paiements en ligne et nom de domaine.",
+                offer_f_crea: "Création du site + Hébergement inclus", offer_f_rdv: "Prise de RDV & Réservations possibles", offer_f_maint: "Maintenance & Modifs en moins de 24h", offer_f_ssl: "Certificat SSL & Protection DDoS", offer_f_db: "Base de données sécurisée incluse",
+                offer_e_pay: "Paiements en ligne sécurisés (Stripe/CB)", offer_e_dom: "Nom de domaine offert (.fr, .com...)",
+                per_month: "/ mois", btn_choose: "Choisir cette offre", btn_details: "En savoir plus", disclaimer_5j: "* Note : Le délai garanti de 5 jours s'applique aux standards du web. Si votre projet requiert une technologie non maîtrisée par nos équipes, un délai supplémentaire sera validé ensemble.",
+                real_eyebrow: "En Ligne", real_title: "Nos réalisations", real_sub: "Découvrez nos derniers projets livrés, optimisés pour PC, tablettes et mobiles.", real_desc: "Site vitrine & Portfolio professionnel",
+                custom_tag: "Besoin d'une fonction spécifique ?", custom_title: "Nous codons du sur-mesure pour vous !", custom_desc: "Un agenda de réservation particulier, une interface spécifique ou une connexion à un logiciel externe ? Nous apprenons de nouvelles compétences pour répondre précisément à vos besoins.", custom_btn: "Discuter de mon projet",
+                cat_eyebrow: "Le Catalogue", cat_title: "Trouvez le style qui vous correspond", cat_count_label: "modèles affichés", search_placeholder: "Métier, style (ex: minimaliste, restaurant...)", filter_all: "Tous", filter_custom: "Sur-Mesure", filter_minimal: "Minimaliste", filter_resto: "Restaurant", filter_artisan: "Artisan & BTP", filter_shop: "Boutique", filter_luxury: "Luxe & Sombre", filter_corp: "Corporate",
                 empty_title: "Vous avez une idée précise ?", empty_desc: "Nous réalisons votre site 100% personnalisé sur demande !", empty_reset: "Afficher tout",
-                proc_eyebrow: "Simple, Humain & Rapide", proc_title: "Comment fonctionne Star Design ?", proc_sub: "Que vous choisissiez un modèle du catalogue ou une création 100% personnalisée, tout se fait en 3 étapes simples.", step1_title: "Vous nous contactez par le site", step1_desc: "Sélectionnez le modèle qui vous plaît dans le catalogue ou cliquez sur \"Site Sur-Mesure\".", step1_tag: "Formulaire direct sur le site", step2_title: "On discute de ce que vous voulez", step2_desc: "Nous échangeons avec vous sur vos besoins exacts.", step2_tag: "Accompagnement personnalisé", step3_title: "Livraison dans un délai de 5 jours", step3_desc: "Votre site est développé, sécurisé et mis en ligne prêt à accueillir vos clients.", step3_tag: "Délai garanti : 5 jours max",
-                footer_slogan: "— Création de sites web & Sur-mesure", footer_link1: "Création", footer_link2: "Maintenance", footer_link3: "Domaine", footer_copyright: "© 2026 Star Design. Tous droits réservés.", footer_legal: "Mentions Légales", footer_cgv: "CGV",
-                preview_choose_btn: "Choisir", modal_title: "Configurez votre site", modal_subtitle: "Choisissez votre formule • Livraison en 5 jours", modal_selected_label: "Type de projet", modal_creation_label: "Délai garanti", modal_choose_plan_label: "Choisissez votre offre * :",
-                plan0_title: "J'ai des questions", plan0_badge: "Contact", plan0_desc: "Nous vous répondons rapidement par email.", plan1_title: "1. Site seul (HTML)", plan1_badge: "Sans abonnement", plan2_title: "2. Abo Site + Maint.", plan3_title: "3. Abo + Domaine", plan3_badge: "Tout Inclus",
+                proc_eyebrow: "Simple, Humain & Rapide", proc_title: "Comment fonctionne Star Design ?", proc_sub: "Que vous choisissiez un modèle du catalogue ou une création 100% personnalisée, tout se fait en 3 étapes simples.", step1_title: "Vous nous contactez par le site", step1_desc: "Sélectionnez le modèle qui vous plaît dans le catalogue ou cliquez sur \"Site 100% Personnalisé\" pour nous envoyer votre demande en quelques secondes.", step1_tag: "Formulaire direct sur le site", step2_title: "On discute de ce que vous voulez", step2_desc: "Nous échangeons avec vous sur vos besoins exacts, le design souhaité, vos couleurs, vos textes et vos options.", step2_tag: "Accompagnement personnalisé", step3_title: "Livraison dans un délai de 5 jours", step3_desc: "Votre site est développé, sécurisé (SSL, anti-DDoS, BDD sécurisée) et mis en ligne prêt à accueillir vos clients en 5 jours maximum.", step3_tag: "Délai garanti : 5 jours max",
+                footer_slogan: "— Création de sites web & Sur-mesure", footer_link1: "Création", footer_link2: "Abonnement", footer_link3: "Domaine", footer_copyright: "© 2026 Star Design. Tous droits réservés.", footer_legal: "Mentions Légales", footer_cgv: "CGV",
+                preview_choose_btn: "Choisir ce modèle", modal_title: "Configurez votre site", modal_subtitle: "Choisissez votre formule • Livraison en 5 jours", modal_selected_label: "Type de projet", modal_creation_label: "Délai garanti", modal_choose_plan_label: "Choisissez votre offre * :",
+                plan0_title: "J'ai des questions", plan0_badge: "Contact", plan0_desc: "Nous vous répondons rapidement par email.", plan1_title: "1. Site seul (HTML)", plan1_badge: "Sans abonnement", plan2_title: "2. Standard", plan3_title: "3. Premium", plan3_badge: "Complet",
                 modal_name_label: "Votre nom / Entreprise *", modal_email_label: "Email ou Téléphone *", modal_msg_label: "Décrivez votre besoin", modal_total_label: "Sélection :", modal_submit_btn: "Envoyer ma demande",
-                success_title: "Demande envoyée !", success_desc: "Merci ! L'équipe Star Design vous recontacte très vite.", success_close: "Fermer", card_delivery_badge: "Livré en 5j", card_price_label: "Site seul", card_maint_label: "Abonnement", card_domain_note: "+1€/m domaine", card_preview_btn: "Aperçu", card_choose_btn: "Choisir", custom_project_name: "Site 100% Personnalisé"
+                success_title: "Demande envoyée !", success_desc: "Merci ! L'équipe Star Design vous recontacte très vite.", success_close: "Fermer", card_delivery_badge: "Livré en 5j", card_price_label: "Site seul", card_maint_label: "Abonnement", card_domain_note: "+1€/m domaine", card_preview_btn: "Aperçu", card_choose_btn: "Choisir", custom_project_name: "Site 100% Sur-Mesure",
+                rdv_title: "Numéro éligible ! Planifions un rendez-vous :", rdv_phone: "Appel téléphonique", rdv_wa: "WhatsApp",
+                chat_btn_text: "Discuter avec l'agence"
             },
             en: {
-                nav_pricing: "Pricing", nav_custom: "100% Custom", nav_real: "Live Projects", nav_catalog: "Catalog", nav_process: "How it works", nav_contact: "Contact us", nav_contact_short: "Contact", hero_title_1: "Your professional website,", hero_title_2: "ready in 5 days.", service_badge_1: "SSL & DDoS Protection", service_badge_2: "Secure Database", service_badge_3: "Edits in < 24h", service_badge_4: "EU Hosting (GDPR)",
-                card1_header: "Site Only", card1_badge: "One-Time", card1_sub: "HTML delivered • No sub", card1_once: "One-time fee", tooltip_tva: "VAT not applicable", card1_desc: "We build your site and give you the files. You handle hosting.", card1_feat1: "HTML files in 5d", card1_feat2: "Template or Custom", card1_feat3: "100% Responsive Mobile & PC", card1_feat4: "You manage hosting", card1_cta1: "Choose Site Only",
-                card2_header: "Site + Maint.", card2_commitment: "1-yr commit", card2_sub: "Creation + Hosting", per_month: "/ mo", card2_desc: "We build, host and maintain your site.", card2_feat1: "Creation + Hosting included", card2_feat2: "Edits in < 24h", card2_feat3: "SSL & DDoS Protection", card2_feat4: "Secure DB included", card2_cta: "Choose Sub",
-                card3_header: "Sub + Domain", card3_badge: "All-In", card3_sub: "Sub $19.99 + Domain $1/mo", card3_desc: "Full sub + custom domain.", card3_feat1: "Domain included", card3_feat2: "Creation + High-speed hosting", card3_feat3: "Edits in < 24h", card3_feat4: "SSL & DDoS (1yr)", card3_cta: "Choose Sub + Domain",
-                real_eyebrow: "Live Now", real_title: "They trusted us", real_desc: "Corporate site & Professional portfolio", floating_top: "Live", floating_real: "View our sites", custom_tag: "Want a unique design?", custom_title: "We build 100% custom sites!", custom_desc: "Templates are inspiration, we build your site entirely from scratch for the same price.", custom_btn: "Request Custom Site",
+                nav_pricing: "Pricing", nav_custom: "100% Custom", nav_real: "Live Projects", nav_catalog: "Catalog", nav_process: "How it works", nav_contact: "Contact us", nav_rdv: "Book Call", nav_contact_short: "Contact",
+                hero_title_1: "Custom showcase & functional websites,", hero_title_2: "ready in 5 days.",
+                hero_subtitle: "Table reservations, online booking, agendas or e-commerce: we code exactly what your business needs.",
+                service_badge_1: "SSL & DDoS Protection", service_badge_2: "Secure Database", service_badge_3: "Edits in < 24h", service_badge_4: "EU Hosting (GDPR)",
+                pricing_eyebrow: "Clear & transparent pricing", pricing_title: "Our 4 plans tailored to your project",
+                offer1_name: "Site Only", offer1_badge: "One-Time", offer1_once: "/ one-time", offer1_desc: "HTML files delivered. You manage your own hosting.", offer1_f1: "Complete HTML files delivered in 5d", offer1_f2: "100% Responsive Mobile & PC", offer1_cta1: "Choose Site Only",
+                offer2_name: "Standard", offer2_badge: "Essential", offer2_desc: "Creation + Hosting + Booking / Appointments (no online payments).",
+                offer3_name: "Premium", offer3_badge: "Complete", offer3_desc: "All Standard features with secure database and domain name.", badge_pop: "Popular",
+                offer4_name: "Enterprise", offer4_badge: "All-In", badge_ecom: "E-Commerce", offer4_desc: "Complete solution including online payment management and domain name.",
+                offer_f_crea: "Site creation + Hosting included", offer_f_rdv: "Booking & Appointments enabled", offer_f_maint: "Maintenance & Edits in under 24h", offer_f_ssl: "SSL Certificate & DDoS Protection", offer_f_db: "Secure database included",
+                offer_e_pay: "Secure online payments (Stripe/CC)", offer_e_dom: "Domain name included (.fr, .com...)",
+                per_month: "/ mo", btn_choose: "Choose this plan", btn_details: "Learn more", disclaimer_5j: "* Note: The 5-day guaranteed delivery applies to web standards. If your project requires a completely novel technology we must learn, an adjusted timeframe will be agreed upon together.",
+                real_eyebrow: "Live Now", real_title: "Live projects", real_sub: "Discover our latest delivered projects, optimized for PC, tablets and mobiles.", real_desc: "Corporate site & Professional portfolio",
+                custom_tag: "Need a specific feature?", custom_title: "We code custom solutions for you!", custom_desc: "A special booking calendar, a specific interface or an external API connection? We learn new skills to precisely match your needs.", custom_btn: "Discuss my project",
                 cat_eyebrow: "The Catalog", cat_title: "Find your style", cat_count_label: "templates", search_placeholder: "Search...", filter_all: "All", filter_custom: "Custom", filter_minimal: "Minimalist", filter_resto: "Restaurant", filter_artisan: "Trades", filter_shop: "Shop", filter_luxury: "Luxury", filter_corp: "Corporate",
-                empty_title: "Specific idea?", empty_desc: "We build 100% custom on demand!", empty_reset: "Show all", proc_eyebrow: "Simple & Fast", proc_title: "How it works?", proc_sub: "3 simple steps.", step1_title: "You contact us", step1_desc: "Pick a template or request custom.", step1_tag: "Direct online form", step2_title: "We discuss what you want", step2_desc: "We discuss your exact needs.", step2_tag: "1-on-1 personal guidance", step3_title: "Delivery within 5 days", step3_desc: "Your site is built, secured and goes live.", step3_tag: "Guaranteed 5-day delivery",
+                empty_title: "Specific idea?", empty_desc: "We build 100% custom on demand!", empty_reset: "Show all",
+                proc_eyebrow: "Simple & Fast", proc_title: "How it works?", proc_sub: "3 simple steps.", step1_title: "You contact us", step1_desc: "Pick a template or request custom.", step1_tag: "Direct online form", step2_title: "We discuss what you want", step2_desc: "We discuss your exact needs.", step2_tag: "1-on-1 personal guidance", step3_title: "Delivery within 5 days", step3_desc: "Your site is built, secured and goes live.", step3_tag: "Guaranteed 5-day delivery",
                 footer_slogan: "— Custom & Template Websites", footer_link1: "Creation", footer_link2: "Maintenance", footer_link3: "Domain", footer_copyright: "© 2026 Star Design. All rights reserved.", footer_legal: "Legal Notice", footer_cgv: "Terms of Sale",
-                preview_choose_btn: "Select", modal_title: "Configure your site", modal_subtitle: "Choose from 3 plans • Delivery in 5d", modal_selected_label: "Project type", modal_creation_label: "Delivery", modal_choose_plan_label: "Choose plan *:", plan0_title: "I have questions", plan0_badge: "Contact", plan0_desc: "We reply quickly via email.", plan1_title: "1. Site only (HTML)", plan1_badge: "No sub", plan2_title: "2. Site + Maint.", plan3_title: "3. Sub + Domain", plan3_badge: "All-In", modal_name_label: "Name / Company *", modal_email_label: "Email / Phone *", modal_msg_label: "Describe your needs", modal_total_label: "Selected:", modal_submit_btn: "Send request",
-                success_title: "Sent!", success_desc: "We will contact you soon.", success_close: "Close", card_delivery_badge: "5d delivery", card_price_label: "Site only", card_maint_label: "Subscription", card_domain_note: "+$1/m domain", card_preview_btn: "Preview", card_choose_btn: "Select", custom_project_name: "100% Custom Site"
+                preview_choose_btn: "Select", modal_title: "Configure your site", modal_subtitle: "Choose from 3 plans • Delivery in 5d", modal_selected_label: "Project type", modal_creation_label: "Delivery", modal_choose_plan_label: "Choose plan *:",
+                plan0_title: "I have questions", plan0_badge: "Contact", plan0_desc: "We reply quickly via email.", plan1_title: "1. Site only (HTML)", plan1_badge: "No sub", plan2_title: "2. Standard", plan3_title: "3. Premium", plan3_badge: "Complete",
+                modal_name_label: "Name / Company *", modal_email_label: "Email / Phone *", modal_msg_label: "Describe your needs", modal_total_label: "Selected:", modal_submit_btn: "Send request",
+                success_title: "Sent!", success_desc: "We will contact you soon.", success_close: "Close", card_delivery_badge: "5d delivery", card_price_label: "Site only", card_maint_label: "Subscription", card_domain_note: "+$1/m domain", card_preview_btn: "Preview", card_choose_btn: "Select", custom_project_name: "100% Custom Site",
+                rdv_title: "Eligible number! Let's schedule a call:", rdv_phone: "Phone call", rdv_wa: "WhatsApp",
+                chat_btn_text: "Chat with agency"
             }
         };
 
@@ -644,6 +870,7 @@
                 const key = el.getAttribute('data-i18n');
                 if (t[key]) el.textContent = t[key];
             });
+
             document.getElementById('search-input').placeholder = t.search_placeholder;
             updateModalTotal();
             renderTemplates();
@@ -789,7 +1016,31 @@
         function quickSearchTag(tag) { document.getElementById('search-input').value = tag; currentSearchQuery = tag; document.getElementById('clear-search-btn').classList.remove('hidden'); renderTemplates(); }
         function clearSearch() { document.getElementById('search-input').value = ''; currentSearchQuery = ''; document.getElementById('clear-search-btn').classList.add('hidden'); setCategory('tous'); }
 
-        /* MOTEUR DE PREVIEW UNIQUE SANS PRIX */
+        function openDetailsModal(planType) {
+            const t = translations[currentLang];
+            const titleEl = document.getElementById('details-modal-title');
+            const contentEl = document.getElementById('details-modal-content');
+            
+            let html = '';
+            if(planType === 'site_seul') {
+                titleEl.textContent = currentLang === 'fr' ? "Détails : Site Seul (29.99€)" : "Details: Site Only ($29.99)";
+                html = `<p>${t.offer1_desc}</p><ul class="list-disc pl-4 space-y-2 mt-3"><li>${t.offer1_f1}</li><li>${t.offer1_f2}</li><li>Fichiers sources fournis</li></ul>`;
+            } else if(planType === 'standard') {
+                titleEl.textContent = currentLang === 'fr' ? "Détails : Formule Standard (19.99€/m)" : "Details: Standard Plan ($19.99/mo)";
+                html = `<p>${t.offer2_desc}</p><ul class="list-disc pl-4 space-y-2 mt-3"><li>${t.offer_f_crea}</li><li>${t.offer_f_rdv}</li><li>${t.offer_f_maint}</li><li>${t.offer_f_ssl}</li></ul>`;
+            } else if(planType === 'premium') {
+                titleEl.textContent = currentLang === 'fr' ? "Détails : Formule Premium (20.99€/m)" : "Details: Premium Plan ($20.99/mo)";
+                html = `<p>${t.offer3_desc}</p><ul class="list-disc pl-4 space-y-2 mt-3"><li>${t.offer_f_crea}</li><li>${t.offer_f_rdv}</li><li>${t.offer_f_maint}</li><li>${t.offer_f_db}</li><li>${t.offer_f_ssl}</li></ul>`;
+            } else if(planType === 'entreprise') {
+                titleEl.textContent = currentLang === 'fr' ? "Détails : Formule Entreprise (39.99€/m)" : "Details: Enterprise Plan ($39.99/mo)";
+                html = `<p>${t.offer4_desc}</p><ul class="list-disc pl-4 space-y-2 mt-3"><li>${t.offer_e_pay}</li><li>${t.offer_e_dom}</li><li>${t.offer_f_crea}</li><li>${t.offer_f_maint}</li></ul>`;
+            }
+            contentEl.innerHTML = html;
+            document.getElementById('details-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDetailsModal() { document.getElementById('details-modal').classList.add('hidden'); document.body.style.overflow = 'auto'; }
+
         function openPreviewModal(siteId) {
             const site = websitesData.find(s => s.id === siteId);
             if (!site) return;
@@ -799,150 +1050,27 @@
             document.getElementById('preview-order-btn').onclick = () => { closePreviewModal(); openOrderModal(site.id); };
 
             let layoutContent = '';
-
             if (site.layout === 'ecommerce_sephora') {
-                layoutContent = `
-                    <div class="bg-white">
-                        <div class="bg-black text-white py-3 px-4 flex justify-center gap-4 sm:gap-6 font-bold text-[9px] sm:text-xs uppercase tracking-widest overflow-hidden">
-                            <span>Nouveautés</span><span>Soins</span><span>Maquillage</span><span>Parfums</span>
-                        </div>
-                        <div class="p-6 sm:p-12">
-                            <h3 class="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-black uppercase tracking-wider">Collection Exclusive</h3>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center">
-                                <div><div class="aspect-[4/5] bg-gray-100 mb-2 sm:mb-3 rounded-lg shadow-sm border border-gray-200"></div><h4 class="font-bold text-black uppercase text-[10px]">Sérum Botanique</h4><p class="font-bold text-sm mt-1 text-black">45,00 €</p></div>
-                                <div><div class="aspect-[4/5] bg-gray-100 mb-2 sm:mb-3 rounded-lg shadow-sm border border-gray-200"></div><h4 class="font-bold text-black uppercase text-[10px]">Crème Velours</h4><p class="font-bold text-sm mt-1 text-black">62,00 €</p></div>
-                                <div class="hidden sm:block"><div class="aspect-[4/5] bg-gray-100 mb-2 sm:mb-3 rounded-lg shadow-sm border border-gray-200"></div><h4 class="font-bold text-black uppercase text-[10px]">Masque Purifiant</h4><p class="font-bold text-sm mt-1 text-black">28,00 €</p></div>
-                                <div class="hidden sm:block"><div class="aspect-[4/5] bg-gray-100 mb-2 sm:mb-3 rounded-lg shadow-sm border border-gray-200"></div><h4 class="font-bold text-black uppercase text-[10px]">Huile Sèche</h4><p class="font-bold text-sm mt-1 text-black">35,00 €</p></div>
-                            </div>
-                        </div>
-                        <div class="p-8 text-center bg-gray-50 border-t border-gray-100"><div class="w-32 sm:w-40 h-10 sm:h-12 bg-black text-white text-xs sm:text-sm flex items-center justify-center mx-auto rounded-full font-bold uppercase tracking-wider">Découvrir la gamme</div></div>
-                    </div>
-                `;
+                layoutContent = `<div class="bg-white"><div class="bg-black text-white py-3 px-4 flex justify-center gap-6 font-bold text-xs uppercase tracking-widest"><span>Soins</span><span>Maquillage</span><span>Parfums</span></div><div class="p-8 sm:p-12 text-center"><h3 class="text-xl font-bold mb-6">Collection Exclusive</h3><div class="grid grid-cols-2 sm:grid-cols-4 gap-4"><div><div class="aspect-[4/5] bg-gray-100 mb-2 rounded"></div><p class="font-bold text-sm">45,00 €</p></div><div><div class="aspect-[4/5] bg-gray-100 mb-2 rounded"></div><p class="font-bold text-sm">62,00 €</p></div></div></div></div>`;
             } else if (site.layout === 'auto_dark') {
-                layoutContent = `
-                    <div class="bg-zinc-950 text-white border-t-4 border-red-600">
-                        <div class="py-12 sm:py-20 px-4 sm:px-8 text-center relative overflow-hidden">
-                             <div class="absolute inset-0 bg-red-900/10"></div>
-                             <div class="relative z-10 w-full max-w-[280px] sm:max-w-md mx-auto mb-6 text-zinc-600">
-                                 <svg viewBox="0 0 500 160" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                     <path d="M40 120 L20 120 L30 85 L140 70 L210 45 L320 45 L420 60 L480 70 L490 120 L450 120" />
-                                     <path d="M40 120 A 25 25 0 1 1 90 120 A 25 25 0 1 1 40 120" />
-                                     <path d="M90 120 L370 120" />
-                                     <path d="M370 120 A 25 25 0 1 1 420 120 A 25 25 0 1 1 370 120" />
-                                     <path d="M210 45 L160 70 L220 70 Z" />
-                                     <path d="M320 45 L390 65 L310 65 Z" />
-                                     <rect x="475" y="95" width="10" height="4" fill="#EF4444" stroke="none" />
-                                 </svg>
-                                 <div class="text-[8px] sm:text-[10px] font-mono tracking-[0.3em] mt-2 text-red-500 font-bold uppercase drop-shadow-md">Prelude Special Edition</div>
-                             </div>
-                             <h3 class="relative z-10 text-2xl sm:text-4xl font-black italic text-red-600 mt-4 uppercase tracking-wider drop-shadow-lg">Detailing & Protection</h3>
-                             <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 sm:mt-12 max-w-2xl mx-auto">
-                                 <div class="border border-red-500/20 bg-zinc-900/80 p-6 sm:p-8 rounded-xl font-bold uppercase tracking-widest text-xs sm:text-sm">Lavage Mains</div>
-                                 <div class="border border-red-500/20 bg-zinc-900/80 p-6 sm:p-8 rounded-xl font-bold uppercase tracking-widest text-xs sm:text-sm">Céramique & Polish</div>
-                             </div>
-                        </div>
-                    </div>
-                `;
+                layoutContent = `<div class="bg-zinc-950 text-white border-t-4 border-red-600 py-16 text-center"><h3 class="text-3xl font-black italic text-red-600 uppercase">Detailing & Protection</h3></div>`;
             } else if (site.layout === 'gym') {
-                layoutContent = `
-                    <div class="bg-zinc-950 text-white p-8 sm:p-16 text-center">
-                        <span class="text-orange-500 font-bold uppercase tracking-widest text-xs">Force & Cardio</span>
-                        <h3 class="font-display text-3xl sm:text-5xl font-bold text-white mt-2 mb-6">Plateau muscu & Cours collectifs</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                            <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 text-left"><div class="w-8 h-8 rounded bg-orange-500/20 text-orange-500 flex items-center justify-center font-bold mb-4">01</div><h4 class="font-bold text-lg mb-2">Musculation</h4><p class="text-xs text-zinc-400">Poids libres et machines guidées dernière génération.</p></div>
-                            <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 text-left"><div class="w-8 h-8 rounded bg-orange-500/20 text-orange-500 flex items-center justify-center font-bold mb-4">02</div><h4 class="font-bold text-lg mb-2">CrossTraining</h4><p class="text-xs text-zinc-400">Espace fonctionnel complet pour booster vos performances.</p></div>
-                            <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 text-left"><div class="w-8 h-8 rounded bg-orange-500/20 text-orange-500 flex items-center justify-center font-bold mb-4">03</div><h4 class="font-bold text-lg mb-2">Coaching</h4><p class="text-xs text-zinc-400">Suivi personnalisé par des coachs diplômés d'État.</p></div>
-                        </div>
-                    </div>
-                `;
+                layoutContent = `<div class="bg-zinc-950 text-white p-12 text-center"><span class="text-orange-500 font-bold uppercase text-xs">Force & Cardio</span><h3 class="text-3xl font-bold mt-2">Plateau muscu & Cours collectifs</h3></div>`;
             } else if (site.layout === 'bakery') {
-                layoutContent = `
-                    <div class="bg-amber-50/50 p-8 sm:p-16 text-center">
-                        <span class="text-amber-800 font-bold uppercase tracking-widest text-xs">Tradition & Fournil</span>
-                        <h3 class="font-serif italic text-3xl sm:text-5xl text-amber-950 mt-2 mb-6">Pains au levain & Viennoiseries pur beurre</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
-                            <div class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm"><div class="h-32 bg-amber-100 rounded-lg mb-4"></div><h4 class="font-bold text-amber-950 text-base mb-1">La Baguette de Tradition</h4><p class="text-xs text-amber-900/70">Cuite tout au long de la journée, croustillante et alvéolée.</p></div>
-                            <div class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm"><div class="h-32 bg-amber-100 rounded-lg mb-4"></div><h4 class="font-bold text-amber-950 text-base mb-1">Croissant Pur Beurre</h4><p class="text-xs text-amber-900/70">Feuilletage maison au beurre AOP Charentes-Poitou.</p></div>
-                            <div class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm"><div class="h-32 bg-amber-100 rounded-lg mb-4"></div><h4 class="font-bold text-amber-950 text-base mb-1">Pain de Campagne</h4><p class="text-xs text-amber-900/70">Mélange de farines anciennes sur meule de pierre.</p></div>
-                        </div>
-                    </div>
-                `;
+                layoutContent = `<div class="bg-amber-50/50 p-12 text-center"><span class="text-amber-800 font-bold uppercase text-xs">Tradition & Fournil</span><h3 class="text-3xl font-serif italic text-amber-950 mt-2">Pains au levain & Viennoiseries</h3></div>`;
             } else if (site.layout === 'photography') {
-                layoutContent = `
-                    <div class="bg-zinc-950 text-white p-6 sm:p-12">
-                        <div class="text-center mb-10"><h3 class="font-display tracking-[0.2em] text-xl sm:text-2xl uppercase">Galerie Photographique</h3></div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            <div class="aspect-square bg-zinc-900 rounded border border-zinc-800"></div>
-                            <div class="aspect-square bg-zinc-900 rounded border border-zinc-800"></div>
-                            <div class="aspect-square bg-zinc-900 rounded border border-zinc-800"></div>
-                            <div class="aspect-square bg-zinc-900 rounded border border-zinc-800"></div>
-                            <div class="aspect-square bg-zinc-900 rounded border border-zinc-800"></div>
-                            <div class="aspect-square bg-zinc-900 rounded border border-zinc-800"></div>
-                        </div>
-                    </div>
-                `;
-            } else if (site.layout === 'luxury_dark') {
-                layoutContent = `
-                    <div class="bg-zinc-950 text-white p-8 sm:p-16 text-center border-t border-yellow-900/30">
-                        <div class="w-10 sm:w-16 h-1 bg-yellow-600 mx-auto mb-6 sm:mb-8"></div>
-                        <h3 class="font-serif italic text-2xl sm:text-4xl mb-8 sm:mb-12 text-yellow-500/90 tracking-wide">L'Expérience Exclusive</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 max-w-4xl mx-auto">
-                            <div class="border border-yellow-900/30 bg-zinc-900/30 p-8 flex flex-col items-center"><div class="w-12 h-12 rounded-full border border-yellow-600/50 mb-4"></div><div class="w-20 h-2 bg-yellow-900/50 mb-2"></div><div class="w-24 h-2 bg-zinc-800"></div></div>
-                            <div class="border border-yellow-900/30 bg-zinc-900/30 p-8 flex flex-col items-center"><div class="w-12 h-12 rounded-full border border-yellow-600/50 mb-4"></div><div class="w-20 h-2 bg-yellow-900/50 mb-2"></div><div class="w-24 h-2 bg-zinc-800"></div></div>
-                            <div class="hidden sm:flex border border-yellow-900/30 bg-zinc-900/30 p-8 flex-col items-center"><div class="w-12 h-12 rounded-full border border-yellow-600/50 mb-4"></div><div class="w-20 h-2 bg-yellow-900/50 mb-2"></div><div class="w-24 h-2 bg-zinc-800"></div></div>
-                        </div>
-                    </div>
-                `;
-            } else if (site.layout === 'restaurant') {
-                layoutContent = `
-                    <div class="bg-orange-50 p-8 sm:p-16 text-center">
-                        <h3 class="font-serif italic text-3xl sm:text-5xl text-orange-950 mb-8 sm:mb-12">Notre Carte</h3>
-                        <div class="max-w-2xl mx-auto space-y-6 sm:space-y-8 text-left px-4">
-                            <div class="flex justify-between items-end border-b border-orange-900/20 pb-2"><div class="w-2/3 sm:w-3/4 h-3 sm:h-4 bg-orange-900/80 rounded"></div><div class="w-10 sm:w-12 h-3 sm:h-4 bg-orange-700 rounded"></div></div>
-                            <div class="flex justify-between items-end border-b border-orange-900/20 pb-2"><div class="w-1/2 sm:w-1/2 h-3 sm:h-4 bg-orange-900/80 rounded"></div><div class="w-10 sm:w-12 h-3 sm:h-4 bg-orange-700 rounded"></div></div>
-                            <div class="flex justify-between items-end border-b border-orange-900/20 pb-2"><div class="w-3/4 sm:w-5/6 h-3 sm:h-4 bg-orange-900/80 rounded"></div><div class="w-10 sm:w-12 h-3 sm:h-4 bg-orange-700 rounded"></div></div>
-                        </div>
-                        <button class="mt-10 sm:mt-12 px-8 sm:px-10 py-3 sm:py-4 bg-orange-900 text-white rounded-full font-bold text-xs sm:text-sm uppercase tracking-widest shadow-md">Réserver une table</button>
-                    </div>
-                `;
-            } else if (site.layout === 'portfolio') {
-                layoutContent = `
-                    <div class="bg-white p-6 sm:p-12">
-                        <div class="columns-2 sm:columns-3 gap-4 space-y-4">
-                            <div class="w-full h-32 sm:h-64 bg-gray-100 rounded-xl overflow-hidden shadow-sm"></div>
-                            <div class="w-full h-48 sm:h-96 bg-gray-200 rounded-xl overflow-hidden shadow-sm"></div>
-                            <div class="w-full h-24 sm:h-48 bg-gray-100 rounded-xl overflow-hidden shadow-sm"></div>
-                            <div class="w-full h-40 sm:h-72 bg-gray-200 rounded-xl overflow-hidden shadow-sm"></div>
-                        </div>
-                    </div>
-                `;
+                layoutContent = `<div class="bg-zinc-950 text-white p-10 text-center"><h3 class="font-display tracking-[0.2em] text-xl uppercase mb-6">Galerie Photo</h3><div class="grid grid-cols-3 gap-3 max-w-lg mx-auto"><div class="aspect-square bg-zinc-900"></div><div class="aspect-square bg-zinc-900"></div><div class="aspect-square bg-zinc-900"></div></div></div>`;
             } else {
-                layoutContent = `
-                    <div class="p-8 sm:p-14 bg-slate-50 flex flex-col sm:grid sm:grid-cols-2 gap-8 sm:gap-12 items-center">
-                        <div class="space-y-4 w-full">
-                            <div class="w-12 sm:w-16 h-1 rounded-full bg-slate-400 mb-2"></div>
-                            <h3 class="text-2xl sm:text-4xl font-display font-bold text-slate-900">À propos</h3>
-                            <div class="space-y-2.5 mt-4"><div class="w-full h-2 rounded-full bg-slate-900/10"></div><div class="w-full h-2 rounded-full bg-slate-900/10"></div><div class="w-3/4 h-2 rounded-full bg-slate-900/10"></div></div>
-                        </div>
-                        <div class="w-full h-40 sm:h-56 bg-white rounded-2xl border border-slate-200 shadow-sm"></div>
-                    </div>
-                `;
+                layoutContent = `<div class="p-10 bg-slate-50 text-center"><h3 class="text-2xl font-bold text-slate-900 mb-4">À propos</h3><div class="w-3/4 h-3 bg-slate-200 mx-auto rounded"></div></div>`;
             }
 
             document.getElementById('preview-content').innerHTML = `
-                <div class="rounded-2xl overflow-hidden border border-ink-900/15 bg-white shadow-xl max-w-4xl mx-auto my-4 sm:my-6">
-                    <div class="h-12 sm:h-16 border-b border-ink-900/10 px-4 sm:px-10 flex items-center justify-between">
-                        <span class="font-display font-bold text-base sm:text-lg text-ink-900 truncate pr-2">${site.name}</span>
-                        <div class="hidden sm:flex gap-4 sm:gap-6"><div class="w-8 sm:w-12 h-2 rounded-full bg-ink-900/10"></div><div class="w-12 sm:w-16 h-2 rounded-full bg-ink-900/10"></div></div>
-                        <div class="w-16 sm:w-24 h-6 sm:h-8 rounded-lg bg-ink-900 shrink-0"></div>
-                    </div>
-                    <div class="relative h-64 sm:h-[400px] bg-ink-900 flex items-center justify-center text-center p-4 sm:p-8 overflow-hidden">
+                <div class="rounded-2xl overflow-hidden border border-ink-900/15 bg-white shadow-xl max-w-4xl mx-auto my-4">
+                    <div class="h-12 border-b border-ink-900/10 px-6 flex items-center justify-between"><span class="font-bold text-sm">${site.name}</span><div class="w-16 h-6 rounded bg-ink-900"></div></div>
+                    <div class="relative h-64 sm:h-80 bg-ink-900 flex items-center justify-center text-center p-6 overflow-hidden">
                         <img src="${site.img}" class="absolute inset-0 w-full h-full object-cover opacity-60">
                         <div class="absolute inset-0 bg-ink-900/40"></div>
-                        <div class="relative z-10 w-full max-w-2xl mx-auto px-4">
-                            <span class="px-2 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-widest bg-white/20 text-white backdrop-blur-md mb-3 sm:mb-4 inline-block border border-white/30">${sCat}</span>
-                            <h2 class="font-serif italic text-3xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 drop-shadow-lg leading-tight">${site.heroTitle}</h2>
-                        </div>
+                        <div class="relative z-10 text-white"><span class="px-3 py-1 rounded-full text-[10px] font-bold bg-white/20 uppercase tracking-widest mb-3 inline-block">${sCat}</span><h2 class="font-serif italic text-3xl sm:text-5xl">${site.heroTitle}</h2></div>
                     </div>
                     ${layoutContent}
                 </div>
@@ -976,6 +1104,11 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function openOrderModalWithPlan(siteId, planKey) {
+            selectedPlan = planKey;
+            openOrderModal(siteId);
+        }
+
         function closeOrderModal() { document.getElementById('order-modal').classList.add('hidden'); document.body.style.overflow = 'auto'; }
 
         function selectPlan(planKey) {
@@ -986,11 +1119,13 @@
             document.getElementById('plan-card-html').className = planKey === 'html_only' ? classes.active : classes.base;
             document.getElementById('plan-card-maint').className = planKey === 'maintenance' ? classes.active : classes.base;
             document.getElementById('plan-card-full').className = planKey === 'full_pack' ? classes.active : classes.base;
+            document.getElementById('plan-card-enterprise').className = planKey === 'enterprise' ? "block p-3.5 rounded-2xl border-2 border-terracotta-500 bg-ink-900 text-white cursor-pointer shadow-sm transition-all" : "block p-3.5 rounded-2xl border-2 border-ink-900 bg-ink-900 text-white cursor-pointer transition-all";
 
             document.getElementById('radio-plan-questions').checked = (planKey === 'questions');
             document.getElementById('radio-plan-html').checked = (planKey === 'html_only');
             document.getElementById('radio-plan-maint').checked = (planKey === 'maintenance');
             document.getElementById('radio-plan-full').checked = (planKey === 'full_pack');
+            document.getElementById('radio-plan-enterprise').checked = (planKey === 'enterprise');
 
             updateModalTotal();
         }
@@ -999,14 +1134,16 @@
             const sum = document.getElementById('modal-total-summary'), name = document.getElementById('modal-selected-plan-name');
             if (currentLang === 'fr') {
                 if (selectedPlan === 'questions') { name.textContent = "Questions"; sum.innerHTML = `Gratuit`; }
-                else if (selectedPlan === 'html_only') { name.textContent = "Offre 1 : Création (HTML)"; sum.innerHTML = `29.99 €`; }
-                else if (selectedPlan === 'maintenance') { name.textContent = "Offre 2 : Abonnement"; sum.innerHTML = `19.99 € / mois`; }
-                else { name.textContent = "Offre 3 : Abo + Domaine"; sum.innerHTML = `20.99 € / mois`; }
+                else if (selectedPlan === 'html_only') { name.textContent = "Site Seul"; sum.innerHTML = `29.99 €`; }
+                else if (selectedPlan === 'maintenance') { name.textContent = "Standard"; sum.innerHTML = `19.99 € / mois`; }
+                else if (selectedPlan === 'full_pack') { name.textContent = "Premium"; sum.innerHTML = `20.99 € / mois`; }
+                else if (selectedPlan === 'enterprise') { name.textContent = "Entreprise"; sum.innerHTML = `39.99 € / mois`; }
             } else {
                 if (selectedPlan === 'questions') { name.textContent = "Inquiry"; sum.innerHTML = `Free`; }
-                else if (selectedPlan === 'html_only') { name.textContent = "Option 1: HTML only"; sum.innerHTML = `$29.99`; }
-                else if (selectedPlan === 'maintenance') { name.textContent = "Option 2: Sub"; sum.innerHTML = `$19.99 / mo`; }
-                else { name.textContent = "Option 3: Sub+Domain"; sum.innerHTML = `$20.99 / mo`; }
+                else if (selectedPlan === 'html_only') { name.textContent = "Site Only"; sum.innerHTML = `$29.99`; }
+                else if (selectedPlan === 'maintenance') { name.textContent = "Standard"; sum.innerHTML = `$19.99 / mo`; }
+                else if (selectedPlan === 'full_pack') { name.textContent = "Premium"; sum.innerHTML = `$20.99 / mo`; }
+                else if (selectedPlan === 'enterprise') { name.textContent = "Enterprise"; sum.innerHTML = `$39.99 / mo`; }
             }
         }
 
@@ -1024,6 +1161,7 @@
             if (e.target === document.getElementById('order-modal')) closeOrderModal();
             if (e.target === document.getElementById('preview-modal')) closePreviewModal();
             if (e.target === document.getElementById('legal-modal')) closeLegalModal();
+            if (e.target === document.getElementById('details-modal')) closeDetailsModal();
         });
 
         window.addEventListener('DOMContentLoaded', () => {
