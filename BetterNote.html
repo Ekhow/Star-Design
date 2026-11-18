@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="galaxy-deep"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Better Note - Version Test</title>
+
+  <!-- Favicon Better Note -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h9'/%3E%3Cpath d='M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z'/%3E%3C/svg%3E">
+
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <style>
+    /* 1. Sombre Ardoise */
+    :root[data-theme="slate-dark"] {
+      --color-scheme: dark;
+      --bg-base: #0f172a; --bg-surface: #1e293b; --bg-surface-hover: #334155; --border-color: #334155;
+      --text-main: #f8fafc; --text-muted: #94a3b8; --accent: #3b82f6; --accent-hover: #2563eb;
+      --badge-bg: #1e3a8a; --badge-text: #93c5fd; --editor-bg: #0b1120; --danger: #ef4444; --lock-color: #f59e0b;
+      --status-open: #10b981; --status-wip: #f59e0b; --status-op: #38bdf8; --status-closed: #64748b;
+      --table-th-bg: #1e293b; --table-border: #475569;
+      --priority-high-bg: rgba(239, 68, 68, 0.2); --priority-high-border: #ef4444; --priority-high-text: #fca5a5;
+      --priority-med-bg: rgba(245, 158, 11, 0.15); --priority-med-border: #f59e0b; --priority-med-text: #fcd34d;
+    }
+    /* 2. Clair Bleuté */
+    :root[data-theme="light-blue"] {
+      --color-scheme: light;
+      --bg-base: #f1f5f9; --bg-surface: #ffffff; --bg-surface-hover: #e2e8f0; --border-color: #cbd5e1;
+      --text-main: #0f172a; --text-muted: #64748b; --accent: #2563eb; --accent-hover: #1d4ed8;
+      --badge-bg: #dbeafe; --badge-text: #1e40af; --editor-bg: #ffffff; --danger: #dc2626; --lock-color: #d97706;
+      --status-open: #10b981; --status-wip: #f59e0b; --status-op: #0284c7; --status-closed: #94a3b8;
+      --table-th-bg: #f8fafc; --table-border: #cbd5e1;
+      --priority-high-bg: #fee2e2; --priority-high-border: #ef4444; --priority-high-text: #b91c1c;
+      --priority-med-bg: #fef3c7; --priority-med-border: #f59e0b; --priority-med-text: #b45309;
+    }
+    /* 3. Forêt Émeraude */
+    :root[data-theme="emerald-dark"] {
+      --color-scheme: dark;
+      --bg-base: #064e3b; --bg-surface: #065f46; --bg-surface-hover: #047857; --border-color: #047857;
+      --text-main: #ecfdf5; --text-muted: #a7f3d0; --accent: #10b981; --accent-hover: #059669;
+      --badge-bg: #022c22; --badge-text: #6ee7b7; --editor-bg: #022c22; --danger: #ef4444; --lock-color: #fbbf24;
+      --status-open: #34d399; --status-wip: #fbbf24; --status-op: #38bdf8; --status-closed: #6ee7b7aa;
+      --table-th-bg: #065f46; --table-border: #047857;
+      --priority-high-bg: rgba(239, 68, 68, 0.25); --priority-high-border: #f87171; --priority-high-text: #fecaca;
+      --priority-med-bg: rgba(251, 191, 36, 0.2); --priority-med-border: #fbbf24; --priority-med-text: #fde68a;
+    }
+    /* 4. Ambre Chaud */
+    :root[data-theme="warm-amber"] {
+      --color-scheme: dark;
+      --bg-base: #292524; --bg-surface: #44403c; --bg-surface-hover: #57534e; --border-color: #57534e;
+      --text-main: #fef3c7; --text-muted: #d6d3d1; --accent: #f59e0b; --accent-hover: #d97706;
+      --badge-bg: #78350f; --badge-text: #fde68a; --editor-bg: #1c1917; --danger: #ef4444; --lock-color: #f59e0b;
+      --status-open: #10b981; --status-wip: #f59e0b; --status-op: #38bdf8; --status-closed: #78716c;
+      --table-th-bg: #44403c; --table-border: #57534e;
+      --priority-high-bg: rgba(239, 68, 68, 0.25); --priority-high-border: #f87171; --priority-high-text: #fca5a5;
+      --priority-med-bg: rgba(217, 119, 6, 0.25); --priority-med-border: #f59e0b; --priority-med-text: #fde68a;
+    }
+    /* 5. Dracula */
+    :root[data-theme="dracula"] {
+      --color-scheme: dark;
+      --bg-base: #181424; --bg-surface: #241d38; --bg-surface-hover: #362c52; --border-color: #3b2f59;
+      --text-main: #f8f8f2; --text-muted: #bd93f9; --accent: #ff79c6; --accent-hover: #ff92d0;
+      --badge-bg: #44475a; --badge-text: #8be9fd; --editor-bg: #130f1e; --danger: #ff5555; --lock-color: #f1fa8c;
+      --status-open: #50fa7b; --status-wip: #ffb86c; --status-op: #8be9fd; --status-closed: #6272a4;
+      --table-th-bg: #241d38; --table-border: #3b2f59;
+      --priority-high-bg: rgba(255, 85, 85, 0.25); --priority-high-border: #ff5555; --priority-high-text: #ffb8b8;
+      --priority-med-bg: rgba(255, 184, 108, 0.2); --priority-med-border: #ffb86c; --priority-med-text: #fed7aa;
+    }
+    /* 6. Nordic Frost */
+    :root[data-theme="nordic-frost"] {
+      --color-scheme: dark;
+      --bg-base: #2e3440; --bg-surface: #3b4252; --bg-surface-hover: #434c5e; --border-color: #4c566a;
+      --text-main: #eceff4; --text-muted: #d8dee9; --accent: #88c0d0; --accent-hover: #81a1c1;
+      --badge-bg: #4c566a; --badge-text: #8fbcbb; --editor-bg: #242933; --danger: #bf616a; --lock-color: #ebcb8b;
+      --status-open: #a3be8c; --status-wip: #ebcb8b; --status-op: #88c0d0; --status-closed: #4c566a;
+      --table-th-bg: #3b4252; --table-border: #4c566a;
+      --priority-high-bg: rgba(191, 97, 106, 0.3); --priority-high-border: #bf616a; --priority-high-text: #ebcb8b;
+      --priority-med-bg: rgba(235, 203, 139, 0.2); --priority-med-border: #ebcb8b; --priority-med-text: #eceff4;
+    }
+    /* 7. Monochrome Minimal */
+    :root[data-theme="monochrome"] {
+      --color-scheme: dark;
+      --bg-base: #121212; --bg-surface: #1e1e1e; --bg-surface-hover: #2d2d2d; --border-color: #383838;
+      --text-main: #ffffff; --text-muted: #a0a0a0; --accent: #e0e0e0; --accent-hover: #ffffff;
+      --badge-bg: #333333; --badge-text: #ffffff; --editor-bg: #0a0a0a; --danger: #ef4444; --lock-color: #d4d4d4;
+      --status-open: #ffffff; --status-wip: #a0a0a0; --status-op: #93c5fd; --status-closed: #555555;
+      --table-th-bg: #1e1e1e; --table-border: #383838;
+      --priority-high-bg: rgba(239, 68, 68, 0.25); --priority-high-border: #ef4444; --priority-high-text: #ffffff;
+      --priority-med-bg: rgba(255, 255, 255, 0.1); --priority-med-border: #888888; --priority-med-text: #dddddd;
+    }
+    /* 8. Sépia Papier */
+    :root[data-theme="sepia"] {
+      --color-scheme: light;
+      --bg-base: #f4ecd8; --bg-surface: #ede0c4; --bg-surface-hover: #e0d0b0; --border-color: #d3c09b;
+      --text-main: #433422; --text-muted: #7d6b53; --accent: #965a29; --accent-hover: #78441c;
+      --badge-bg: #dcc8a4; --badge-text: #433422; --editor-bg: #faf4e8; --danger: #b91c1c; --lock-color: #b45309;
+      --status-open: #2e7d32; --status-wip: #b45309; --status-op: #0284c7; --status-closed: #a89f91;
+      --table-th-bg: #ede0c4; --table-border: #d3c09b;
+      --priority-high-bg: #fde8e8; --priority-high-border: #b91c1c; --priority-high-text: #991b1b;
+      --priority-med-bg: #fef3c7; --priority-med-border: #b45309; --priority-med-text: #78350f;
+    }
+    /* 9. Galaxie Cosmique */
+    :root[data-theme="galaxy"] {
+      --color-scheme: dark;
+      --bg-base: #08051a; --bg-surface: rgba(18, 12, 43, 0.85); --bg-surface-hover: rgba(36, 24, 77, 0.88);
+      --border-color: rgba(147, 51, 234, 0.38); --text-main: #f3e8ff; --text-muted: #c084fc;
+      --accent: #a855f7; --accent-hover: #c084fc; --badge-bg: #3b0764; --badge-text: #e9d5ff;
+      --editor-bg: rgba(9, 6, 24, 0.75); --danger: #f43f5e; --lock-color: #fbbf24;
+      --status-open: #a855f7; --status-wip: #f59e0b; --status-op: #38bdf8; --status-closed: #7e22ce;
+      --table-th-bg: rgba(36, 24, 77, 0.9); --table-border: rgba(147, 51, 234, 0.4);
+      --priority-high-bg: rgba(244, 63, 94, 0.25); --priority-high-border: #f43f5e; --priority-high-text: #fda4af;
+      --priority-med-bg: rgba(251, 191, 36, 0.2); --priority-med-border: #fbbf24; --priority-med-text: #fde68a;
+    }
+    /* 10. Galaxie Abyssale */
+    :root[data-theme="galaxy-deep"] {
+      --color-scheme: dark;
+      --bg-base: #020713; --bg-surface: rgba(9, 19, 38, 0.88); --bg-surface-hover: rgba(16, 32, 62, 0.9);
+      --border-color: rgba(30, 88, 148, 0.45); --text-main: #e2f1ff; --text-muted: #6ba6db;
+      --accent: #0284c7; --accent-hover: #38bdf8; --badge-bg: #082f49; --badge-text: #bae6fd;
+      --editor-bg: rgba(3, 10, 24, 0.8); --danger: #ef4444; --lock-color: #f59e0b;
+      --status-open: #38bdf8; --status-wip: #f59e0b; --status-op: #60a5fa; --status-closed: #334e68;
+      --table-th-bg: rgba(16, 32, 62, 0.9); --table-border: rgba(30, 88, 148, 0.5);
+      --priority-high-bg: rgba(239, 68, 68, 0.25); --priority-high-border: #ef4444; --priority-high-text: #fca5a5;
+      --priority-med-bg: rgba(245, 158, 11, 0.2); --priority-med-border: #f59e0b; --priority-med-text: #fde68a;
+    }
+
+    :root { color-scheme: var(--color-scheme, dark); }
+    * { 
+      box-sizing: border-box; margin: 0; padding: 0; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+      scrollbar-width: thin; scrollbar-color: var(--border-color) transparent;
+    }
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 8px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    body { display: flex; height: 100vh; overflow: hidden; background: var(--bg-base); color: var(--text-main); position: relative; }
+
+    #galaxy-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; display: none; }
+    :root[data-theme="galaxy"] #galaxy-canvas,
+    :root[data-theme="galaxy-deep"] #galaxy-canvas { display: block; }
+
+    .icon {
+      width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      display: inline-block; vertical-align: middle; flex-shrink: 0;
+    }
+    .icon-lg { width: 20px; height: 20px; }
+    .icon-sm { width: 14px; height: 14px; }
+
+    .app-brand-animated-icon {
+      width: 32px; height: 32px; position: relative; display: flex; align-items: center; justify-content: center;
+      filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.35));
+    }
+    .app-brand-animated-icon svg {
+      width: 100%; height: 100%; transform-origin: center; animation: brandFloat 3.5s ease-in-out infinite;
+    }
+    .app-brand-animated-icon:hover svg {
+      animation: brandWiggle 0.6s ease-in-out;
+    }
+    @keyframes brandFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-3px) rotate(4deg); }
+    }
+    @keyframes brandWiggle {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-10deg) scale(1.1); }
+      50% { transform: rotate(8deg) scale(1.1); }
+      75% { transform: rotate(-4deg) scale(1.05); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+
+    #sidebar-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.55); z-index: 99; backdrop-filter: blur(2px);
+    }
+    #sidebar-overlay.active { display: block; }
+
+    #sidebar {
+      width: 360px; min-width: 360px; background: var(--bg-surface); border-right: 1px solid var(--border-color);
+      display: flex; flex-direction: column; padding: 16px; gap: 12px; position: relative; z-index: 100;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #sidebar.drag-over { border: 2px dashed var(--accent); background: var(--bg-surface-hover); }
+
+    .brand-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-color); }
+    .brand-logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; }
+    .user-greeting { font-size: 12px; color: var(--accent); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .icon-btn {
+      background: none; border: 1px solid var(--border-color); color: var(--text-main);
+      padding: 6px 10px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .icon-btn:hover { background: var(--bg-surface-hover); border-color: var(--accent); transform: translateY(-1px); }
+    .icon-btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--accent); color: #fff; border: none; border-radius: 6px; padding: 10px 14px;
+      font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      background: var(--bg-surface-hover); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px 12px;
+      font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+    .btn-danger {
+      background: var(--danger); color: #fff; border: none; border-radius: 6px; padding: 8px 14px; font-weight: 600; cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-danger:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .search-group { display: flex; flex-direction: column; gap: 8px; }
+
+    input, select, textarea {
+      background: var(--bg-base); color: var(--text-main); border: 1px solid var(--border-color);
+      padding: 8px 12px; border-radius: 6px; font-size: 13px; outline: none; width: 100%; transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+    input.input-error { border-color: var(--danger) !important; background-color: rgba(239, 68, 68, 0.05); }
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8); cursor: pointer; }
+
+    .switch-wrapper { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; }
+    .switch { position: relative; display: inline-block; width: 44px; height: 24px; flex-shrink: 0; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer; inset: 0; background-color: var(--border-color);
+      border-radius: 24px; transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .slider:before {
+      position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px;
+      background-color: var(--text-main); border-radius: 50%; transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    input:checked + .slider { background-color: var(--accent); }
+    input:checked + .slider:before { transform: translateX(20px); background-color: #ffffff; }
+
+    .toggle-chip {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 20px;
+      background: var(--bg-base); border: 1px solid var(--border-color); cursor: pointer; font-size: 12px;
+      user-select: none; transition: all 0.2s ease;
+    }
+    .toggle-chip:hover { border-color: var(--accent); }
+    .toggle-chip.active { background: var(--badge-bg); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+    .toggle-chip .chip-indicator {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); transition: background-color 0.2s;
+    }
+    .toggle-chip.active .chip-indicator { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+
+    .error-msg { color: var(--danger); font-size: 11px; font-weight: 500; display: none; margin-top: 3px; }
+    .error-msg.visible { display: block; }
+
+    #trinome-cloud { display: flex; flex-wrap: wrap; gap: 6px; max-height: 52px; overflow-y: auto; padding-right: 2px; }
+    .trinome-filter-badge {
+      font-size: 11px; background: var(--badge-bg); color: var(--badge-text); padding: 3px 8px;
+      border-radius: 12px; cursor: pointer; user-select: none; transition: transform 0.15s;
+    }
+    .trinome-filter-badge:hover { transform: scale(1.05); }
+    .trinome-filter-badge.active { outline: 2px solid var(--text-main); font-weight: bold; }
+
+    #note-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; }
+
+    .note-card {
+      background: var(--bg-base); border: 1px solid var(--border-color); padding: 12px; border-radius: 6px;
+      cursor: pointer; display: flex; flex-direction: column; gap: 6px; user-select: none; transition: transform 0.15s ease, border-color 0.15s ease;
+      position: relative;
+    }
+    .note-card:hover { border-color: var(--accent); transform: translateX(3px); }
+    .note-card.active { border-color: var(--accent); background: var(--bg-surface-hover); }
+    .note-card.pinned { border-left: 3px solid var(--accent); }
+    .note-card.dragging { opacity: 0.35; transform: scale(0.97); }
+
+    .note-card.drag-above { border-top: 3px solid var(--accent) !important; }
+    .note-card.drag-below { border-bottom: 3px solid var(--accent) !important; }
+
+    .card-title-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .card-title { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 6px; }
+    .card-badges { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+    .card-trinome { font-size: 11px; background: var(--badge-bg); color: var(--badge-text); padding: 1px 6px; border-radius: 4px; }
+    .card-orga { font-size: 11px; background: rgba(59, 130, 246, 0.15); color: var(--accent); border: 1px solid rgba(59, 130, 246, 0.3); padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+
+    .card-ticket {
+      font-size: 11px; background: rgba(99, 102, 241, 0.18); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.35);
+      padding: 1px 6px; border-radius: 4px; font-family: monospace; cursor: copy; transition: all 0.15s ease;
+    }
+    .card-ticket:hover { background: #4f46e5; color: #ffffff; border-color: #6366f1; transform: scale(1.05); }
+
+    .card-desc { font-size: 12px; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
+    .card-date { font-size: 11px; color: var(--text-muted); }
+
+    .priority-badge {
+      display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 4px; flex-shrink: 0;
+    }
+    .priority-badge.med {
+      background: var(--priority-med-bg); border: 1px solid var(--priority-med-border); color: var(--priority-med-text);
+    }
+    .priority-badge.high {
+      background: var(--priority-high-bg); border: 1px solid var(--priority-high-border); color: var(--priority-high-text);
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.4); animation: pulsePriority 2s infinite;
+    }
+    @keyframes pulsePriority {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.85; }
+    }
+
+    .status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; position: relative; }
+    .status-dot.ouvert { background-color: var(--status-open); box-shadow: 0 0 6px var(--status-open); animation: pulseDot 2.2s infinite; }
+    .status-dot.en_cours { background-color: var(--status-wip); box-shadow: 0 0 6px var(--status-wip); animation: pulseDot 1.8s infinite; }
+    .status-dot.attente_op { background-color: var(--status-op); box-shadow: 0 0 6px var(--status-op); animation: pulseDot 2s infinite; }
+    .status-dot.ferme { background-color: var(--status-closed); }
+    @keyframes pulseDot {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .dropzone-hint { font-size: 11px; color: var(--text-muted); text-align: center; border: 1px dashed var(--border-color); padding: 8px; border-radius: 6px; }
+
+    .theme-preview-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 6px; max-height: 240px; overflow-y: auto; padding-right: 4px;
+    }
+    .theme-card-option {
+      background: var(--bg-base); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 10px;
+      cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease;
+    }
+    .theme-card-option:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .theme-card-option.active { border-color: var(--accent); background: var(--bg-surface-hover); outline: 2px solid var(--accent); }
+    .theme-svg-thumb { width: 36px; height: 26px; border-radius: 4px; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1); }
+    .theme-info-label { font-size: 12px; font-weight: 600; line-height: 1.2; }
+
+    .ql-editor table.better-table {
+      width: 100%; border-collapse: collapse; margin: 16px 0; background: var(--bg-surface);
+      border: 1px solid var(--table-border); border-radius: 6px; table-layout: fixed;
+    }
+    .ql-editor table.better-table th, 
+    .ql-editor table.better-table td {
+      border: 1px solid var(--table-border); padding: 10px 12px; font-size: 13px; min-width: 80px; color: var(--text-main);
+      word-break: break-word; vertical-align: top;
+    }
+    .ql-editor table.better-table th { background: var(--table-th-bg); font-weight: 700; color: var(--accent); text-align: left; }
+
+    /* Mascotte "Plumy" */
+    #mascot-widget {
+      position: fixed; bottom: 36px; right: 24px; z-index: 500; display: flex; align-items: flex-end; gap: 10px; user-select: none;
+    }
+    #mascot-bubble {
+      background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px;
+      padding: 10px 14px; font-size: 12px; max-width: 250px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      position: relative; line-height: 1.45; animation: bubbleIn 0.3s ease; display: flex; flex-direction: column; gap: 6px;
+    }
+    #mascot-bubble::after {
+      content: ''; position: absolute; right: -6px; bottom: 18px; border-width: 6px 0 6px 6px;
+      border-style: solid; border-color: transparent transparent transparent var(--bg-surface);
+    }
+    .bubble-header { display: flex; justify-content: space-between; align-items: center; color: var(--accent); font-weight: 700; font-size: 11px; }
+    .bubble-close-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 15px; line-height: 1; padding: 2px; }
+    .bubble-close-btn:hover { color: var(--text-main); }
+
+    #mascot-avatar {
+      width: 54px; height: 54px; cursor: pointer; transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: penFloat 3s ease-in-out infinite; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); position: relative;
+    }
+    #mascot-avatar:hover { transform: scale(1.15) rotate(-6deg); }
+
+    #mascot-avatar.anim-pirouette { animation: penPirouette 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important; }
+    #mascot-avatar.anim-jump { animation: penJump 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards !important; }
+    #mascot-avatar.anim-shake { animation: penShake 0.65s ease-in-out forwards !important; }
+    #mascot-avatar.anim-wobble { animation: penWobble 0.75s ease-in-out forwards !important; }
+
+    @keyframes penFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(4deg); }
+    }
+    @keyframes penPirouette {
+      0% { transform: scale(1) rotate(0deg); }
+      40% { transform: translateY(-18px) scale(1.25) rotate(-180deg); }
+      80% { transform: translateY(-4px) scale(0.95) rotate(-370deg); }
+      100% { transform: translateY(0) scale(1) rotate(-360deg); }
+    }
+    @keyframes penJump {
+      0% { transform: translateY(0) scale(1, 1); }
+      30% { transform: translateY(5px) scale(1.25, 0.75); }
+      60% { transform: translateY(-28px) scale(0.85, 1.25); }
+      85% { transform: translateY(2px) scale(1.08, 0.92); }
+      100% { transform: translateY(0) scale(1, 1); }
+    }
+    @keyframes penShake {
+      0%, 100% { transform: translateX(0); }
+      15% { transform: translateX(-12px) rotate(-12deg); }
+      30% { transform: translateX(10px) rotate(10deg); }
+      45% { transform: translateX(-8px) rotate(-8deg); }
+      60% { transform: translateX(6px) rotate(6deg); }
+      75% { transform: translateX(-3px) rotate(-3deg); }
+    }
+    @keyframes penWobble {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-25deg) scale(1.2); }
+      50% { transform: rotate(20deg) scale(1.1); }
+      75% { transform: rotate(-10deg) scale(1.05); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+
+    .spark { position: absolute; border-radius: 50%; pointer-events: none; animation: sparkFly 0.65s ease-out forwards; }
+    @keyframes sparkFly {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
+
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes penBlink {
+      0%, 90%, 100% { transform: scaleY(1); }
+      95% { transform: scaleY(0.1); }
+    }
+    .pen-eye { transform-origin: 32px 28px; animation: penBlink 4s infinite; }
+
+    .guide-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+    .guide-item { background: var(--bg-base); border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+    .guide-item-title { font-size: 13px; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 6px; }
+    .guide-item-desc { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+    #main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: var(--editor-bg); position: relative; }
+    .mobile-menu-btn { display: none; }
+    .editor-header { padding: 14px 20px; border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 10px; background: var(--bg-surface); }
+    .top-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .title-input { font-size: 17px; font-weight: 600; flex: 1; min-width: 150px; }
+    .trinome-input { width: 90px; text-align: center; font-family: monospace; }
+
+    .ticket-wrapper, .orga-wrapper { display: flex; align-items: center; gap: 4px; }
+    .ticket-input { width: 140px; font-family: monospace; text-transform: uppercase; }
+    .orga-select { width: 155px; }
+
+    .priority-select { width: 145px; }
+    .status-select { width: 155px; }
+    .desc-input { width: 100%; color: var(--text-muted); }
+
+    .btn-close-note {
+      background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px 6px; border-radius: 4px; margin-left: auto;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .btn-close-note:hover { background: var(--bg-surface-hover); color: var(--text-main); }
+
+    #editor-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+    #editor-wrapper.editor-dragover { background: rgba(59, 130, 246, 0.08); outline: 2px dashed var(--accent); }
+
+    .ql-toolbar.ql-snow { border: none !important; border-bottom: 1px solid var(--border-color) !important; background: var(--bg-surface); }
+    .ql-container.ql-snow { border: none !important; font-size: 15px; flex: 1; overflow-y: auto; color: var(--text-main); }
+    .ql-editor { padding: 20px 24px; line-height: 1.6; transform-origin: top left; transition: transform 0.1s ease; }
+
+    .ql-table-btn {
+      width: 28px; height: 24px; display: inline-flex; align-items: center; justify-content: center;
+      background: none; border: none; cursor: pointer; color: var(--text-main);
+    }
+    .ql-table-btn:hover { color: var(--accent); }
+
+    #locked-view { display: none; flex: 1; align-items: center; justify-content: center; flex-direction: column; gap: 12px; background: var(--editor-bg); padding: 16px; text-align: center; }
+    #locked-view.open { display: flex; }
+    #empty-view { display: none; flex: 1; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: var(--text-muted); background: var(--editor-bg); padding: 16px; text-align: center; }
+    #empty-view.open { display: flex; }
+
+    #status-bar {
+      height: 28px; border-top: 1px solid var(--border-color); background: var(--bg-surface);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 16px; font-size: 11px; color: var(--text-muted);
+    }
+    .zoom-indicator { cursor: pointer; padding: 2px 6px; border-radius: 4px; }
+    .zoom-indicator:hover { background: var(--bg-surface-hover); color: var(--text-main); }
+
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.65); display: none; align-items: center;
+      justify-content: center; z-index: 1000; backdrop-filter: blur(2px); padding: 12px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-content {
+      background: var(--bg-surface); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px;
+      width: 500px; max-width: 100%; display: flex; flex-direction: column; gap: 14px; color: var(--text-main); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+
+    #context-menu {
+      position: fixed; display: none; background: var(--bg-surface); border: 1px solid var(--border-color);
+      border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 2000; min-width: 200px; overflow: hidden;
+    }
+    .context-item { padding: 9px 14px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-main); }
+    .context-item:hover { background: var(--bg-surface-hover); }
+    .context-danger { color: #f87171; }
+    .context-danger:hover { background: #7f1d1d; color: #fff; }
+    .context-divider { height: 1px; background: var(--border-color); }
+
+    .mail-tab-nav { display: flex; gap: 8px; border-bottom: 1px solid var(--border-color); margin-bottom: 10px; }
+    .mail-tab-btn {
+      background: none; border: none; color: var(--text-muted); padding: 8px 12px; cursor: pointer;
+      font-size: 12px; font-weight: 600; border-bottom: 2px solid transparent; display: inline-flex; align-items: center; gap: 6px;
+      transition: all 0.2s;
+    }
+    .mail-tab-btn:hover { color: var(--text-main); }
+    .mail-tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .trash-item {
+      display: flex; align-items: center; justify-content: space-between; padding: 10px 12px;
+      border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-base); gap: 10px;
+    }
+    .trash-item-info { display: flex; flex-direction: column; gap: 2px; overflow: hidden; flex: 1; }
+    .trash-item-title { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .trash-item-meta { font-size: 11px; color: var(--text-muted); }
+
+    .orga-tag-item {
+      display: flex; align-items: center; justify-content: space-between; padding: 6px 10px;
+      background: var(--bg-base); border: 1px solid var(--border-color); border-radius: 6px; font-size: 13px;
+    }
+    .orga-delete-btn {
+      background: none; border: none; color: var(--danger); cursor: pointer; padding: 2px;
+    }
+
+    #copy-toast {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(30px);
+      background: rgba(15, 23, 42, 0.95); border: 1px solid var(--accent); color: #ffffff;
+      padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; z-index: 9999;
+      opacity: 0; pointer-events: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4); display: flex; align-items: center; gap: 6px;
+    }
+    #copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: inline-flex; }
+      #sidebar {
+        position: fixed; top: 0; bottom: 0; left: 0; width: 85vw; max-width: 330px; min-width: unset;
+        box-shadow: 4px 0 16px rgba(0,0,0,0.4); transform: translateX(-100%);
+      }
+      #sidebar.open { transform: translateX(0); }
+      .editor-header { padding: 12px 14px; }
+      .title-input { font-size: 16px; order: 1; width: 100%; }
+      .trinome-input { order: 2; flex: 1; }
+      .ticket-wrapper { order: 3; flex: 1.2; }
+      .orga-wrapper { order: 4; flex: 1.5; }
+      .priority-select { order: 5; flex: 1; }
+      .status-select { order: 6; flex: 1.5; }
+      .btn-close-note { order: 7; }
+      .desc-input { font-size: 12px; }
+      .ql-editor { padding: 14px 16px; }
+      #mascot-widget { display: none !important; }
+      #status-bar { font-size: 10px; padding: 0 8px; }
+      .zoom-indicator, #meta-date, .dropzone-hint { display: none; }
+      .guide-card-grid, .theme-preview-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast de notification -->
+  <div id="copy-toast">
+    <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: #34d399;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="copy-toast-text">Élément copié dans le presse-papier !</span>
+  </div>
+
+  <!-- Canevas animé pour les thèmes Galaxie & Abysses -->
+  <canvas id="galaxy-canvas" width="1920" height="911"></canvas>
+
+  <!-- Voile mobile -->
+  <div id="sidebar-overlay" onclick="toggleMobileSidebar(false)"></div>
+
+  <!-- Volet gauche -->
+  <aside id="sidebar">
+    <div class="brand-header">
+      <div class="brand-logo">
+        <div class="app-brand-animated-icon" title="Better Note UDJ">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect x="5" y="4" width="20" height="24" rx="4" fill="var(--bg-base)" stroke="var(--accent)" stroke-width="2"></rect>
+            <line x1="10" y1="10" x2="19" y2="10" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"></line>
+            <line x1="10" y1="15" x2="17" y2="15" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"></line>
+            <line x1="10" y1="20" x2="14" y2="20" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"></line>
+            <path d="M19 22L27 14C28 13 28 11 27 10C26 9 24 9 23 10L15 18L14 23L19 22Z" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" stroke-linejoin="round"></path>
+            <circle cx="25" cy="12" r="1" fill="#ffffff"></circle>
+          </svg>
+        </div>
+        <span>Better Note <span style="font-size:11px; background:var(--accent); color:#fff; padding:2px 6px; border-radius:4px; vertical-align:middle;">TEST</span></span>
+      </div>
+      <div style="display: flex; gap: 6px;">
+        <button class="icon-btn" onclick="openGuideModal()" title="Guide d'utilisation et raccourcis" style="padding: 6px;">
+          <svg class="icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </button>
+        <button class="icon-btn" onclick="openSettingsModal()" title="Paramètres et options" style="padding: 6px;">
+          <svg class="icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+        <button class="icon-btn mobile-menu-btn" onclick="toggleMobileSidebar(false)" style="padding: 6px;">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="greeting-banner" class="user-greeting">Mode Test - Données non sauvegardées</div>
+
+    <button class="btn-primary" onclick="openCreateModal(); toggleMobileSidebar(false);">
+      <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      <span>Nouvelle note</span> <span style="font-size: 11px; opacity: 0.7;">(Ctrl+N)</span>
+    </button>
+
+    <div style="display: flex; gap: 8px;">
+      <button class="btn-secondary" style="flex: 1;" onclick="openAbsenceMailModal(); toggleMobileSidebar(false);" title="Générer l'e-mail d'absence">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>E-mail d'absence</span>
+      </button>
+      <button class="btn-secondary" onclick="openTrashModal(); toggleMobileSidebar(false);" title="Corbeille">
+        <svg class="icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        <span id="trash-count-badge">0</span>
+      </button>
+    </div>
+
+    <div class="search-group">
+      <input type="text" id="search" placeholder="Rechercher titre, ticket, orga, trigramme [Ctrl+K]..." oninput="filterNotes()">
+      <div id="trinome-cloud"></div>
+    </div>
+
+    <div class="dropzone-hint">
+      Glisser-déposer des fichiers ici (.pdf, .odt, .txt, .csv)
+    </div>
+
+    <div id="note-list"></div>
+  </aside>
+
+  <!-- Éditeur principal -->
+  <main id="main-content">
+    <div id="active-editor-view" style="display: none; flex-direction: column; flex: 1 1 0%; overflow: hidden;">
+      <div class="editor-header">
+        <div class="top-controls">
+          <button class="icon-btn mobile-menu-btn" onclick="toggleMobileSidebar(true)">
+            <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <input type="text" id="title" class="title-input" placeholder="Titre (obligatoire)" oninput="scheduleAutoSave()">
+          <input type="text" id="trinome" class="trinome-input" placeholder="#ABC#" maxlength="5" onkeydown="handleTrigramKeyDown(event, this)" oninput="handleTrigramInput(this); scheduleAutoSave();" title="Trigramme client">
+
+          <div class="ticket-wrapper">
+            <input type="text" id="ticket" class="ticket-input" placeholder="Ticket (ABCDEF...)" oninput="scheduleAutoSave();" title="Numéro de ticket">
+            <button class="icon-btn" onclick="copyCurrentNoteTicket()" title="Copier le ticket (Ctrl+Shift+C)" style="padding: 7px 9px;">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <div class="orga-wrapper">
+            <select id="orga" class="orga-select" onchange="scheduleAutoSave()" title="Organisation client"><option value="">Aucune organisation</option></select>
+            <button class="icon-btn" onclick="copyCurrentNoteOrga()" title="Copier l'organisation dans le presse-papier" style="padding: 7px 9px;">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+
+          <select id="priority" class="priority-select" onchange="scheduleAutoSave()" title="Niveau de priorité">
+            <option value="faible">⚪ Faible</option>
+            <option value="modere">⏳ Modérée</option>
+            <option value="eleve">🔥 Élevée</option>
+          </select>
+
+          <select id="status" class="status-select" onchange="scheduleAutoSave()" title="Statut du dossier">
+            <option value="">⚪ Aucun statut</option>
+            <option value="ouvert">🟢 Ouvert</option>
+            <option value="en_cours">🟠 En cours</option>
+            <option value="attente_op">🔵 En attente OP</option>
+            <option value="ferme">⚫ Fermé</option>
+          </select>
+
+          <button class="btn-close-note" onclick="closeActiveNote()" title="Fermer la note">
+            <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <input type="text" id="description" class="desc-input" placeholder="Description de la note..." oninput="scheduleAutoSave()">
+      </div>
+
+      <div id="editor-wrapper">
+        <div class="ql-toolbar ql-snow"></div>
+        <div id="editor" class="ql-container ql-snow"><div class="ql-editor ql-blank" data-gramm="false" contenteditable="true" data-placeholder="Contenu de la note..."></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div>
+      </div>
+    </div>
+
+    <!-- Écran verrouillé -->
+    <div id="locked-view">
+      <svg class="icon" style="width: 48px; height: 48px; stroke: var(--lock-color);" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      <h3 id="locked-note-title">Note confidentielle</h3>
+      <p style="font-size: 13px; color: var(--text-muted);">Verrouillage automatique actif après inactivité.</p>
+      <div style="width: 240px; display: flex; flex-direction: column; align-items: center;">
+        <input type="password" id="unlock-password-input" placeholder="Code secret" style="text-align: center;" oninput="clearInputError(this, 'unlock-err')" onkeydown="if(event.key==='Enter') unlockNote()">
+        <span id="unlock-err" class="error-msg">Code incorrect</span>
+      </div>
+      <div style="display: flex; gap: 8px; margin-top: 6px;">
+        <button class="icon-btn" onclick="closeActiveNote()">Fermer</button>
+        <button class="btn-primary" onclick="unlockNote()">Déverrouiller</button>
+      </div>
+    </div>
+
+    <!-- Écran vide -->
+    <div id="empty-view" class="open">
+      <div style="position: absolute; top: 14px; left: 14px;">
+        <button class="icon-btn mobile-menu-btn" onclick="toggleMobileSidebar(true)">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <span style="font-size: 12px;">Notes</span>
+        </button>
+      </div>
+      <svg class="icon" style="width: 48px; height: 48px; stroke: var(--text-muted); opacity: 0.6;" viewBox="0 0 24 24">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+      </svg>
+      <p>Aucune note sélectionnée</p>
+    </div>
+
+    <div id="status-bar">
+      <span id="save-status">Mode test (Éphémère)</span>
+      <span id="stats-info">0 mots | 0 caractères</span>
+      <span class="zoom-indicator" id="zoom-status" onclick="resetZoom()" title="Réinitialiser le zoom">Zoom : 100% (Ctrl + / -)</span>
+      <span id="meta-date">Créée le : --</span>
+    </div>
+  </main>
+
+  <!-- Mascotte "Plumy" -->
+  <div id="mascot-widget" style="display: flex;">
+    <div id="mascot-bubble">
+      <div class="bubble-header">
+        <span>PLUMY - VERSION TEST</span>
+        <button class="bubble-close-btn" onclick="closeMascotBubble()" title="Fermer cette astuce">×</button>
+      </div>
+      <div id="mascot-tip-text">Bonjour ! Je vous informe que ceci est une version test : aucune note n'est enregistrée en mémoire lorsque vous fermez la page !</div>
+    </div>
+
+    <div id="mascot-avatar" onclick="handleMascotClick()" title="Plumy - Cliquez pour une surprise !">
+      <svg viewBox="0 0 64 64" width="54" height="54" fill="none">
+        <rect x="22" y="10" width="20" height="30" rx="4" fill="var(--accent)" stroke="#ffffff" stroke-width="2"></rect>
+        <rect x="22" y="18" width="20" height="4" fill="rgba(255,255,255,0.3)"></rect>
+        <rect x="18" y="12" width="4" height="18" rx="2" fill="#e2e8f0"></rect>
+        <circle cx="20" cy="30" r="2" fill="#cbd5e1"></circle>
+
+        <g class="pen-eye">
+          <circle cx="27" cy="28" r="3" fill="#ffffff"></circle>
+          <circle cx="28" cy="28" r="1.5" fill="#0f172a"></circle>
+          <circle cx="37" cy="28" r="3" fill="#ffffff"></circle>
+          <circle cx="38" cy="28" r="1.5" fill="#0f172a"></circle>
+        </g>
+
+        <circle cx="24" cy="34" r="2" fill="#f43f5e" opacity="0.6"></circle>
+        <circle cx="40" cy="34" r="2" fill="#f43f5e" opacity="0.6"></circle>
+        <path d="M29 34 Q32 37 35 34" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
+
+        <polygon points="22,40 42,40 32,58" fill="#fbbf24" stroke="#d97706" stroke-width="1.5"></polygon>
+        <line x1="32" y1="40" x2="32" y2="52" stroke="#b45309" stroke-width="1.5"></line>
+        <circle cx="32" cy="46" r="1.5" fill="#b45309"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Menu contextuel -->
+  <div id="context-menu" style="display: none;">
+    <div id="ctx-pin-action" class="context-item" onclick="triggerContextPinToggle()">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="17" x2="12" y2="22"></line><path d="M5 17h14v-2l-2-3V6a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v6l-2 3v2z"></path></svg>
+      <span id="ctx-pin-text">Épingler la note</span>
+    </div>
+    <div class="context-divider"></div>
+    <div id="ctx-lock-action" class="context-item" onclick="triggerContextConfidentialToggle()">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      <span id="ctx-lock-text">Rendre confidentielle</span>
+    </div>
+    <div class="context-divider"></div>
+    <div class="context-item" onclick="triggerExportContext('txt')">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+      Exporter en .TXT
+    </div>
+    <div class="context-item" onclick="triggerExportContext('pdf')">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+      Exporter en .PDF
+    </div>
+    <div class="context-item" onclick="triggerExportContext('odt')">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      Exporter en .ODT
+    </div>
+    <div class="context-divider"></div>
+    <div class="context-item context-danger" onclick="openDeleteModal()">
+      <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: currentColor;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+      Mettre à la corbeille
+    </div>
+  </div>
+
+  <!-- Modale Création de Tableau -->
+  <div id="table-modal" class="modal-overlay" onclick="handleOverlayClick(event, 'table-modal')">
+    <div class="modal-content" style="width: 420px;" onclick="event.stopPropagation()">
+      <h3 style="display: flex; align-items: center; gap: 8px;">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" style="stroke: var(--accent);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+        <span>Insérer un tableau structuré</span>
+      </h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+          <label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 4px;">Nombre de lignes :</label>
+          <input type="number" id="tbl-rows" min="1" max="30" value="3">
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 4px;">Nombre de colonnes :</label>
+          <input type="number" id="tbl-cols" min="1" max="15" value="3">
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+        <input type="checkbox" id="tbl-has-header" checked="" style="width: auto;">
+        <label for="tbl-has-header" style="cursor: pointer;">Inclure une ligne d'en-tête (colonnes titrées)</label>
+      </div>
+      <div class="modal-actions">
+        <button class="icon-btn" onclick="closeTableModal()">Annuler</button>
+        <button class="btn-primary" onclick="confirmInsertTable()">Insérer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up Guide -->
+  <div id="guide-modal" class="modal-overlay" onclick="handleOverlayClick(event, 'guide-modal')">
+    <div class="modal-content" style="width: 580px; max-height: 85vh; overflow-y: auto;" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+        <h3 style="display: flex; align-items: center; gap: 8px;">
+          <svg class="icon icon-lg" viewBox="0 0 24 24" style="stroke: var(--accent);"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Guide &amp; Version Test</span>
+        </h3>
+        <button class="icon-btn" onclick="closeGuideModal()" style="padding: 4px 8px;">×</button>
+      </div>
+
+      <p style="font-size: 13px; color: var(--text-muted);">
+        Ceci est une version de test de Better Note. Les données ne sont pas sauvegardées à la fermeture de la page.
+      </p>
+
+      <div class="guide-card-grid">
+        <div class="guide-item">
+          <div class="guide-item-title">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            Recherche (Ctrl + K)
+          </div>
+          <div class="guide-item-desc">Filtrez par titre, contenu, organisation, trigramme ou numéro de ticket.</div>
+        </div>
+        <div class="guide-item">
+          <div class="guide-item-title">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Mode éphémère
+          </div>
+          <div class="guide-item-desc">Testez l'interface librement, tout se réinitialisera en quittant la page.</div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="closeGuideModal()">J'ai compris !</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up Corbeille -->
+  <div id="trash-modal" class="modal-overlay" onclick="handleOverlayClick(event, 'trash-modal')">
+    <div class="modal-content" style="width: 540px; max-height: 85vh; display: flex; flex-direction: column;" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+        <h3 style="display: flex; align-items: center; gap: 8px;">
+          <svg class="icon icon-lg" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          <span>Corbeille des notes</span>
+        </h3>
+        <button class="icon-btn" style="color: var(--danger); font-size: 12px;" onclick="emptyEntireTrash()">Tout vider</button>
+      </div>
+      <div id="trash-list-container" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; max-height: 380px; padding-right: 4px;"></div>
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="closeTrashModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up Mail Absence Complet -->
+  <div id="absence-mail-modal" class="modal-overlay" onclick="handleOverlayClick(event, 'absence-mail-modal')">
+    <div class="modal-content" style="width: 720px; max-height: 94vh; overflow-y: auto;" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+        <h3 style="display: flex; align-items: center; gap: 8px;">
+          <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>E-mail de passation</span>
+        </h3>
+        <button class="icon-btn" onclick="closeAbsenceMailModal()" style="padding: 4px 8px;">×</button>
+      </div>
+
+      <div class="mail-tab-nav">
+        <button class="mail-tab-btn active" id="tab-btn-visual" onclick="switchMailTab('visual')">Aperçu</button>
+        <button class="mail-tab-btn" id="tab-btn-options" onclick="switchMailTab('options')">Personnalisation</button>
+        <button class="mail-tab-btn" id="tab-btn-text" onclick="switchMailTab('text')">Texte brut</button>
+      </div>
+
+      <div style="background: var(--bg-base); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px;">
+          <span style="font-size: 12px; font-weight: 600;">Période d'absence :</span>
+          <div class="toggle-chip" id="chip-date-freeform" onclick="toggleDateInputModeChip()">
+            <span class="chip-indicator"></span>
+            <span>Saisie libre</span>
+          </div>
+        </div>
+
+        <div id="mail-date-picker-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 3px;">Absent à partir du :</label>
+            <input type="date" id="mail-date-start-picker" onchange="generateAbsenceMailPreview()">
+          </div>
+          <div>
+            <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 3px;">Retour prévu le :</label>
+            <input type="date" id="mail-date-return-picker" onchange="generateAbsenceMailPreview()">
+          </div>
+        </div>
+
+        <div id="mail-date-text-row" style="display: none; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 3px;">Absent à partir de :</label>
+            <input type="text" id="mail-date-start-text" value="la semaine prochaine" oninput="generateAbsenceMailPreview()">
+          </div>
+          <div>
+            <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 3px;">Date de retour :</label>
+            <input type="text" id="mail-date-return-text" value="le 2 novembre" oninput="generateAbsenceMailPreview()">
+          </div>
+        </div>
+      </div>
+
+      <div id="mail-view-visual" style="display: block;">
+        <div id="mail-visual-container" style="max-height: 320px; overflow-y: auto; background: #ffffff; border-radius: 8px; border: 1px solid var(--border-color); padding: 16px;"></div>
+      </div>
+
+      <div id="mail-view-options" style="display: none; flex-direction: column; gap: 12px; background: var(--bg-base); padding: 14px; border-radius: 8px; border: 1px solid var(--border-color);"></div>
+
+      <div id="mail-view-text" style="display: none;">
+        <textarea id="mail-preview-text" style="height: 300px; font-family: monospace; font-size: 12px; resize: vertical; line-height: 1.45;"></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button class="icon-btn" onclick="closeAbsenceMailModal()">Fermer</button>
+        <button class="btn-primary" onclick="copyAbsenceMail()">Copier l'e-mail</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up Déplacement Corbeille -->
+  <div id="delete-modal" class="modal-overlay" onclick="handleOverlayClick(event, 'delete-modal')">
+    <div class="modal-content" style="max-width: 380px;" onclick="event.stopPropagation()">
+      <h3 style="color: var(--danger); display: flex; align-items: center; gap: 8px;">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" style="stroke: currentColor;"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        Mettre à la corbeille
+      </h3>
+      <p style="font-size: 13px; color: var(--text-muted);">Déplacer cette note dans la corbeille ?</p>
+      <div id="delete-note-name" style="font-size: 13px; font-weight: 600; padding: 8px 10px; background: var(--bg-base); border-radius: 4px; border: 1px solid var(--border-color); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"></div>
+      <div class="modal-actions">
+        <button class="icon-btn" onclick="closeDeleteModal()">Annuler</button>
+        <button class="btn-danger" onclick="confirmMoveToTrash()">Mettre en corbeille</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up Code Confidentiel -->
+  <div id="password-setup-modal" class="modal-overlay" onclick="handleOverlayClick(event, 'password-setup-modal')">
+    <div class="modal-content" style="max-width: 380px;" onclick="event.stopPropagation()">
+      <h3 id="pwd-modal-title" style="color: var(--lock-color); display: flex; align-items: center; gap: 8px;">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" style="stroke: currentColor;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>Verrouillage</span>
+      </h3>
+      <p id="pwd-modal-desc" style="font-size: 13px; color: var(--text-muted);"></p>
+      <div>
+        <input type="password" id="setup-password-input" placeholder="Code secret" style="text-align: center;" oninput="clearInputError(this, 'pwd-setup-err')" onkeydown="if(event.key==='Enter') confirmPasswordSetup()">
+        <span id="pwd-setup-err" class="error-msg">Veuillez renseigner un code secret.</span>
+      </div>
+      <div class="modal-actions">
+        <button class="icon-btn" onclick="closePasswordSetupModal()">Annuler</button>
+        <button class="btn-primary" onclick="confirmPasswordSetup()">Valider</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up Création & Importation -->
+  <div id="note-modal" class="modal-overlay" onclick="handleOverlayClick(event, 'note-modal')">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <h3 id="modal-title">Nouvelle note</h3>
+      <div>
+        <input type="text" id="modal-note-title" placeholder="Titre (obligatoire)" oninput="clearInputError(this, 'title-err')">
+        <span id="title-err" class="error-msg">Le titre est obligatoire.</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <input type="text" id="modal-note-trinome" placeholder="Trigramme (ex: ABC)" maxlength="5" onkeydown="handleTrigramKeyDown(event, this)" oninput="handleTrigramInput(this)">
+        <input type="text" id="modal-note-ticket" placeholder="N° Ticket (ex: ABCDEF0123456)">
+      </div>
+
+      <div>
+        <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 3px;">Organisation :</label>
+        <select id="modal-note-orga"><option value="">Aucune organisation</option></select>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+          <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 3px;">Priorité :</label>
+          <select id="modal-note-priority">
+            <option value="faible">⚪ Faible</option>
+            <option value="modere">⏳ Modérée</option>
+            <option value="eleve">🔥 Élevée</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 3px;">Statut :</label>
+          <select id="modal-note-status">
+            <option value="">⚪ Aucun statut</option>
+            <option value="ouvert">🟢 Ouvert</option>
+            <option value="en_cours">🟠 En cours</option>
+            <option value="attente_op">🔵 En attente OP</option>
+            <option value="ferme">⚫ Fermé</option>
+          </select>
+        </div>
+      </div>
+
+      <input type="text" id="modal-note-desc" placeholder="Description optionnelle">
+
+      <div class="switch-wrapper" style="margin-top: 4px;">
+        <span style="font-size: 13px;">Rendre cette note confidentielle (chiffrée)</span>
+        <label class="switch">
+          <input type="checkbox" id="modal-is-confidential" onchange="toggleModalPasswordField(this.checked)">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div id="modal-secret-code-wrapper" style="display: none;">
+        <input type="password" id="modal-secret-code" placeholder="Définir le code secret" style="text-align: center;" oninput="clearInputError(this, 'code-err')">
+        <span id="code-err" class="error-msg">Le code secret est requis pour verrouiller.</span>
+      </div>
+
+      <div class="modal-actions">
+        <button class="icon-btn" onclick="closeNoteModal()">Annuler</button>
+        <button class="btn-primary" onclick="confirmNoteModal()">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up Paramètres -->
+  <div id="settings-modal" class="modal-overlay" onclick="handleOverlayClick(event, 'settings-modal')">
+    <div class="modal-content" style="width: 580px; max-height: 88vh; overflow-y: auto;" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+        <h3>Paramètres</h3>
+        <button class="icon-btn" onclick="closeSettingsModal()" style="padding: 4px 8px;">×</button>
+      </div>
+
+      <div class="mail-tab-nav" style="margin-bottom: 14px;">
+        <button class="mail-tab-btn active" id="setting-tab-btn-general" onclick="switchSettingTab('general')">Général &amp; Thème</button>
+        <button class="mail-tab-btn" id="setting-tab-btn-orga" onclick="switchSettingTab('orga')">Organisations</button>
+      </div>
+
+      <div id="setting-panel-general" style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <label style="font-size: 13px; font-weight: 600;">Thème visuel de l'interface :</label>
+          <div class="theme-preview-grid" id="theme-grid-container"></div>
+        </div>
+        <div class="switch-wrapper">
+          <div>
+            <label style="font-size: 13px; font-weight: 600; display: block;">Mascotte Plumy :</label>
+            <span style="font-size: 11px; color: var(--text-muted);">Afficher Plumy et ses astuces</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="setting-mascot-enabled" checked="" onchange="toggleMascotSetting(this.checked)">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div id="setting-panel-orga" style="display: none; flex-direction: column; gap: 12px;">
+        <span style="font-size: 12px; color: var(--text-muted);">Gérez ici la liste temporaire des organisations.</span>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="new-orga-input" placeholder="ex: Nom Organisation" onkeydown="if(event.key==='Enter') addNewOrgaFromSettings()">
+          <button class="btn-primary" onclick="addNewOrgaFromSettings()" style="white-space: nowrap;">Ajouter</button>
+        </div>
+        <div id="settings-orga-list" style="display: flex; flex-direction: column; gap: 6px; max-height: 250px; overflow-y: auto;"></div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="closeSettingsModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    // SUPPRESSION DE LA PERSISTANCE : Notes de démonstration uniquement
+    let notes = [
+      {
+        id: 1,
+        title: "Bienvenue sur la version test !",
+        trinome: "#TEST#",
+        ticket: "DEMO001",
+        orga: "",
+        priority: "modere",
+        status: "ouvert",
+        pinned: true,
+        deleted_at: null,
+        description: "Ceci est une note de démonstration de la version test éphémère.",
+        content: "<p>Bienvenue ! Dans cette version de test :</p><ul><li>Aucune note n'est conservée en mémoire après la fermeture de la page.</li><li>Aucune organisation préexistante n'est imposée.</li><li>Profitez de ces quelques notes de démo pour tester l'interface.</li></ul>",
+        isConfidential: false,
+        created_at: "2026-06-06 10:00"
+      },
+      {
+        id: 2,
+        title: "Exemple de tableau structuré",
+        trinome: "#DEM#",
+        ticket: "DEMO002",
+        orga: "",
+        priority: "eleve",
+        status: "en_cours",
+        pinned: false,
+        deleted_at: null,
+        description: "Test de tableau éditable et de mise en forme",
+        content: '<table class="better-table"><thead><tr><th>Élément</th><th>Statut</th><th>Détail</th></tr></thead><tbody><tr><td>Tableau HTML</td><td>Actif</td><td>Modifiable directement</td></tr><tr><td>Mise en page</td><td>OK</td><td>Fluide et réactif</td></tr></tbody></table>',
+        isConfidential: false,
+        created_at: "2026-06-06 11:15"
+      },
+      {
+        id: 3,
+        title: "Note de rappel rapide",
+        trinome: "#RAP#",
+        ticket: "",
+        orga: "",
+        priority: "faible",
+        status: "attente_op",
+        pinned: false,
+        deleted_at: null,
+        description: "Exemple de description courte pour test de tri et filtrage.",
+        content: "<p>Vous pouvez créer, modifier ou supprimer des notes librement. Vos modifications disparaîtront en actualisant ou en fermant l'onglet.</p>",
+        isConfidential: false,
+        created_at: "2026-06-06 12:30"
+      }
+    ];
+
+    let activeId = null;
+    let contextTargetId = null;
+    let pendingImportContent = null;
+    let activeTrinomeFilter = '';
+    let autoSaveTimer = null;
+    let sessionPassword = null;
+    let pwdSetupMode = 'lock';
+
+    const TRASH_RETENTION_MS = 24 * 60 * 60 * 1000;
+    let customOrgaList = [];
+
+    const DEFAULT_MAIL_GREETING = "Bonjour,";
+    const DEFAULT_MAIL_INTRO = "Je vous informe que je serai absent à partir {debut} et de retour {fin}.";
+    const DEFAULT_MAIL_UNREACHABLE = "Je ne serai pas joignable durant mon absence.";
+
+    function getStoredOrgaList() {
+      return customOrgaList;
+    }
+
+    function saveOrgaList(list) {
+      customOrgaList = list;
+      populateOrgaSelects();
+      renderSettingsOrgaList();
+    }
+
+    function populateOrgaSelects() {
+      const list = getStoredOrgaList();
+      const editorSelect = document.getElementById('orga');
+      const modalSelect = document.getElementById('modal-note-orga');
+
+      const optionsHtml = '<option value="">Aucune organisation</option>' + 
+        list.map(org => `<option value="${escapeHtml(org)}">${escapeHtml(org)}</option>`).join('');
+
+      if (editorSelect) {
+        const curVal = editorSelect.value;
+        editorSelect.innerHTML = optionsHtml;
+        editorSelect.value = curVal;
+      }
+      if (modalSelect) {
+        const curVal = modalSelect.value;
+        modalSelect.innerHTML = optionsHtml;
+        modalSelect.value = curVal;
+      }
+    }
+
+    function renderSettingsOrgaList() {
+      const list = getStoredOrgaList();
+      const container = document.getElementById('settings-orga-list');
+      if (!container) return;
+
+      if (list.length === 0) {
+        container.innerHTML = '<div style="font-size:12px; color:var(--text-muted); font-style:italic;">Aucune organisation créée.</div>';
+        return;
+      }
+
+      container.innerHTML = list.map((org, idx) => `
+        <div class="orga-tag-item">
+          <span>${escapeHtml(org)}</span>
+          <button class="orga-delete-btn" onclick="deleteOrga(${idx})" title="Supprimer cette organisation">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function addNewOrgaFromSettings() {
+      const input = document.getElementById('new-orga-input');
+      const val = input.value.trim();
+      if (!val) return;
+      const list = getStoredOrgaList();
+      if (!list.includes(val)) {
+        list.push(val);
+        saveOrgaList(list);
+      }
+      input.value = '';
+    }
+
+    function deleteOrga(index) {
+      const list = getStoredOrgaList();
+      list.splice(index, 1);
+      saveOrgaList(list);
+    }
+
+    function copyCurrentNoteOrga() {
+      if (!activeId) return;
+      const note = notes.find(n => n.id === activeId);
+      const orgaVal = document.getElementById('orga').value.trim() || (note ? note.orga : '');
+      if (orgaVal) {
+        navigator.clipboard.writeText(orgaVal).then(() => {
+          showCopyToast(`Organisation "${orgaVal}" copiée !`);
+        });
+      } else {
+        showCopyToast("Aucune organisation renseignée pour cette note");
+      }
+    }
+
+    const themesList = [
+      { id: 'slate-dark', name: 'Sombre Ardoise', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#0f172a"/><circle cx="9" cy="13" r="5" fill="#1e293b"/><circle cx="18" cy="13" r="5" fill="#3b82f6"/><circle cx="27" cy="13" r="5" fill="#94a3b8"/></svg>` },
+      { id: 'light-blue', name: 'Clair Bleuté', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#f1f5f9"/><circle cx="9" cy="13" r="5" fill="#ffffff" stroke="#cbd5e1"/><circle cx="18" cy="13" r="5" fill="#2563eb"/><circle cx="27" cy="13" r="5" fill="#64748b"/></svg>` },
+      { id: 'emerald-dark', name: 'Forêt Émeraude', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#064e3b"/><circle cx="9" cy="13" r="5" fill="#065f46"/><circle cx="18" cy="13" r="5" fill="#10b981"/><circle cx="27" cy="13" r="5" fill="#a7f3d0"/></svg>` },
+      { id: 'warm-amber', name: 'Ambre Chaud', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#292524"/><circle cx="9" cy="13" r="5" fill="#44403c"/><circle cx="18" cy="13" r="5" fill="#f59e0b"/><circle cx="27" cy="13" r="5" fill="#fef3c7"/></svg>` },
+      { id: 'dracula', name: 'Dracula', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#181424"/><circle cx="9" cy="13" r="5" fill="#241d38"/><circle cx="18" cy="13" r="5" fill="#ff79c6"/><circle cx="27" cy="13" r="5" fill="#bd93f9"/></svg>` },
+      { id: 'nordic-frost', name: 'Nordic Frost', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#2e3440"/><circle cx="9" cy="13" r="5" fill="#3b4252"/><circle cx="18" cy="13" r="5" fill="#88c0d0"/><circle cx="27" cy="13" r="5" fill="#eceff4"/></svg>` },
+      { id: 'monochrome', name: 'Monochrome Minimal', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#121212"/><circle cx="9" cy="13" r="5" fill="#1e1e1e"/><circle cx="18" cy="13" r="5" fill="#ffffff"/><circle cx="27" cy="13" r="5" fill="#555555"/></svg>` },
+      { id: 'sepia', name: 'Sépia Papier', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#f4ecd8"/><circle cx="9" cy="13" r="5" fill="#ede0c4"/><circle cx="18" cy="13" r="5" fill="#965a29"/><circle cx="27" cy="13" r="5" fill="#433422"/></svg>` },
+      { id: 'galaxy', name: 'Galaxie', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#08051a"/><circle cx="14" cy="13" r="7" fill="#3b0764"/><circle cx="22" cy="13" r="5" fill="#a855f7"/><circle cx="9" cy="8" r="1.5" fill="#ffffff"/></svg>` },
+      { id: 'galaxy-deep', name: 'Abysses', svg: `<svg viewBox="0 0 36 26"><rect width="36" height="26" fill="#020713"/><circle cx="13" cy="13" r="7" fill="#091326"/><circle cx="22" cy="13" r="5" fill="#0284c7"/><circle cx="27" cy="8" r="1.5" fill="#38bdf8"/></svg>` }
+    ];
+
+    function renderThemePreviews() {
+      const current = document.documentElement.dataset.theme || 'galaxy-deep';
+      const container = document.getElementById('theme-grid-container');
+      container.innerHTML = themesList.map(t => `
+        <div class="theme-card-option ${t.id === current ? 'active' : ''}" onclick="changeTheme('${t.id}')">
+          <div class="theme-svg-thumb">${t.svg}</div>
+          <span class="theme-info-label">${t.name}</span>
+        </div>
+      `).join('');
+    }
+
+    let toastTimeout = null;
+    function showCopyToast(msg) {
+      const toast = document.getElementById('copy-toast');
+      const text = document.getElementById('copy-toast-text');
+      text.innerText = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    function copyTicketToClipboard(ticketStr, e = null) {
+      if (e) e.stopPropagation();
+      if (!ticketStr) return;
+      navigator.clipboard.writeText(ticketStr).then(() => {
+        showCopyToast(`Ticket #${ticketStr} copié !`);
+      });
+    }
+
+    function copyCurrentNoteTicket() {
+      if (!activeId) return;
+      const note = notes.find(n => n.id === activeId);
+      const ticketVal = document.getElementById('ticket').value.trim() || (note ? note.ticket : '');
+      if (ticketVal) {
+        copyTicketToClipboard(ticketVal);
+      } else {
+        showCopyToast("Aucun ticket renseigné pour cette note");
+      }
+    }
+
+    let galaxyAnimId = null;
+    const canvas = document.getElementById('galaxy-canvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const mouse = { x: -9999, y: -9999, vx: 0, vy: 0, lastX: -9999, lastY: -9999, radius: 160 };
+
+    window.addEventListener('mousemove', (e) => {
+      if (mouse.lastX !== -9999) {
+        mouse.vx = (e.clientX - mouse.lastX) * 0.35;
+        mouse.vy = (e.clientY - mouse.lastY) * 0.35;
+      }
+      mouse.lastX = e.clientX;
+      mouse.lastY = e.clientY;
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    function initGalaxyStars() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars = [];
+      const numStars = Math.floor((canvas.width * canvas.height) / 3800);
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+          radius: Math.random() * 1.6 + 0.4,
+          driftX: (Math.random() - 0.5) * 0.3, driftY: (Math.random() - 0.5) * 0.3,
+          currentVx: 0, currentVy: 0, buoyancy: Math.random() * 0.35 + 0.15,
+          swaySpeed: Math.random() * 0.015 + 0.005, swayAmplitude: Math.random() * 0.8 + 0.4,
+          angle: Math.random() * Math.PI * 2, alpha: Math.random(),
+          pulseSpeed: Math.random() * 0.02 + 0.008, color: '#38bdf8'
+        });
+      }
+    }
+
+    function renderGalaxy() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < stars.length; i++) {
+        const star = stars[i];
+        star.x += star.driftX; star.y += star.driftY;
+        if (star.x < 0) star.x = canvas.width; if (star.x > canvas.width) star.x = 0;
+        if (star.y < 0) star.y = canvas.height; if (star.y > canvas.height) star.y = 0;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = star.color;
+        ctx.globalAlpha = 0.8;
+        ctx.fill();
+      }
+      galaxyAnimId = requestAnimationFrame(renderGalaxy);
+    }
+
+    function checkGalaxyThemeActive() {
+      const theme = document.documentElement.dataset.theme;
+      if (theme === 'galaxy' || theme === 'galaxy-deep') {
+        if (!galaxyAnimId) { initGalaxyStars(); renderGalaxy(); }
+      } else if (galaxyAnimId) {
+        cancelAnimationFrame(galaxyAnimId);
+        galaxyAnimId = null;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    function openTableModal() { document.getElementById('table-modal').classList.add('open'); }
+    function closeTableModal() { document.getElementById('table-modal').classList.remove('open'); }
+
+    function confirmInsertTable() {
+      const rows = parseInt(document.getElementById('tbl-rows').value, 10) || 3;
+      const cols = parseInt(document.getElementById('tbl-cols').value, 10) || 3;
+      const hasHeader = document.getElementById('tbl-has-header').checked;
+
+      let html = '<br><table class="better-table">';
+      if (hasHeader) {
+        html += '<thead><tr>';
+        for (let j = 0; j < cols; j++) html += `<th>Colonne ${j + 1}</th>`;
+        html += '</tr></thead>';
+      }
+      html += '<tbody>';
+      const rowCount = hasHeader ? Math.max(1, rows - 1) : rows;
+      for (let i = 0; i < rowCount; i++) {
+        html += '<tr>';
+        for (let j = 0; j < cols; j++) html += '<td>&nbsp;</td>';
+        html += '</tr>';
+      }
+      html += '</tbody></table><p><br></p>';
+
+      closeTableModal();
+      insertHtmlIntoQuill(html);
+      scheduleAutoSave();
+    }
+
+    function insertHtmlIntoQuill(html) {
+      const range = quill.getSelection(true);
+      const index = range ? range.index : quill.getLength();
+      quill.clipboard.dangerouslyPasteHTML(index, html);
+    }
+
+    const mascotTips = [
+      "Version Test active : vos notes ne sont pas stockées !",
+      "Appuyez sur Ctrl+K pour filtrer vos notes instantanément.",
+      "Cliquez sur Plumy à tout moment pour afficher une astuce."
+    ];
+
+    function handleMascotClick() {
+      const bubble = document.getElementById('mascot-bubble');
+      bubble.style.display = 'flex';
+      document.getElementById('mascot-tip-text').innerText = mascotTips[Math.floor(Math.random() * mascotTips.length)];
+    }
+
+    function closeMascotBubble() { document.getElementById('mascot-widget').style.display = 'none'; }
+    function toggleMascotSetting(enabled) { document.getElementById('mascot-widget').style.display = enabled ? 'flex' : 'none'; }
+
+    function switchSettingTab(tab) {
+      const btnGen = document.getElementById('setting-tab-btn-general');
+      const btnOrga = document.getElementById('setting-tab-btn-orga');
+      const pnlGen = document.getElementById('setting-panel-general');
+      const pnlOrga = document.getElementById('setting-panel-orga');
+
+      [btnGen, btnOrga].forEach(b => b.classList.remove('active'));
+      [pnlGen, pnlOrga].forEach(p => p.style.display = 'none');
+
+      if (tab === 'general') {
+        btnGen.classList.add('active'); pnlGen.style.display = 'flex';
+      } else {
+        btnOrga.classList.add('active'); pnlOrga.style.display = 'flex';
+        renderSettingsOrgaList();
+      }
+    }
+
+    function openGuideModal() { document.getElementById('guide-modal').classList.add('open'); }
+    function closeGuideModal() { document.getElementById('guide-modal').classList.remove('open'); }
+
+    function toggleMobileSidebar(show) {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      if (show) { sidebar.classList.add('open'); overlay.classList.add('active'); }
+      else { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+    }
+
+    let currentZoom = 1.0;
+    function applyZoom(delta) {
+      currentZoom = Math.min(2.5, Math.max(0.5, currentZoom + delta));
+      updateZoomView();
+    }
+    function resetZoom() { currentZoom = 1.0; updateZoomView(); }
+    function updateZoomView() {
+      const editorEl = document.querySelector('.ql-editor');
+      if (editorEl) { editorEl.style.transform = `scale(${currentZoom})`; editorEl.style.width = `${100 / currentZoom}%`; }
+      document.getElementById('zoom-status').innerText = `Zoom : ${Math.round(currentZoom * 100)}%`;
+    }
+
+    function showInputError(inputEl, errorId, message = null) {
+      inputEl.classList.add('input-error');
+      const errEl = document.getElementById(errorId);
+      if (errEl) { if (message) errEl.innerText = message; errEl.classList.add('visible'); }
+      inputEl.focus();
+    }
+
+    function clearInputError(inputEl, errorId) {
+      inputEl.classList.remove('input-error');
+      const errEl = document.getElementById(errorId);
+      if (errEl) errEl.classList.remove('visible');
+    }
+
+    function handleOverlayClick(event, modalId) {
+      document.getElementById(modalId).classList.remove('open');
+    }
+
+    async function deriveKey(password, salt) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
+      return crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt, iterations: 100000, hash: "SHA-256" },
+        baseKey,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["encrypt", "decrypt"]
+      );
+    }
+
+    async function encryptString(plainText, password) {
+      const enc = new TextEncoder();
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const key = await deriveKey(password, salt);
+      const cipher = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, enc.encode(plainText));
+      return JSON.stringify({ salt: Array.from(salt), iv: Array.from(iv), cipher: Array.from(new Uint8Array(cipher)) });
+    }
+
+    async function decryptString(cipherJson, password) {
+      try {
+        const data = JSON.parse(cipherJson);
+        const salt = new Uint8Array(data.salt);
+        const iv = new Uint8Array(data.iv);
+        const cipher = new Uint8Array(data.cipher);
+        const key = await deriveKey(password, salt);
+        const dec = new TextDecoder();
+        const decrypted = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, cipher);
+        return dec.decode(decrypted);
+      } catch (e) {
+        throw new Error("Mot de passe incorrect");
+      }
+    }
+
+    function handleTrigramKeyDown(e, el) {
+      const val = el.value;
+      const start = el.selectionStart;
+      const end = el.selectionEnd;
+      if (e.key === 'Backspace' && start === end) {
+        if (start === val.length && val.endsWith('#')) {
+          e.preventDefault();
+          let letters = val.replace(/#/g, '');
+          if (letters.length > 0) {
+            letters = letters.slice(0, -1);
+            el.value = letters.length > 0 ? `#${letters}#` : '';
+            const newPos = el.value.length > 0 ? el.value.length - 1 : 0;
+            el.setSelectionRange(newPos, newPos);
+          }
+        }
+      }
+    }
+
+    function handleTrigramInput(el) {
+      let raw = el.value.replace(/#/g, '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (raw.length > 3) raw = raw.substring(0, 3);
+      el.value = raw.length > 0 ? `#${raw}#` : '';
+      if (el.value) el.setSelectionRange(el.value.length - 1, el.value.length - 1);
+    }
+
+    const quill = new Quill('#editor', {
+      theme: 'snow',
+      placeholder: 'Contenu de la note...',
+      modules: {
+        toolbar: {
+          container: [
+            [{ 'header': [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            ['blockquote', 'code-block'],
+            ['image', 'link', 'clean']
+          ]
+        }
+      }
+    });
+
+    const toolbar = quill.getModule('toolbar');
+    const tableBtn = document.createElement('button');
+    tableBtn.className = 'ql-table-btn';
+    tableBtn.type = 'button';
+    tableBtn.title = 'Insérer un tableau';
+    tableBtn.innerHTML = `<svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="3" x2="9" y2="21"></line></svg>`;
+    tableBtn.onclick = openTableModal;
+    toolbar.container.appendChild(tableBtn);
+
+    quill.on('text-change', () => { updateStats(); scheduleAutoSave(); });
+
+    function initApp() {
+      document.documentElement.dataset.theme = 'galaxy-deep';
+      checkGalaxyThemeActive();
+      populateOrgaSelects();
+      renderTrinomeCloud();
+      filterNotes();
+      closeActiveNote();
+      renderThemePreviews();
+    }
+
+    function renderTrinomeCloud() {
+      const activeNotes = notes.filter(n => !n.deleted_at);
+      const container = document.getElementById('trinome-cloud');
+      const tags = [...new Set(activeNotes.map(n => n.trinome).filter(Boolean))];
+      container.innerHTML = tags.map(tag => `
+        <span class="trinome-filter-badge ${activeTrinomeFilter === tag ? 'active' : ''}" 
+              onclick="toggleTrinomeFilter('${tag}')">${tag}</span>
+      `).join('');
+    }
+
+    function toggleTrinomeFilter(tag) {
+      activeTrinomeFilter = activeTrinomeFilter === tag ? '' : tag;
+      renderTrinomeCloud();
+      filterNotes();
+    }
+
+    function getStatusDotHtml(status) {
+      if (!status) return '';
+      if (status === 'ouvert') return '<span class="status-dot ouvert" title="Ouvert"></span>';
+      if (status === 'en_cours') return '<span class="status-dot en_cours" title="En cours"></span>';
+      if (status === 'attente_op') return '<span class="status-dot attente_op" title="En attente OP"></span>';
+      if (status === 'ferme') return '<span class="status-dot ferme" title="Fermé"></span>';
+      return '';
+    }
+
+    function getPriorityBadgeHtml(priority) {
+      if (priority === 'eleve') {
+        return `<span class="priority-badge high" title="Priorité Élevée"><svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: currentColor;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg></span>`;
+      }
+      if (priority === 'modere') {
+        return `<span class="priority-badge med" title="Priorité Modérée"><svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: currentColor;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>`;
+      }
+      return '';
+    }
+
+    function getSortedActiveNotes() {
+      const activeNotes = notes.filter(n => !n.deleted_at);
+      return [...activeNotes.filter(n => n.pinned), ...activeNotes.filter(n => !n.pinned)];
+    }
+
+    function filterNotes() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const list = document.getElementById('note-list');
+      const filtered = getSortedActiveNotes().filter(n => {
+        let matchText = (n.title || '').toLowerCase().includes(q) || (n.ticket || '').toLowerCase().includes(q) || (n.orga || '').toLowerCase().includes(q);
+        if (!n.isConfidential) matchText = matchText || (n.description || '').toLowerCase().includes(q) || (n.content || '').toLowerCase().includes(q);
+        return matchText && (!activeTrinomeFilter || n.trinome === activeTrinomeFilter);
+      });
+
+      list.innerHTML = filtered.map(n => `
+        <div class="note-card ${n.id === activeId ? 'active' : ''} ${n.pinned ? 'pinned' : ''}" 
+             id="card-note-${n.id}"
+             onclick="openNote(${n.id}); toggleMobileSidebar(false);" 
+             oncontextmenu="handleContextMenu(event, ${n.id})">
+          <div class="card-title-row">
+            <span class="card-title">
+              ${getStatusDotHtml(n.status)}
+              ${getPriorityBadgeHtml(n.priority)}
+              ${escapeHtml(n.title || 'Sans titre')}
+            </span>
+            <div class="card-badges">
+              ${n.trinome ? `<span class="card-trinome">${escapeHtml(n.trinome)}</span>` : ''}
+              ${n.ticket ? `<span class="card-ticket" onclick="copyTicketToClipboard('${escapeHtml(n.ticket)}', event)">#${escapeHtml(n.ticket)}</span>` : ''}
+            </div>
+          </div>
+          ${n.description ? `<div class="card-desc">${escapeHtml(n.description)}</div>` : ''}
+          <div class="card-date">${n.created_at || ''} ${n.orga ? `<span class="card-orga">${escapeHtml(n.orga)}</span>` : ''}</div>
+        </div>
+      `).join('');
+    }
+
+    async function openNote(id) {
+      if (activeId !== id) sessionPassword = null;
+      activeId = id;
+      const note = notes.find(n => n.id === id);
+      if (!note || note.deleted_at) return;
+
+      document.getElementById('empty-view').classList.remove('open');
+      document.getElementById('locked-view').classList.remove('open');
+      document.getElementById('active-editor-view').style.display = 'flex';
+
+      document.getElementById('title').value = note.title || '';
+      document.getElementById('trinome').value = note.trinome || '';
+      document.getElementById('ticket').value = note.ticket || '';
+      document.getElementById('orga').value = note.orga || '';
+      document.getElementById('priority').value = note.priority || 'faible';
+      document.getElementById('status').value = note.status || '';
+
+      document.getElementById('description').value = note.description || '';
+      quill.root.innerHTML = note.content || '';
+      document.getElementById('meta-date').innerText = `Créée le : ${note.created_at || '--'}`;
+
+      updateStats();
+      filterNotes();
+      updateZoomView();
+    }
+
+    function closeActiveNote() {
+      activeId = null;
+      document.getElementById('active-editor-view').style.display = 'none';
+      document.getElementById('locked-view').classList.remove('open');
+      document.getElementById('empty-view').classList.add('open');
+      filterNotes();
+    }
+
+    function scheduleAutoSave() {
+      document.getElementById('save-status').innerText = 'Modification (Test)...';
+      clearTimeout(autoSaveTimer);
+      autoSaveTimer = setTimeout(saveNote, 300);
+    }
+
+    function saveNote() {
+      if (!activeId) return;
+      const note = notes.find(n => n.id === activeId);
+      if (!note) return;
+
+      note.title = document.getElementById('title').value.trim() || 'Sans titre';
+      note.trinome = document.getElementById('trinome').value.trim();
+      note.ticket = document.getElementById('ticket').value.trim().toUpperCase();
+      note.orga = document.getElementById('orga').value;
+      note.priority = document.getElementById('priority').value || 'faible';
+      note.status = document.getElementById('status').value;
+      note.description = document.getElementById('description').value.trim();
+      note.content = quill.root.innerHTML;
+
+      renderTrinomeCloud();
+      filterNotes();
+      document.getElementById('save-status').innerText = 'Mode test (Éphémère)';
+    }
+
+    function openCreateModal() {
+      document.getElementById('modal-title').innerText = "Nouvelle note";
+      document.getElementById('modal-note-title').value = "";
+      document.getElementById('modal-note-trinome').value = "";
+      document.getElementById('modal-note-ticket').value = "";
+      document.getElementById('modal-note-orga').value = "";
+      document.getElementById('modal-note-priority').value = "faible";
+      document.getElementById('modal-note-status').value = "";
+      document.getElementById('modal-note-desc').value = "";
+      document.getElementById('note-modal').classList.add('open');
+    }
+
+    function closeNoteModal() { document.getElementById('note-modal').classList.remove('open'); }
+
+    function confirmNoteModal() {
+      const title = document.getElementById('modal-note-title').value.trim();
+      if (!title) return;
+
+      const freshNote = {
+        id: Date.now(),
+        title,
+        trinome: document.getElementById('modal-note-trinome').value.trim(),
+        ticket: document.getElementById('modal-note-ticket').value.trim().toUpperCase(),
+        orga: document.getElementById('modal-note-orga').value,
+        priority: document.getElementById('modal-note-priority').value || 'faible',
+        status: document.getElementById('modal-note-status').value,
+        pinned: false,
+        deleted_at: null,
+        description: document.getElementById('modal-note-desc').value.trim(),
+        content: "<p><br></p>",
+        isConfidential: false,
+        created_at: new Date().toISOString().slice(0, 16).replace('T', ' ')
+      };
+
+      notes.unshift(freshNote);
+      closeNoteModal();
+      renderTrinomeCloud();
+      openNote(freshNote.id);
+    }
+
+    function handleContextMenu(e, id) {
+      e.preventDefault();
+      contextTargetId = id;
+      const menu = document.getElementById('context-menu');
+      menu.style.display = 'block';
+      menu.style.top = `${e.clientY}px`;
+      menu.style.left = `${e.clientX}px`;
+    }
+
+    window.addEventListener('click', () => { document.getElementById('context-menu').style.display = 'none'; });
+
+    function openDeleteModal() {
+      if (!contextTargetId) return;
+      const targetNote = notes.find(n => n.id === contextTargetId);
+      if (!targetNote) return;
+      document.getElementById('delete-note-name').innerText = targetNote.title || 'Sans titre';
+      document.getElementById('delete-modal').classList.add('open');
+    }
+
+    function closeDeleteModal() { document.getElementById('delete-modal').classList.remove('open'); }
+
+    function confirmMoveToTrash() {
+      notes = notes.filter(n => n.id !== contextTargetId);
+      closeDeleteModal();
+      renderTrinomeCloud();
+      if (activeId === contextTargetId) closeActiveNote();
+      filterNotes();
+    }
+
+    function openTrashModal() {
+      document.getElementById('trash-list-container').innerHTML = '<div style="text-align: center; padding: 24px; color: var(--text-muted);">Corbeille vide en mode test.</div>';
+      document.getElementById('trash-modal').classList.add('open');
+    }
+    function closeTrashModal() { document.getElementById('trash-modal').classList.remove('open'); }
+
+    function openAbsenceMailModal() {
+      document.getElementById('mail-visual-container').innerHTML = '<p>Aperçu e-mail de test</p>';
+      document.getElementById('absence-mail-modal').classList.add('open');
+    }
+    function closeAbsenceMailModal() { document.getElementById('absence-mail-modal').classList.remove('open'); }
+
+    function changeTheme(themeName) {
+      document.documentElement.dataset.theme = themeName;
+      checkGalaxyThemeActive();
+      renderThemePreviews();
+    }
+
+    function openSettingsModal() { renderThemePreviews(); document.getElementById('settings-modal').classList.add('open'); }
+    function closeSettingsModal() { document.getElementById('settings-modal').classList.remove('open'); }
+
+    function updateStats() {
+      const txt = quill.getText().trim();
+      document.getElementById('stats-info').innerText = `${txt ? txt.split(/\s+/).length : 0} mots | ${txt.length} caractères`;
+    }
+
+    function escapeHtml(t) {
+      return (t || '').replace(/[&<>"']/g, m => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[m]);
+    }
+
+    initApp();
+  </script>
+</body></html>
