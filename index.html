@@ -302,20 +302,19 @@
                     </form>
 
                     <div id="domain-result" class="hidden mt-5 max-w-2xl mx-auto p-4 rounded-2xl bg-cream-50 border border-ink-900/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <div>
-                            <p class="text-xs font-bold uppercase tracking-wider text-ink-600" data-i18n="dom_res_label">Domaine sélectionné</p>
-                            <p id="domain-result-name" class="font-display text-lg font-bold text-ink-900"></p>
-                            <p class="text-xs text-ink-600 mt-0.5" data-i18n="dom_res_hint">Vérifiez sa disponibilité en direct sur IONOS ou joignez-le à votre demande.</p>
+                        <div class="flex items-start gap-3">
+                            <div id="domain-status-icon" class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5"></div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <p id="domain-result-name" class="font-display text-lg font-bold text-ink-900"></p>
+                                    <span id="domain-status-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold"></span>
+                                </div>
+                                <p id="domain-status-hint" class="text-xs text-ink-600 mt-1"></p>
+                            </div>
                         </div>
-                        <div class="flex flex-wrap gap-2 shrink-0">
-                            <a id="domain-ionos-link" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-white border border-ink-900/20 hover:border-ink-900 text-ink-900 text-xs font-bold flex items-center gap-1.5 transition-all">
-                                <span data-i18n="dom_check_ext">Vérifier sur IONOS</span>
-                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                            </a>
-                            <button type="button" onclick="orderWithDomain()" class="px-4 py-2 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs font-bold transition-all" data-i18n="dom_use_btn">
-                                Utiliser pour mon site
-                            </button>
-                        </div>
+                        <button type="button" id="domain-use-btn" onclick="orderWithDomain()" class="hidden px-4 py-2.5 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs font-bold transition-all shrink-0" data-i18n="dom_use_btn">
+                            Utiliser pour mon site
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1234,17 +1233,71 @@
             renderTemplates();
         }
 
-        function checkDomain(event) {
+        async function checkDomain(event) {
             event.preventDefault();
             const raw = document.getElementById('domain-input').value.trim().toLowerCase();
             const cleaned = raw.replace(/[^a-z0-9-]/g, '');
             const tld = document.getElementById('domain-tld').value;
             if (!cleaned) return;
 
+            const isEn = currentLang === 'en';
             checkedDomainFull = cleaned + tld;
-            document.getElementById('domain-result-name').textContent = checkedDomainFull;
-            document.getElementById('domain-ionos-link').href = `https://www.ionos.fr/domaines/nom-de-domaine#domain=${encodeURIComponent(checkedDomainFull)}`;
-            document.getElementById('domain-result').classList.remove('hidden');
+
+            const resultBox = document.getElementById('domain-result');
+            const nameEl = document.getElementById('domain-result-name');
+            const badgeEl = document.getElementById('domain-status-badge');
+            const hintEl = document.getElementById('domain-status-hint');
+            const iconEl = document.getElementById('domain-status-icon');
+            const useBtn = document.getElementById('domain-use-btn');
+
+            // État de chargement
+            resultBox.classList.remove('hidden');
+            nameEl.textContent = checkedDomainFull;
+            badgeEl.textContent = isEn ? "Checking..." : "Vérification...";
+            badgeEl.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-cream-200 text-ink-600";
+            hintEl.textContent = isEn ? "Querying DNS servers..." : "Interrogation des serveurs DNS en cours...";
+            iconEl.className = "w-10 h-10 rounded-xl bg-cream-200 text-ink-600 flex items-center justify-center shrink-0 mt-0.5";
+            iconEl.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>`;
+            useBtn.classList.add('hidden');
+            lucide.createIcons();
+
+            try {
+                const response = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(checkedDomainFull)}&type=NS`);
+                const data = await response.json();
+
+                // Status 3 = NXDOMAIN (le domaine n'existe pas dans les DNS)
+                const isAvailable = (data.Status === 3);
+
+                if (isAvailable) {
+                    badgeEl.textContent = isEn ? "Likely available" : "Semble disponible";
+                    badgeEl.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-forest-100 text-forest-800";
+                    hintEl.textContent = isEn
+                        ? "Good news! No active DNS found. We will confirm final availability when starting your project."
+                        : "Bonne nouvelle ! Aucun site actif trouvé. Nous confirmerons sa disponibilité définitive lors de la commande.";
+                    iconEl.className = "w-10 h-10 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center shrink-0 mt-0.5";
+                    iconEl.innerHTML = `<i data-lucide="check-circle-2" class="w-5 h-5"></i>`;
+                    useBtn.classList.remove('hidden');
+                } else {
+                    badgeEl.textContent = isEn ? "Already taken" : "Déjà pris";
+                    badgeEl.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-terracotta-100 text-terracotta-700";
+                    hintEl.textContent = isEn
+                        ? "This domain is already registered. Try another spelling or a different extension (.com, .fr, .eu)."
+                        : "Ce nom de domaine est déjà utilisé. Essayez une autre variante ou une autre extension (.com, .fr, .eu).";
+                    iconEl.className = "w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-600 flex items-center justify-center shrink-0 mt-0.5";
+                    iconEl.innerHTML = `<i data-lucide="x-circle" class="w-5 h-5"></i>`;
+                    useBtn.classList.add('hidden');
+                }
+            } catch (err) {
+                badgeEl.textContent = isEn ? "Error" : "Erreur";
+                badgeEl.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800";
+                hintEl.textContent = isEn
+                    ? "Unable to check right now. You can still include this domain in your request."
+                    : "Vérification impossible pour le moment. Vous pouvez tout de même nous l'indiquer dans votre demande.";
+                iconEl.className = "w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5";
+                iconEl.innerHTML = `<i data-lucide="alert-circle" class="w-5 h-5"></i>`;
+                useBtn.classList.remove('hidden');
+            }
+
             lucide.createIcons();
         }
 
