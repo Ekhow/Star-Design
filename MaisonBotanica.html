@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Botanica — Créations Florales, Plantes Rares & Précommandes</title>
+
+  <!-- Google Fonts : Cormorant Garamond (éditorial) & Plus Jakarta Sans (corps de texte) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuration personnalisée de la palette botanique et des typographies -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen: '#FAF8F4',
+            sand: '#F2EDE4',
+            forest: '#1F3A2E',
+            'forest-light': '#2B4E3E',
+            sage: '#7A9182',
+            'sage-soft': '#E7ECE8',
+            terracotta: '#C17B5C',
+            'terracotta-dark': '#A66346',
+            ink: '#232824',
+            muted: '#5F6962',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 10px 30px -10px rgba(31, 58, 46, 0.08)',
+            card: '0 14px 36px -12px rgba(31, 58, 46, 0.12)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Micro-animations et raffinements visuels */
+    body {
+      background-color: #FAF8F4;
+      color: #232824;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    /* Personnalisation discrète du curseur de budget */
+    input[type='range'].botanical-range {
+      -webkit-appearance: none;
+      appearance: none;
+      background: #E2DBD0;
+      height: 6px;
+      border-radius: 9999px;
+      outline: none;
+    }
+    input[type='range'].botanical-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 9999px;
+      background: #1F3A2E;
+      border: 3px solid #FAF8F4;
+      box-shadow: 0 2px 8px rgba(31, 58, 46, 0.25);
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    input[type='range'].botanical-range::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+      background: #C17B5C;
+    }
+    input[type='range'].botanical-range::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 9999px;
+      background: #1F3A2E;
+      border: 3px solid #FAF8F4;
+      box-shadow: 0 2px 8px rgba(31, 58, 46, 0.25);
+      cursor: pointer;
+    }
+
+    /* Masquer la barre de défilement horizontale sur les onglets mobiles */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Animation d'apparition douce */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+
+<body class="bg-linen text-ink antialiased selection:bg-terracotta/20 selection:text-forest overflow-x-hidden">
+
+  <!-- ==================== BANDEAU D'ANNONCE ==================== -->
+  <div class="bg-forest text-linen text-xs sm:text-sm py-2.5 px-4 text-center tracking-wide">
+    <p class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+      <span class="inline-flex items-center gap-1.5 font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-terracotta inline-block"></span>
+        Précommandes de saison ouvertes
+      </span>
+      <span class="hidden sm:inline opacity-40">•</span>
+      <span class="text-linen/85">Retrait Click &amp; Collect en 2h à l'Atelier Centre-Ville ou à La Serre</span>
+    </p>
+  </div>
+
+  <!-- ==================== EN-TÊTE / NAVIGATION ==================== -->
+  <header class="sticky top-0 z-40 bg-linen/90 backdrop-blur-md border-b border-forest/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <!-- Logo & Identité -->
+      <a href="#accueil" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-full bg-forest text-linen flex items-center justify-center shadow-sm group-hover:bg-terracotta transition-colors duration-300">
+          <!-- Icône feuille botanique SVG -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-semibold tracking-tight text-forest leading-none">Maison Botanica</span>
+          <span class="text-[10px] uppercase tracking-[0.22em] text-sage font-medium mt-1">Atelier Floral &amp; Herboristerie</span>
+        </div>
+      </a>
+
+      <!-- Navigation Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-forest/80">
+        <a href="#catalogue" class="hover:text-terracotta transition-colors">Catalogue</a>
+        <a href="#click-collect" class="hover:text-terracotta transition-colors">Click &amp; Collect</a>
+        <a href="#devis" class="hover:text-terracotta transition-colors">Commande &amp; Devis</a>
+        <a href="#notre-maison" class="hover:text-terracotta transition-colors">Notre Maison</a>
+      </nav>
+
+      <!-- Actions Droite : Panier + Menu Mobile -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button
+          id="open-cart-btn"
+          type="button"
+          class="relative inline-flex items-center gap-2.5 bg-forest hover:bg-forest-light text-linen px-4 sm:px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
+          aria-label="Ouvrir votre panier de précommande"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="hidden sm:inline">Précommande</span>
+          <span
+            id="cart-count-badge"
+            class="inline-flex items-center justify-center min-w-[22px] h-[22px] px-1.5 text-xs font-semibold rounded-full bg-terracotta text-linen transition-transform"
+          >0</span>
+        </button>
+
+        <!-- Bouton menu mobile -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="md:hidden p-2.5 rounded-full border border-forest/15 text-forest hover:bg-sand transition-colors"
+          aria-label="Ouvrir le menu"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="7" y2="7"></line>
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="17" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu déroulant Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-linen border-b border-forest/10 px-6 py-5 space-y-3 shadow-soft">
+      <a href="#catalogue" class="mobile-nav-link block py-2 text-base font-medium text-forest hover:text-terracotta">Catalogue produits</a>
+      <a href="#click-collect" class="mobile-nav-link block py-2 text-base font-medium text-forest hover:text-terracotta">Click &amp; Collect</a>
+      <a href="#devis" class="mobile-nav-link block py-2 text-base font-medium text-forest hover:text-terracotta">Commande &amp; Devis sur mesure</a>
+      <a href="#notre-maison" class="mobile-nav-link block py-2 text-base font-medium text-forest hover:text-terracotta">Notre Maison</a>
+    </div>
+  </header>
+
+  <!-- ==================== SECTION HÉRO ==================== -->
+  <section id="accueil" class="relative overflow-hidden pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28">
+    <!-- Cercles décoratifs organiques en arrière-plan -->
+    <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-sage-soft/70 blur-3xl"></div>
+    <div class="pointer-events-none absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-terracotta/10 blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Colonne éditoriale -->
+        <div class="lg:col-span-6 space-y-7 animate-fade-up">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand border border-forest/10 text-xs uppercase tracking-[0.18em] text-forest font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+            Collection Automne — Hiver
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-forest leading-[1.08] tracking-tight">
+            L'art botanique, façonné à la main et cueilli au fil des saisons.
+          </h1>
+
+          <p class="text-base sm:text-lg text-muted leading-relaxed max-w-xl">
+            Chez <strong class="font-semibold text-forest">Maison Botanica</strong>, nous composons des bouquets poétiques, des herbiers séchés et sélectionnons des plantes rares en circuit court. Parcourez nos créations, réservez vos précommandes en ligne et retirez-les en Click &amp; Collect.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            <a
+              href="#catalogue"
+              class="inline-flex items-center gap-2.5 bg-forest hover:bg-forest-light text-linen px-7 py-3.5 rounded-full text-sm font-medium shadow-soft hover:shadow-card transition-all active:scale-[0.98]"
+            >
+              Découvrir le catalogue
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+            <a
+              href="#devis"
+              class="inline-flex items-center gap-2 bg-transparent hover:bg-sand text-forest border border-forest/25 px-7 py-3.5 rounded-full text-sm font-medium transition-all"
+            >
+              Demander un devis sur mesure
+            </a>
+          </div>
+
+          <!-- Trois piliers discrets -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-forest/10 max-w-lg">
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-semibold text-forest">100%</p>
+              <p class="text-xs text-muted mt-0.5">Fleurs locales &amp; raisonnées</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-semibold text-forest">2h</p>
+              <p class="text-xs text-muted mt-0.5">Retrait Click &amp; Collect</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-semibold text-forest">Sur mesure</p>
+              <p class="text-xs text-muted mt-0.5">Mariages &amp; scénographies</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonne visuelle composition éditoriale -->
+        <div class="lg:col-span-6 relative">
+          <div class="grid grid-cols-12 gap-4 items-end">
+            <div class="col-span-7">
+              <div class="relative rounded-3xl overflow-hidden shadow-card aspect-[4/5] bg-sand">
+                <img
+                  src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=900&q=80"
+                  alt="Bouquet artisanal Maison Botanica"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  onerror="this.onerror=null;this.src='https://placehold.co/800x1000/EFECE6/1F3A2E?text=Maison+Botanica';"
+                />
+              </div>
+            </div>
+            <div class="col-span-5 space-y-4">
+              <div class="relative rounded-3xl overflow-hidden shadow-soft aspect-[4/4] bg-sand">
+                <img
+                  src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=700&q=80"
+                  alt="Plante d'intérieur en pot céramique"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  onerror="this.onerror=null;this.src='https://placehold.co/600x600/E7ECE8/1F3A2E?text=Plantes+Rares';"
+                />
+              </div>
+              <div class="rounded-3xl bg-forest text-linen p-5 shadow-soft">
+                <p class="text-[11px] uppercase tracking-[0.2em] text-terracotta font-semibold">Précommande ouverte</p>
+                <p class="font-serif text-xl mt-1 leading-snug">Bouquet Signature d'Automne</p>
+                <p class="text-xs text-linen/75 mt-1.5">Dahlia café au lait, eucalyptus cinerea &amp; graminées dorées.</p>
+                <button
+                  type="button"
+                  onclick="openProductModal(1)"
+                  class="mt-3.5 inline-flex items-center gap-1.5 text-xs font-medium text-linen hover:text-terracotta transition-colors"
+                >
+                  Voir la fiche produit
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 1. CATALOGUE PRODUITS ==================== -->
+  <section id="catalogue" class="py-16 sm:py-24 bg-sand/50 border-y border-forest/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- En-tête de section -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div class="max-w-2xl">
+          <span class="text-xs uppercase tracking-[0.22em] text-terracotta font-semibold">Catalogue produits</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-medium text-forest mt-2">
+            Nos créations botaniques
+          </h2>
+          <p class="text-muted mt-3 text-sm sm:text-base">
+            Cliquez sur une création pour découvrir sa composition botanique, nos conseils d'entretien, choisir votre format et l'ajouter à votre précommande.
+          </p>
+        </div>
+
+        <!-- Compteur dynamique de résultats -->
+        <p id="catalog-count" class="text-sm text-muted font-medium">
+          8 créations disponibles
+        </p>
+      </div>
+
+      <!-- Barre d'outils : Filtres catégories + Recherche + Tri -->
+      <div class="bg-linen rounded-3xl p-4 sm:p-5 shadow-soft border border-forest/10 mb-10 space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <!-- Boutons de catégories -->
+          <div id="category-filters" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 lg:pb-0">
+            <!-- Injecté dynamiquement par JS -->
+          </div>
+
+          <!-- Recherche & Tri -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div class="relative flex-1 sm:w-64">
+              <svg class="w-4 h-4 text-sage absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Rechercher une fleur, un vase..."
+                class="w-full pl-10 pr-4 py-2.5 rounded-full bg-sand/70 border border-forest/10 text-sm text-ink placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-forest/20 focus:bg-linen transition-all"
+              />
+            </div>
+
+            <div class="relative">
+              <select
+                id="sort-select"
+                aria-label="Trier par prix"
+                class="w-full sm:w-auto appearance-none pl-4 pr-10 py-2.5 rounded-full bg-sand/70 border border-forest/10 text-sm font-medium text-forest focus:outline-none focus:ring-2 focus:ring-forest/20 cursor-pointer"
+              >
+                <option value="default">Trier : Pertinence</option>
+                <option value="price-asc">Prix : croissant</option>
+                <option value="price-desc">Prix : décroissant</option>
+              </select>
+              <svg class="w-4 h-4 text-forest absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grille de produits -->
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+        <!-- Cartes produits injectées par JS -->
+      </div>
+
+      <!-- État vide si aucun résultat -->
+      <div id="empty-catalog" class="hidden text-center py-16 px-6 bg-linen rounded-3xl border border-forest/10">
+        <p class="font-serif text-2xl text-forest">Aucune création ne correspond à votre recherche</p>
+        <p class="text-sm text-muted mt-2">Essayez un autre mot-clé ou réinitialisez les filtres pour explorer tout notre catalogue.</p>
+        <button
+          id="reset-filters-btn"
+          type="button"
+          class="mt-5 px-6 py-2.5 rounded-full bg-forest text-linen text-sm font-medium hover:bg-forest-light transition-colors"
+        >
+          Afficher toutes nos créations
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. SECTION EXPLICATIVE CLICK & COLLECT ==================== -->
+  <section id="click-collect" class="py-16 sm:py-24 bg-linen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-[0.22em] text-terracotta font-semibold">Click &amp; Collect</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-medium text-forest mt-2">
+          Précommandez en ligne, retirez en toute sérénité
+        </h2>
+        <p class="text-muted mt-3 text-sm sm:text-base">
+          Pour garantir une fraîcheur irréprochable et limiter le gaspillage floral, nous préparons chaque création à la commande juste avant votre passage.
+        </p>
+      </div>
+
+      <!-- 3 étapes claires -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-14">
+        <!-- Étape 1 -->
+        <div class="relative bg-sand/60 rounded-3xl p-7 sm:p-8 border border-forest/10 hover:shadow-soft transition-shadow">
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-serif text-4xl font-semibold text-terracotta/80">01</span>
+            <div class="w-11 h-11 rounded-2xl bg-linen text-forest flex items-center justify-center shadow-sm">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m7.5 0a4.5 4.5 0 1 1-4.5 4.5m4.5-4.5H15m-3 4.5V15"></path>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+          </div>
+          <h3 class="font-serif text-2xl font-semibold text-forest">Choisissez vos créations</h3>
+          <p class="text-sm text-muted mt-2.5 leading-relaxed">
+            Sélectionnez vos bouquets, plantes ou vases, personnalisez le format (S, M ou L) et ajoutez un mot doux manuscrit sur papier ensemencé.
+          </p>
+        </div>
+
+        <!-- Étape 2 -->
+        <div class="relative bg-sand/60 rounded-3xl p-7 sm:p-8 border border-forest/10 hover:shadow-soft transition-shadow">
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-serif text-4xl font-semibold text-terracotta/80">02</span>
+            <div class="w-11 h-11 rounded-2xl bg-linen text-forest flex items-center justify-center shadow-sm">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                <line x1="16" x2="16" y1="2" y2="6"></line>
+                <line x1="8" x2="8" y1="2" y2="6"></line>
+                <line x1="3" x2="21" y1="10" y2="10"></line>
+              </svg>
+            </div>
+          </div>
+          <h3 class="font-serif text-2xl font-semibold text-forest">Réservez votre créneau</h3>
+          <p class="text-sm text-muted mt-2.5 leading-relaxed">
+            Choisissez votre point de retrait (Atelier Centre-Ville ou La Serre), la date souhaitée et le créneau horaire qui vous convient.
+          </p>
+        </div>
+
+        <!-- Étape 3 -->
+        <div class="relative bg-sand/60 rounded-3xl p-7 sm:p-8 border border-forest/10 hover:shadow-soft transition-shadow">
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-serif text-4xl font-semibold text-terracotta/80">03</span>
+            <div class="w-11 h-11 rounded-2xl bg-linen text-forest flex items-center justify-center shadow-sm">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                <path d="M3 6h18"></path>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="font-serif text-2xl font-semibold text-forest">Retirez sans attente</h3>
+          <p class="text-sm text-muted mt-2.5 leading-relaxed">
+            Présentez votre numéro de précommande à notre comptoir dédié. Votre création est hydratée, emballée dans du kraft naturel et prête à partir.
+          </p>
+        </div>
+      </div>
+
+      <!-- Points de retrait & Horaires d'ouverture -->
+      <div class="bg-forest text-linen rounded-3xl p-7 sm:p-10 shadow-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 space-y-3">
+          <span class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Nos points de retrait</span>
+          <h3 class="font-serif text-3xl sm:text-4xl font-medium leading-tight">
+            Deux lieux pour vous accueillir toute la semaine
+          </h3>
+          <p class="text-sm text-linen/75 leading-relaxed">
+            Nos fleuristes vous accueillent avec plaisir pour le retrait de vos précommandes, des conseils d'entretien ou la découverte de nos arrivages quotidiens.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <!-- Lieu 1 -->
+          <div class="bg-linen/10 border border-linen/15 rounded-2xl p-5 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-serif text-xl font-semibold">Atelier Centre-Ville</h4>
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-terracotta/90 text-linen font-medium">Retrait 2h</span>
+            </div>
+            <p class="text-xs text-linen/80">14 rue des Archives, 75004 Paris</p>
+            <div class="pt-2 border-t border-linen/10 text-xs text-linen/85 space-y-1">
+              <p class="flex justify-between"><span>Mar – Sam</span><span class="font-medium">10h00 – 19h30</span></p>
+              <p class="flex justify-between"><span>Dimanche</span><span class="font-medium">10h00 – 14h00</span></p>
+              <p class="flex justify-between text-linen/50"><span>Lundi</span><span>Fermé</span></p>
+            </div>
+          </div>
+
+          <!-- Lieu 2 -->
+          <div class="bg-linen/10 border border-linen/15 rounded-2xl p-5 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-serif text-xl font-semibold">La Serre Botanica</h4>
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-sage text-linen font-medium">Plantes &amp; Devis</span>
+            </div>
+            <p class="text-xs text-linen/80">48 avenue du Jardin, 75005 Paris</p>
+            <div class="pt-2 border-t border-linen/10 text-xs text-linen/85 space-y-1">
+              <p class="flex justify-between"><span>Mer – Sam</span><span class="font-medium">10h30 – 19h00</span></p>
+              <p class="flex justify-between"><span>Dimanche</span><span class="font-medium">10h30 – 17h30</span></p>
+              <p class="flex justify-between text-linen/50"><span>Lun – Mar</span><span>Sur rendez-vous</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. SECTION COMMANDE / DEVIS SUR MESURE ==================== -->
+  <section id="devis" class="py-16 sm:py-24 bg-sand/60 border-t border-forest/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <!-- Colonne gauche : présentation des prestations sur mesure -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="text-xs uppercase tracking-[0.22em] text-terracotta font-semibold">Commande &amp; Devis</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-medium text-forest mt-2 leading-tight">
+              Imaginons ensemble votre projet végétal
+            </h2>
+            <p class="text-muted mt-4 text-sm sm:text-base leading-relaxed">
+              Qu'il s'agisse d'un mariage intime, d'une scénographie de vitrine, d'un abonnement floral pour vos bureaux ou d'un bouquet d'exception, notre maison conçoit une proposition sur mesure sous 24h ouvrées.
+            </p>
+          </div>
+
+          <div class="space-y-3.5 pt-2">
+            <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-linen border border-forest/10">
+              <span class="w-8 h-8 rounded-full bg-sage-soft text-forest flex items-center justify-center shrink-0 text-sm font-serif font-bold">I</span>
+              <div>
+                <h3 class="text-sm font-semibold text-forest">Mariages &amp; Réceptions</h3>
+                <p class="text-xs text-muted mt-0.5">Arches fleuries, centres de table, bouquets de mariée et boutonnières assorties.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-linen border border-forest/10">
+              <span class="w-8 h-8 rounded-full bg-sage-soft text-forest flex items-center justify-center shrink-0 text-sm font-serif font-bold">II</span>
+              <div>
+                <h3 class="text-sm font-semibold text-forest">Scénographie &amp; Entreprises</h3>
+                <p class="text-xs text-muted mt-0.5">Abonnements hebdomadaires, végétalisation de bureaux, hôtels et lancements presse.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-linen border border-forest/10">
+              <span class="w-8 h-8 rounded-full bg-sage-soft text-forest flex items-center justify-center shrink-0 text-sm font-serif font-bold">III</span>
+              <div>
+                <h3 class="text-sm font-semibold text-forest">Création &amp; Bouquet sur mesure</h3>
+                <p class="text-xs text-muted mt-0.5">Une palette précise, une fleur rare ou une grande pièce maîtresse adaptée à votre vase.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonne droite : Formulaire de devis interactif -->
+        <div class="lg:col-span-7">
+          <div class="bg-linen rounded-3xl p-6 sm:p-9 shadow-card border border-forest/10">
+            <!-- Bannière de pré-remplissage si l'utilisateur vient d'une fiche produit -->
+            <div id="quote-prefill-banner" class="hidden mb-6 p-3.5 rounded-2xl bg-sage-soft/80 border border-sage/30 flex items-center justify-between gap-3">
+              <p class="text-xs sm:text-sm text-forest">
+                Modèle sélectionné : <strong id="quote-prefill-name" class="font-semibold"></strong>
+              </p>
+              <button type="button" id="clear-quote-prefill" class="text-xs text-muted hover:text-forest underline">Retirer</button>
+            </div>
+
+            <!-- Formulaire -->
+            <form id="quote-form" class="space-y-5" novalidate>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="quote-type" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1.5">
+                    Type de prestation *
+                  </label>
+                  <select
+                    id="quote-type"
+                    required
+                    class="w-full px-4 py-3 rounded-2xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25 focus:bg-linen"
+                  >
+                    <option value="Bouquet sur mesure">Bouquet / Création sur mesure</option>
+                    <option value="Mariage & Réception">Mariage &amp; Réception</option>
+                    <option value="Scénographie végétale">Scénographie végétale</option>
+                    <option value="Abonnement entreprise">Abonnement entreprise</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="quote-date" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1.5">
+                    Date souhaitée *
+                  </label>
+                  <input
+                    id="quote-date"
+                    type="date"
+                    required
+                    class="w-full px-4 py-3 rounded-2xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25 focus:bg-linen"
+                  />
+                </div>
+              </div>
+
+              <!-- Curseur Budget Estimé -->
+              <div class="p-4 rounded-2xl bg-sand/50 border border-forest/10 space-y-3">
+                <div class="flex items-center justify-between">
+                  <label for="quote-budget" class="text-xs font-semibold uppercase tracking-wider text-forest">
+                    Budget estimé
+                  </label>
+                  <span id="quote-budget-display" class="font-serif text-2xl font-semibold text-terracotta">450 €</span>
+                </div>
+                <input
+                  id="quote-budget"
+                  type="range"
+                  min="80"
+                  max="5000"
+                  step="10"
+                  value="450"
+                  class="w-full botanical-range"
+                />
+                <div class="flex justify-between text-[11px] text-muted">
+                  <span>80 €</span>
+                  <span>1 000 €</span>
+                  <span>2 500 €</span>
+                  <span>5 000 € +</span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="quote-scale" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1.5">
+                    Quantité / Envergure *
+                  </label>
+                  <input
+                    id="quote-scale"
+                    type="text"
+                    required
+                    placeholder="Ex: 12 centres de table, 1 grand bouquet..."
+                    class="w-full px-4 py-3 rounded-2xl bg-sand/60 border border-forest/15 text-sm text-ink placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-forest/25 focus:bg-linen"
+                  />
+                </div>
+
+                <div>
+                  <label for="quote-palette" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1.5">
+                    Ambiance / Palette souhaitée
+                  </label>
+                  <input
+                    id="quote-palette"
+                    type="text"
+                    placeholder="Ex: Terracotta, blanc crème, feuillage sauvage..."
+                    class="w-full px-4 py-3 rounded-2xl bg-sand/60 border border-forest/15 text-sm text-ink placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-forest/25 focus:bg-linen"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="quote-notes" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1.5">
+                  Préférences florales &amp; détails du projet
+                </label>
+                <textarea
+                  id="quote-notes"
+                  rows="3"
+                  placeholder="Parlez-nous du lieu, des variétés que vous aimez, ou de vos contraintes horaires..."
+                  class="w-full px-4 py-3 rounded-2xl bg-sand/60 border border-forest/15 text-sm text-ink placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-forest/25 focus:bg-linen resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Coordonnées -->
+              <div class="pt-3 border-t border-forest/10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="quote-name" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1.5">
+                    Nom complet *
+                  </label>
+                  <input
+                    id="quote-name"
+                    type="text"
+                    required
+                    placeholder="Camille Laurent"
+                    class="w-full px-4 py-2.5 rounded-2xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25 focus:bg-linen"
+                  />
+                </div>
+                <div>
+                  <label for="quote-email" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1.5">
+                    E-mail *
+                  </label>
+                  <input
+                    id="quote-email"
+                    type="email"
+                    required
+                    placeholder="camille@exemple.fr"
+                    class="w-full px-4 py-2.5 rounded-2xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25 focus:bg-linen"
+                  />
+                </div>
+                <div>
+                  <label for="quote-phone" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1.5">
+                    Téléphone *
+                  </label>
+                  <input
+                    id="quote-phone"
+                    type="tel"
+                    required
+                    placeholder="06 12 34 56 78"
+                    class="w-full px-4 py-2.5 rounded-2xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25 focus:bg-linen"
+                  />
+                </div>
+              </div>
+
+              <!-- Message d'erreur inline -->
+              <p id="quote-error" class="hidden text-xs font-medium text-terracotta-dark bg-terracotta/10 px-4 py-2.5 rounded-xl"></p>
+
+              <button
+                type="submit"
+                class="w-full py-3.5 px-6 rounded-full bg-forest hover:bg-forest-light text-linen text-sm font-medium shadow-soft hover:shadow-card transition-all active:scale-[0.99]"
+              >
+                Envoyer notre demande de devis
+              </button>
+            </form>
+
+            <!-- Écran de confirmation du devis -->
+            <div id="quote-confirmation" class="hidden text-center py-6 space-y-5 animate-fade-up">
+              <div class="w-16 h-16 rounded-full bg-sage-soft text-forest mx-auto flex items-center justify-center">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Demande enregistrée</span>
+                <h3 class="font-serif text-3xl font-medium text-forest mt-1">Merci pour votre confiance</h3>
+                <p class="text-sm text-muted mt-2 max-w-md mx-auto">
+                  Notre équipe étudie déjà votre projet et reviendra vers vous sous 24 heures ouvrées avec une proposition personnalisée.
+                </p>
+              </div>
+              <div id="quote-recap" class="text-left bg-sand/70 rounded-2xl p-5 text-sm space-y-2 border border-forest/10 max-w-md mx-auto">
+                <!-- Récapitulatif injecté par JS -->
+              </div>
+              <button
+                id="new-quote-btn"
+                type="button"
+                class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-forest/25 text-forest text-sm font-medium hover:bg-sand transition-colors"
+              >
+                Effectuer une nouvelle demande
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. NOTRE MAISON (MANIFESTE) ==================== -->
+  <section id="notre-maison" class="py-16 sm:py-24 bg-linen border-t border-forest/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl overflow-hidden shadow-card aspect-[4/5] bg-sand">
+            <img
+              src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=900&q=80"
+              alt="L'atelier floral Maison Botanica"
+              class="w-full h-full object-cover"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x1000/F2EDE4/1F3A2E?text=Atelier+Maison+Botanica';"
+            />
+          </div>
+        </div>
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-xs uppercase tracking-[0.22em] text-terracotta font-semibold">Notre Maison</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-medium text-forest leading-tight">
+            Une fleuristerie lente, responsable et profondément attachée au vivant
+          </h2>
+          <p class="text-muted leading-relaxed">
+            Fondée autour de la conviction que les fleurs méritent le temps des saisons, <strong class="text-forest font-semibold">Maison Botanica</strong> travaille main dans la main avec des fermes florales d'Île-de-France et du Var. Nous bannissons la mousse florale synthétique et privilégions des techniques durables : kenzan japonais, grillage réutilisable et papiers recyclés.
+          </p>
+          <p class="text-muted leading-relaxed">
+            Notre système de précommande nous permet d'ajuster nos cueillettes au plus juste, afin que chaque tige arrive chez vous dans toute sa vitalité.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+            <div class="p-4 rounded-2xl bg-sand/60 border border-forest/10">
+              <p class="font-serif text-2xl font-semibold text-forest">14 fermes</p>
+              <p class="text-xs text-muted mt-1">Producteurs partenaires français</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-sand/60 border border-forest/10">
+              <p class="font-serif text-2xl font-semibold text-forest">Zéro plastique</p>
+              <p class="text-xs text-muted mt-1">Emballages kraft &amp; lin naturel</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-sand/60 border border-forest/10 col-span-2 sm:col-span-1">
+              <p class="font-serif text-2xl font-semibold text-forest">4,9 / 5</p>
+              <p class="text-xs text-muted mt-1">Note moyenne de nos clients</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PIED DE PAGE ==================== -->
+  <footer class="bg-forest text-linen pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-linen/15">
+        <!-- Marque -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-linen/15 flex items-center justify-center">
+              <svg class="w-5 h-5 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+              </svg>
+            </div>
+            <span class="font-serif text-2xl font-semibold">Maison Botanica</span>
+          </div>
+          <p class="text-sm text-linen/75 max-w-sm leading-relaxed">
+            Atelier de créations florales de saison, fleurs séchées, plantes rares et scénographies végétales sur mesure.
+          </p>
+          <form id="newsletter-form" class="flex gap-2 max-w-sm pt-2">
+            <input
+              id="newsletter-email"
+              type="email"
+              required
+              placeholder="Votre adresse e-mail..."
+              class="flex-1 px-4 py-2.5 rounded-full bg-linen/10 border border-linen/20 text-sm text-linen placeholder:text-linen/50 focus:outline-none focus:border-terracotta"
+            />
+            <button
+              type="submit"
+              class="px-5 py-2.5 rounded-full bg-terracotta hover:bg-terracotta-dark text-linen text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              S'inscrire
+            </button>
+          </form>
+        </div>
+
+        <!-- Navigation -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Navigation</h4>
+          <ul class="space-y-2 text-sm text-linen/80">
+            <li><a href="#catalogue" class="hover:text-linen transition-colors">Catalogue produits</a></li>
+            <li><a href="#click-collect" class="hover:text-linen transition-colors">Click &amp; Collect</a></li>
+            <li><a href="#devis" class="hover:text-linen transition-colors">Commande &amp; Devis</a></li>
+            <li><a href="#notre-maison" class="hover:text-linen transition-colors">Notre Maison</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Nous contacter</h4>
+          <ul class="space-y-2 text-sm text-linen/80">
+            <li>Atelier Centre-Ville : 14 rue des Archives, Paris</li>
+            <li>La Serre : 48 avenue du Jardin, Paris</li>
+            <li>Téléphone : 01 42 78 90 12</li>
+            <li>E-mail : bonjour@maisonbotanica.fr</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-linen/60">
+        <p>© 2026 Maison Botanica. Tous droits réservés.</p>
+        <p>Précommandes locales • Click &amp; Collect • Fleurs de saison</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALE FICHE PRODUIT DÉTAILLÉE ==================== -->
+  <div
+    id="product-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6 bg-forest/55 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <div
+      id="product-modal-panel"
+      class="relative bg-linen w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl shadow-2xl border border-forest/10 grid grid-cols-1 md:grid-cols-12 animate-fade-up"
+    >
+      <!-- Bouton fermer -->
+      <button
+        id="close-product-modal"
+        type="button"
+        class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-linen/90 hover:bg-sand text-forest flex items-center justify-center shadow-sm border border-forest/10 transition-colors"
+        aria-label="Fermer la fiche produit"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Colonne Image -->
+      <div class="md:col-span-5 bg-sand relative min-h-[280px] sm:min-h-[380px] md:min-h-full">
+        <img
+          id="modal-image"
+          src=""
+          alt=""
+          class="w-full h-full object-cover"
+        />
+        <span
+          id="modal-badge"
+          class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold shadow-sm"
+        ></span>
+      </div>
+
+      <!-- Colonne Détails -->
+      <div class="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+        <div class="space-y-4">
+          <div>
+            <p id="modal-category" class="text-xs uppercase tracking-[0.2em] text-sage font-semibold"></p>
+            <div class="flex items-baseline justify-between gap-4 mt-1">
+              <h3 id="modal-title" class="font-serif text-3xl sm:text-4xl font-semibold text-forest leading-tight"></h3>
+              <span id="modal-price" class="font-serif text-3xl font-semibold text-terracotta shrink-0"></span>
+            </div>
+          </div>
+
+          <!-- Délai de préparation -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-sage-soft/75 text-xs text-forest font-medium">
+            <svg class="w-4 h-4 text-terracotta shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span id="modal-leadtime"></span>
+          </div>
+
+          <p id="modal-description" class="text-sm text-muted leading-relaxed"></p>
+
+          <!-- Composition, Dimensions & Entretien -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="p-3.5 rounded-2xl bg-sand/60 border border-forest/10">
+              <p class="text-[11px] uppercase tracking-wider text-forest font-semibold mb-1.5">Composition botanique</p>
+              <ul id="modal-composition" class="text-xs text-muted space-y-1 list-disc list-inside"></ul>
+            </div>
+            <div class="space-y-3">
+              <div class="p-3.5 rounded-2xl bg-sand/60 border border-forest/10">
+                <p class="text-[11px] uppercase tracking-wider text-forest font-semibold mb-1">Dimensions</p>
+                <p id="modal-dimensions" class="text-xs text-muted"></p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-sand/60 border border-forest/10">
+                <p class="text-[11px] uppercase tracking-wider text-forest font-semibold mb-1">Conseils d'entretien</p>
+                <p id="modal-care" class="text-xs text-muted leading-relaxed"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sélecteur de format (S / M / L) -->
+          <div class="pt-2">
+            <p class="text-xs uppercase tracking-wider text-forest font-semibold mb-2">Choisir votre format</p>
+            <div id="modal-sizes" class="grid grid-cols-3 gap-2.5">
+              <!-- Boutons de taille injectés par JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions : Quantité + Ajouter + Lien Devis -->
+        <div class="pt-4 border-t border-forest/10 space-y-3">
+          <div class="flex items-center gap-3">
+            <!-- Sélecteur quantité -->
+            <div class="inline-flex items-center rounded-full border border-forest/20 bg-sand/50">
+              <button
+                id="modal-qty-minus"
+                type="button"
+                class="w-10 h-11 flex items-center justify-center text-forest hover:text-terracotta font-semibold text-lg"
+                aria-label="Diminuer la quantité"
+              >−</button>
+              <span id="modal-qty-value" class="w-8 text-center text-sm font-semibold text-forest">1</span>
+              <button
+                id="modal-qty-plus"
+                type="button"
+                class="w-10 h-11 flex items-center justify-center text-forest hover:text-terracotta font-semibold text-lg"
+                aria-label="Augmenter la quantité"
+              >+</button>
+            </div>
+
+            <!-- Bouton principal -->
+            <button
+              id="modal-add-to-cart"
+              type="button"
+              class="flex-1 py-3 px-6 rounded-full bg-forest hover:bg-forest-light text-linen text-sm font-medium shadow-soft transition-all active:scale-[0.98]"
+            >
+              Ajouter à la précommande
+            </button>
+          </div>
+
+          <button
+            id="modal-quote-link"
+            type="button"
+            class="w-full py-2 text-xs font-medium text-forest/80 hover:text-terracotta transition-colors inline-flex items-center justify-center gap-1.5"
+          >
+            <span>Besoin d'une quantité importante ou d'une adaptation ?</span>
+            <span class="underline font-semibold">Demander un devis pour ce modèle →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TIROIR PANIER & CLICK & COLLECT ==================== -->
+  <div
+    id="cart-drawer-overlay"
+    class="fixed inset-0 z-50 hidden bg-forest/50 backdrop-blur-sm transition-opacity"
+    aria-hidden="true"
+  >
+    <aside
+      id="cart-drawer"
+      class="absolute right-0 top-0 h-full w-full max-w-md bg-linen shadow-2xl flex flex-col translate-x-full transition-transform duration-300"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Votre panier de précommande"
+    >
+      <!-- En-tête du tiroir -->
+      <div class="px-6 py-5 border-b border-forest/10 flex items-center justify-between bg-linen">
+        <div>
+          <h3 id="drawer-title" class="font-serif text-2xl font-semibold text-forest">Votre précommande</h3>
+          <p id="drawer-subtitle" class="text-xs text-muted">Click &amp; Collect — Retrait à l'atelier</p>
+        </div>
+        <button
+          id="close-cart-btn"
+          type="button"
+          class="w-9 h-9 rounded-full hover:bg-sand text-forest flex items-center justify-center transition-colors"
+          aria-label="Fermer le panier"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Contenu dynamique du tiroir (3 vues : Panier, Tunnel Click & Collect, Confirmation) -->
+      <div class="flex-1 overflow-y-auto px-6 py-5">
+
+        <!-- VUE 1 : LISTE DES ARTICLES -->
+        <div id="cart-step-items" class="space-y-4">
+          <div id="cart-items-list" class="space-y-3.5">
+            <!-- Articles injectés par JS -->
+          </div>
+
+          <div id="cart-empty-state" class="text-center py-14 space-y-4">
+            <div class="w-14 h-14 rounded-full bg-sand mx-auto flex items-center justify-center text-sage">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                <path d="M3 6h18"></path>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="font-serif text-2xl text-forest">Votre panier est vide</p>
+              <p class="text-xs text-muted mt-1">Explorez notre catalogue pour composer votre précommande Click &amp; Collect.</p>
+            </div>
+            <button
+              id="empty-cart-cta"
+              type="button"
+              class="px-5 py-2.5 rounded-full bg-forest text-linen text-xs font-medium hover:bg-forest-light transition-colors"
+            >
+              Parcourir les créations
+            </button>
+          </div>
+        </div>
+
+        <!-- VUE 2 : FORMULAIRE CLICK & COLLECT -->
+        <form id="cart-step-checkout" class="hidden space-y-4" novalidate>
+          <button
+            id="back-to-cart-btn"
+            type="button"
+            class="inline-flex items-center gap-1.5 text-xs font-medium text-muted hover:text-forest transition-colors"
+          >
+            ← Modifier les articles
+          </button>
+
+          <!-- Choix du point de retrait -->
+          <div class="space-y-2">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-forest">Point de retrait *</label>
+            <div class="space-y-2">
+              <label class="flex items-start gap-3 p-3.5 rounded-2xl bg-sand/60 border border-forest/15 cursor-pointer has-[:checked]:border-forest has-[:checked]:bg-sage-soft/50 transition-all">
+                <input type="radio" name="pickup-location" value="Atelier Centre-Ville (14 rue des Archives)" checked class="mt-1 accent-forest" />
+                <div>
+                  <p class="text-sm font-semibold text-forest">Atelier Centre-Ville</p>
+                  <p class="text-xs text-muted">14 rue des Archives, 75004 Paris</p>
+                </div>
+              </label>
+              <label class="flex items-start gap-3 p-3.5 rounded-2xl bg-sand/60 border border-forest/15 cursor-pointer has-[:checked]:border-forest has-[:checked]:bg-sage-soft/50 transition-all">
+                <input type="radio" name="pickup-location" value="La Serre Botanica (48 avenue du Jardin)" class="mt-1 accent-forest" />
+                <div>
+                  <p class="text-sm font-semibold text-forest">La Serre Botanica</p>
+                  <p class="text-xs text-muted">48 avenue du Jardin, 75005 Paris</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Date & Créneau horaire -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="checkout-date" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Date de retrait *</label>
+              <input
+                id="checkout-date"
+                type="date"
+                required
+                class="w-full px-3.5 py-2.5 rounded-xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25"
+              />
+            </div>
+            <div>
+              <label for="checkout-slot" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Créneau horaire *</label>
+              <select
+                id="checkout-slot"
+                required
+                class="w-full px-3.5 py-2.5 rounded-xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25"
+              >
+                <option value="10h00 – 11h30">10h00 – 11h30</option>
+                <option value="11h30 – 13h00">11h30 – 13h00</option>
+                <option value="14h00 – 16h00">14h00 – 16h00</option>
+                <option value="16h00 – 18h30">16h00 – 18h30</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Coordonnées -->
+          <div class="space-y-3 pt-1">
+            <div>
+              <label for="checkout-name" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Nom complet *</label>
+              <input
+                id="checkout-name"
+                type="text"
+                required
+                placeholder="Ex: Claire Moreau"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25"
+              />
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="checkout-email" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">E-mail *</label>
+                <input
+                  id="checkout-email"
+                  type="email"
+                  required
+                  placeholder="claire@exemple.fr"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25"
+                />
+              </div>
+              <div>
+                <label for="checkout-phone" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">Téléphone *</label>
+                <input
+                  id="checkout-phone"
+                  type="tel"
+                  required
+                  placeholder="06 00 00 00 00"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Mot personnalisé -->
+          <div>
+            <label for="checkout-note" class="block text-xs font-semibold uppercase tracking-wider text-forest mb-1">
+              Mot personnalisé (carte offerte)
+            </label>
+            <textarea
+              id="checkout-note"
+              rows="2"
+              placeholder="Un petit mot que nous calligraphierons sur papier ensemencé..."
+              class="w-full px-3.5 py-2.5 rounded-xl bg-sand/60 border border-forest/15 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-forest/25 resize-none"
+            ></textarea>
+          </div>
+
+          <p id="checkout-error" class="hidden text-xs font-medium text-terracotta-dark bg-terracotta/10 px-3.5 py-2 rounded-xl"></p>
+        </form>
+
+        <!-- VUE 3 : CONFIRMATION DE PRÉCOMMANDE -->
+        <div id="cart-step-confirmation" class="hidden text-center py-4 space-y-5 animate-fade-up">
+          <div class="w-16 h-16 rounded-full bg-sage-soft text-forest mx-auto flex items-center justify-center">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Précommande confirmée</span>
+            <h4 class="font-serif text-3xl font-semibold text-forest mt-1">Merci pour votre commande</h4>
+            <p class="text-xs text-muted mt-1.5">Un e-mail récapitulatif vient de vous être envoyé. Le règlement s'effectue lors du retrait ou via le lien sécurisé reçu.</p>
+          </div>
+
+          <div class="inline-block px-4 py-2 rounded-full bg-forest text-linen text-xs font-semibold tracking-wider">
+            N° <span id="confirm-order-number">MB-2026-0000</span>
+          </div>
+
+          <div id="confirm-order-recap" class="text-left bg-sand/70 rounded-2xl p-4 text-xs space-y-2 border border-forest/10">
+            <!-- Récapitulatif détaillé injecté par JS -->
+          </div>
+
+          <button
+            id="finish-order-btn"
+            type="button"
+            class="w-full py-3 rounded-full bg-forest hover:bg-forest-light text-linen text-sm font-medium transition-colors"
+          >
+            Retourner sur le site
+          </button>
+        </div>
+      </div>
+
+      <!-- Pied de tiroir (Total & Bouton d'action) -->
+      <div id="cart-footer" class="hidden px-6 py-5 border-t border-forest/10 bg-sand/50 space-y-3.5">
+        <div class="space-y-1.5 text-sm">
+          <div class="flex justify-between text-muted">
+            <span>Retrait Click &amp; Collect</span>
+            <span class="text-forest font-medium">Offert</span>
+          </div>
+          <div class="flex justify-between items-baseline pt-1 border-t border-forest/10">
+            <span class="font-medium text-forest">Total estimé</span>
+            <span id="cart-total-price" class="font-serif text-2xl font-semibold text-forest">0 €</span>
+          </div>
+        </div>
+
+        <button
+          id="proceed-checkout-btn"
+          type="button"
+          class="w-full py-3.5 rounded-full bg-forest hover:bg-forest-light text-linen text-sm font-medium shadow-soft transition-all active:scale-[0.99]"
+        >
+          Choisir mon créneau Click &amp; Collect
+        </button>
+
+        <button
+          id="confirm-checkout-btn"
+          type="button"
+          class="hidden w-full py-3.5 rounded-full bg-terracotta hover:bg-terracotta-dark text-linen text-sm font-medium shadow-soft transition-all active:scale-[0.99]"
+        >
+          Valider ma précommande Click &amp; Collect
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ==================== NOTIFICATION TOAST ==================== -->
+  <div
+    id="toast-container"
+    class="fixed bottom-5 right-5 z-[60] flex flex-col gap-2.5 pointer-events-none max-w-sm"
+    aria-live="polite"
+  ></div>
+
+  <!-- ==================== LOGIQUE APPLICATIVE JAVASCRIPT ==================== -->
+  <script>
+    /**
+     * =========================================================================
+     * DONNÉES DU CATALOGUE — MAISON BOTANICA
+     * 8 créations réalistes et détaillées réparties sur 4 catégories.
+     * =========================================================================
+     */
+    const CATEGORIES = [
+      'Toutes nos créations',
+      'Bouquets frais',
+      'Fleurs séchées',
+      'Plantes rares',
+      'Vases & Objets',
+    ];
+
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: 'Bouquet Brume d’Automne',
+        category: 'Bouquets frais',
+        badge: 'Précommande',
+        basePrice: 54,
+        leadTime: 'Préparation en 2h • Précommande ouverte',
+        image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=900&q=80',
+        shortDesc: 'Une composition aérienne aux teintes terracotta, crème et sauge argentée.',
+        description:
+          'Composé chaque matin dans notre atelier, Brume d’Automne associe la rondeur veloutée des dahlias locaux à la légèreté des graminées de saison. Un bouquet généreux au mouvement naturel et poétique.',
+        composition: [
+          'Dahlias Café au Lait (Île-de-France)',
+          'Roses de jardin caramel',
+          'Eucalyptus cinerea & graminées dorées',
+          'Astrances & scabieuses sauvages',
+        ],
+        care: 'Recoupez les tiges en biseau de 2 cm tous les deux jours et renouvelez l’eau fraîche loin des courants d’air et du soleil direct.',
+        sizes: [
+          { label: 'S — Délicat', short: 'S', priceDelta: 0, dimensions: 'H 35 cm × Ø 26 cm' },
+          { label: 'M — Généreux', short: 'M', priceDelta: 18, dimensions: 'H 42 cm × Ø 34 cm' },
+          { label: 'L — Signature', short: 'L', priceDelta: 38, dimensions: 'H 50 cm × Ø 42 cm' },
+        ],
+      },
+      {
+        id: 2,
+        name: 'Bouquet Aube Blanche',
+        category: 'Bouquets frais',
+        badge: 'En stock',
+        basePrice: 48,
+        leadTime: 'Disponible en Click & Collect dès aujourd’hui',
+        image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80',
+        shortDesc: 'Un nuage lumineux de renoncules nacrées, anémones et feuillage d’olivier.',
+        description:
+          'Inspiré par la clarté des matins d’hiver, Aube Blanche célèbre la pureté des fleurs blanches de saison ponctuées de feuillages vert sauge. Idéal pour illuminer une table ou célébrer un moment précieux.',
+        composition: [
+          'Renoncules Clooney blanches',
+          'Anémones cœur noir du Var',
+          'Rameaux d’olivier & pistache',
+          'Matricaires délicates',
+        ],
+        care: 'Remplissez votre vase à mi-hauteur d’eau fraîche. Retirez toute feuille immergée pour conserver une eau limpide plus longtemps.',
+        sizes: [
+          { label: 'S — Délicat', short: 'S', priceDelta: 0, dimensions: 'H 34 cm × Ø 25 cm' },
+          { label: 'M — Généreux', short: 'M', priceDelta: 16, dimensions: 'H 40 cm × Ø 32 cm' },
+          { label: 'L — Signature', short: 'L', priceDelta: 34, dimensions: 'H 48 cm × Ø 40 cm' },
+        ],
+      },
+      {
+        id: 3,
+        name: 'Herbier Soleil de Provence',
+        category: 'Fleurs séchées',
+        badge: 'En stock',
+        basePrice: 46,
+        leadTime: 'Prêt en 2h • Conservation 12 à 24 mois',
+        image: 'https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&w=900&q=80',
+        shortDesc: 'Bouquet séché artisanal aux nuances ocre, blé doré et immortelles.',
+        description:
+          'Séché naturellement tête en bas dans notre grenier, cet herbier capture la chaleur des étés méridionaux. Une pièce durable et sans entretien qui réchauffe immédiatement un intérieur.',
+        composition: [
+          'Immortelles jaunes & terracotta',
+          'Épis de blé barbu & avoine séchée',
+          'Phalaris naturel & lagurus',
+          'Monnaie du pape nacrée',
+        ],
+        care: 'Ne jamais arroser. Placez à l’abri de l’humidité et du soleil direct afin de préserver durablement l’intensité des pigments.',
+        sizes: [
+          { label: 'S — Soliflore', short: 'S', priceDelta: 0, dimensions: 'H 40 cm × Ø 22 cm' },
+          { label: 'M — Classique', short: 'M', priceDelta: 14, dimensions: 'H 50 cm × Ø 30 cm' },
+          { label: 'L — Grand Format', short: 'L', priceDelta: 28, dimensions: 'H 62 cm × Ø 38 cm' },
+        ],
+      },
+      {
+        id: 4,
+        name: 'Couronne Murale Lisière',
+        category: 'Fleurs séchées',
+        badge: 'Édition limitée',
+        basePrice: 68,
+        leadTime: 'Façonnée à la commande • Délai 24h',
+        image: 'https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=900&q=80',
+        shortDesc: 'Couronne asymétrique en laiton brossé, eucalyptus stabilisé et fleurs séchées.',
+        description:
+          'Montée brin par brin sur un cercle en laiton fin, notre couronne Lisière associe l’eucalyptus stabilisé aux teintes douces des hortensias séchés et des statices sable. Chaque exemplaire est unique.',
+        composition: [
+          'Cercle en laiton brossé français',
+          'Eucalyptus populus stabilisé',
+          'Hortensias séchés vieux rose & sable',
+          'Ruban de soie naturelle effilochée',
+        ],
+        care: 'Usage intérieur uniquement. Dépoussiérez très délicatement à l’air froid si nécessaire.',
+        sizes: [
+          { label: 'S — Ø 25 cm', short: 'S', priceDelta: 0, dimensions: 'Diamètre 25 cm' },
+          { label: 'M — Ø 35 cm', short: 'M', priceDelta: 22, dimensions: 'Diamètre 35 cm' },
+          { label: 'L — Ø 45 cm', short: 'L', priceDelta: 42, dimensions: 'Diamètre 45 cm' },
+        ],
+      },
+      {
+        id: 5,
+        name: 'Monstera Thai Constellation',
+        category: 'Plantes rares',
+        badge: 'Édition limitée',
+        basePrice: 89,
+        leadTime: 'Précommande • Retrait sous 48h à La Serre',
+        image: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=900&q=80',
+        shortDesc: 'Feuillage découpé constellé de panachures crème uniques.',
+        description:
+          'Joyau des collectionneurs, notre Monstera Thai Constellation est acclimatée dans notre serre dans un substrat drainant fait maison (écorces de pin, perlite et fibre de coco). Livrée avec sa fiche botanique.',
+        composition: [
+          'Monstera Deliciosa Thai Constellation acclimatée',
+          'Substrat aroid ultra-drainant',
+          'Pot de culture terracotta respirant inclus',
+        ],
+        care: 'Lumière vive indirecte indispensable pour préserver les panachures crème. Arrosez lorsque le substrat est sec sur 4 cm.',
+        sizes: [
+          { label: 'S — Pot Ø 14 cm', short: 'S', priceDelta: 0, dimensions: 'H 30–35 cm (4–5 feuilles)' },
+          { label: 'M — Pot Ø 18 cm', short: 'M', priceDelta: 45, dimensions: 'H 45–55 cm (6–7 feuilles)' },
+          { label: 'L — Pot Ø 24 cm', short: 'L', priceDelta: 95, dimensions: 'H 65–75 cm (spécimen mature)' },
+        ],
+      },
+      {
+        id: 6,
+        name: 'Ficus Lyrata Bambino',
+        category: 'Plantes rares',
+        badge: 'En stock',
+        basePrice: 58,
+        leadTime: 'Disponible en Click & Collect en 2h',
+        image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80',
+        shortDesc: 'Silhouette sculpturale aux grandes feuilles vernissées vert forêt.',
+        description:
+          'Variété compacte et dense du célèbre figuier lyre, le Ficus Lyrata Bambino apporte une présence architecturale apaisante dans un salon ou un bureau lumineux.',
+        composition: [
+          'Ficus Lyrata Bambino sélectionné en serre',
+          'Terreau horticole enrichi en lombricompost',
+          'Cache-pot en grès brut optionnel en atelier',
+        ],
+        care: 'Exposition lumineuse sans soleil brûlant. Essuyez les feuilles au chiffon humide une fois par mois et arrosez modérément.',
+        sizes: [
+          { label: 'S — Pot Ø 15 cm', short: 'S', priceDelta: 0, dimensions: 'H 45 cm' },
+          { label: 'M — Pot Ø 19 cm', short: 'M', priceDelta: 24, dimensions: 'H 70 cm' },
+          { label: 'L — Pot Ø 24 cm', short: 'L', priceDelta: 52, dimensions: 'H 105 cm' },
+        ],
+      },
+      {
+        id: 7,
+        name: 'Vase Amphore en Grès Brut',
+        category: 'Vases & Objets',
+        badge: 'Précommande',
+        basePrice: 64,
+        leadTime: 'Petite série artisanale • Retrait sous 72h',
+        image: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=900&q=80',
+        shortDesc: 'Tourné à la main en grès chamotté sable, intérieur émaillé étanche.',
+        description:
+          'Façonné en collaboration avec une céramiste du Loiret, ce vase aux courbes organiques sublime aussi bien nos bouquets frais que quelques branches séchées. Chaque pièce porte la signature discrète de l’atelier.',
+        composition: [
+          'Grès chamotté naturel haute température',
+          'Émail transparent alimentaire à l’intérieur',
+          'Extérieur mat texturé au toucher minéral',
+        ],
+        care: 'Lavez délicatement à l’eau tiède savonneuse. Évitez le lave-vaisselle pour préserver la patine brute du grès.',
+        sizes: [
+          { label: 'S — Soliflore', short: 'S', priceDelta: 0, dimensions: 'H 19 cm × Ø 12 cm' },
+          { label: 'M — Bouquet', short: 'M', priceDelta: 22, dimensions: 'H 26 cm × Ø 16 cm' },
+          { label: 'L — Pièce Maîtresse', short: 'L', priceDelta: 44, dimensions: 'H 34 cm × Ø 21 cm' },
+        ],
+      },
+      {
+        id: 8,
+        name: 'Coffret Sécateur & Kenzan Japonais',
+        category: 'Vases & Objets',
+        badge: 'En stock',
+        basePrice: 72,
+        leadTime: 'Disponible en Click & Collect en 2h',
+        image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80',
+        shortDesc: 'L’essentiel pour composer vos propres créations florales sans mousse synthétique.',
+        description:
+          'Pensé pour les amoureux d’art floral, ce coffret réunit un sécateur en acier carbone forgé et un pique-fleurs kenzan en laiton lourd, accompagnés de notre livret illustré d’astuces d’atelier.',
+        composition: [
+          'Sécateur artisanal en acier carbone (18 cm)',
+          'Kenzan japonais en laiton massif avec joint caoutchouc',
+          'Pochette en lin lavé & livret de conseils Maison Botanica',
+        ],
+        care: 'Essuyez la lame du sécateur après chaque usage et huilez-la légèrement une fois par trimestre.',
+        sizes: [
+          { label: 'S — Kenzan Ø 5 cm', short: 'S', priceDelta: 0, dimensions: 'Coffret 22 × 14 cm' },
+          { label: 'M — Kenzan Ø 7 cm', short: 'M', priceDelta: 15, dimensions: 'Coffret 22 × 14 cm' },
+          { label: 'L — Duo Kenzan', short: 'L', priceDelta: 32, dimensions: 'Coffret 25 × 16 cm' },
+        ],
+      },
+    ];
+
+    /**
+     * =========================================================================
+     * ÉTAT GLOBAL DE L'APPLICATION
+     * =========================================================================
+     */
+    const state = {
+      selectedCategory: 'Toutes nos créations',
+      searchQuery: '',
+      sortBy: 'default',
+      cart: [], // { productId, sizeIndex, quantity }
+      activeModalProduct: null,
+      activeModalSizeIndex: 1, // Format M par défaut
+      activeModalQty: 1,
+    };
+
+    // Utilitaires de formatage
+    const formatPrice = (amount) => `${amount.toLocaleString('fr-FR')} €`;
+
+    const getTomorrowISO = () => {
+      const d = new Date();
+      d.setDate(d.getDate() + 1);
+      return d.toISOString().split('T')[0];
+    };
+
+    const formatDateFR = (isoDate) => {
+      if (!isoDate) return '';
+      const [y, m, d] = isoDate.split('-');
+      return `${d}/${m}/${y}`;
+    };
+
+    const getBadgeStyles = (badge) => {
+      switch (badge) {
+        case 'Précommande':
+          return 'bg-terracotta text-linen';
+        case 'Édition limitée':
+          return 'bg-forest text-linen';
+        default:
+          return 'bg-linen/95 text-forest border border-forest/15';
+      }
+    };
+
+    /**
+     * =========================================================================
+     * SYSTÈME DE NOTIFICATIONS TOAST
+     * =========================================================================
+     */
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const accent = type === 'success' ? 'bg-forest text-linen' : 'bg-terracotta text-linen';
+
+      toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl shadow-card text-sm ${accent} transition-all duration-300 translate-y-2 opacity-0`;
+      toast.innerHTML = `
+        <span class="w-2 h-2 rounded-full bg-terracotta shrink-0"></span>
+        <span class="leading-snug">${message}</span>
+      `;
+
+      container.appendChild(toast);
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-2', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    /**
+     * =========================================================================
+     * 1. RENDU DU CATALOGUE & FILTRAGE
+     * =========================================================================
+     */
+    function renderCategoryFilters() {
+      const container = document.getElementById('category-filters');
+      container.innerHTML = CATEGORIES.map((cat) => {
+        const isActive = state.selectedCategory === cat;
+        const classes = isActive
+          ? 'bg-forest text-linen shadow-sm'
+          : 'bg-sand/70 text-forest/80 hover:bg-sand hover:text-forest';
+        return `
+          <button
+            type="button"
+            data-category="${cat}"
+            class="category-btn whitespace-nowrap px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${classes}"
+          >
+            ${cat}
+          </button>
+        `;
+      }).join('');
+
+      container.querySelectorAll('.category-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.selectedCategory = btn.dataset.category;
+          renderCategoryFilters();
+          renderProducts();
+        });
+      });
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      const emptyBox = document.getElementById('empty-catalog');
+      const countLabel = document.getElementById('catalog-count');
+
+      // Filtrage par catégorie et recherche
+      const q = state.searchQuery.trim().toLowerCase();
+      let filtered = PRODUCTS.filter((p) => {
+        const matchCat = state.selectedCategory === 'Toutes nos créations' || p.category === state.selectedCategory;
+        const matchQuery =
+          !q ||
+          p.name.toLowerCase().includes(q) ||
+          p.shortDesc.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          p.composition.some((c) => c.toLowerCase().includes(q));
+        return matchCat && matchQuery;
+      });
+
+      // Tri par prix
+      if (state.sortBy === 'price-asc') {
+        filtered.sort((a, b) => a.basePrice - b.basePrice);
+      } else if (state.sortBy === 'price-desc') {
+        filtered.sort((a, b) => b.basePrice - a.basePrice);
+      }
+
+      countLabel.textContent = `${filtered.length} création${filtered.length > 1 ? 's' : ''} disponible${filtered.length > 1 ? 's' : ''}`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyBox.classList.remove('hidden');
+        return;
+      }
+
+      emptyBox.classList.add('hidden');
+
+      grid.innerHTML = filtered
+        .map(
+          (product) => `
+          <article
+            onclick="openProductModal(${product.id})"
+            class="group cursor-pointer bg-linen rounded-3xl overflow-hidden border border-forest/10 hover:border-forest/25 shadow-soft hover:shadow-card transition-all duration-300 flex flex-col"
+          >
+            <div class="relative aspect-[4/5] bg-sand overflow-hidden">
+              <img
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x750/EFECE6/1F3A2E?text=${encodeURIComponent(product.name)}';"
+              />
+              <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide shadow-sm ${getBadgeStyles(product.badge)}">
+                ${product.badge}
+              </span>
+              <div class="absolute inset-x-3.5 bottom-3.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hidden sm:block">
+                <span class="block w-full text-center py-2.5 rounded-full bg-linen/95 backdrop-blur text-forest text-xs font-semibold shadow-sm">
+                  Voir la fiche détaillée
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+              <div>
+                <p class="text-[11px] uppercase tracking-[0.16em] text-sage font-semibold">${product.category}</p>
+                <h3 class="font-serif text-2xl font-semibold text-forest mt-1 group-hover:text-terracotta transition-colors leading-snug">
+                  ${product.name}
+                </h3>
+                <p class="text-xs text-muted mt-1.5 line-clamp-2 leading-relaxed">
+                  ${product.shortDesc}
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-forest/10 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] uppercase tracking-wider text-muted block">À partir de</span>
+                  <span class="font-serif text-xl font-semibold text-forest">${formatPrice(product.basePrice)}</span>
+                </div>
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); quickAddToCart(${product.id})"
+                  class="w-10 h-10 rounded-full bg-sand hover:bg-forest text-forest hover:text-linen flex items-center justify-center transition-colors"
+                  title="Ajout rapide (Format S)"
+                  aria-label="Ajouter ${product.name} à la précommande"
+                >
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        `
+        )
+        .join('');
+    }
+
+    /**
+     * =========================================================================
+     * 2. MODALE FICHE PRODUIT DÉTAILLÉE
+     * =========================================================================
+     */
+    function openProductModal(productId) {
+      const product = PRODUCTS.find((p) => p.id === productId);
+      if (!product) return;
+
+      state.activeModalProduct = product;
+      state.activeModalSizeIndex = 0; // Format S par défaut
+      state.activeModalQty = 1;
+
+      const modal = document.getElementById('product-modal');
+      const img = document.getElementById('modal-image');
+      img.src = product.image;
+      img.alt = product.name;
+      img.onerror = () => {
+        img.onerror = null;
+        img.src = `https://placehold.co/800x1000/EFECE6/1F3A2E?text=${encodeURIComponent(product.name)}`;
+      };
+
+      const badge = document.getElementById('modal-badge');
+      badge.textContent = product.badge;
+      badge.className = `absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${getBadgeStyles(product.badge)}`;
+
+      document.getElementById('modal-category').textContent = product.category;
+      document.getElementById('modal-title').textContent = product.name;
+      document.getElementById('modal-leadtime').textContent = product.leadTime;
+      document.getElementById('modal-description').textContent = product.description;
+      document.getElementById('modal-care').textContent = product.care;
+
+      document.getElementById('modal-composition').innerHTML = product.composition
+        .map((item) => `<li>${item}</li>`)
+        .join('');
+
+      updateModalDynamicFields();
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function updateModalDynamicFields() {
+      const product = state.activeModalProduct;
+      if (!product) return;
+
+      const size = product.sizes[state.activeModalSizeIndex];
+      const unitPrice = product.basePrice + size.priceDelta;
+
+      document.getElementById('modal-price').textContent = formatPrice(unitPrice);
+      document.getElementById('modal-dimensions').textContent = size.dimensions;
+      document.getElementById('modal-qty-value').textContent = state.activeModalQty;
+
+      // Rendu des boutons de taille
+      const sizesContainer = document.getElementById('modal-sizes');
+      sizesContainer.innerHTML = product.sizes
+        .map((s, idx) => {
+          const isSelected = idx === state.activeModalSizeIndex;
+          const p = product.basePrice + s.priceDelta;
+          return `
+            <button
+              type="button"
+              onclick="selectModalSize(${idx})"
+              class="p-2.5 rounded-2xl border text-left transition-all ${
+                isSelected
+                  ? 'border-forest bg-forest text-linen shadow-sm'
+                  : 'border-forest/15 bg-sand/50 text-forest hover:border-forest/40'
+              }"
+            >
+              <span class="block text-xs font-semibold">${s.label}</span>
+              <span class="block text-[11px] mt-0.5 ${isSelected ? 'text-linen/80' : 'text-muted'}">${formatPrice(p)}</span>
+            </button>
+          `;
+        })
+        .join('');
+    }
+
+    function selectModalSize(index) {
+      state.activeModalSizeIndex = index;
+      updateModalDynamicFields();
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('product-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    /**
+     * =========================================================================
+     * 3. GESTION DU PANIER & TUNNEL CLICK & COLLECT
+     * =========================================================================
+     */
+    function addToCart(productId, sizeIndex = 0, quantity = 1) {
+      const product = PRODUCTS.find((p) => p.id === productId);
+      if (!product) return;
+
+      const existing = state.cart.find(
+        (item) => item.productId === productId && item.sizeIndex === sizeIndex
+      );
+
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        state.cart.push({ productId, sizeIndex, quantity });
+      }
+
+      updateCartUI();
+      const sizeLabel = product.sizes[sizeIndex].short;
+      showToast(`« ${product.name} » (${sizeLabel}) ajouté à votre précommande.`);
+    }
+
+    function quickAddToCart(productId) {
+      addToCart(productId, 0, 1);
+    }
+
+    function updateCartItemQty(index, delta) {
+      if (!state.cart[index]) return;
+      state.cart[index].quantity += delta;
+      if (state.cart[index].quantity <= 0) {
+        state.cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeCartItem(index) {
+      state.cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function getCartTotal() {
+      return state.cart.reduce((sum, item) => {
+        const product = PRODUCTS.find((p) => p.id === item.productId);
+        if (!product) return sum;
+        const unitPrice = product.basePrice + product.sizes[item.sizeIndex].priceDelta;
+        return sum + unitPrice * item.quantity;
+      }, 0);
+    }
+
+    function updateCartUI() {
+      const totalItems = state.cart.reduce((sum, i) => sum + i.quantity, 0);
+      const badge = document.getElementById('cart-count-badge');
+      badge.textContent = totalItems;
+      badge.classList.add('scale-125');
+      setTimeout(() => badge.classList.remove('scale-125'), 180);
+
+      const listEl = document.getElementById('cart-items-list');
+      const emptyEl = document.getElementById('cart-empty-state');
+      const footerEl = document.getElementById('cart-footer');
+      const totalEl = document.getElementById('cart-total-price');
+
+      totalEl.textContent = formatPrice(getCartTotal());
+
+      if (state.cart.length === 0) {
+        listEl.innerHTML = '';
+        emptyEl.classList.remove('hidden');
+        footerEl.classList.add('hidden');
+        return;
+      }
+
+      emptyEl.classList.add('hidden');
+      // N'afficher le footer que si on n'est pas sur l'écran de confirmation
+      if (document.getElementById('cart-step-confirmation').classList.contains('hidden')) {
+        footerEl.classList.remove('hidden');
+      }
+
+      listEl.innerHTML = state.cart
+        .map((item, idx) => {
+          const product = PRODUCTS.find((p) => p.id === item.productId);
+          const size = product.sizes[item.sizeIndex];
+          const unitPrice = product.basePrice + size.priceDelta;
+          return `
+            <div class="flex gap-3.5 p-3 rounded-2xl bg-sand/60 border border-forest/10">
+              <img
+                src="${product.image}"
+                alt="${product.name}"
+                class="w-16 h-20 rounded-xl object-cover bg-sand shrink-0"
+                onerror="this.onerror=null;this.src='https://placehold.co/120x150/EFECE6/1F3A2E?text=MB';"
+              />
+              <div class="flex-1 min-w-0 flex flex-col justify-between">
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <h4 class="font-serif text-lg font-semibold text-forest leading-tight truncate">${product.name}</h4>
+                    <p class="text-[11px] text-muted">${size.label} • ${formatPrice(unitPrice)}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onclick="removeCartItem(${idx})"
+                    class="text-muted hover:text-terracotta p-1"
+                    aria-label="Supprimer l'article"
+                  >
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M18 6 6 18"></path>
+                      <path d="m6 6 12 12"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="inline-flex items-center rounded-full bg-linen border border-forest/15">
+                    <button type="button" onclick="updateCartItemQty(${idx}, -1)" class="w-7 h-7 text-xs font-semibold text-forest hover:text-terracotta">−</button>
+                    <span class="w-6 text-center text-xs font-semibold text-forest">${item.quantity}</span>
+                    <button type="button" onclick="updateCartItemQty(${idx}, 1)" class="w-7 h-7 text-xs font-semibold text-forest hover:text-terracotta">+</button>
+                  </div>
+                  <span class="text-sm font-semibold text-forest">${formatPrice(unitPrice * item.quantity)}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        })
+        .join('');
+    }
+
+    function setCartStep(step) {
+      const stepItems = document.getElementById('cart-step-items');
+      const stepCheckout = document.getElementById('cart-step-checkout');
+      const stepConfirm = document.getElementById('cart-step-confirmation');
+      const footer = document.getElementById('cart-footer');
+      const proceedBtn = document.getElementById('proceed-checkout-btn');
+      const confirmBtn = document.getElementById('confirm-checkout-btn');
+      const title = document.getElementById('drawer-title');
+
+      stepItems.classList.add('hidden');
+      stepCheckout.classList.add('hidden');
+      stepConfirm.classList.add('hidden');
+
+      if (step === 'items') {
+        title.textContent = 'Votre précommande';
+        stepItems.classList.remove('hidden');
+        proceedBtn.classList.remove('hidden');
+        confirmBtn.classList.add('hidden');
+        if (state.cart.length > 0) footer.classList.remove('hidden');
+        else footer.classList.add('hidden');
+      } else if (step === 'checkout') {
+        title.textContent = 'Retrait Click & Collect';
+        stepCheckout.classList.remove('hidden');
+        proceedBtn.classList.add('hidden');
+        confirmBtn.classList.remove('hidden');
+        footer.classList.remove('hidden');
+      } else if (step === 'confirmation') {
+        title.textContent = 'Confirmation';
+        stepConfirm.classList.remove('hidden');
+        footer.classList.add('hidden');
+      }
+    }
+
+    function openCartDrawer() {
+      const overlay = document.getElementById('cart-drawer-overlay');
+      const drawer = document.getElementById('cart-drawer');
+      setCartStep('items');
+      updateCartUI();
+      overlay.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      requestAnimationFrame(() => {
+        drawer.classList.remove('translate-x-full');
+      });
+    }
+
+    function closeCartDrawer() {
+      const overlay = document.getElementById('cart-drawer-overlay');
+      const drawer = document.getElementById('cart-drawer');
+      drawer.classList.add('translate-x-full');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }, 280);
+    }
+
+    function handleCheckoutSubmit() {
+      const errorEl = document.getElementById('checkout-error');
+      const locationInput = document.querySelector('input[name="pickup-location"]:checked');
+      const dateVal = document.getElementById('checkout-date').value;
+      const slotVal = document.getElementById('checkout-slot').value;
+      const nameVal = document.getElementById('checkout-name').value.trim();
+      const emailVal = document.getElementById('checkout-email').value.trim();
+      const phoneVal = document.getElementById('checkout-phone').value.trim();
+      const noteVal = document.getElementById('checkout-note').value.trim();
+
+      if (!dateVal || !nameVal || !emailVal || !phoneVal) {
+        errorEl.textContent = 'Merci de renseigner votre date de retrait ainsi que vos coordonnées complètes.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      errorEl.classList.add('hidden');
+
+      // Génération du numéro de commande
+      const orderNum = `MB-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      document.getElementById('confirm-order-number').textContent = orderNum;
+
+      const itemsSummary = state.cart
+        .map((item) => {
+          const p = PRODUCTS.find((pr) => pr.id === item.productId);
+          return `${item.quantity}× ${p.name} (${p.sizes[item.sizeIndex].short})`;
+        })
+        .join(', ');
+
+      const totalFormatted = formatPrice(getCartTotal());
+
+      document.getElementById('confirm-order-recap').innerHTML = `
+        <p><span class="text-muted">Client :</span> <strong class="text-forest">${nameVal}</strong></p>
+        <p><span class="text-muted">Point de retrait :</span> <strong class="text-forest">${locationInput.value}</strong></p>
+        <p><span class="text-muted">Date &amp; créneau :</span> <strong class="text-forest">${formatDateFR(dateVal)} (${slotVal})</strong></p>
+        <p><span class="text-muted">Créations :</span> <strong class="text-forest">${itemsSummary}</strong></p>
+        ${noteVal ? `<p><span class="text-muted">Mot personnalisé :</span> <em class="text-forest">« ${noteVal} »</em></p>` : ''}
+        <p class="pt-2 border-t border-forest/10 flex justify-between text-sm">
+          <span class="text-muted">Total précommande</span>
+          <strong class="text-forest font-serif text-lg">${totalFormatted}</strong>
+        </p>
+      `;
+
+      // Vider le panier et afficher la confirmation
+      state.cart = [];
+      updateCartUI();
+      setCartStep('confirmation');
+      showToast(`Précommande ${orderNum} confirmée !`);
+    }
+
+    /**
+     * =========================================================================
+     * 4. SECTION COMMANDE / DEVIS SUR MESURE
+     * =========================================================================
+     */
+    function prefillQuoteFromProduct(product) {
+      closeProductModal();
+      const banner = document.getElementById('quote-prefill-banner');
+      const nameSpan = document.getElementById('quote-prefill-name');
+      const typeSelect = document.getElementById('quote-type');
+      const notesField = document.getElementById('quote-notes');
+
+      nameSpan.textContent = `${product.name} (${product.category})`;
+      banner.classList.remove('hidden');
+      typeSelect.value = 'Bouquet sur mesure';
+      notesField.value = `Bonjour Maison Botanica, nous souhaiterions un devis personnalisé inspiré du modèle « ${product.name} ». `;
+
+      // Réafficher le formulaire si une confirmation était affichée
+      document.getElementById('quote-form').classList.remove('hidden');
+      document.getElementById('quote-confirmation').classList.add('hidden');
+
+      // Défilement fluide vers la section Devis
+      document.getElementById('devis').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => notesField.focus(), 550);
+    }
+
+    /**
+     * =========================================================================
+     * INITIALISATION & ÉCOUTEURS D'ÉVÉNEMENTS
+     * =========================================================================
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialisation des dates par défaut (demain)
+      const tomorrow = getTomorrowISO();
+      const checkoutDate = document.getElementById('checkout-date');
+      const quoteDate = document.getElementById('quote-date');
+      checkoutDate.min = tomorrow;
+      checkoutDate.value = tomorrow;
+      quoteDate.min = tomorrow;
+
+      // Rendu initial du catalogue
+      renderCategoryFilters();
+      renderProducts();
+      updateCartUI();
+
+      // Menu mobile
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+
+      // Recherche & Tri catalogue
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        state.searchQuery = e.target.value;
+        renderProducts();
+      });
+
+      document.getElementById('sort-select').addEventListener('change', (e) => {
+        state.sortBy = e.target.value;
+        renderProducts();
+      });
+
+      document.getElementById('reset-filters-btn').addEventListener('click', () => {
+        state.selectedCategory = 'Toutes nos créations';
+        state.searchQuery = '';
+        state.sortBy = 'default';
+        document.getElementById('search-input').value = '';
+        document.getElementById('sort-select').value = 'default';
+        renderCategoryFilters();
+        renderProducts();
+      });
+
+      // Contrôles de la modale produit
+      document.getElementById('close-product-modal').addEventListener('click', closeProductModal);
+      document.getElementById('product-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'product-modal') closeProductModal();
+      });
+
+      document.getElementById('modal-qty-minus').addEventListener('click', () => {
+        if (state.activeModalQty > 1) {
+          state.activeModalQty--;
+          updateModalDynamicFields();
+        }
+      });
+
+      document.getElementById('modal-qty-plus').addEventListener('click', () => {
+        state.activeModalQty++;
+        updateModalDynamicFields();
+      });
+
+      document.getElementById('modal-add-to-cart').addEventListener('click', () => {
+        if (!state.activeModalProduct) return;
+        addToCart(state.activeModalProduct.id, state.activeModalSizeIndex, state.activeModalQty);
+        closeProductModal();
+      });
+
+      document.getElementById('modal-quote-link').addEventListener('click', () => {
+        if (state.activeModalProduct) {
+          prefillQuoteFromProduct(state.activeModalProduct);
+        }
+      });
+
+      // Contrôles du tiroir Panier / Click & Collect
+      document.getElementById('open-cart-btn').addEventListener('click', openCartDrawer);
+      document.getElementById('close-cart-btn').addEventListener('click', closeCartDrawer);
+      document.getElementById('cart-drawer-overlay').addEventListener('click', (e) => {
+        if (e.target.id === 'cart-drawer-overlay') closeCartDrawer();
+      });
+
+      document.getElementById('empty-cart-cta').addEventListener('click', () => {
+        closeCartDrawer();
+        document.getElementById('catalogue').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      document.getElementById('proceed-checkout-btn').addEventListener('click', () => setCartStep('checkout'));
+      document.getElementById('back-to-cart-btn').addEventListener('click', () => setCartStep('items'));
+      document.getElementById('confirm-checkout-btn').addEventListener('click', handleCheckoutSubmit);
+      document.getElementById('finish-order-btn').addEventListener('click', closeCartDrawer);
+
+      // Touche Échap pour fermer modale ou tiroir
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeProductModal();
+          if (!document.getElementById('cart-drawer-overlay').classList.contains('hidden')) {
+            closeCartDrawer();
+          }
+        }
+      });
+
+      // Curseur de budget du formulaire Devis
+      const budgetSlider = document.getElementById('quote-budget');
+      const budgetDisplay = document.getElementById('quote-budget-display');
+      budgetSlider.addEventListener('input', (e) => {
+        const val = Number(e.target.value);
+        budgetDisplay.textContent = val >= 5000 ? '5 000 € +' : formatPrice(val);
+      });
+
+      document.getElementById('clear-quote-prefill').addEventListener('click', () => {
+        document.getElementById('quote-prefill-banner').classList.add('hidden');
+        document.getElementById('quote-notes').value = '';
+      });
+
+      // Soumission du formulaire Devis
+      const quoteForm = document.getElementById('quote-form');
+      quoteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const errorEl = document.getElementById('quote-error');
+
+        const type = document.getElementById('quote-type').value;
+        const date = document.getElementById('quote-date').value;
+        const budget = budgetDisplay.textContent;
+        const scale = document.getElementById('quote-scale').value.trim();
+        const palette = document.getElementById('quote-palette').value.trim();
+        const name = document.getElementById('quote-name').value.trim();
+        const email = document.getElementById('quote-email').value.trim();
+        const phone = document.getElementById('quote-phone').value.trim();
+
+        if (!date || !scale || !name || !email || !phone) {
+          errorEl.textContent = 'Merci de compléter tous les champs obligatoires marqués d’un astérisque (*).';
+          errorEl.classList.remove('hidden');
+          return;
+        }
+
+        errorEl.classList.add('hidden');
+        const ref = `DEV-${Math.floor(10000 + Math.random() * 90000)}`;
+
+        document.getElementById('quote-recap').innerHTML = `
+          <p class="flex justify-between"><span class="text-muted">Référence</span><strong class="text-forest">${ref}</strong></p>
+          <p class="flex justify-between"><span class="text-muted">Prestation</span><strong class="text-forest">${type}</strong></p>
+          <p class="flex justify-between"><span class="text-muted">Date souhaitée</span><strong class="text-forest">${formatDateFR(date)}</strong></p>
+          <p class="flex justify-between"><span class="text-muted">Budget estimé</span><strong class="text-terracotta">${budget}</strong></p>
+          <p class="flex justify-between"><span class="text-muted">Envergure</span><strong class="text-forest text-right">${scale}</strong></p>
+          ${palette ? `<p class="flex justify-between"><span class="text-muted">Palette</span><strong class="text-forest text-right">${palette}</strong></p>` : ''}
+          <p class="pt-2 border-t border-forest/10 text-xs text-muted">Réponse adressée à <strong>${email}</strong> (${phone}).</p>
+        `;
+
+        quoteForm.classList.add('hidden');
+        document.getElementById('quote-prefill-banner').classList.add('hidden');
+        document.getElementById('quote-confirmation').classList.remove('hidden');
+        showToast(`Demande de devis ${ref} envoyée avec succès.`);
+      });
+
+      document.getElementById('new-quote-btn').addEventListener('click', () => {
+        quoteForm.reset();
+        budgetSlider.value = 450;
+        budgetDisplay.textContent = '450 €';
+        document.getElementById('quote-confirmation').classList.add('hidden');
+        quoteForm.classList.remove('hidden');
+      });
+
+      // Newsletter pied de page
+      document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('newsletter-email');
+        if (input.value.trim()) {
+          showToast('Merci ! Vous recevrez nos prochaines cueillettes de saison.');
+          input.value = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

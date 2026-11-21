@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L’Atelier Gourmand — Bistrot de Saison &amp; Boulangerie Artisanale</title>
+  <meta name="description" content="L’Atelier Gourmand : cuisine de saison, boulangerie au levain naturel, carte du jour lisible sans PDF lourd et réservation en ligne sans commission." />
+
+  <!-- Polices Google Fonts : Fraunces (titres) & Plus Jakarta Sans (corps) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF8F5',
+            linen: '#F3EFE8',
+            borderSoft: '#E8E2D9',
+            ink: '#2C2623',
+            inkMuted: '#655D57',
+            terracotta: '#B85D3B',
+            terracottaDark: '#9A4B2E',
+            sage: '#5E7360',
+            sageLight: '#EFF3EF',
+          },
+          fontFamily: {
+            serif: ['"Fraunces"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 4px 24px -6px rgba(44, 38, 35, 0.08)',
+            card: '0 1px 3px rgba(44, 38, 35, 0.04), 0 10px 28px -12px rgba(44, 38, 35, 0.08)',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-cream text-ink font-sans antialiased selection:bg-terracotta/15 selection:text-terracotta overflow-x-hidden">
+
+  <!-- =========================================================
+       NAVIGATION STICKY
+  ========================================================== -->
+  <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-borderSoft">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Logo -->
+        <a href="#accueil" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-9 h-9 rounded-xl bg-terracotta text-white flex items-center justify-center shadow-sm group-hover:bg-terracottaDark transition-colors">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 22 16 8" />
+              <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" />
+              <path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" />
+              <path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" />
+              <path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" />
+              <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" />
+              <path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" />
+              <path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" />
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <span class="block font-serif text-lg sm:text-xl font-semibold tracking-tight text-ink">L’Atelier Gourmand</span>
+            <span class="hidden sm:block text-[11px] uppercase tracking-[0.14em] text-inkMuted">Bistrot &amp; Boulangerie</span>
+          </div>
+        </a>
+
+        <!-- Liens Desktop -->
+        <nav class="hidden md:flex items-center gap-8" aria-label="Navigation principale">
+          <a href="#carte" class="text-sm font-medium text-inkMuted hover:text-terracotta transition-colors">Carte du jour</a>
+          <a href="#reservation" class="text-sm font-medium text-inkMuted hover:text-terracotta transition-colors">Réservation</a>
+          <a href="#horaires" class="text-sm font-medium text-inkMuted hover:text-terracotta transition-colors">Horaires &amp; Accès</a>
+        </nav>
+
+        <!-- Bouton Réserver + Menu Mobile -->
+        <div class="flex items-center gap-2.5">
+          <a href="#reservation" class="inline-flex items-center justify-center px-4 py-2.5 sm:px-5 rounded-xl bg-terracotta text-white text-sm font-semibold hover:bg-terracottaDark transition-all shadow-sm active:scale-[0.98]">
+            Réserver
+          </a>
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            class="md:hidden p-2.5 rounded-xl border border-borderSoft bg-white text-ink hover:bg-linen transition-colors"
+          >
+            <svg id="menu-icon-open" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="4" y1="7" x2="20" y2="7" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="17" x2="20" y2="17" />
+            </svg>
+            <svg id="menu-icon-close" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-borderSoft bg-white">
+      <div class="px-4 py-3 space-y-1.5">
+        <a href="#carte" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-ink hover:bg-cream transition-colors">Carte du jour</a>
+        <a href="#reservation" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-ink hover:bg-cream transition-colors">Réservation</a>
+        <a href="#horaires" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-ink hover:bg-cream transition-colors">Horaires &amp; Accès</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+    <section id="accueil" class="relative pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- Colonne éditoriale -->
+          <div class="lg:col-span-7 space-y-6">
+            <!-- Badge état d'ouverture dynamique -->
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-borderSoft shadow-sm text-xs sm:text-sm font-medium text-ink">
+              <span id="open-status-dot" class="w-2.5 h-2.5 rounded-full bg-sage"></span>
+              <span id="open-status-text">Boulangerie dès 7h30 • Bistrot de saison</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-medium text-ink leading-[1.1] tracking-tight">
+              L’Atelier Gourmand
+            </h1>
+
+            <p class="text-base sm:text-lg text-inkMuted leading-relaxed max-w-2xl">
+              Conçu pour les restaurants, bistrots et boulangeries : carte lisible sans PDF lourd et réservation en ligne sans commission.
+            </p>
+
+            <!-- Badges rapides -->
+            <div class="flex flex-wrap items-center gap-2.5 pt-1">
+              <a href="#carte" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-linen border border-borderSoft text-xs sm:text-sm font-medium text-ink hover:border-terracotta/50 hover:text-terracotta transition-colors">
+                Carte du jour
+              </a>
+              <a href="#reservation" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-linen border border-borderSoft text-xs sm:text-sm font-medium text-ink hover:border-terracotta/50 hover:text-terracotta transition-colors">
+                Réservation table
+              </a>
+              <a href="#horaires" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-linen border border-borderSoft text-xs sm:text-sm font-medium text-ink hover:border-terracotta/50 hover:text-terracotta transition-colors">
+                Horaires &amp; Accès
+              </a>
+            </div>
+
+            <!-- Boutons d'action -->
+            <div class="flex flex-col sm:flex-row gap-3.5 pt-2">
+              <a href="#carte" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-terracotta text-white font-semibold text-sm sm:text-base hover:bg-terracottaDark transition-all shadow-soft active:scale-[0.98]">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                </svg>
+                Voir la carte du jour
+              </a>
+              <a href="#reservation" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-borderSoft text-ink font-semibold text-sm sm:text-base hover:border-terracotta/50 hover:bg-linen/50 transition-all active:scale-[0.98]">
+                <svg class="w-4 h-4 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                  <line x1="16" x2="16" y1="2" y2="6" />
+                  <line x1="8" x2="8" y1="2" y2="6" />
+                  <line x1="3" x2="21" y1="10" y2="10" />
+                </svg>
+                Réserver une table
+              </a>
+            </div>
+          </div>
+
+          <!-- Carte éditoriale illustrée -->
+          <div class="lg:col-span-5">
+            <div class="rounded-3xl bg-white border border-borderSoft p-6 sm:p-8 shadow-card">
+              <div class="flex items-center justify-between border-b border-borderSoft pb-4 mb-5">
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.16em] text-terracotta font-semibold">La Fournée &amp; La Table</p>
+                  <p class="font-serif text-xl font-medium text-ink mt-0.5">Aujourd’hui en cuisine</p>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-cream border border-borderSoft text-xs font-medium text-inkMuted">Fait maison</span>
+              </div>
+
+              <!-- Illustration vectorielle chaleureuse -->
+              <div class="rounded-2xl bg-cream border border-borderSoft/80 p-5 mb-5 flex items-center justify-center">
+                <svg class="w-full max-w-[260px] h-auto" viewBox="0 0 280 170" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration de pain au levain, verre de vin et assiette de bistrot">
+                  <ellipse cx="140" cy="144" rx="118" ry="14" fill="#EFEAE0" />
+                  <circle cx="115" cy="96" r="52" fill="#FFFFFF" stroke="#E8E2D9" stroke-width="2" />
+                  <circle cx="115" cy="96" r="39" fill="#FAF8F5" stroke="#E8E2D9" stroke-width="1.2" stroke-dasharray="3 3" />
+                  <path d="M84 102C84 82 98 70 115 70C132 70 146 82 146 102C146 112 138 118 115 118C92 118 84 112 84 102Z" fill="#C97B4B" />
+                  <path d="M90 98C90 83 101 74 115 74C129 74 140 83 140 98" stroke="#B85D3B" stroke-width="2" stroke-linecap="round" />
+                  <path d="M100 84L108 94" stroke="#FAF8F5" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M113 80L121 92" stroke="#FAF8F5" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M126 85L133 95" stroke="#FAF8F5" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M150 118C162 114 170 104 172 92C160 94 150 102 146 114C146 116 148 118 150 118Z" fill="#5E7360" />
+                  <path d="M148 116L168 96" stroke="#FAF8F5" stroke-width="1.2" stroke-linecap="round" />
+                  <path d="M196 42H224L221 68C220 78 215 84 210 84C205 84 200 78 199 68L196 42Z" fill="#FFFFFF" stroke="#2C2623" stroke-width="1.6" />
+                  <path d="M198.5 60H221.5L220.2 69C219.4 76 215 81 210 81C205 81 200.6 76 199.8 69L198.5 60Z" fill="#B85D3B" fill-opacity="0.85" />
+                  <line x1="210" y1="84" x2="210" y2="124" stroke="#2C2623" stroke-width="1.6" />
+                  <ellipse cx="210" cy="125" rx="14" ry="3.5" fill="#FFFFFF" stroke="#2C2623" stroke-width="1.6" />
+                  <circle cx="54" cy="54" r="3" fill="#B85D3B" fill-opacity="0.35" />
+                  <circle cx="176" cy="48" r="2.5" fill="#5E7360" fill-opacity="0.45" />
+                  <circle cx="242" cy="94" r="3" fill="#B85D3B" fill-opacity="0.25" />
+                </svg>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center justify-between gap-3 p-3.5 rounded-xl bg-cream border border-borderSoft/70">
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-sage">Formule Midi</p>
+                    <p class="text-sm font-medium text-ink">Entrée + Plat ou Plat + Dessert</p>
+                  </div>
+                  <span class="font-serif text-lg font-semibold text-ink shrink-0">23 €</span>
+                </div>
+                <div class="flex items-center justify-between gap-3 p-3.5 rounded-xl bg-cream border border-borderSoft/70">
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-terracotta">Sortie du four</p>
+                    <p class="text-sm font-medium text-ink">Tourte de seigle &amp; levain naturel</p>
+                  </div>
+                  <span class="font-serif text-lg font-semibold text-ink shrink-0">dès 7h30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 1 — CARTE DU JOUR (SANS PDF)
+    ========================================================== -->
+    <section id="carte" class="py-16 sm:py-24 bg-white border-y border-borderSoft">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- En-tête de la carte -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">
+              <span class="w-5 h-[1.5px] bg-terracotta"></span>
+              Carte du jour • Sans PDF
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl font-medium text-ink tracking-tight">
+              Notre ardoise du jour
+            </h2>
+            <p class="text-sm sm:text-base text-inkMuted">
+              Mise à jour chaque matin — <span id="current-date-fr" class="font-semibold text-ink"></span>
+            </p>
+          </div>
+
+          <!-- Filtres rapides par régime -->
+          <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filtrer par régime alimentaire">
+            <span class="text-xs font-medium text-inkMuted mr-1 hidden sm:inline">Filtrer :</span>
+            <button type="button" data-diet="all" class="diet-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-ink text-white shadow-sm">
+              Tous
+            </button>
+            <button type="button" data-diet="vegetarien" class="diet-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-cream text-inkMuted border border-borderSoft hover:border-sage hover:text-sage">
+              Végétarien
+            </button>
+            <button type="button" data-diet="sans-gluten" class="diet-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-cream text-inkMuted border border-borderSoft hover:border-terracotta hover:text-terracotta">
+              Sans gluten
+            </button>
+          </div>
+        </div>
+
+        <!-- Onglets de catégories -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 mb-6 border-b border-borderSoft" role="tablist" aria-label="Catégories de la carte">
+          <button type="button" role="tab" aria-selected="true" data-category="ardoise" class="category-tab shrink-0 px-4 py-2.5 rounded-t-xl text-sm font-semibold border-b-2 border-terracotta text-terracotta bg-cream/80 transition-all">
+            Ardoise du Midi
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-category="entrees" class="category-tab shrink-0 px-4 py-2.5 rounded-t-xl text-sm font-medium border-b-2 border-transparent text-inkMuted hover:text-ink hover:bg-cream/50 transition-all">
+            Entrées
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-category="plats" class="category-tab shrink-0 px-4 py-2.5 rounded-t-xl text-sm font-medium border-b-2 border-transparent text-inkMuted hover:text-ink hover:bg-cream/50 transition-all">
+            Plats
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-category="boulangerie" class="category-tab shrink-0 px-4 py-2.5 rounded-t-xl text-sm font-medium border-b-2 border-transparent text-inkMuted hover:text-ink hover:bg-cream/50 transition-all">
+            Boulangerie &amp; Pâtisserie
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-category="boissons" class="category-tab shrink-0 px-4 py-2.5 rounded-t-xl text-sm font-medium border-b-2 border-transparent text-inkMuted hover:text-ink hover:bg-cream/50 transition-all">
+            Boissons &amp; Vins
+          </button>
+        </div>
+
+        <!-- Note contextuelle -->
+        <div class="mb-6 px-4 py-3 rounded-2xl bg-cream border border-borderSoft flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm text-inkMuted">
+          <span id="menu-category-note"></span>
+          <span id="menu-count" class="font-semibold text-ink shrink-0"></span>
+        </div>
+
+        <!-- Grille des plats -->
+        <div id="menu-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5"></div>
+
+        <p class="mt-8 text-xs text-inkMuted text-center sm:text-left">
+          Cuisine 100 % maison à partir de produits frais. La liste complète des allergènes est disponible en salle sur simple demande. Prix nets en euros, service compris.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 2 — RÉSERVATION EN LIGNE SANS COMMISSION
+    ========================================================== -->
+    <section id="reservation" class="py-16 sm:py-24 bg-cream">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- En-tête -->
+        <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sageLight text-sage text-xs font-semibold">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+            Réservation en direct, 0 % de commission • Confirmation immédiate
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-medium text-ink tracking-tight">
+            Réserver votre table
+          </h2>
+          <p class="text-sm sm:text-base text-inkMuted">
+            Sélectionnez votre date, votre horaire et votre placement en quelques secondes. Pour les groupes de plus de 20 personnes, appelez-nous au <a href="tel:+33142685412" class="text-terracotta font-semibold hover:underline">01 42 68 54 12</a>.
+          </p>
+        </div>
+
+        <!-- Carte blanche du module de réservation -->
+        <div class="bg-white rounded-3xl border border-borderSoft shadow-card p-6 sm:p-10">
+          <!-- Formulaire -->
+          <form id="reservation-form" novalidate class="space-y-8">
+            <!-- 1. Nombre de personnes (saisie manuelle uniquement) -->
+            <div>
+              <label for="guests" class="block text-sm font-semibold text-ink mb-2">
+                1. Nombre de personnes *
+              </label>
+              <div class="max-w-xs">
+                <input
+                  type="number"
+                  id="guests"
+                  name="guests"
+                  min="1"
+                  max="20"
+                  value="2"
+                  required
+                  class="w-full px-4 py-3 rounded-xl bg-cream border border-borderSoft text-sm text-ink font-semibold focus:outline-none focus:ring-2 focus:ring-terracotta/30 focus:border-terracotta transition-all"
+                />
+                <p class="mt-1.5 text-xs text-inkMuted">Saisissez un nombre entre 1 et 20.</p>
+              </div>
+            </div>
+
+            <!-- 2. Date (Calendrier personnalisé intégré) -->
+            <div>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                <span class="block text-sm font-semibold text-ink">
+                  2. Date *
+                </span>
+                <span class="text-xs sm:text-sm text-inkMuted">
+                  Date choisie :
+                  <strong id="selected-date-label" class="font-semibold text-terracotta"></strong>
+                </span>
+              </div>
+
+              <div class="rounded-2xl bg-cream border border-borderSoft p-4 sm:p-5 max-w-md">
+                <!-- Navigation mois -->
+                <div class="flex items-center justify-between mb-4">
+                  <button
+                    type="button"
+                    id="cal-prev-btn"
+                    aria-label="Mois précédent"
+                    class="w-9 h-9 rounded-xl bg-white border border-borderSoft text-ink font-semibold flex items-center justify-center hover:border-terracotta hover:text-terracotta disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                  >
+                    &lt;
+                  </button>
+                  <p id="cal-month-year" class="font-serif text-base sm:text-lg font-medium text-ink"></p>
+                  <button
+                    type="button"
+                    id="cal-next-btn"
+                    aria-label="Mois suivant"
+                    class="w-9 h-9 rounded-xl bg-white border border-borderSoft text-ink font-semibold flex items-center justify-center hover:border-terracotta hover:text-terracotta transition-all"
+                  >
+                    &gt;
+                  </button>
+                </div>
+
+                <!-- Jours de la semaine Lun -> Dim -->
+                <div class="grid grid-cols-7 gap-1 text-center mb-2">
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-inkMuted/70 py-1">Lun</span>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-inkMuted py-1">Mar</span>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-inkMuted py-1">Mer</span>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-inkMuted py-1">Jeu</span>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-inkMuted py-1">Ven</span>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-inkMuted py-1">Sam</span>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-inkMuted py-1">Dim</span>
+                </div>
+
+                <!-- Grille dynamique des jours -->
+                <div id="cal-days-grid" class="grid grid-cols-7 gap-1.5"></div>
+
+                <!-- Légende -->
+                <div class="mt-4 pt-3 border-t border-borderSoft flex flex-wrap items-center justify-between gap-2 text-xs text-inkMuted">
+                  <span class="inline-flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-terracotta"></span>
+                    Jour sélectionné
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-borderSoft"></span>
+                    Fermé le lundi
+                  </span>
+                </div>
+              </div>
+              <input type="hidden" id="res-date" name="date" />
+            </div>
+
+            <!-- 3. Service & horaire -->
+            <div>
+              <span class="block text-sm font-semibold text-ink mb-3">
+                3. Service &amp; horaire *
+              </span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Déjeuner -->
+                <div class="rounded-2xl bg-cream border border-borderSoft p-4">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-inkMuted mb-3">Déjeuner</p>
+                  <div class="grid grid-cols-3 gap-2">
+                    <button type="button" data-service="Déjeuner" data-time="12h" class="time-slot-btn py-2.5 px-2 rounded-xl text-sm font-semibold border transition-all bg-white text-ink border-borderSoft hover:border-terracotta">12h</button>
+                    <button type="button" data-service="Déjeuner" data-time="12h30" class="time-slot-btn py-2.5 px-2 rounded-xl text-sm font-semibold border transition-all bg-terracotta text-white border-terracotta shadow-sm">12h30</button>
+                    <button type="button" data-service="Déjeuner" data-time="13h" class="time-slot-btn py-2.5 px-2 rounded-xl text-sm font-semibold border transition-all bg-white text-ink border-borderSoft hover:border-terracotta">13h</button>
+                  </div>
+                </div>
+
+                <!-- Dîner -->
+                <div class="rounded-2xl bg-cream border border-borderSoft p-4">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-inkMuted mb-3">Dîner</p>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <button type="button" data-service="Dîner" data-time="19h" class="time-slot-btn py-2.5 px-2 rounded-xl text-sm font-semibold border transition-all bg-white text-ink border-borderSoft hover:border-terracotta">19h</button>
+                    <button type="button" data-service="Dîner" data-time="19h30" class="time-slot-btn py-2.5 px-2 rounded-xl text-sm font-semibold border transition-all bg-white text-ink border-borderSoft hover:border-terracotta">19h30</button>
+                    <button type="button" data-service="Dîner" data-time="20h" class="time-slot-btn py-2.5 px-2 rounded-xl text-sm font-semibold border transition-all bg-white text-ink border-borderSoft hover:border-terracotta">20h</button>
+                    <button type="button" data-service="Dîner" data-time="20h30" class="time-slot-btn py-2.5 px-2 rounded-xl text-sm font-semibold border transition-all bg-white text-ink border-borderSoft hover:border-terracotta">20h30</button>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" id="res-service" name="service" value="Déjeuner" />
+              <input type="hidden" id="res-time" name="time" value="12h30" />
+            </div>
+
+            <!-- 4. Placement (boutons épurés sans sous-texte) -->
+            <div>
+              <span class="block text-sm font-semibold text-ink mb-3">
+                4. Placement
+              </span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <button type="button" data-seating="En salle" class="seating-btn py-3 px-4 rounded-xl text-sm font-medium border transition-all bg-cream text-ink border-borderSoft hover:border-terracotta">
+                  En salle
+                </button>
+                <button type="button" data-seating="En terrasse" class="seating-btn py-3 px-4 rounded-xl text-sm font-medium border transition-all bg-cream text-ink border-borderSoft hover:border-terracotta">
+                  En terrasse
+                </button>
+                <button type="button" data-seating="Au comptoir" class="seating-btn py-3 px-4 rounded-xl text-sm font-medium border transition-all bg-cream text-ink border-borderSoft hover:border-terracotta">
+                  Au comptoir
+                </button>
+                <button type="button" data-seating="Sans préférence" class="seating-btn py-3 px-4 rounded-xl text-sm font-semibold border transition-all bg-terracotta text-white border-terracotta shadow-sm">
+                  Sans préférence
+                </button>
+              </div>
+              <input type="hidden" id="res-seating" name="seating" value="Sans préférence" />
+            </div>
+
+            <!-- 5. Coordonnées (sans e-mail) -->
+            <div class="pt-4 border-t border-borderSoft space-y-4">
+              <p class="text-sm font-semibold text-ink">5. Vos coordonnées</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="res-name" class="block text-xs font-medium text-inkMuted mb-1.5">Nom complet *</label>
+                  <input
+                    type="text"
+                    id="res-name"
+                    name="name"
+                    required
+                    placeholder="Camille Laurent"
+                    class="w-full px-4 py-3 rounded-xl bg-cream border border-borderSoft text-sm text-ink placeholder:text-inkMuted/50 focus:outline-none focus:ring-2 focus:ring-terracotta/30 focus:border-terracotta transition-all"
+                  />
+                </div>
+                <div>
+                  <label for="res-phone" class="block text-xs font-medium text-inkMuted mb-1.5">Téléphone *</label>
+                  <input
+                    type="tel"
+                    id="res-phone"
+                    name="phone"
+                    required
+                    placeholder="06 12 34 56 78"
+                    class="w-full px-4 py-3 rounded-xl bg-cream border border-borderSoft text-sm text-ink placeholder:text-inkMuted/50 focus:outline-none focus:ring-2 focus:ring-terracotta/30 focus:border-terracotta transition-all"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="res-notes" class="block text-xs font-medium text-inkMuted mb-1.5">Notes ou allergies (optionnel)</label>
+                <textarea
+                  id="res-notes"
+                  name="notes"
+                  rows="2"
+                  placeholder="Chaise haute, allergie alimentaire, occasion particulière…"
+                  class="w-full px-4 py-3 rounded-xl bg-cream border border-borderSoft text-sm text-ink placeholder:text-inkMuted/50 focus:outline-none focus:ring-2 focus:ring-terracotta/30 focus:border-terracotta transition-all resize-none"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Zone d'erreur de validation -->
+            <div id="form-error" class="hidden p-4 rounded-xl bg-terracotta/10 border border-terracotta/30 text-sm text-terracotta font-semibold" role="alert"></div>
+
+            <!-- Politique d'annulation + Bouton de soumission -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+              <div class="p-3.5 rounded-xl bg-linen/70 border border-borderSoft text-xs sm:text-sm text-ink">
+                Annulation libre uniquement par téléphone au
+                <a href="tel:+33142685412" class="font-semibold text-terracotta hover:underline whitespace-nowrap">01 42 68 54 12</a>
+              </div>
+              <button
+                type="submit"
+                id="submit-reservation-btn"
+                class="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-terracotta text-white font-semibold text-sm sm:text-base hover:bg-terracottaDark transition-all shadow-soft active:scale-[0.98]"
+              >
+                Confirmer la réservation
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+              </button>
+            </div>
+          </form>
+
+          <!-- Bloc de confirmation après validation réussie -->
+          <div id="reservation-confirmation" class="hidden space-y-6">
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-sageLight border border-sage/20">
+              <div class="w-10 h-10 rounded-full bg-sage text-white flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-sage">Confirmation immédiate</p>
+                <h3 class="font-serif text-2xl font-medium text-ink mt-0.5">Votre table est réservée !</h3>
+                <p class="text-sm text-inkMuted mt-1">
+                  Nous serons ravis de vous accueillir à L’Atelier Gourmand.
+                </p>
+              </div>
+            </div>
+
+            <!-- Récapitulatif complet (sans e-mail) -->
+            <div class="rounded-2xl bg-cream border border-borderSoft p-5 sm:p-6">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-borderSoft">
+                <span class="text-xs font-medium uppercase tracking-wider text-inkMuted">Numéro de référence</span>
+                <span id="conf-code" class="font-mono text-base font-bold text-terracotta bg-white px-3 py-1 rounded-lg border border-borderSoft"></span>
+              </div>
+              <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <dt class="text-xs text-inkMuted">Date</dt>
+                  <dd id="conf-date" class="font-semibold text-ink mt-0.5"></dd>
+                </div>
+                <div>
+                  <dt class="text-xs text-inkMuted">Heure</dt>
+                  <dd id="conf-time" class="font-semibold text-ink mt-0.5"></dd>
+                </div>
+                <div>
+                  <dt class="text-xs text-inkMuted">Nombre de convives</dt>
+                  <dd id="conf-guests" class="font-semibold text-ink mt-0.5"></dd>
+                </div>
+                <div>
+                  <dt class="text-xs text-inkMuted">Placement</dt>
+                  <dd id="conf-seating" class="font-semibold text-ink mt-0.5"></dd>
+                </div>
+                <div>
+                  <dt class="text-xs text-inkMuted">Nom</dt>
+                  <dd id="conf-name" class="font-semibold text-ink mt-0.5"></dd>
+                </div>
+                <div>
+                  <dt class="text-xs text-inkMuted">Téléphone</dt>
+                  <dd id="conf-phone" class="font-semibold text-ink mt-0.5"></dd>
+                </div>
+                <div id="conf-notes-wrapper" class="sm:col-span-2 hidden">
+                  <dt class="text-xs text-inkMuted">Notes ou allergies</dt>
+                  <dd id="conf-notes" class="font-medium text-ink mt-0.5"></dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- Rappel annulation -->
+            <div class="p-4 rounded-2xl bg-linen/70 border border-borderSoft text-xs sm:text-sm text-ink">
+              <strong>Annulation libre uniquement par téléphone</strong> au
+              <a href="tel:+33142685412" class="font-semibold text-terracotta hover:underline">01 42 68 54 12</a>.
+            </div>
+
+            <div>
+              <button
+                type="button"
+                id="new-reservation-btn"
+                class="w-full sm:w-auto px-6 py-3 rounded-xl bg-terracotta text-white text-sm font-semibold hover:bg-terracottaDark transition-all active:scale-[0.98]"
+              >
+                Faire une nouvelle réservation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 3 — HORAIRES & ACCÈS
+    ========================================================== -->
+    <section id="horaires" class="py-16 sm:py-24 bg-white border-t border-borderSoft">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12 space-y-2">
+          <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">
+            <span class="w-5 h-[1.5px] bg-terracotta"></span>
+            Infos pratiques
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-medium text-ink tracking-tight">
+            Horaires &amp; Accès
+          </h2>
+          <p class="text-sm sm:text-base text-inkMuted">
+            Notre boulangerie vous accueille dès le matin pour vos pains chauds et viennoiseries ; le bistrot vous reçoit du mardi au dimanche.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Tableau des horaires (7 colonnes) -->
+          <div class="lg:col-span-7 bg-cream rounded-3xl border border-borderSoft p-6 sm:p-8">
+            <div class="flex items-center justify-between gap-3 mb-6">
+              <h3 class="font-serif text-xl font-medium text-ink">Horaires de la semaine</h3>
+              <span class="text-xs font-medium px-3 py-1 rounded-full bg-white border border-borderSoft text-inkMuted">Aujourd’hui surligné</span>
+            </div>
+
+            <div class="hidden sm:grid grid-cols-12 gap-2 px-4 pb-2 text-xs font-semibold uppercase tracking-wider text-inkMuted">
+              <div class="col-span-3">Jour</div>
+              <div class="col-span-4">Boulangerie</div>
+              <div class="col-span-5 text-right">Bistrot (Midi &amp; Soir)</div>
+            </div>
+
+            <div id="opening-hours-list" class="space-y-2"></div>
+          </div>
+
+          <!-- Coordonnées & Plan SVG (5 colonnes) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="bg-cream rounded-3xl border border-borderSoft p-6 sm:p-7 space-y-5">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-terracotta mb-1">Adresse</p>
+                <p id="restaurant-address" class="text-base font-semibold text-ink">24 Rue des Martyrs, 75009 Paris</p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    id="copy-address-btn"
+                    class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-borderSoft text-xs font-semibold text-ink hover:border-terracotta hover:text-terracotta transition-all active:scale-[0.98]"
+                  >
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                    <span id="copy-address-label">Copier l’adresse</span>
+                  </button>
+                  <a
+                    href="https://maps.google.com/?q=24+Rue+des+Martyrs+75009+Paris"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:bg-terracottaDark transition-all"
+                  >
+                    Ouvrir l’itinéraire
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-borderSoft">
+                <p class="text-xs font-semibold uppercase tracking-wider text-inkMuted mb-1">Téléphone</p>
+                <a href="tel:+33142685412" class="text-base font-semibold text-ink hover:text-terracotta transition-colors">01 42 68 54 12</a>
+                <p class="text-xs text-inkMuted mt-0.5">Annulation libre uniquement par téléphone</p>
+              </div>
+
+              <div class="pt-4 border-t border-borderSoft space-y-2.5 text-xs sm:text-sm text-inkMuted">
+                <div class="flex items-start gap-2.5">
+                  <span class="px-2 py-0.5 rounded-md bg-white border border-borderSoft text-[11px] font-bold text-ink shrink-0">M12</span>
+                  <span>Métro Saint-Georges ou Pigalle (3 min à pied)</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="px-2 py-0.5 rounded-md bg-white border border-borderSoft text-[11px] font-bold text-ink shrink-0">Bus</span>
+                  <span>Lignes 40 &amp; 74 — Arrêt Navarin</span>
+                </div>
+                <div class="flex items-center gap-2 pt-1 text-sage font-medium">
+                  <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg>
+                  <span>Accès PMR de plain-pied</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Plan vectoriel SVG stylisé -->
+            <div class="rounded-3xl bg-cream border border-borderSoft overflow-hidden shadow-sm">
+              <div class="bg-[#F5F1E8] p-4">
+                <svg class="w-full h-48 rounded-2xl" viewBox="0 0 420 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plan du quartier de L'Atelier Gourmand, 24 Rue des Martyrs, Paris">
+                  <rect width="420" height="200" rx="14" fill="#F2EDE2" />
+                  <rect x="20" y="20" width="76" height="54" rx="10" fill="#E3ECE5" />
+                  <rect x="320" y="128" width="80" height="52" rx="10" fill="#E3ECE5" />
+                  <path d="M0 95H420" stroke="#FFFFFF" stroke-width="10" />
+                  <path d="M125 0V200" stroke="#FFFFFF" stroke-width="9" />
+                  <path d="M300 0V200" stroke="#FFFFFF" stroke-width="8" />
+                  <path d="M0 165L420 142" stroke="#FFFFFF" stroke-width="7" />
+                  <path d="M210 0L198 200" stroke="#FFFFFF" stroke-width="16" />
+                  <path d="M210 0L198 200" stroke="#E8E2D9" stroke-width="1.2" stroke-dasharray="4 4" />
+                  <text x="218" y="34" fill="#78716C" font-size="9" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">Rue des Martyrs</text>
+                  <text x="16" y="98" fill="#78716C" font-size="8.5" font-family="Plus Jakarta Sans, sans-serif">Rue de Navarin</text>
+                  <g>
+                    <circle cx="125" cy="95" r="8" fill="#5E7360" />
+                    <text x="121.5" y="98" fill="#FFFFFF" font-size="9" font-weight="700" font-family="Plus Jakarta Sans, sans-serif">M</text>
+                    <text x="92" y="114" fill="#655D57" font-size="8.5" font-weight="600" font-family="Plus Jakarta Sans, sans-serif">Saint-Georges</text>
+                  </g>
+                  <g>
+                    <circle cx="300" cy="48" r="8" fill="#5E7360" />
+                    <text x="296.5" y="51" fill="#FFFFFF" font-size="9" font-weight="700" font-family="Plus Jakarta Sans, sans-serif">M</text>
+                    <text x="313" y="51" fill="#655D57" font-size="8.5" font-weight="600" font-family="Plus Jakarta Sans, sans-serif">Pigalle</text>
+                  </g>
+                  <g>
+                    <circle cx="204" cy="95" r="22" fill="#B85D3B" fill-opacity="0.16" />
+                    <circle cx="204" cy="95" r="10" fill="#B85D3B" stroke="#FFFFFF" stroke-width="3" />
+                    <rect x="220" y="76" width="136" height="30" rx="8" fill="#2C2623" />
+                    <text x="231" y="94" fill="#FFFFFF" font-size="10" font-weight="600" font-family="Plus Jakarta Sans, sans-serif">L’Atelier Gourmand</text>
+                  </g>
+                </svg>
+              </div>
+              <div class="px-5 py-3 bg-white border-t border-borderSoft flex items-center justify-between text-xs">
+                <span class="text-inkMuted">Quartier South Pigalle, Paris 9e</span>
+                <a href="https://maps.google.com/?q=24+Rue+des+Martyrs+75009+Paris" target="_blank" rel="noopener noreferrer" class="font-semibold text-terracotta hover:underline">
+                  Ouvrir l’itinéraire →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       PIED DE PAGE
+  ========================================================== -->
+  <footer class="bg-cream border-t border-borderSoft py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-borderSoft">
+        <div class="space-y-2">
+          <p class="font-serif text-xl font-semibold text-ink">L’Atelier Gourmand</p>
+          <p class="text-sm text-inkMuted leading-relaxed">
+            Bistrot de saison &amp; boulangerie au levain naturel. Réservation en direct, 0 % de commission.
+          </p>
+        </div>
+
+        <div class="space-y-1.5 text-sm text-inkMuted">
+          <p class="text-xs font-semibold uppercase tracking-wider text-ink mb-2">Contact &amp; Adresse</p>
+          <p>24 Rue des Martyrs, 75009 Paris</p>
+          <p>Tél. : <a href="tel:+33142685412" class="font-semibold text-ink hover:text-terracotta transition-colors">01 42 68 54 12</a></p>
+          <p class="text-xs">Annulation libre uniquement par téléphone</p>
+        </div>
+
+        <div class="space-y-1.5 text-sm text-inkMuted">
+          <p class="text-xs font-semibold uppercase tracking-wider text-ink mb-2">Horaires résumés</p>
+          <p><strong class="text-ink font-medium">Boulangerie :</strong> Lun–Dim dès 7h30 / 8h</p>
+          <p><strong class="text-ink font-medium">Bistrot :</strong> Mar–Sam (Midi &amp; Soir) • Dim (Midi)</p>
+          <p class="text-xs italic">Bistrot fermé le lundi</p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-inkMuted">
+        <p>© <span id="footer-year"></span> L’Atelier Gourmand — Réservation en direct, 0 % de commission.</p>
+        <div class="flex items-center gap-5">
+          <a href="#carte" class="hover:text-terracotta transition-colors">Carte du jour</a>
+          <a href="#reservation" class="hover:text-terracotta transition-colors">Réservation</a>
+          <a href="#horaires" class="hover:text-terracotta transition-colors">Horaires &amp; Accès</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       JAVASCRIPT — INITIALISATION COMPLÈTE DANS DOMContentLoaded
+  ========================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      'use strict';
+
+      /* -------------------------------------------------------
+         1. DONNÉES DE LA CARTE DU JOUR & DES HORAIRES
+      -------------------------------------------------------- */
+      const CATEGORY_NOTES = {
+        ardoise: 'Servie du mardi au vendredi midi. Formule Entrée + Plat ou Plat + Dessert : 23 € • Complète : 28 €.',
+        entrees: 'Assiettes de saison préparées minute à partir des arrivages du matin.',
+        plats: 'Viandes françaises, poissons de ligne et légumes bio de nos maraîchers.',
+        boulangerie: 'Pains au levain naturel cuits sur pierre et pâtisseries maison disponibles sur place ou à emporter.',
+        boissons: 'Vins vivants de petits domaines, bières artisanales et boissons maison.'
+      };
+
+      const MENU_ITEMS = [
+        // Ardoise du Midi
+        {
+          category: 'ardoise',
+          name: 'Velouté de potimarron rôti & noisettes',
+          description: 'Crème légère infusée à la sauge, éclats de noisettes torréfiées et croûtons de pain au levain.',
+          price: '9 €',
+          tags: ['vegetarien']
+        },
+        {
+          category: 'ardoise',
+          name: 'Œuf parfait fermier, champignons & comté',
+          description: 'Poêlée de pleurotes au beurre demi-sel, émulsion au comté affiné 18 mois et ciboulette.',
+          price: '10 €',
+          tags: ['vegetarien', 'sans-gluten']
+        },
+        {
+          category: 'ardoise',
+          name: 'Suprême de volaille jaune rôti au thym',
+          description: 'Purée de pommes de terre ratte à l’huile d’olive vierge, carottes glacées et jus réduit.',
+          price: '18 €',
+          tags: ['sans-gluten']
+        },
+        {
+          category: 'ardoise',
+          name: 'Risotto d’épeautre aux légumes d’automne',
+          description: 'Courge butternut rôtie, pousses d’épinards, parmesan affiné et huile de noix.',
+          price: '17 €',
+          tags: ['vegetarien']
+        },
+
+        // Entrées
+        {
+          category: 'entrees',
+          name: 'Poireaux crayons vinaigrette aux câpres',
+          description: 'Cuits vapeur, vinaigrette tiède à l’échalote, œuf mimosa et herbes fraîches.',
+          price: '9,50 €',
+          tags: ['vegetarien', 'sans-gluten']
+        },
+        {
+          category: 'entrees',
+          name: 'Tartare de daurade royale aux agrumes',
+          description: 'Pamplemousse rose, fenouil croquant, huile d’olive citronnée et fleur de sel.',
+          price: '13 €',
+          tags: ['sans-gluten']
+        },
+        {
+          category: 'entrees',
+          name: 'Terrine de campagne maison au poivre vert',
+          description: 'Servie avec nos pickles de légumes croquants et tranches de pain de campagne grillées.',
+          price: '10,50 €',
+          tags: []
+        },
+        {
+          category: 'entrees',
+          name: 'Burrata crémeuse des Pouilles & figues rôties',
+          description: 'Miel de châtaignier, noix concassées et poivre de Timut.',
+          price: '12,50 €',
+          tags: ['vegetarien', 'sans-gluten']
+        },
+
+        // Plats
+        {
+          category: 'plats',
+          name: 'Filet de bar de ligne rôti sur peau',
+          description: 'Fenouil braisé, écrasé de pommes de terre aux herbes et sauce vierge aux câpres.',
+          price: '24 €',
+          tags: ['sans-gluten']
+        },
+        {
+          category: 'plats',
+          name: 'Quasi de veau basse température',
+          description: 'Jus corsé au romarin, mousseline de céleri-rave et girolles poêlées.',
+          price: '25 €',
+          tags: ['sans-gluten']
+        },
+        {
+          category: 'plats',
+          name: 'Gnocchis maison poêlés au beurre de sauge',
+          description: 'Crème de gorgonzola doux, éclats de noix du Périgord et roquette fraîche.',
+          price: '19 €',
+          tags: ['vegetarien']
+        },
+        {
+          category: 'plats',
+          name: 'Parmentier de canard confit gratiné',
+          description: 'Effiloché de cuisse de canard, purée maison au beurre salé et salade d’herbes.',
+          price: '21 €',
+          tags: ['sans-gluten']
+        },
+
+        // Boulangerie & Pâtisserie
+        {
+          category: 'boulangerie',
+          name: 'Tourte de seigle au levain naturel (800 g)',
+          description: 'Farine de seigle bio moulue sur pierre, fermentation lente de 24h et mie fondante.',
+          price: '6,80 €',
+          tags: ['vegetarien']
+        },
+        {
+          category: 'boulangerie',
+          name: 'Brioche feuilletée à la fleur d’oranger',
+          description: 'Beurre AOP Charentes-Poitou, feuilletage croustillant et sucre perlé.',
+          price: '4,50 €',
+          tags: ['vegetarien']
+        },
+        {
+          category: 'boulangerie',
+          name: 'Tarte fine aux pommes & caramel beurre salé',
+          description: 'Pâte feuilletée inversée, pommes caramélisées et crème crue de Normandie.',
+          price: '8,50 €',
+          tags: ['vegetarien']
+        },
+        {
+          category: 'boulangerie',
+          name: 'Mousse au chocolat noir 70 % & fleur de sel',
+          description: 'Chocolat grand cru d’Équateur, servie à la louche avec éclats de cacao.',
+          price: '8 €',
+          tags: ['vegetarien', 'sans-gluten']
+        },
+
+        // Boissons & Vins
+        {
+          category: 'boissons',
+          name: 'Côtes-du-Rhône Bio — Domaine de la Combe (14 cl)',
+          description: 'Rouge souple aux notes de fruits noirs et d’épices douces, vinification naturelle.',
+          price: '7 €',
+          tags: ['vegetarien', 'sans-gluten']
+        },
+        {
+          category: 'boissons',
+          name: 'Sancerre Blanc — Domaine des Roches (14 cl)',
+          description: 'Sauvignon minéral et vif, arômes d’agrumes frais et de fleurs blanches.',
+          price: '8,50 €',
+          tags: ['vegetarien', 'sans-gluten']
+        },
+        {
+          category: 'boissons',
+          name: 'Citronnade maison au gingembre & romarin',
+          description: 'Citrons bio pressés le matin même, sirop léger au romarin frais.',
+          price: '5,50 €',
+          tags: ['vegetarien', 'sans-gluten']
+        },
+        {
+          category: 'boissons',
+          name: 'Café de spécialité torréfié à Paris',
+          description: 'Expresso ou allongé, 100 % Arabica issu de plantations durables.',
+          price: '3 €',
+          tags: ['vegetarien', 'sans-gluten']
+        }
+      ];
+
+      // dayIndex : 0 = Dimanche, 1 = Lundi, ..., 6 = Samedi
+      const SCHEDULE = [
+        { dayIndex: 1, name: 'Lundi', bakery: '07h30 – 19h30', bistro: 'Fermé', bistroClosed: true },
+        { dayIndex: 2, name: 'Mardi', bakery: '07h30 – 20h00', bistro: '12h – 14h30 • 19h – 22h30', bistroClosed: false },
+        { dayIndex: 3, name: 'Mercredi', bakery: '07h30 – 20h00', bistro: '12h – 14h30 • 19h – 22h30', bistroClosed: false },
+        { dayIndex: 4, name: 'Jeudi', bakery: '07h30 – 20h00', bistro: '12h – 14h30 • 19h – 22h30', bistroClosed: false },
+        { dayIndex: 5, name: 'Vendredi', bakery: '07h30 – 20h00', bistro: '12h – 14h30 • 19h – 23h00', bistroClosed: false },
+        { dayIndex: 6, name: 'Samedi', bakery: '08h00 – 20h00', bistro: '12h – 15h00 • 19h – 23h00', bistroClosed: false },
+        { dayIndex: 0, name: 'Dimanche', bakery: '08h00 – 19h00', bistro: '12h – 15h30 (Midi uniquement)', bistroClosed: false }
+      ];
+
+      /* -------------------------------------------------------
+         2. DATE ACTUELLE, STATUT D'OUVERTURE & MENU MOBILE
+      -------------------------------------------------------- */
+      const now = new Date();
+      const todayDay = now.getDay();
+      const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+      // Date du jour en français dans la section Carte (ex: "Samedi 21 novembre")
+      const currentDateEl = document.getElementById('current-date-fr');
+      if (currentDateEl) {
+        const formattedToday = new Intl.DateTimeFormat('fr-FR', {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long'
+        }).format(now);
+        currentDateEl.textContent = formattedToday.charAt(0).toUpperCase() + formattedToday.slice(1);
+      }
+
+      // Année dans le footer
+      const footerYearEl = document.getElementById('footer-year');
+      if (footerYearEl) {
+        footerYearEl.textContent = String(now.getFullYear());
+      }
+
+      // Statut d'ouverture dans le Hero
+      const openStatusText = document.getElementById('open-status-text');
+      const openStatusDot = document.getElementById('open-status-dot');
+      if (openStatusText && openStatusDot) {
+        if (todayDay === 1) {
+          openStatusText.textContent = 'Boulangerie ouverte aujourd’hui • Bistrot fermé le lundi';
+          openStatusDot.classList.remove('bg-sage');
+          openStatusDot.classList.add('bg-terracotta');
+        } else {
+          openStatusText.textContent = 'Ouvert aujourd’hui • Boulangerie & Bistrot';
+        }
+      }
+
+      // Menu mobile
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIconOpen = document.getElementById('menu-icon-open');
+      const menuIconClose = document.getElementById('menu-icon-close');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function () {
+          const isHidden = mobileMenu.classList.toggle('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+          if (menuIconOpen && menuIconClose) {
+            menuIconOpen.classList.toggle('hidden', !isHidden);
+            menuIconClose.classList.toggle('hidden', isHidden);
+          }
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (menuIconOpen && menuIconClose) {
+              menuIconOpen.classList.remove('hidden');
+              menuIconClose.classList.add('hidden');
+            }
+          });
+        });
+      }
+
+      /* -------------------------------------------------------
+         3. CARTE DU JOUR INTERACTIVE (ONGLETS & FILTRES)
+      -------------------------------------------------------- */
+      let activeCategory = 'ardoise';
+      let activeDiet = 'all';
+
+      const menuContainer = document.getElementById('menu-items-container');
+      const menuCategoryNote = document.getElementById('menu-category-note');
+      const menuCountEl = document.getElementById('menu-count');
+
+      function renderMenu() {
+        if (!menuContainer) return;
+
+        const filtered = MENU_ITEMS.filter(function (item) {
+          const matchCategory = item.category === activeCategory;
+          const matchDiet = activeDiet === 'all' || item.tags.indexOf(activeDiet) !== -1;
+          return matchCategory && matchDiet;
+        });
+
+        if (menuCategoryNote) {
+          menuCategoryNote.textContent = CATEGORY_NOTES[activeCategory] || '';
+        }
+        if (menuCountEl) {
+          menuCountEl.textContent =
+            filtered.length <= 1
+              ? filtered.length + ' proposition'
+              : filtered.length + ' propositions';
+        }
+
+        if (filtered.length === 0) {
+          menuContainer.innerHTML =
+            '<div class="md:col-span-2 p-8 rounded-2xl bg-cream border border-borderSoft text-center text-sm text-inkMuted">' +
+            'Aucun plat ne correspond à ce filtre dans cette catégorie. Essayez un autre onglet ou cliquez sur « Tous ».' +
+            '</div>';
+          return;
+        }
+
+        menuContainer.innerHTML = filtered
+          .map(function (item) {
+            const badgesHtml = item.tags
+              .map(function (tag) {
+                if (tag === 'vegetarien') {
+                  return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-sageLight text-sage">Végétarien</span>';
+                }
+                if (tag === 'sans-gluten') {
+                  return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-terracotta/10 text-terracotta">Sans gluten</span>';
+                }
+                return '';
+              })
+              .join('');
+
+            return (
+              '<article class="p-5 rounded-2xl bg-cream/70 border border-borderSoft hover:border-terracotta/40 transition-colors flex flex-col justify-between gap-3">' +
+              '  <div class="space-y-1.5">' +
+              '    <div class="flex items-start justify-between gap-3">' +
+              '      <h3 class="font-serif text-lg font-medium text-ink leading-snug">' + item.name + '</h3>' +
+              '      <span class="font-serif text-lg font-semibold text-terracotta shrink-0">' + item.price + '</span>' +
+              '    </div>' +
+              '    <p class="text-sm text-inkMuted leading-relaxed">' + item.description + '</p>' +
+              '  </div>' +
+              (badgesHtml ? '<div class="flex flex-wrap gap-1.5 pt-1">' + badgesHtml + '</div>' : '') +
+              '</article>'
+            );
+          })
+          .join('');
+      }
+
+      document.querySelectorAll('.category-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activeCategory = tab.dataset.category;
+          document.querySelectorAll('.category-tab').forEach(function (t) {
+            const isSelected = t.dataset.category === activeCategory;
+            t.setAttribute('aria-selected', String(isSelected));
+            t.classList.toggle('border-terracotta', isSelected);
+            t.classList.toggle('text-terracotta', isSelected);
+            t.classList.toggle('bg-cream/80', isSelected);
+            t.classList.toggle('font-semibold', isSelected);
+            t.classList.toggle('border-transparent', !isSelected);
+            t.classList.toggle('text-inkMuted', !isSelected);
+            t.classList.toggle('font-medium', !isSelected);
+          });
+          renderMenu();
+        });
+      });
+
+      document.querySelectorAll('.diet-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activeDiet = btn.dataset.diet;
+          document.querySelectorAll('.diet-btn').forEach(function (b) {
+            const isSelected = b.dataset.diet === activeDiet;
+            b.classList.toggle('bg-ink', isSelected);
+            b.classList.toggle('text-white', isSelected);
+            b.classList.toggle('shadow-sm', isSelected);
+            b.classList.toggle('font-semibold', isSelected);
+            b.classList.toggle('bg-cream', !isSelected);
+            b.classList.toggle('text-inkMuted', !isSelected);
+            b.classList.toggle('border', !isSelected);
+            b.classList.toggle('border-borderSoft', !isSelected);
+            b.classList.toggle('font-medium', !isSelected);
+          });
+          renderMenu();
+        });
+      });
+
+      renderMenu();
+
+      /* -------------------------------------------------------
+         4. MODULE DE RÉSERVATION EN LIGNE (100 % INTERACTIF)
+      -------------------------------------------------------- */
+      const guestsInput = document.getElementById('guests');
+      const dateHiddenInput = document.getElementById('res-date');
+      const selectedDateLabel = document.getElementById('selected-date-label');
+      const calMonthYear = document.getElementById('cal-month-year');
+      const calDaysGrid = document.getElementById('cal-days-grid');
+      const calPrevBtn = document.getElementById('cal-prev-btn');
+      const calNextBtn = document.getElementById('cal-next-btn');
+
+      const serviceInput = document.getElementById('res-service');
+      const timeInput = document.getElementById('res-time');
+      const seatingInput = document.getElementById('res-seating');
+      const formEl = document.getElementById('reservation-form');
+      const formErrorEl = document.getElementById('form-error');
+      const confirmationEl = document.getElementById('reservation-confirmation');
+
+      function toISODate(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return y + '-' + m + '-' + day;
+      }
+
+      function formatFrenchDateFull(d) {
+        const str = new Intl.DateTimeFormat('fr-FR', {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }).format(d);
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      }
+
+      // Premier jour ouvert à partir d'aujourd'hui (si lundi -> mardi)
+      function getDefaultOpenDate() {
+        const d = new Date(todayMidnight.getTime());
+        if (d.getDay() === 1) {
+          d.setDate(d.getDate() + 1);
+        }
+        return d;
+      }
+
+      let selectedDate = getDefaultOpenDate();
+      let viewYear = selectedDate.getFullYear();
+      let viewMonth = selectedDate.getMonth();
+
+      function syncSelectedDateUI() {
+        if (dateHiddenInput) {
+          dateHiddenInput.value = selectedDate ? toISODate(selectedDate) : '';
+        }
+        if (selectedDateLabel) {
+          selectedDateLabel.textContent = selectedDate
+            ? formatFrenchDateFull(selectedDate)
+            : 'Aucune date sélectionnée';
+        }
+      }
+
+      function renderCalendar() {
+        if (!calDaysGrid || !calMonthYear) return;
+
+        const monthText = new Intl.DateTimeFormat('fr-FR', {
+          month: 'long',
+          year: 'numeric'
+        }).format(new Date(viewYear, viewMonth, 1));
+        calMonthYear.textContent = monthText.charAt(0).toUpperCase() + monthText.slice(1);
+
+        if (calPrevBtn) {
+          const isCurrentMonth =
+            viewYear === todayMidnight.getFullYear() &&
+            viewMonth === todayMidnight.getMonth();
+          calPrevBtn.disabled = isCurrentMonth;
+        }
+
+        // Alignement Lun (0) -> Dim (6)
+        const firstDayOfMonth = new Date(viewYear, viewMonth, 1);
+        const startOffset = (firstDayOfMonth.getDay() + 6) % 7;
+        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+        const selectedISO = selectedDate ? toISODate(selectedDate) : '';
+
+        let html = '';
+
+        for (let i = 0; i < startOffset; i++) {
+          html += '<div aria-hidden="true"></div>';
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          const cellDate = new Date(viewYear, viewMonth, day);
+          const cellISO = toISODate(cellDate);
+          const isPast = cellDate.getTime() < todayMidnight.getTime();
+          const isMonday = cellDate.getDay() === 1;
+          const isDisabled = isPast || isMonday;
+          const isSelected = cellISO === selectedISO;
+
+          if (isDisabled) {
+            html +=
+              '<button type="button" disabled title="' +
+              (isMonday ? 'Fermé le lundi' : 'Date passée') +
+              '" class="h-10 rounded-xl text-xs sm:text-sm font-medium text-inkMuted/40 bg-linen/60 cursor-not-allowed line-through">' +
+              day +
+              '</button>';
+          } else {
+            html +=
+              '<button type="button" data-iso="' +
+              cellISO +
+              '" aria-pressed="' +
+              String(isSelected) +
+              '" class="cal-day-btn h-10 rounded-xl text-xs sm:text-sm font-semibold transition-all ' +
+              (isSelected
+                ? 'bg-terracotta text-white shadow-sm'
+                : 'bg-white text-ink border border-borderSoft hover:border-terracotta hover:text-terracotta') +
+              '">' +
+              day +
+              '</button>';
+          }
+        }
+
+        calDaysGrid.innerHTML = html;
+
+        // Écouteurs sur les jours ouverts
+        calDaysGrid.querySelectorAll('.cal-day-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const parts = btn.dataset.iso.split('-').map(Number);
+            selectedDate = new Date(parts[0], parts[1] - 1, parts[2]);
+            syncSelectedDateUI();
+            renderCalendar();
+          });
+        });
+      }
+
+      if (calPrevBtn) {
+        calPrevBtn.addEventListener('click', function () {
+          if (viewMonth === 0) {
+            viewMonth = 11;
+            viewYear -= 1;
+          } else {
+            viewMonth -= 1;
+          }
+          renderCalendar();
+        });
+      }
+
+      if (calNextBtn) {
+        calNextBtn.addEventListener('click', function () {
+          if (viewMonth === 11) {
+            viewMonth = 0;
+            viewYear += 1;
+          } else {
+            viewMonth += 1;
+          }
+          renderCalendar();
+        });
+      }
+
+      syncSelectedDateUI();
+      renderCalendar();
+
+      // Sélection des créneaux horaires
+      function updateTimeButtonsUI(activeTime) {
+        document.querySelectorAll('.time-slot-btn').forEach(function (btn) {
+          const isSelected = btn.dataset.time === activeTime;
+          btn.classList.toggle('bg-terracotta', isSelected);
+          btn.classList.toggle('text-white', isSelected);
+          btn.classList.toggle('border-terracotta', isSelected);
+          btn.classList.toggle('shadow-sm', isSelected);
+          btn.classList.toggle('bg-white', !isSelected);
+          btn.classList.toggle('text-ink', !isSelected);
+          btn.classList.toggle('border-borderSoft', !isSelected);
+        });
+      }
+
+      document.querySelectorAll('.time-slot-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (serviceInput) serviceInput.value = btn.dataset.service;
+          if (timeInput) timeInput.value = btn.dataset.time;
+          updateTimeButtonsUI(btn.dataset.time);
+        });
+      });
+
+      // Sélection du placement
+      function updateSeatingButtonsUI(activeSeating) {
+        document.querySelectorAll('.seating-btn').forEach(function (btn) {
+          const isSelected = btn.dataset.seating === activeSeating;
+          btn.classList.toggle('bg-terracotta', isSelected);
+          btn.classList.toggle('text-white', isSelected);
+          btn.classList.toggle('border-terracotta', isSelected);
+          btn.classList.toggle('shadow-sm', isSelected);
+          btn.classList.toggle('font-semibold', isSelected);
+          btn.classList.toggle('bg-cream', !isSelected);
+          btn.classList.toggle('text-ink', !isSelected);
+          btn.classList.toggle('border-borderSoft', !isSelected);
+          btn.classList.toggle('font-medium', !isSelected);
+        });
+      }
+
+      document.querySelectorAll('.seating-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (seatingInput) seatingInput.value = btn.dataset.seating;
+          updateSeatingButtonsUI(btn.dataset.seating);
+        });
+      });
+
+      // Validation & Soumission du formulaire
+      function showFormError(message) {
+        if (!formErrorEl) return;
+        formErrorEl.textContent = message;
+        formErrorEl.classList.remove('hidden');
+      }
+
+      function hideFormError() {
+        if (!formErrorEl) return;
+        formErrorEl.textContent = '';
+        formErrorEl.classList.add('hidden');
+      }
+
+      if (formEl) {
+        formEl.addEventListener('submit', function (event) {
+          event.preventDefault();
+          hideFormError();
+
+          const guestsVal = parseInt(guestsInput ? guestsInput.value : '', 10);
+          const chosenDateISO = dateHiddenInput ? dateHiddenInput.value : '';
+          const chosenTime = timeInput ? timeInput.value : '';
+          const chosenService = serviceInput ? serviceInput.value : '';
+          const chosenSeating = seatingInput ? seatingInput.value : 'Sans préférence';
+          const nameInput = document.getElementById('res-name');
+          const phoneInput = document.getElementById('res-phone');
+          const notesInput = document.getElementById('res-notes');
+
+          const name = nameInput ? nameInput.value.trim() : '';
+          const phone = phoneInput ? phoneInput.value.trim() : '';
+          const notes = notesInput ? notesInput.value.trim() : '';
+
+          if (isNaN(guestsVal) || guestsVal < 1 || guestsVal > 20) {
+            showFormError('Veuillez saisir un nombre de personnes valide (entre 1 et 20).');
+            if (guestsInput) guestsInput.focus();
+            return;
+          }
+
+          if (!chosenDateISO || !selectedDate) {
+            showFormError('Veuillez sélectionner une date ouverte dans le calendrier.');
+            return;
+          }
+
+          if (!chosenTime) {
+            showFormError('Veuillez choisir un créneau horaire (Déjeuner ou Dîner).');
+            return;
+          }
+
+          if (!name) {
+            showFormError('Veuillez renseigner votre nom complet.');
+            if (nameInput) nameInput.focus();
+            return;
+          }
+
+          if (!phone) {
+            showFormError('Veuillez renseigner votre numéro de téléphone.');
+            if (phoneInput) phoneInput.focus();
+            return;
+          }
+
+          // Génération du numéro de référence
+          const refNumber = '#AG-' + String(Math.floor(1000 + Math.random() * 9000));
+
+          document.getElementById('conf-code').textContent = refNumber;
+          document.getElementById('conf-date').textContent = formatFrenchDateFull(selectedDate);
+          document.getElementById('conf-time').textContent = chosenTime + ' (' + chosenService + ')';
+          document.getElementById('conf-guests').textContent =
+            guestsVal === 1 ? '1 personne' : guestsVal + ' personnes';
+          document.getElementById('conf-seating').textContent = chosenSeating;
+          document.getElementById('conf-name').textContent = name;
+          document.getElementById('conf-phone').textContent = phone;
+
+          const notesWrapper = document.getElementById('conf-notes-wrapper');
+          if (notesWrapper) {
+            if (notes) {
+              document.getElementById('conf-notes').textContent = notes;
+              notesWrapper.classList.remove('hidden');
+            } else {
+              notesWrapper.classList.add('hidden');
+            }
+          }
+
+          formEl.classList.add('hidden');
+          if (confirmationEl) {
+            confirmationEl.classList.remove('hidden');
+            confirmationEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+      }
+
+      // Bouton "Faire une nouvelle réservation"
+      const newReservationBtn = document.getElementById('new-reservation-btn');
+      if (newReservationBtn && formEl && confirmationEl) {
+        newReservationBtn.addEventListener('click', function () {
+          formEl.reset();
+          hideFormError();
+
+          if (guestsInput) guestsInput.value = '2';
+
+          selectedDate = getDefaultOpenDate();
+          viewYear = selectedDate.getFullYear();
+          viewMonth = selectedDate.getMonth();
+          syncSelectedDateUI();
+          renderCalendar();
+
+          if (serviceInput) serviceInput.value = 'Déjeuner';
+          if (timeInput) timeInput.value = '12h30';
+          updateTimeButtonsUI('12h30');
+
+          if (seatingInput) seatingInput.value = 'Sans préférence';
+          updateSeatingButtonsUI('Sans préférence');
+
+          confirmationEl.classList.add('hidden');
+          formEl.classList.remove('hidden');
+        });
+      }
+
+      /* -------------------------------------------------------
+         5. HORAIRES & COPIE DE L'ADRESSE
+      -------------------------------------------------------- */
+      const hoursListEl = document.getElementById('opening-hours-list');
+      if (hoursListEl) {
+        hoursListEl.innerHTML = SCHEDULE.map(function (row) {
+          const isToday = row.dayIndex === todayDay;
+          return (
+            '<div class="grid grid-cols-1 sm:grid-cols-12 gap-1.5 sm:gap-2 items-center px-4 py-3 rounded-2xl border transition-colors ' +
+            (isToday
+              ? 'bg-white border-terracotta/50 shadow-sm'
+              : 'bg-white/60 border-borderSoft/80') +
+            '">' +
+            '  <div class="sm:col-span-3 flex items-center gap-2">' +
+            '    <span class="text-sm font-semibold ' + (isToday ? 'text-terracotta' : 'text-ink') + '">' + row.name + '</span>' +
+            (isToday
+              ? '<span class="px-2 py-0.5 rounded-full bg-terracotta/10 text-terracotta text-[10px] font-bold uppercase">Aujourd’hui</span>'
+              : '') +
+            '  </div>' +
+            '  <div class="sm:col-span-4 text-xs sm:text-sm text-inkMuted">' +
+            '    <span class="sm:hidden font-medium text-ink">Boulangerie : </span>' + row.bakery +
+            '  </div>' +
+            '  <div class="sm:col-span-5 sm:text-right text-xs sm:text-sm ' +
+            (row.bistroClosed ? 'text-inkMuted/70 italic' : 'text-ink font-medium') +
+            '">' +
+            '    <span class="sm:hidden font-medium text-ink not-italic">Bistrot : </span>' + row.bistro +
+            '  </div>' +
+            '</div>'
+          );
+        }).join('');
+      }
+
+      // Copier l'adresse (compatible iFrame)
+      const copyBtn = document.getElementById('copy-address-btn');
+      const copyLabel = document.getElementById('copy-address-label');
+      const addressEl = document.getElementById('restaurant-address');
+
+      if (copyBtn && copyLabel && addressEl) {
+        copyBtn.addEventListener('click', function () {
+          try {
+            const temp = document.createElement('textarea');
+            temp.value = addressEl.textContent.trim();
+            temp.setAttribute('readonly', '');
+            temp.style.position = 'absolute';
+            temp.style.left = '-9999px';
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+
+            copyLabel.textContent = 'Copié !';
+            copyBtn.classList.add('border-sage', 'text-sage', 'bg-sageLight');
+            setTimeout(function () {
+              copyLabel.textContent = 'Copier l’adresse';
+              copyBtn.classList.remove('border-sage', 'text-sage', 'bg-sageLight');
+            }, 2200);
+          } catch (err) {
+            copyLabel.textContent = 'Copie indisponible';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

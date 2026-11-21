@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bâtisseur Pro — Artisans du Bâtiment, Paysagistes & Dépanneurs RGE</title>
+    <meta name="description" content="Bâtisseur Pro : notre équipe d'artisans du bâtiment, paysagistes et dépanneurs certifiés RGE vous accompagne dans tous vos projets de rénovation, d'aménagement extérieur et d'urgence 7j/7.">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        slateDeep: '#1E293B',
+                        stoneLight: '#F8FAFC',
+                        creamWarm: '#F5F3EF',
+                        amberAccent: '#D97706',
+                        amberHover: '#B45309',
+                        forestRge: '#15803D',
+                        forestLight: '#DCFCE7',
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 30px -10px rgba(30, 41, 59, 0.08)',
+                        'elevated': '0 20px 40px -15px rgba(30, 41, 59, 0.14)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Styles minimes pour les transitions et le curseur Avant/Après -->
+    <style>
+        /* Personnalisation discrète de la barre de défilement */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F3EF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+        /* Empêcher la sélection accidentelle lors du glissement Avant/Après */
+        .no-select {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body class="bg-stoneLight text-slateDeep font-sans antialiased overflow-x-hidden selection:bg-amberAccent/20 selection:text-slateDeep">
+
+    <!-- ===================================================================== -->
+    <!-- 1. NAVIGATION FIXE (STICKY HEADER)                                    -->
+    <!-- ===================================================================== -->
+    <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-shadow duration-300">
+        <!-- Bandeau supérieur discret d'urgence sur mobile/desktop -->
+        <div class="bg-slateDeep text-slate-200 text-xs py-1.5 px-4">
+            <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Intervention rapide en Île-de-France &amp; alentours — Artisans certifiés <strong class="text-white">RGE</strong></span>
+                </div>
+                <a href="tel:+33186954210" class="inline-flex items-center gap-1.5 font-semibold text-amber-400 hover:text-amber-300 transition-colors">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Urgence Dépannage 7j/7 : 01 86 95 42 10</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Barre principale -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18 py-3">
+                <!-- Logo Bâtisseur Pro -->
+                <a href="#accueil" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-slateDeep flex items-center justify-center shadow-sm group-hover:bg-amberAccent transition-colors duration-300">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 10h.01M15 10h.01"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-extrabold text-xl tracking-tight text-slateDeep leading-none">Bâtisseur <span class="text-amberAccent">Pro</span></span>
+                        <span class="text-[11px] font-medium text-slate-500 tracking-wide uppercase mt-0.5">Bâtiment • Paysage • Dépannage</span>
+                    </div>
+                </a>
+
+                <!-- Liens Desktop -->
+                <nav class="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
+                    <a href="#metiers" class="text-sm font-semibold text-slate-600 hover:text-slateDeep transition-colors">Nos métiers</a>
+                    <a href="#galerie" class="text-sm font-semibold text-slate-600 hover:text-slateDeep transition-colors">Galerie chantiers</a>
+                    <a href="#garanties" class="text-sm font-semibold text-slate-600 hover:text-slateDeep transition-colors">Garanties RGE</a>
+                    <a href="#avis" class="text-sm font-semibold text-slate-600 hover:text-slateDeep transition-colors">Avis clients</a>
+                </nav>
+
+                <!-- Actions Desktop -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="tel:+33186954210" class="flex items-center gap-2 text-sm font-bold text-slateDeep hover:text-amberAccent transition-colors px-3 py-2 rounded-xl bg-creamWarm border border-slate-200/80">
+                        <svg class="w-4 h-4 text-amberAccent" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>01 86 95 42 10</span>
+                    </a>
+                    <a href="#devis" class="inline-flex items-center gap-2 bg-amberAccent hover:bg-amberHover text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all duration-200">
+                        <span>Demander un devis</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Bouton Menu Burger Mobile -->
+                <button id="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl text-slateDeep hover:bg-creamWarm border border-slate-200 transition-colors">
+                    <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Déroulant -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl">
+            <div class="px-4 pt-3 pb-6 space-y-2">
+                <a href="#metiers" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-semibold text-slateDeep hover:bg-creamWarm">Nos métiers</a>
+                <a href="#galerie" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-semibold text-slateDeep hover:bg-creamWarm">Galerie chantiers</a>
+                <a href="#garanties" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-semibold text-slateDeep hover:bg-creamWarm">Garanties RGE</a>
+                <a href="#avis" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-semibold text-slateDeep hover:bg-creamWarm">Avis clients</a>
+                <div class="pt-3 mt-3 border-t border-slate-100 flex flex-col gap-3">
+                    <a href="tel:+33186954210" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-creamWarm border border-slate-200 text-slateDeep font-bold">
+                        <svg class="w-5 h-5 text-amberAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Urgence 7j/7 : 01 86 95 42 10
+                    </a>
+                    <a href="#devis" class="mobile-nav-link flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-amberAccent hover:bg-amberHover text-white font-bold shadow-sm">
+                        Demander un devis gratuit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===================================================================== -->
+        <!-- 2. SECTION HERO                                                       -->
+        <!-- ===================================================================== -->
+        <section id="accueil" class="relative bg-creamWarm pt-12 pb-16 lg:pt-20 lg:pb-24 overflow-hidden">
+            <!-- Motif géométrique subtil d'arrière-plan -->
+            <div class="absolute inset-0 pointer-events-none opacity-40" style="background-image: radial-gradient(#CBD5E1 1px, transparent 1px); background-size: 28px 28px;"></div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+                    <!-- Colonne Texte -->
+                    <div class="lg:col-span-7 space-y-7">
+                        <!-- Badges de confiance -->
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-forestLight text-forestRge border border-forestRge/20">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                Certifié RGE — Éligible MaPrimeRénov'
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-slateDeep border border-slate-200 shadow-xs">
+                                <svg class="w-4 h-4 text-amberAccent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                4,9/5 sur 140+ avis vérifiés
+                            </span>
+                        </div>
+
+                        <!-- Titre principal -->
+                        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.4rem] text-slateDeep leading-[1.12] tracking-tight">
+                            Votre habitat sublimé par une équipe d'<span class="text-amberAccent">artisans d'excellence</span>.
+                        </h1>
+
+                        <!-- Sous-titre -->
+                        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl">
+                            De la <strong class="text-slateDeep font-semibold">rénovation énergétique</strong> à l'<strong class="text-slateDeep font-semibold">aménagement paysager</strong>, jusqu'au <strong class="text-slateDeep font-semibold">dépannage d'urgence 7j/7</strong> : notre équipe polyvalente coordonne vos chantiers avec rigueur, transparence et garantie décennale.
+                        </p>
+
+                        <!-- Double CTA -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                            <a href="#devis" class="inline-flex items-center justify-center gap-2.5 bg-amberAccent hover:bg-amberHover text-white font-bold text-base px-7 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200">
+                                <span>Demander un devis qualifié</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                            </a>
+                            <a href="#galerie" class="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-50 text-slateDeep font-bold text-base px-7 py-4 rounded-xl border border-slate-300 shadow-xs transition-all duration-200">
+                                <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                <span>Découvrir nos chantiers</span>
+                            </a>
+                        </div>
+
+                        <!-- Micro-réassurance -->
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500 pt-1">
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-forestRge" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Devis détaillé gratuit
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-forestRge" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Interlocuteur unique dédié
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-forestRge" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Garantie Décennale 10 ans
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Colonne Visuelle -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative rounded-3xl overflow-hidden shadow-elevated border-4 border-white bg-slateDeep aspect-[4/4.3]">
+                            <img
+                                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85"
+                                alt="Maison contemporaine rénovée et jardin paysager réalisés par notre équipe Bâtisseur Pro"
+                                class="w-full h-full object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/800x860/1E293B/F5F3EF?text=B%C3%A2tisseur+Pro+-+R%C3%A9novations';"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/80 via-slateDeep/15 to-transparent"></div>
+
+                            <!-- Carte flottante en bas de l'image -->
+                            <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/60">
+                                <div class="flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-11 h-11 rounded-xl bg-forestLight text-forestRge flex items-center justify-center shrink-0">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="font-display font-bold text-slateDeep text-sm">Travaux assurés &amp; suivis</p>
+                                            <p class="text-xs text-slate-500">Maçonnerie • Paysagisme • Dépannage</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-lg bg-slateDeep text-white text-xs font-bold shrink-0">RGE 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bandeau de chiffres clés -->
+                <div class="mt-14 lg:mt-16 bg-slateDeep rounded-2xl p-6 sm:p-8 shadow-elevated text-white">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-slate-700/80">
+                        <div class="flex flex-col items-center lg:items-start text-center lg:text-left pt-2 lg:pt-0">
+                            <span class="font-display font-extrabold text-3xl sm:text-4xl text-amber-400">+350</span>
+                            <span class="text-sm text-slate-300 font-medium mt-1">Chantiers réalisés</span>
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start text-center lg:text-left pt-4 lg:pt-0 lg:pl-8">
+                            <span class="font-display font-extrabold text-3xl sm:text-4xl text-white">98%</span>
+                            <span class="text-sm text-slate-300 font-medium mt-1">De clients satisfaits</span>
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start text-center lg:text-left pt-4 lg:pt-0 lg:pl-8">
+                            <span class="font-display font-extrabold text-3xl sm:text-4xl text-white">&lt; 24h</span>
+                            <span class="text-sm text-slate-300 font-medium mt-1">Réponse &amp; devis rapide</span>
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start text-center lg:text-left pt-4 lg:pt-0 lg:pl-8">
+                            <span class="inline-flex items-center gap-2 font-display font-extrabold text-3xl sm:text-4xl text-emerald-400">
+                                RGE
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </span>
+                            <span class="text-sm text-slate-300 font-medium mt-1">Certifié &amp; assuré Décennale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- 3. SECTION NOS MÉTIERS                                                -->
+        <!-- ===================================================================== -->
+        <section id="metiers" class="py-20 lg:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- En-tête de section -->
+                <div class="max-w-3xl mx-auto text-center mb-14">
+                    <span class="inline-block text-xs font-bold uppercase tracking-widest text-amberAccent mb-2">Notre savoir-faire</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slateDeep tracking-tight">
+                        Trois pôles d'expertise, une seule équipe de confiance
+                    </h2>
+                    <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
+                        Nous réunissons des compagnons qualifiés pour prendre en charge l'ensemble de votre habitat, de la structure intérieure jusqu'au jardin et aux imprévus du quotidien.
+                    </p>
+                </div>
+
+                <!-- Grille des 3 cartes métiers -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Carte 1 : Bâtiment & Rénovation -->
+                    <article class="group flex flex-col justify-between bg-stoneLight rounded-2xl p-7 border border-slate-200/90 hover:border-amberAccent/50 hover:shadow-elevated transition-all duration-300">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-slateDeep text-amber-400 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-slateDeep mb-3">Artisans du Bâtiment &amp; Rénovation</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Nous rénovons vos espaces de vie du sol au plafond en alliant performance thermique RGE et finitions soignées.
+                            </p>
+                            <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Rénovation globale &amp; isolation thermique (ITE/ITI)</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Maçonnerie, extension &amp; ouverture de mur porteur</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Cuisines, salles de bain clé en main &amp; menuiseries</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Couverture, charpente &amp; ravalement de façade</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button type="button" onclick="selectTradeAndScroll('Bâtiment')" class="w-full py-3.5 px-4 rounded-xl bg-slateDeep hover:bg-amberAccent text-white font-bold text-sm transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Chiffrer un projet Bâtiment</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </button>
+                    </article>
+
+                    <!-- Carte 2 : Paysagistes & Extérieurs -->
+                    <article class="group flex flex-col justify-between bg-stoneLight rounded-2xl p-7 border border-slate-200/90 hover:border-forestRge/50 hover:shadow-elevated transition-all duration-300">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-forestLight text-forestRge flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22V12m0 0C12 7 7 4 3 4c0 4 3 8 9 8zm0 0c0-5 5-8 9-8 0 4-3 8-9 8z"/></svg>
+                            </div>
+                            <h3 class="font-display font-bold text-xl text-slateDeep mb-3">Paysagistes &amp; Extérieurs</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Notre équipe crée des espaces extérieurs durables, esthétiques et faciles à vivre tout au long des saisons.
+                            </p>
+                            <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Terrasses bois exotique, composite &amp; pierre naturelle</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Création de jardins, massifs &amp; arrosage automatique</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Clôtures, murets, portails &amp; allées carrossables</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Élagage raisonné, taille de haies &amp; entretien annuel</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button type="button" onclick="selectTradeAndScroll('Paysagisme')" class="w-full py-3.5 px-4 rounded-xl bg-forestRge hover:bg-emerald-800 text-white font-bold text-sm transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Chiffrer un projet Paysage</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </button>
+                    </article>
+
+                    <!-- Carte 3 : Dépanneurs & Urgences 7j/7 -->
+                    <article class="group flex flex-col justify-between bg-stoneLight rounded-2xl p-7 border border-slate-200/90 hover:border-amberAccent/50 hover:shadow-elevated transition-all duration-300">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amberAccent flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <div class="flex items-center justify-between gap-2 mb-3">
+                                <h3 class="font-display font-bold text-xl text-slateDeep">Dépanneurs &amp; Urgences</h3>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amberHover">7j/7</span>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Un imprévu ne prévient jamais. Nos techniciens interviennent rapidement avec des tarifs annoncés avant toute action.
+                            </p>
+                            <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Recherche &amp; réparation de fuites d'eau, chauffe-eau</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Panne électrique, mise en sécurité tableau &amp; disjoncteur</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Chauffage, pompe à chaleur &amp; dépannage chaudière</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <svg class="w-5 h-5 text-forestRge shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Serrurerie, volets roulants &amp; sécurisation après sinistre</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button type="button" onclick="selectTradeAndScroll('Dépannage')" class="w-full py-3.5 px-4 rounded-xl bg-amberAccent hover:bg-amberHover text-white font-bold text-sm transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Demander un dépannage</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- 4. SECTION GALERIE CHANTIERS INTERACTIVE                              -->
+        <!-- ===================================================================== -->
+        <section id="galerie" class="py-20 lg:py-24 bg-creamWarm border-y border-slate-200/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- En-tête + Filtres -->
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+                    <div class="max-w-2xl">
+                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-amberAccent mb-2">Galerie chantiers</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slateDeep tracking-tight">
+                            Nos réalisations récentes sur le terrain
+                        </h2>
+                        <p class="mt-3 text-slate-600 text-base">
+                            Cliquez sur un chantier pour découvrir notre méthodologie, les matériaux utilisés et comparer le rendu <strong>Avant / Après</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Boutons de filtres dynamiques -->
+                    <div id="gallery-filters" class="flex flex-wrap gap-2" role="tablist" aria-label="Filtrer les chantiers par catégorie">
+                        <button type="button" data-filter="Tous" class="filter-btn active px-4 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer bg-slateDeep text-white shadow-sm">
+                            Tous (6)
+                        </button>
+                        <button type="button" data-filter="Bâtiment" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                            Bâtiment
+                        </button>
+                        <button type="button" data-filter="Paysagisme" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                            Paysagisme
+                        </button>
+                        <button type="button" data-filter="Dépannage" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                            Dépannage
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grille des réalisations (injectée dynamiquement en JS) -->
+                <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+                    <!-- Rempli par JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- 5. SECTION GARANTIES RGE & ASSURANCES                                 -->
+        <!-- ===================================================================== -->
+        <section id="garanties" class="py-20 lg:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Bannière principale RGE -->
+                <div class="bg-slateDeep rounded-3xl p-8 sm:p-10 lg:p-12 text-white shadow-elevated mb-12 relative overflow-hidden">
+                    <div class="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-forestRge/25 blur-3xl pointer-events-none"></div>
+
+                    <div class="relative grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-8 space-y-5">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forestRge text-white text-xs font-bold tracking-wide uppercase">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                Label Officiel RGE — Reconnu Garant de l'Environnement
+                            </div>
+                            <h2 class="font-display font-extrabold text-3xl sm:text-4xl leading-tight">
+                                Optimisez votre budget grâce à nos qualifications <span class="text-emerald-400">RGE</span>
+                            </h2>
+                            <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                                Faire appel à notre équipe certifiée RGE, c'est l'assurance de travaux respectueux des normes thermiques actuelles et l'accès garanti aux aides publiques de financement. Nous vous accompagnons dans le montage de vos dossiers.
+                            </p>
+
+                            <!-- Pilules des aides financières -->
+                            <div class="flex flex-wrap gap-3 pt-2">
+                                <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-4 py-2.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                    <span class="text-sm font-bold">MaPrimeRénov'</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-4 py-2.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                    <span class="text-sm font-bold">Éco-PTZ (0%)</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-4 py-2.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                    <span class="text-sm font-bold">Primes CEE</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-4 py-2.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                    <span class="text-sm font-bold">TVA réduite à 5,5%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Macaron visuel RGE -->
+                        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                            <div class="bg-white text-slateDeep rounded-2xl p-6 w-full max-w-xs shadow-lg border-t-4 border-forestRge text-center">
+                                <div class="w-16 h-16 mx-auto rounded-2xl bg-forestLight text-forestRge flex items-center justify-center mb-4">
+                                    <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <p class="font-display font-extrabold text-xl text-forestRge">Qualibat RGE</p>
+                                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Certification active</p>
+                                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                                    Audits de chantier réguliers et formation continue de nos équipes en efficacité énergétique.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Cartes Assurances & Engagements -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Garantie Décennale -->
+                    <div class="bg-stoneLight rounded-2xl p-6 border border-slate-200/90 hover:shadow-soft transition-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-slateDeep text-white flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-slateDeep mb-2">Garantie Décennale (10 ans)</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Tous nos ouvrages structurels et de rénovation sont couverts pendant 10 ans. Attestation jointe à chaque devis.
+                        </p>
+                    </div>
+
+                    <!-- RC Pro -->
+                    <div class="bg-stoneLight rounded-2xl p-6 border border-slate-200/90 hover:shadow-soft transition-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amberAccent flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-slateDeep mb-2">Responsabilité Civile Pro</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Une protection complète pendant toute la durée du chantier pour vos biens, votre voisinage et nos interventions d'urgence.
+                        </p>
+                    </div>
+
+                    <!-- Parfait Achèvement -->
+                    <div class="bg-stoneLight rounded-2xl p-6 border border-slate-200/90 hover:shadow-soft transition-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-forestLight text-forestRge flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-slateDeep mb-2">Parfait Achèvement</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Nous nous engageons à corriger la moindre réserve signalée à la réception ou durant l'année qui suit la livraison.
+                        </p>
+                    </div>
+
+                    <!-- Devis transparent -->
+                    <div class="bg-stoneLight rounded-2xl p-6 border border-slate-200/90 hover:shadow-soft transition-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-slate-200 text-slateDeep flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-slateDeep mb-2">Devis transparent sans surprise</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Postes détaillés, matériaux référencés et planning ferme : aucun surcoût caché entre la signature et la fin des travaux.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- 6. SECTION DEMANDE DE DEVIS QUALIFIÉE (3 ÉTAPES)                      -->
+        <!-- ===================================================================== -->
+        <section id="devis" class="py-20 lg:py-24 bg-creamWarm border-t border-slate-200/70">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- En-tête -->
+                <div class="text-center mb-10">
+                    <span class="inline-block text-xs font-bold uppercase tracking-widest text-amberAccent mb-2">Demande de devis</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slateDeep tracking-tight">
+                        Estimez votre projet en 2 minutes
+                    </h2>
+                    <p class="mt-3 text-slate-600 text-base max-w-xl mx-auto">
+                        Décrivez-nous votre besoin en 3 étapes simples. Un conducteur de travaux de notre équipe vous recontacte sous 24h ouvrées.
+                    </p>
+                </div>
+
+                <!-- Conteneur du Formulaire Multi-étapes -->
+                <div class="bg-white rounded-3xl shadow-elevated border border-slate-200/80 overflow-hidden">
+                    <!-- Barre de progression -->
+                    <div id="quote-progress-header" class="bg-slateDeep px-6 sm:px-8 py-6 text-white">
+                        <div class="flex items-center justify-between text-xs sm:text-sm font-semibold mb-3">
+                            <span id="step-label-1" class="text-amber-400">1. Corps de métier</span>
+                            <span id="step-label-2" class="text-slate-400">2. Votre projet</span>
+                            <span id="step-label-3" class="text-slate-400">3. Coordonnées</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div id="progress-bar" class="h-full bg-amberAccent rounded-full transition-all duration-300" style="width: 33.33%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Zone de message d'erreur inline (remplace tout alert()) -->
+                    <div id="form-error-banner" class="hidden mx-6 sm:mx-8 mt-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium flex items-center gap-3">
+                        <svg class="w-5 h-5 shrink-0 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="form-error-text">Veuillez compléter les champs obligatoires.</span>
+                    </div>
+
+                    <!-- Formulaire -->
+                    <form id="quote-form" class="p-6 sm:p-8 lg:p-10" novalidate>
+                        <!-- ÉTAPE 1 : Choix du métier & type de travaux -->
+                        <div id="form-step-1" class="space-y-7">
+                            <div>
+                                <label class="block font-display font-bold text-lg text-slateDeep mb-4">
+                                    Quel corps de métier concerne votre demande ? <span class="text-amberAccent">*</span>
+                                </label>
+                                <div class="grid sm:grid-cols-3 gap-4" id="trade-selector">
+                                    <!-- Option Bâtiment -->
+                                    <label class="trade-card relative flex flex-col items-center text-center p-5 rounded-2xl border-2 border-amberAccent bg-amber-50/40 cursor-pointer transition-all hover:shadow-sm">
+                                        <input type="radio" name="trade" value="Bâtiment" class="sr-only" checked>
+                                        <div class="w-12 h-12 rounded-xl bg-slateDeep text-amber-400 flex items-center justify-center mb-3">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg>
+                                        </div>
+                                        <span class="font-display font-bold text-slateDeep">Bâtiment</span>
+                                        <span class="text-xs text-slate-500 mt-1">Rénovation, isolation, maçonnerie</span>
+                                    </label>
+
+                                    <!-- Option Paysagisme -->
+                                    <label class="trade-card relative flex flex-col items-center text-center p-5 rounded-2xl border-2 border-slate-200 bg-white cursor-pointer transition-all hover:border-slate-300 hover:shadow-sm">
+                                        <input type="radio" name="trade" value="Paysagisme" class="sr-only">
+                                        <div class="w-12 h-12 rounded-xl bg-forestLight text-forestRge flex items-center justify-center mb-3">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22V12m0 0C12 7 7 4 3 4c0 4 3 8 9 8zm0 0c0-5 5-8 9-8 0 4-3 8-9 8z"/></svg>
+                                        </div>
+                                        <span class="font-display font-bold text-slateDeep">Paysagisme</span>
+                                        <span class="text-xs text-slate-500 mt-1">Terrasse, jardin, clôture</span>
+                                    </label>
+
+                                    <!-- Option Dépannage -->
+                                    <label class="trade-card relative flex flex-col items-center text-center p-5 rounded-2xl border-2 border-slate-200 bg-white cursor-pointer transition-all hover:border-slate-300 hover:shadow-sm">
+                                        <input type="radio" name="trade" value="Dépannage" class="sr-only">
+                                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amberAccent flex items-center justify-center mb-3">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                        </div>
+                                        <span class="font-display font-bold text-slateDeep">Dépannage</span>
+                                        <span class="text-xs text-slate-500 mt-1">Fuite, électricité, urgence 7j/7</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Types de travaux dynamiques -->
+                            <div>
+                                <label class="block font-display font-bold text-base text-slateDeep mb-3">
+                                    Précisez le type de travaux envisagé <span class="text-amberAccent">*</span>
+                                </label>
+                                <div id="work-types-container" class="grid sm:grid-cols-2 gap-3">
+                                    <!-- Rempli dynamiquement selon le métier -->
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end pt-4 border-t border-slate-100">
+                                <button type="button" onclick="nextStep(1)" class="inline-flex items-center gap-2 bg-amberAccent hover:bg-amberHover text-white font-bold px-7 py-3.5 rounded-xl shadow-sm transition-all cursor-pointer">
+                                    <span>Étape suivante</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ÉTAPE 2 : Qualification du projet -->
+                        <div id="form-step-2" class="hidden space-y-6">
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <!-- Budget estimé -->
+                                <div>
+                                    <label for="project-budget" class="block text-sm font-bold text-slateDeep mb-2">
+                                        Budget estimé <span class="text-amberAccent">*</span>
+                                    </label>
+                                    <select id="project-budget" name="budget" class="w-full rounded-xl border border-slate-300 bg-stoneLight px-4 py-3 text-sm text-slateDeep focus:border-amberAccent focus:ring-2 focus:ring-amberAccent/20 outline-none">
+                                        <option value="">Sélectionnez une tranche</option>
+                                        <option value="Moins de 2 000 €">Moins de 2 000 €</option>
+                                        <option value="2 000 € à 10 000 €">2 000 € à 10 000 €</option>
+                                        <option value="10 000 € à 30 000 €">10 000 € à 30 000 €</option>
+                                        <option value="Plus de 30 000 €">Plus de 30 000 €</option>
+                                        <option value="À définir avec votre équipe">À définir avec votre équipe</option>
+                                    </select>
+                                </div>
+
+                                <!-- Surface approximative -->
+                                <div>
+                                    <label for="project-surface" class="block text-sm font-bold text-slateDeep mb-2">
+                                        Surface approximative (m²)
+                                    </label>
+                                    <input type="number" id="project-surface" name="surface" min="1" placeholder="Ex : 45" class="w-full rounded-xl border border-slate-300 bg-stoneLight px-4 py-3 text-sm text-slateDeep focus:border-amberAccent focus:ring-2 focus:ring-amberAccent/20 outline-none">
+                                </div>
+                            </div>
+
+                            <!-- Délai souhaité -->
+                            <div>
+                                <label class="block text-sm font-bold text-slateDeep mb-3">
+                                    Délai souhaité pour l'intervention <span class="text-amberAccent">*</span>
+                                </label>
+                                <div class="grid sm:grid-cols-3 gap-3">
+                                    <label class="timeline-card flex items-center justify-center gap-2 p-3.5 rounded-xl border-2 border-slate-200 bg-white cursor-pointer text-sm font-semibold text-slateDeep hover:border-amberAccent/60 transition-all">
+                                        <input type="radio" name="timeline" value="Urgent (24h - 48h)" class="sr-only">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                                        <span>Urgent</span>
+                                    </label>
+                                    <label class="timeline-card flex items-center justify-center gap-2 p-3.5 rounded-xl border-2 border-amberAccent bg-amber-50/40 cursor-pointer text-sm font-semibold text-slateDeep transition-all">
+                                        <input type="radio" name="timeline" value="Sous 1 mois" class="sr-only" checked>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-amberAccent"></span>
+                                        <span>Sous 1 mois</span>
+                                    </label>
+                                    <label class="timeline-card flex items-center justify-center gap-2 p-3.5 rounded-xl border-2 border-slate-200 bg-white cursor-pointer text-sm font-semibold text-slateDeep hover:border-amberAccent/60 transition-all">
+                                        <input type="radio" name="timeline" value="Sous 3 mois" class="sr-only">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-forestRge"></span>
+                                        <span>Sous 3 mois</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Description du besoin -->
+                            <div>
+                                <label for="project-description" class="block text-sm font-bold text-slateDeep mb-2">
+                                    Description de votre besoin <span class="text-amberAccent">*</span>
+                                </label>
+                                <textarea id="project-description" name="description" rows="4" placeholder="Décrivez brièvement l'état actuel, vos attentes, les contraintes d'accès ou les aides RGE souhaitées..." class="w-full rounded-xl border border-slate-300 bg-stoneLight px-4 py-3 text-sm text-slateDeep focus:border-amberAccent focus:ring-2 focus:ring-amberAccent/20 outline-none resize-y"></textarea>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                                <button type="button" onclick="prevStep(2)" class="inline-flex items-center gap-2 text-slate-600 hover:text-slateDeep font-bold px-5 py-3 rounded-xl border border-slate-200 hover:bg-slate-50 transition-all cursor-pointer">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
+                                    <span>Retour</span>
+                                </button>
+                                <button type="button" onclick="nextStep(2)" class="inline-flex items-center gap-2 bg-amberAccent hover:bg-amberHover text-white font-bold px-7 py-3.5 rounded-xl shadow-sm transition-all cursor-pointer">
+                                    <span>Étape suivante</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ÉTAPE 3 : Coordonnées -->
+                        <div id="form-step-3" class="hidden space-y-6">
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="client-name" class="block text-sm font-bold text-slateDeep mb-2">
+                                        Nom et Prénom <span class="text-amberAccent">*</span>
+                                    </label>
+                                    <input type="text" id="client-name" name="name" placeholder="Ex : Marc Lefèvre" class="w-full rounded-xl border border-slate-300 bg-stoneLight px-4 py-3 text-sm text-slateDeep focus:border-amberAccent focus:ring-2 focus:ring-amberAccent/20 outline-none">
+                                </div>
+                                <div>
+                                    <label for="client-phone" class="block text-sm font-bold text-slateDeep mb-2">
+                                        Téléphone <span class="text-amberAccent">*</span>
+                                    </label>
+                                    <input type="tel" id="client-phone" name="phone" placeholder="Ex : 06 12 34 56 78" class="w-full rounded-xl border border-slate-300 bg-stoneLight px-4 py-3 text-sm text-slateDeep focus:border-amberAccent focus:ring-2 focus:ring-amberAccent/20 outline-none">
+                                </div>
+                                <div>
+                                    <label for="client-email" class="block text-sm font-bold text-slateDeep mb-2">
+                                        Adresse Email <span class="text-amberAccent">*</span>
+                                    </label>
+                                    <input type="email" id="client-email" name="email" placeholder="Ex : marc.lefevre@email.fr" class="w-full rounded-xl border border-slate-300 bg-stoneLight px-4 py-3 text-sm text-slateDeep focus:border-amberAccent focus:ring-2 focus:ring-amberAccent/20 outline-none">
+                                </div>
+                                <div>
+                                    <label for="client-city" class="block text-sm font-bold text-slateDeep mb-2">
+                                        Code postal &amp; Ville <span class="text-amberAccent">*</span>
+                                    </label>
+                                    <input type="text" id="client-city" name="city" placeholder="Ex : 78100 Saint-Germain-en-Laye" class="w-full rounded-xl border border-slate-300 bg-stoneLight px-4 py-3 text-sm text-slateDeep focus:border-amberAccent focus:ring-2 focus:ring-amberAccent/20 outline-none">
+                                </div>
+                            </div>
+
+                            <label class="flex items-start gap-3 p-4 rounded-xl bg-stoneLight border border-slate-200 cursor-pointer">
+                                <input type="checkbox" id="client-consent" checked class="mt-1 w-4 h-4 rounded accent-amberAccent">
+                                <span class="text-xs text-slate-600 leading-relaxed">
+                                    J'accepte que l'équipe <strong>Bâtisseur Pro</strong> utilise ces informations uniquement pour établir mon devis et me recontacter concernant mon projet. Aucune donnée n'est revendue à des tiers.
+                                </span>
+                            </label>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                                <button type="button" onclick="prevStep(3)" class="inline-flex items-center gap-2 text-slate-600 hover:text-slateDeep font-bold px-5 py-3 rounded-xl border border-slate-200 hover:bg-slate-50 transition-all cursor-pointer">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
+                                    <span>Retour</span>
+                                </button>
+                                <button type="submit" class="inline-flex items-center gap-2 bg-forestRge hover:bg-emerald-800 text-white font-bold px-7 py-3.5 rounded-xl shadow-md transition-all cursor-pointer">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Envoyer ma demande de devis</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- ÉCRAN DE CONFIRMATION DYNAMIQUE -->
+                    <div id="quote-confirmation" class="hidden p-8 sm:p-10 text-center space-y-6">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-forestLight text-forestRge flex items-center justify-center">
+                            <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slateDeep">Votre demande est bien enregistrée !</h3>
+                            <p class="text-slate-600 mt-2 max-w-lg mx-auto">
+                                Merci pour votre confiance. Notre équipe analyse votre projet et vous rappellera sous <strong>24h ouvrées</strong> (ou sous 2h en cas d'urgence).
+                            </p>
+                        </div>
+
+                        <!-- Numéro de dossier -->
+                        <div class="inline-flex flex-wrap items-center justify-center gap-3 bg-creamWarm border border-slate-200 rounded-2xl px-5 py-3">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Numéro de dossier :</span>
+                            <span id="dossier-number" class="font-display font-extrabold text-lg text-slateDeep tracking-wide">BP-2026-0000</span>
+                            <button type="button" onclick="copyDossierNumber()" class="inline-flex items-center gap-1 text-xs font-bold text-amberAccent hover:text-amberHover px-2.5 py-1 rounded-lg bg-white border border-slate-200 cursor-pointer">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                <span id="copy-label">Copier</span>
+                            </button>
+                        </div>
+
+                        <!-- Récapitulatif -->
+                        <div id="confirmation-summary" class="text-left bg-stoneLight rounded-2xl p-6 border border-slate-200 max-w-2xl mx-auto grid sm:grid-cols-2 gap-4 text-sm">
+                            <!-- Rempli par JS -->
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="button" onclick="resetQuoteForm()" class="inline-flex items-center gap-2 text-sm font-bold text-slateDeep hover:text-amberAccent underline underline-offset-4 cursor-pointer">
+                                Faire une nouvelle demande de devis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- 7. SECTION AVIS CLIENTS VÉRIFIÉS                                      -->
+        <!-- ===================================================================== -->
+        <section id="avis" class="py-20 lg:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                    <div>
+                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-amberAccent mb-2">Témoignages</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slateDeep tracking-tight">
+                            Ce que nos clients disent de notre équipe
+                        </h2>
+                    </div>
+                    <!-- Encart Note Moyenne -->
+                    <div class="inline-flex items-center gap-4 bg-creamWarm px-6 py-4 rounded-2xl border border-slate-200/80">
+                        <div>
+                            <div class="flex items-center gap-1 text-amberAccent">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Basé sur 142 avis clients vérifiés</p>
+                        </div>
+                        <div class="text-right pl-4 border-l border-slate-300">
+                            <span class="font-display font-extrabold text-3xl text-slateDeep">4,9</span><span class="text-sm font-bold text-slate-500">/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cartes Avis -->
+                <div class="grid md:grid-cols-3 gap-7">
+                    <!-- Avis 1 -->
+                    <article class="bg-stoneLight rounded-2xl p-7 border border-slate-200/80 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-slateDeep text-white">Bâtiment &amp; RGE</span>
+                                <span class="text-xs font-semibold text-forestRge flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    Avis vérifié
+                                </span>
+                            </div>
+                            <p class="text-slate-700 text-sm leading-relaxed italic">
+                                « L'équipe Bâtisseur Pro a réalisé l'isolation par l'extérieur et la rénovation de notre cuisine. Chantier impeccable chaque soir, délais respectés au jour près et accompagnement parfait pour notre dossier MaPrimeRénov'. »
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-slateDeep text-white font-display font-bold flex items-center justify-center text-sm">SL</div>
+                            <div>
+                                <p class="font-bold text-sm text-slateDeep">Sophie &amp; Laurent M.</p>
+                                <p class="text-xs text-slate-500">Saint-Germain-en-Laye (78)</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Avis 2 -->
+                    <article class="bg-stoneLight rounded-2xl p-7 border border-slate-200/80 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-forestLight text-forestRge">Paysagisme</span>
+                                <span class="text-xs font-semibold text-forestRge flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    Avis vérifié
+                                </span>
+                            </div>
+                            <p class="text-slate-700 text-sm leading-relaxed italic">
+                                « Transformation totale de notre jardin avec une terrasse en bois exotique et un éclairage d'ambiance. Les paysagistes ont été de très bon conseil sur le choix des essences adaptées au climat. »
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-forestRge text-white font-display font-bold flex items-center justify-center text-sm">CD</div>
+                            <div>
+                                <p class="font-bold text-sm text-slateDeep">Claire Delacroix</p>
+                                <p class="text-xs text-slate-500">Versailles (78)</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Avis 3 -->
+                    <article class="bg-stoneLight rounded-2xl p-7 border border-slate-200/80 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amberHover">Dépannage 7j/7</span>
+                                <span class="text-xs font-semibold text-forestRge flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    Avis vérifié
+                                </span>
+                            </div>
+                            <p class="text-slate-700 text-sm leading-relaxed italic">
+                                « Fuite importante sous notre ballon d'eau chaude un dimanche matin. Technicien sur place en moins d'une heure, devis annoncé avant travaux et réparation propre et durable. Rare de trouver autant de sérieux ! »
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-amberAccent text-white font-display font-bold flex items-center justify-center text-sm">KB</div>
+                            <div>
+                                <p class="font-bold text-sm text-slateDeep">Karim Benali</p>
+                                <p class="text-xs text-slate-500">Poissy (78)</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- PIED DE PAGE COMPLET                                                  -->
+    <!-- ===================================================================== -->
+    <footer class="bg-slateDeep text-slate-300 pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-700/80">
+                <!-- Colonne 1 : Marque -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amberAccent flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                            </svg>
+                        </div>
+                        <span class="font-display font-extrabold text-xl text-white">Bâtisseur <span class="text-amber-400">Pro</span></span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Notre équipe d'artisans du bâtiment, paysagistes et dépanneurs certifiés RGE vous accompagne avec exigence et proximité dans tous vos projets.
+                    </p>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-forestRge/20 border border-forestRge/40 text-emerald-400 text-xs font-bold">
+                        Certifié Qualibat RGE • Garantie Décennale
+                    </div>
+                </div>
+
+                <!-- Colonne 2 : Zone d'intervention -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-base mb-4">Zone d'intervention</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li>Yvelines (78) : Saint-Germain-en-Laye, Versailles, Poissy, Achères, Maisons-Laffitte</li>
+                        <li>Hauts-de-Seine (92) : Rueil-Malmaison, Nanterre, Suresnes</li>
+                        <li>Val-d'Oise (95) : Cergy, Pontoise, Cormeilles</li>
+                        <li>Paris &amp; Ouest Francilien</li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Horaires & Urgences -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-base mb-4">Horaires d'ouverture</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li class="flex justify-between"><span>Lundi - Vendredi :</span> <span class="text-white font-medium">8h00 - 19h00</span></li>
+                        <li class="flex justify-between"><span>Samedi :</span> <span class="text-white font-medium">9h00 - 17h00</span></li>
+                        <li class="flex justify-between pt-2 border-t border-slate-700/80">
+                            <span class="text-amber-400 font-semibold">Urgences Dépannage :</span>
+                            <span class="text-amber-400 font-bold">7j/7 — 24h/24</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 4 : Contact direct -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-base mb-4">Nous contacter</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="tel:+33186954210" class="flex items-center gap-2.5 text-white hover:text-amber-400 font-bold transition-colors">
+                                <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                01 86 95 42 10
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:contact@batisseur-pro.fr" class="flex items-center gap-2.5 text-slate-300 hover:text-white transition-colors">
+                                <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                contact@batisseur-pro.fr
+                            </a>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-400">
+                            <svg class="w-4 h-4 text-amber-400 shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>18 Rue des Artisans, 78260 Achères</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Mentions légales & Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+                <p>© 2026 Bâtisseur Pro SAS — SIRET 894 521 340 00018 — Tous droits réservés.</p>
+                <div class="flex flex-wrap items-center gap-5">
+                    <button type="button" onclick="openLegalModal('mentions')" class="hover:text-white transition-colors cursor-pointer">Mentions légales</button>
+                    <button type="button" onclick="openLegalModal('confidentialite')" class="hover:text-white transition-colors cursor-pointer">Politique de confidentialité</button>
+                    <button type="button" onclick="openLegalModal('garanties')" class="hover:text-white transition-colors cursor-pointer">Attestations &amp; Décennale</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- MODALE DÉTAIL CHANTIER + CURSEUR INTERACTIF AVANT / APRÈS             -->
+    <!-- ===================================================================== -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slateDeep/80 backdrop-blur-sm overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden my-8 animate-fadeIn">
+            <!-- Bouton Fermer -->
+            <button type="button" onclick="closeProjectModal()" aria-label="Fermer la fenêtre" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/95 hover:bg-slate-100 text-slateDeep shadow-md flex items-center justify-center transition-colors cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <!-- Zone Interactive Avant / Après -->
+            <div class="relative w-full h-64 sm:h-80 md:h-96 bg-slateDeep overflow-hidden no-select">
+                <!-- Image APRÈS (fond) -->
+                <img id="modal-img-after" src="" alt="Après travaux" class="absolute inset-0 w-full h-full object-cover">
+
+                <!-- Image AVANT (superposée et découpée dynamiquement) -->
+                <div id="before-wrapper" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
+                    <img id="modal-img-before" src="" alt="Avant travaux" class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-90 brightness-90">
+                </div>
+
+                <!-- Ligne verticale + Poignée du curseur -->
+                <div id="slider-divider" class="absolute top-0 bottom-0 w-1 bg-white shadow-lg pointer-events-none" style="left: 50%;">
+                    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-amberAccent text-white shadow-xl border-2 border-white flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-3 3 3 3m8-6l3 3-3 3"/></svg>
+                    </div>
+                </div>
+
+                <!-- Étiquettes Avant / Après -->
+                <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg bg-slateDeep/80 text-white text-xs font-bold uppercase tracking-wider pointer-events-none">Avant</span>
+                <span class="absolute bottom-4 right-4 z-10 px-3 py-1 rounded-lg bg-forestRge/90 text-white text-xs font-bold uppercase tracking-wider pointer-events-none">Après intervention</span>
+
+                <!-- Input range transparent recouvrant la zone pour glissement fluide souris + tactile -->
+                <input id="before-after-slider" type="range" min="0" max="100" value="50" aria-label="Comparer avant et après les travaux" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-10">
+            </div>
+
+            <!-- Contenu détaillé du chantier -->
+            <div class="p-6 sm:p-8 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <span id="modal-category" class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-2"></span>
+                        <h3 id="modal-title" class="font-display font-extrabold text-2xl sm:text-3xl text-slateDeep"></h3>
+                    </div>
+                    <div class="flex items-center gap-4 text-sm text-slate-600 bg-creamWarm px-4 py-2.5 rounded-xl border border-slate-200">
+                        <span class="flex items-center gap-1.5 font-semibold">
+                            <svg class="w-4 h-4 text-amberAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                            <span id="modal-city"></span>
+                        </span>
+                        <span class="text-slate-300">|</span>
+                        <span class="flex items-center gap-1.5 font-semibold">
+                            <svg class="w-4 h-4 text-amberAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span id="modal-duration"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-5 pt-2">
+                    <div class="bg-stoneLight p-4 rounded-2xl border border-slate-200/80">
+                        <h4 class="font-display font-bold text-sm text-slateDeep uppercase tracking-wide mb-2">Le défi initial</h4>
+                        <p id="modal-challenge" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                    <div class="bg-stoneLight p-4 rounded-2xl border border-slate-200/80">
+                        <h4 class="font-display font-bold text-sm text-slateDeep uppercase tracking-wide mb-2">Notre intervention</h4>
+                        <p id="modal-intervention" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                    <div class="bg-stoneLight p-4 rounded-2xl border border-slate-200/80">
+                        <h4 class="font-display font-bold text-sm text-slateDeep uppercase tracking-wide mb-2">Matériaux utilisés</h4>
+                        <ul id="modal-materials" class="text-sm text-slate-600 space-y-1.5"></ul>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100">
+                    <p class="text-xs text-slate-500">Faites glisser le curseur central sur la photo pour comparer l'Avant et l'Après.</p>
+                    <button type="button" id="modal-cta-btn" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amberAccent hover:bg-amberHover text-white font-bold text-sm px-6 py-3 rounded-xl shadow-sm transition-colors cursor-pointer">
+                        <span>Un projet similaire ? Demander un devis</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODALE MENTIONS LÉGALES / CONFIDENTIALITÉ                             -->
+    <!-- ===================================================================== -->
+    <div id="legal-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slateDeep/75 backdrop-blur-sm" role="dialog" aria-modal="true">
+        <div class="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl p-6 sm:p-8">
+            <button type="button" onclick="closeLegalModal()" aria-label="Fermer" class="absolute top-4 right-4 p-2 rounded-lg text-slate-500 hover:bg-slate-100 cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <h3 id="legal-modal-title" class="font-display font-bold text-xl text-slateDeep mb-4"></h3>
+            <div id="legal-modal-content" class="text-sm text-slate-600 space-y-3 leading-relaxed"></div>
+            <div class="mt-6 text-right">
+                <button type="button" onclick="closeLegalModal()" class="px-5 py-2.5 rounded-xl bg-slateDeep text-white text-sm font-bold hover:bg-slate-700 cursor-pointer">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- SCRIPT JAVASCRIPT COMPLET                                             -->
+    <!-- ===================================================================== -->
+    <script>
+        /**
+         * ====================================================================
+         * 1. DONNÉES DES CHANTIERS (GALERIE INTERACTIVE)
+         * ====================================================================
+         */
+        const projectsData = [
+            {
+                id: 1,
+                title: "Rénovation énergétique & façade ITE",
+                category: "Bâtiment",
+                city: "Saint-Germain-en-Laye (78)",
+                duration: "4 semaines",
+                imageAfter: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80",
+                imageBefore: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80",
+                challenge: "Pavillon des années 1970 classé F au DPE avec d'importantes déperditions thermiques en façade et un enduit fissuré.",
+                intervention: "Notre équipe a posé une isolation thermique par l'extérieur (ITE) de 140 mm, remplacé les menuiseries en double vitrage performant et appliqué un enduit minéral taloché.",
+                materials: [
+                    "Panneaux isolants laine de roche haute densité",
+                    "Enduit minéral respirant teinte pierre claire",
+                    "Menuiseries aluminium à rupture de pont thermique"
+                ]
+            },
+            {
+                id: 2,
+                title: "Terrasse bois exotique & jardin zen",
+                category: "Paysagisme",
+                city: "Versailles (78)",
+                duration: "2 semaines",
+                imageAfter: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=900&q=80",
+                imageBefore: "https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=900&q=80",
+                challenge: "Terrain en légère pente, peu exploité et boueux en hiver, sans séparation claire entre la zone repas et le jardin.",
+                intervention: "Nous avons réalisé un terrassement complet, posé une structure sur plots réglables en bois exotique Ipé, créé des massifs persistants et installé un éclairage LED basse tension.",
+                materials: [
+                    "Lames de terrasse en bois exotique Ipé certifié FSC",
+                    "Géotextile anti-repousse & gravier calcaire concassé",
+                    "Éclairage extérieur étanche IP67"
+                ]
+            },
+            {
+                id: 3,
+                title: "Remplacement tableau électrique & mise aux normes",
+                category: "Dépannage",
+                city: "Poissy (78)",
+                duration: "1 journée (Urgence)",
+                imageAfter: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80",
+                imageBefore: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80",
+                challenge: "Disjonctions répétées suite à un court-circuit sur un ancien tableau à fusibles non sécurisé par interrupteurs différentiels.",
+                intervention: "Intervention d'urgence sous 2h pour sécuriser l'installation, suivie du remplacement complet par un tableau 3 rangées conforme à la norme NF C 15-100.",
+                materials: [
+                    "Tableau électrique modulaire Legrand 3 rangées",
+                    "Interrupteurs différentiels 30 mA type A et AC",
+                    "Disjoncteurs divisionnaires & repérage complet"
+                ]
+            },
+            {
+                id: 4,
+                title: "Rénovation complète d'une salle de bain",
+                category: "Bâtiment",
+                city: "Rueil-Malmaison (92)",
+                duration: "10 jours",
+                imageAfter: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=80",
+                imageBefore: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80",
+                challenge: "Pièce d'eau sombre avec ancienne baignoire sabot, étanchéité défaillante et ventilation insuffisante.",
+                intervention: "Dépose totale, reprise des réseaux de plomberie, création d'une douche à l'italienne extra-plate, pose de grès cérame grand format et VMC hygroréglable.",
+                materials: [
+                    "Carrelage grès cérame effet pierre naturelle 60x120",
+                    "Système d'étanchéité sous carrelage (SPEC)",
+                    "Robinetterie thermostatique encastrée & meuble chêne"
+                ]
+            },
+            {
+                id: 5,
+                title: "Allée pavée, clôture & portail motorisé",
+                category: "Paysagisme",
+                city: "Maisons-Laffitte (78)",
+                duration: "12 jours",
+                imageAfter: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80",
+                imageBefore: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80",
+                challenge: "Entrée de propriété vieillissante en gravillons instables et portail manuel difficile à manœuvrer.",
+                intervention: "Décaissement, pose d'un lit de pose drainant, pavage carrossable en pierre reconstituée, muret de clôture enduit et motorisation de portail aluminium.",
+                materials: [
+                    "Pavés carrossables ton gris ardoise",
+                    "Portail aluminium thermolaqué sur mesure",
+                    "Motorisation silencieuse avec visiophone connecté"
+                ]
+            },
+            {
+                id: 6,
+                title: "Recherche de fuite & pose pompe à chaleur",
+                category: "Dépannage",
+                city: "Achères (78)",
+                duration: "48 heures",
+                imageAfter: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80",
+                imageBefore: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80",
+                challenge: "Panne totale de chaudière en plein hiver accompagnée d'une fuite sur le collecteur de chauffage central.",
+                intervention: "Colmatage immédiat de la fuite, désembouage du circuit de radiateurs et installation d'une pompe à chaleur air/eau éligible aux aides RGE.",
+                materials: [
+                    "Pompe à chaleur air/eau haute performance COP 4,6",
+                    "Collecteurs laiton & vannes d'isolement neuves",
+                    "Thermostat connecté programmable pièce par pièce"
+                ]
+            }
+        ];
+
+        /**
+         * ====================================================================
+         * 2. TYPES DE TRAVAUX PAR MÉTIER (POUR LE FORMULAIRE DE DEVIS)
+         * ====================================================================
+         */
+        const workTypesByTrade = {
+            "Bâtiment": [
+                "Isolation thermique (ITE / Combles) — RGE",
+                "Rénovation complète / Intérieur",
+                "Cuisine ou Salle de bain clé en main",
+                "Maçonnerie, extension ou mur porteur",
+                "Toiture, charpente ou ravalement",
+                "Menuiseries & fenêtres"
+            ],
+            "Paysagisme": [
+                "Création de terrasse (bois, pierre, composite)",
+                "Aménagement complet de jardin & massifs",
+                "Clôture, muret, portail ou allée pavée",
+                "Arrosage automatique & éclairage extérieur",
+                "Élagage, abattage ou taille de haies",
+                "Contrat d'entretien annuel"
+            ],
+            "Dépannage": [
+                "Fuite d'eau / Plomberie urgente",
+                "Panne électrique / Tableau / Disjoncteur",
+                "Chauffage, chaudière ou pompe à chaleur",
+                "Serrurerie / Porte bloquée",
+                "Volet roulant ou menuiserie bloquée",
+                "Mise en sécurité après sinistre"
+            ]
+        };
+
+        /**
+         * ====================================================================
+         * 3. GESTION DU MENU MOBILE
+         * ====================================================================
+         */
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const burgerIcon = document.getElementById('burger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            burgerIcon.classList.toggle('hidden', isHidden);
+            closeIcon.classList.toggle('hidden', !isHidden);
+            mobileMenuBtn.setAttribute('aria-expanded', String(isHidden));
+        });
+
+        // Fermer le menu mobile au clic sur un lien
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                burgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        /**
+         * ====================================================================
+         * 4. RENDU ET FILTRAGE DE LA GALERIE CHANTIERS
+         * ====================================================================
+         */
+        const projectsGrid = document.getElementById('projects-grid');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        function getCategoryBadgeClasses(category) {
+            if (category === 'Paysagisme') return 'bg-forestLight text-forestRge';
+            if (category === 'Dépannage') return 'bg-amber-100 text-amberHover';
+            return 'bg-slateDeep text-white';
+        }
+
+        function renderProjects(filter = 'Tous') {
+            const filtered = filter === 'Tous'
+                ? projectsData
+                : projectsData.filter(p => p.category === filter);
+
+            projectsGrid.innerHTML = filtered.map(project => `
+                <article
+                    onclick="openProjectModal(${project.id})"
+                    class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-elevated transition-all duration-300 cursor-pointer flex flex-col"
+                >
+                    <div class="relative h-56 overflow-hidden bg-slateDeep">
+                        <img
+                            src="${project.imageAfter}"
+                            alt="${project.title}"
+                            loading="lazy"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/1E293B/F5F3EF?text=${encodeURIComponent(project.category)}';"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/70 via-transparent to-transparent"></div>
+                        <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-xs font-bold shadow-xs ${getCategoryBadgeClasses(project.category)}">
+                            ${project.category}
+                        </span>
+                        <span class="absolute bottom-3.5 right-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/95 text-slateDeep text-xs font-bold shadow-sm">
+                            <svg class="w-3.5 h-3.5 text-amberAccent" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            Avant / Après
+                        </span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-slateDeep group-hover:text-amberAccent transition-colors leading-snug">
+                                ${project.title}
+                            </h3>
+                            <p class="text-xs text-slate-500 mt-2 line-clamp-2">${project.challenge}</p>
+                        </div>
+                        <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-600">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5 text-amberAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                                ${project.city}
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                ${project.duration}
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Écouteurs sur les filtres
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-slateDeep', 'text-white', 'shadow-sm');
+                    b.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+                });
+                btn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+                btn.classList.add('bg-slateDeep', 'text-white', 'shadow-sm');
+                renderProjects(btn.dataset.filter);
+            });
+        });
+
+        /**
+         * ====================================================================
+         * 5. MODALE CHANTIER & CURSEUR AVANT / APRÈS
+         * ====================================================================
+         */
+        const projectModal = document.getElementById('project-modal');
+        const beforeAfterSlider = document.getElementById('before-after-slider');
+        const beforeWrapper = document.getElementById('before-wrapper');
+        const sliderDivider = document.getElementById('slider-divider');
+
+        function updateBeforeAfter(value) {
+            const pct = Math.max(0, Math.min(100, value));
+            beforeWrapper.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+            sliderDivider.style.left = `${pct}%`;
+        }
+
+        beforeAfterSlider.addEventListener('input', (e) => {
+            updateBeforeAfter(e.target.value);
+        });
+
+        function openProjectModal(projectId) {
+            const project = projectsData.find(p => p.id === projectId);
+            if (!project) return;
+
+            document.getElementById('modal-img-after').src = project.imageAfter;
+            document.getElementById('modal-img-before').src = project.imageBefore;
+            document.getElementById('modal-img-after').onerror = function() {
+                this.src = `https://placehold.co/900x500/1E293B/F5F3EF?text=Apr%C3%A8s+-+${encodeURIComponent(project.category)}`;
+            };
+            document.getElementById('modal-img-before').onerror = function() {
+                this.src = `https://placehold.co/900x500/475569/F5F3EF?text=Avant+travaux`;
+            };
+
+            const catEl = document.getElementById('modal-category');
+            catEl.textContent = project.category;
+            catEl.className = `inline-block px-3 py-1 rounded-full text-xs font-bold mb-2 ${getCategoryBadgeClasses(project.category)}`;
+
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-city').textContent = project.city;
+            document.getElementById('modal-duration').textContent = project.duration;
+            document.getElementById('modal-challenge').textContent = project.challenge;
+            document.getElementById('modal-intervention').textContent = project.intervention;
+
+            document.getElementById('modal-materials').innerHTML = project.materials.map(m => `
+                <li class="flex items-start gap-2">
+                    <span class="text-forestRge font-bold">•</span>
+                    <span>${m}</span>
+                </li>
+            `).join('');
+
+            // Bouton CTA dans la modale : ferme la modale et présélectionne le métier
+            document.getElementById('modal-cta-btn').onclick = () => {
+                closeProjectModal();
+                selectTradeAndScroll(project.category);
+            };
+
+            // Réinitialiser le curseur à 50%
+            beforeAfterSlider.value = 50;
+            updateBeforeAfter(50);
+
+            projectModal.classList.remove('hidden');
+            projectModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            projectModal.classList.add('hidden');
+            projectModal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Fermeture en cliquant hors de la modale ou avec Échap
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) closeProjectModal();
+        });
+
+        /**
+         * ====================================================================
+         * 6. FORMULAIRE DE DEVIS EN 3 ÉTAPES
+         * ====================================================================
+         */
+        let currentStep = 1;
+
+        function renderWorkTypes(trade) {
+            const container = document.getElementById('work-types-container');
+            const types = workTypesByTrade[trade] || workTypesByTrade['Bâtiment'];
+
+            container.innerHTML = types.map((label, idx) => `
+                <label class="work-type-chip flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-stoneLight hover:border-amberAccent/60 cursor-pointer transition-all text-sm font-medium text-slateDeep">
+                    <input type="checkbox" name="workTypes" value="${label}" class="w-4 h-4 rounded accent-amberAccent shrink-0" ${idx === 0 ? 'checked' : ''}>
+                    <span>${label}</span>
+                </label>
+            `).join('');
+        }
+
+        function updateTradeCardStyles(selectedTrade) {
+            document.querySelectorAll('.trade-card').forEach(card => {
+                const radio = card.querySelector('input[type="radio"]');
+                if (radio.value === selectedTrade) {
+                    radio.checked = true;
+                    card.classList.add('border-amberAccent', 'bg-amber-50/40');
+                    card.classList.remove('border-slate-200', 'bg-white');
+                } else {
+                    radio.checked = false;
+                    card.classList.remove('border-amberAccent', 'bg-amber-50/40');
+                    card.classList.add('border-slate-200', 'bg-white');
+                }
+            });
+            renderWorkTypes(selectedTrade);
+        }
+
+        // Écouteurs sur les cartes de métiers dans le formulaire
+        document.querySelectorAll('input[name="trade"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                updateTradeCardStyles(e.target.value);
+            });
+        });
+
+        // Écouteurs sur les cartes de délai
+        document.querySelectorAll('input[name="timeline"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                document.querySelectorAll('.timeline-card').forEach(card => {
+                    const input = card.querySelector('input');
+                    if (input.checked) {
+                        card.classList.add('border-amberAccent', 'bg-amber-50/40');
+                        card.classList.remove('border-slate-200', 'bg-white');
+                    } else {
+                        card.classList.remove('border-amberAccent', 'bg-amber-50/40');
+                        card.classList.add('border-slate-200', 'bg-white');
+                    }
+                });
+            });
+        });
+
+        /**
+         * Présélectionne automatiquement un métier depuis les cartes "Nos Métiers"
+         * ou la galerie et fait défiler jusqu'au formulaire.
+         */
+        function selectTradeAndScroll(trade) {
+            // Si le formulaire était sur l'écran de confirmation, on le réinitialise
+            if (!document.getElementById('quote-confirmation').classList.contains('hidden')) {
+                resetQuoteForm();
+            }
+            goToStep(1);
+            updateTradeCardStyles(trade);
+            document.getElementById('devis').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function showFormError(message) {
+            const banner = document.getElementById('form-error-banner');
+            document.getElementById('form-error-text').textContent = message;
+            banner.classList.remove('hidden');
+        }
+
+        function hideFormError() {
+            document.getElementById('form-error-banner').classList.add('hidden');
+        }
+
+        function goToStep(step) {
+            currentStep = step;
+            hideFormError();
+
+            [1, 2, 3].forEach(s => {
+                const el = document.getElementById(`form-step-${s}`);
+                const label = document.getElementById(`step-label-${s}`);
+                if (s === step) {
+                    el.classList.remove('hidden');
+                    label.classList.add('text-amber-400');
+                    label.classList.remove('text-slate-400', 'text-emerald-400');
+                } else {
+                    el.classList.add('hidden');
+                    if (s < step) {
+                        label.classList.add('text-emerald-400');
+                        label.classList.remove('text-slate-400', 'text-amber-400');
+                    } else {
+                        label.classList.add('text-slate-400');
+                        label.classList.remove('text-amber-400', 'text-emerald-400');
+                    }
+                }
+            });
+
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = `${(step / 3) * 100}%`;
+        }
+
+        function nextStep(fromStep) {
+            hideFormError();
+            if (fromStep === 1) {
+                const checkedWorks = document.querySelectorAll('input[name="workTypes"]:checked');
+                if (checkedWorks.length === 0) {
+                    showFormError("Veuillez sélectionner au moins un type de travaux pour continuer.");
+                    return;
+                }
+                goToStep(2);
+            } else if (fromStep === 2) {
+                const budget = document.getElementById('project-budget').value;
+                const desc = document.getElementById('project-description').value.trim();
+                if (!budget) {
+                    showFormError("Veuillez sélectionner une tranche de budget estimé.");
+                    return;
+                }
+                if (desc.length < 10) {
+                    showFormError("Veuillez décrire brièvement votre besoin (au moins 10 caractères).");
+                    return;
+                }
+                goToStep(3);
+            }
+        }
+
+        function prevStep(fromStep) {
+            if (fromStep > 1) goToStep(fromStep - 1);
+        }
+
+        // Soumission finale du formulaire
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            hideFormError();
+
+            const name = document.getElementById('client-name').value.trim();
+            const phone = document.getElementById('client-phone').value.trim();
+            const email = document.getElementById('client-email').value.trim();
+            const city = document.getElementById('client-city').value.trim();
+            const consent = document.getElementById('client-consent').checked;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !phone || !email || !city) {
+                showFormError("Veuillez renseigner tous vos champs de coordonnées obligatoires.");
+                return;
+            }
+            if (!emailRegex.test(email)) {
+                showFormError("Veuillez saisir une adresse email valide.");
+                return;
+            }
+            if (phone.replace(/\D/g, '').length < 8) {
+                showFormError("Veuillez saisir un numéro de téléphone valide.");
+                return;
+            }
+            if (!consent) {
+                showFormError("Veuillez accepter d'être recontacté par notre équipe pour votre devis.");
+                return;
+            }
+
+            // Collecte des données
+            const trade = document.querySelector('input[name="trade"]:checked').value;
+            const workTypes = Array.from(document.querySelectorAll('input[name="workTypes"]:checked')).map(cb => cb.value);
+            const budget = document.getElementById('project-budget').value;
+            const surface = document.getElementById('project-surface').value;
+            const timeline = document.querySelector('input[name="timeline"]:checked').value;
+            const description = document.getElementById('project-description').value.trim();
+
+            // Génération d'un numéro de dossier aléatoire
+            const randomId = Math.floor(1000 + Math.random() * 9000);
+            const dossierNumber = `BP-2026-${randomId}`;
+            document.getElementById('dossier-number').textContent = dossierNumber;
+
+            // Affichage du récapitulatif
+            document.getElementById('confirmation-summary').innerHTML = `
+                <div>
+                    <p class="text-xs uppercase font-bold text-slate-400">Corps de métier</p>
+                    <p class="font-bold text-slateDeep mt-0.5">${trade}</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase font-bold text-slate-400">Délai souhaité</p>
+                    <p class="font-bold text-slateDeep mt-0.5">${timeline}</p>
+                </div>
+                <div class="sm:col-span-2">
+                    <p class="text-xs uppercase font-bold text-slate-400">Travaux sélectionnés</p>
+                    <p class="font-medium text-slateDeep mt-0.5">${workTypes.join(' • ')}</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase font-bold text-slate-400">Budget / Surface</p>
+                    <p class="font-medium text-slateDeep mt-0.5">${budget}${surface ? ` — env. ${surface} m²` : ''}</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase font-bold text-slate-400">Contact &amp; Lieu</p>
+                    <p class="font-medium text-slateDeep mt-0.5">${name} (${city})<br><span class="text-xs text-slate-500">${phone} • ${email}</span></p>
+                </div>
+                <div class="sm:col-span-2 pt-2 border-t border-slate-200">
+                    <p class="text-xs uppercase font-bold text-slate-400">Description</p>
+                    <p class="text-slate-600 mt-0.5">${description}</p>
+                </div>
+            `;
+
+            // Basculer sur l'écran de confirmation
+            document.getElementById('quote-form').classList.add('hidden');
+            document.getElementById('quote-progress-header').classList.add('hidden');
+            document.getElementById('quote-confirmation').classList.remove('hidden');
+        });
+
+        function copyDossierNumber() {
+            const text = document.getElementById('dossier-number').textContent;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                const label = document.getElementById('copy-label');
+                label.textContent = 'Copié !';
+                setTimeout(() => { label.textContent = 'Copier'; }, 2000);
+            } catch (err) {
+                console.error('Erreur de copie', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        function resetQuoteForm() {
+            document.getElementById('quote-form').reset();
+            document.getElementById('quote-form').classList.remove('hidden');
+            document.getElementById('quote-progress-header').classList.remove('hidden');
+            document.getElementById('quote-confirmation').classList.add('hidden');
+            updateTradeCardStyles('Bâtiment');
+            goToStep(1);
+        }
+
+        /**
+         * ====================================================================
+         * 7. MODALE MENTIONS LÉGALES
+         * ====================================================================
+         */
+        const legalModal = document.getElementById('legal-modal');
+        const legalContentMap = {
+            mentions: {
+                title: "Mentions légales — Bâtisseur Pro",
+                html: `<p><strong>Éditeur :</strong> Bâtisseur Pro SAS, capital social de 50 000 €, immatriculée au RCS de Versailles sous le numéro SIRET 894 521 340 00018.</p>
+                       <p><strong>Siège social :</strong> 18 Rue des Artisans, 78260 Achères, France.</p>
+                       <p><strong>Téléphone :</strong> 01 86 95 42 10 — <strong>Email :</strong> contact@batisseur-pro.fr</p>`
+            },
+            confidentialite: {
+                title: "Politique de confidentialité (RGPD)",
+                html: `<p>Les informations recueillies via notre formulaire de demande de devis sont strictement destinées à l'équipe Bâtisseur Pro pour l'étude et le suivi de votre projet.</p>
+                       <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données sur simple demande à <strong>contact@batisseur-pro.fr</strong>.</p>`
+            },
+            garanties: {
+                title: "Assurances & Qualifications RGE",
+                html: `<p><strong>Assurance Décennale &amp; RC Pro :</strong> Police n° BP-DEC-2026-88412 souscrite auprès d'un assureur agréé en France, couvrant nos activités de maçonnerie, rénovation énergétique, paysagisme et dépannage.</p>
+                       <p><strong>Qualification RGE :</strong> Certificat Qualibat RGE en cours de validité permettant l'éligibilité aux dispositifs MaPrimeRénov', Éco-PTZ et primes CEE.</p>`
+            }
+        };
+
+        function openLegalModal(key) {
+            const data = legalContentMap[key];
+            if (!data) return;
+            document.getElementById('legal-modal-title').textContent = data.title;
+            document.getElementById('legal-modal-content').innerHTML = data.html;
+            legalModal.classList.remove('hidden');
+            legalModal.classList.add('flex');
+        }
+
+        function closeLegalModal() {
+            legalModal.classList.add('hidden');
+            legalModal.classList.remove('flex');
+        }
+
+        legalModal.addEventListener('click', (e) => {
+            if (e.target === legalModal) closeLegalModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeProjectModal();
+                closeLegalModal();
+            }
+        });
+
+        /**
+         * ====================================================================
+         * 8. INITIALISATION AU CHARGEMENT
+         * ====================================================================
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects('Tous');
+            renderWorkTypes('Bâtiment');
+        });
+    </script>
+</body>
+</html>
