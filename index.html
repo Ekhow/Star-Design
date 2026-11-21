@@ -422,7 +422,7 @@
                             <div class="bg-[#07101f] p-4 border-b border-ink-900/10">
                                 <div class="flex items-center justify-between mb-3">
                                     <div class="flex gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-terracotta-500"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span><span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span></div>
-                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30" data-i18n="real2_badge">Démo</span>
+                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30" data-i18n="real2_badge">Outil Web</span>
                                 </div>
 
                                 <!-- Aperçu graphique fidèle à Better Note -->
@@ -514,7 +514,7 @@
                                         <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
                                         <span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span>
                                     </div>
-                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/25 text-indigo-200 border border-indigo-400/40" data-i18n="real3_badge">Démo</span>
+                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/25 text-indigo-200 border border-indigo-400/40" data-i18n="real3_badge">Démo Interactive</span>
                                 </div>
 
                                 <!-- Aperçu graphique fidèle à Star Studio -->
@@ -619,11 +619,16 @@
                             <div class="p-6">
                                 <div class="flex items-center justify-between mb-2">
                                     <h3 class="font-display text-xl font-bold text-ink-900">Star Studio</h3>
-                                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-600/20" data-i18n="real3_type">Dashboard</span>
+                                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-600/20" data-i18n="real3_type">Dashboard Tout-en-un</span>
                                 </div>
                                 <p class="text-ink-600 text-sm leading-relaxed mb-3" data-i18n="real3_desc">
-                                    Application web de gestion interne sur-mesure en 7 modules : devis/factures en 1 clic, stock & vitrine multi-photos, calendrier (.ics), gestion d'équipe par droits et journal d'audit.
+                                    Application web de gestion interne sur-mesure en 7 modules : CRM conforme RGPD, devis/factures en 1 clic, stock & vitrine multi-photos, calendrier (.ics), gestion d'équipe par droits et journal d'audit.
                                 </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-cream-100 text-ink-800 border border-ink-900/10" data-i18n="real3_tag1">CRM & Devis</span>
+                                    <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-cream-100 text-ink-800 border border-ink-900/10" data-i18n="real3_tag2">Stock & Vitrine</span>
+                                    <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-cream-100 text-ink-800 border border-ink-900/10" data-i18n="real3_tag3">Mode Démo Admin/Employé</span>
+                                </div>
                             </div>
                         </div>
                         <div class="px-6 pb-6 pt-3 border-t border-ink-900/10">
@@ -827,21 +832,32 @@
     </div>
 
     <!-- ================= MODALE D'APERÇU RICHE ================= -->
-    <div id="preview-modal" role="dialog" aria-modal="true" aria-label="Aperçu du modèle" class="fixed inset-0 z-50 hidden bg-ink-900/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
-        <div class="bg-cream-100 border-2 border-ink-900 rounded-3xl w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
-            <div class="px-4 sm:px-6 py-3.5 bg-white border-b border-ink-900/10 flex items-center justify-between gap-4 shrink-0">
-                <div class="flex items-center gap-3">
-                    <div class="hidden sm:flex gap-1.5"><span class="w-3 h-3 rounded-full bg-terracotta-500"></span><span class="w-3 h-3 rounded-full bg-amber-400"></span><span class="w-3 h-3 rounded-full bg-forest-600"></span></div>
-                    <div class="flex items-center gap-2 bg-cream-100 border border-ink-900/10 px-3 py-1 rounded-lg text-xs text-ink-600 font-medium">
-                        <i data-lucide="lock" class="w-3.5 h-3.5 text-forest-600"></i><span id="preview-url">Aperçu interactif</span>
+    <div id="preview-modal" role="dialog" aria-modal="true" aria-label="Aperçu du modèle" class="fixed inset-0 z-50 hidden bg-ink-900/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-5">
+        <div class="bg-cream-100 border-2 border-ink-900 rounded-3xl w-full max-w-6xl h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="px-4 sm:px-6 py-3 bg-white border-b border-ink-900/10 flex items-center justify-between gap-3 shrink-0">
+                <div class="flex items-center gap-3 min-w-0">
+                    <div class="hidden sm:flex gap-1.5 shrink-0"><span class="w-3 h-3 rounded-full bg-terracotta-500"></span><span class="w-3 h-3 rounded-full bg-amber-400"></span><span class="w-3 h-3 rounded-full bg-forest-600"></span></div>
+                    <div class="flex items-center gap-2 bg-cream-100 border border-ink-900/10 px-3 py-1 rounded-lg text-xs text-ink-600 font-medium truncate">
+                        <i data-lucide="lock" class="w-3.5 h-3.5 text-forest-600 shrink-0"></i><span id="preview-url" class="truncate">Aperçu interactif</span>
                     </div>
                 </div>
-                <div class="flex items-center gap-2.5">
-                    <button type="button" id="preview-order-btn" class="px-4 py-2 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-xs sm:text-sm font-bold text-white transition-all" data-i18n="preview_choose_btn">Choisir cette architecture</button>
+                <!-- Sélecteur de format Ordinateur / Mobile -->
+                <div class="hidden md:flex items-center p-1 rounded-xl bg-cream-100 border border-ink-900/10 shrink-0" role="group" aria-label="Format d'aperçu">
+                    <button type="button" id="preview-btn-desktop" onclick="setPreviewViewport('desktop')" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white flex items-center gap-1.5 transition-all">
+                        <i data-lucide="monitor" class="w-3.5 h-3.5"></i>
+                        <span>PC</span>
+                    </button>
+                    <button type="button" id="preview-btn-mobile" onclick="setPreviewViewport('mobile')" class="px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 flex items-center gap-1.5 transition-all">
+                        <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+                        <span>Mobile</span>
+                    </button>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <button type="button" id="preview-order-btn" class="px-3.5 sm:px-4 py-2 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-xs sm:text-sm font-bold text-white transition-all" data-i18n="preview_choose_btn">Choisir cette architecture</button>
                     <button type="button" onclick="closePreviewModal()" class="p-2 rounded-xl bg-cream-200 hover:bg-cream-300 text-ink-900 transition-colors" aria-label="Fermer l'aperçu"><i data-lucide="x" class="w-5 h-5"></i></button>
                 </div>
             </div>
-            <div id="preview-content" class="overflow-y-auto bg-cream-100 flex-grow p-3 sm:p-6"></div>
+            <div id="preview-content" class="flex-grow bg-cream-200/70 flex items-center justify-center overflow-hidden"></div>
         </div>
     </div>
 
@@ -1085,7 +1101,7 @@
             phoneDisplay: "+33 6 00 00 00 00",
             phoneRaw: "+33600000000",
             whatsappNumber: "33600000000",
-            web3formsKey: "0f7ffe75-d664-4fc6-bbac-4c851cf7bca2" // Remplacez par votre clé gratuite web3forms.com
+            web3formsKey: "VOTRE_CLE_WEB3FORMS_ICI" // Remplacez par votre clé gratuite web3forms.com
         };
 
         let currentLang = 'fr';
@@ -1096,6 +1112,7 @@
             {
                 id: 1,
                 name: "L'Atelier Gourmand",
+                file: "AtelierGourmand.html",
                 category: "Restauration & Café",
                 category_en: "Restaurant & Cafe",
                 layout: 'restaurant',
@@ -1110,6 +1127,7 @@
             {
                 id: 2,
                 name: "Bâtisseur Pro",
+                file: "BatisseurPro.html",
                 category: "Artisan & BTP",
                 category_en: "Trades & Construction",
                 layout: 'artisan',
@@ -1124,6 +1142,7 @@
             {
                 id: 3,
                 name: "Cabinet Horizon",
+                file: "CabinetHorizon.html",
                 category: "Libéral & Conseil",
                 category_en: "Consulting & Practice",
                 layout: 'corporate',
@@ -1138,6 +1157,7 @@
             {
                 id: 4,
                 name: "Maison Botanica",
+                file: "MaisonBotanica.html",
                 category: "Boutique Vitrine",
                 category_en: "Showcase Store",
                 layout: 'ecommerce',
@@ -1205,12 +1225,12 @@
 
                 real_eyebrow: "Portfolio & Outils", real_title: "Nos réalisations récentes",
                 real_sub: "Découvrez notre site client en ligne ainsi que nos applications web interactives conçues par le studio.",
-                real1_badge: "Site Client", real1_type: "Vitrine", real1_nav1: "Présentation", real1_nav2: "Contact", real1_hero: "Site vitrine sur-mesure & responsive", real1_visit_short: "Ouvrir",
+                real1_badge: "Site Client", real1_type: "Portfolio & Vitrine", real1_nav1: "Présentation", real1_nav2: "Contact", real1_hero: "Site vitrine sur-mesure & responsive", real1_visit_short: "Ouvrir",
                 real1_desc: "Création d'un site vitrine professionnel sur-mesure, optimisé pour la lecture sur mobile et tablette avec formulaire de prise de contact directe.",
                 real1_btn: "Visiter christophe-jeannin.fr",
                 real2_badge: "Outil Web", real2_type: "Prise de notes", real2_desc: "Application web de prise de notes rapide avec gestion des balises, mode sombre immersif et gestion des e-mails d'absence.", real2_btn: "Ouvrir BetterNote",
                 real3_badge: "Démo Interactive", real3_mode: "Admin / Employé", real3_kpi1: "CRM RGPD", real3_kpi2: "Devis & PDF", real3_kpi3: "Planning", real3_modules: "7 modules • Stock • Équipe • Audit",
-                real3_type: "Dashboard",
+                real3_type: "Dashboard Tout-en-un",
                 real3_desc: "Application web de gestion interne sur-mesure en 7 modules : CRM conforme RGPD, devis/factures en 1 clic, stock & vitrine multi-photos, calendrier (.ics), gestion d'équipe par droits et journal d'audit.",
                 real3_tag1: "CRM & Devis", real3_tag2: "Stock & Vitrine", real3_tag3: "Mode Démo Admin/Employé", real3_btn: "Tester Star Studio",
 
@@ -1323,10 +1343,12 @@
         };
 
         /**
-         * Injecte les coordonnées centralisées (SITE_CONFIG) dans tous les éléments dédiés
+         * Injecte les coordonnées centralisées (email, téléphone, WhatsApp, clé formulaire) dans le DOM
          */
         function hydrateConfig() {
-            document.getElementById('web3forms-key').value = SITE_CONFIG.web3formsKey;
+            const keyInput = document.getElementById('web3forms-key');
+            if (keyInput) keyInput.value = SITE_CONFIG.web3formsKey;
+
             document.querySelectorAll('.js-email-text').forEach(el => el.textContent = SITE_CONFIG.email);
             document.querySelectorAll('.js-email-link').forEach(el => el.href = `mailto:${SITE_CONFIG.email}`);
             document.querySelectorAll('.js-phone-text').forEach(el => el.textContent = SITE_CONFIG.phoneDisplay);
@@ -1337,7 +1359,7 @@
         }
 
         /**
-         * Change la langue de l'interface (FR / EN) tout en conservant la devise €
+         * Bascule l'interface entre le français (fr) et l'anglais (en)
          */
         function setLanguage(lang) {
             currentLang = lang;
@@ -1440,27 +1462,87 @@
             lucide.createIcons();
         }
 
+        /**
+         * Ouvre la modale de commande en pré-remplissant le nom de domaine testé
+         */
         function orderWithDomain() {
             openOrderModal(null, 'full_pack');
             const msgField = document.getElementById('client-message');
             const prefix = currentLang === 'fr'
                 ? `Nom de domaine souhaité : ${checkedDomainFull}\n`
                 : `Desired domain name: ${checkedDomainFull}\n`;
-            if (!msgField.value.includes(checkedDomainFull)) {
+            if (checkedDomainFull && !msgField.value.includes(checkedDomainFull)) {
                 msgField.value = prefix + msgField.value;
             }
         }
 
+        /**
+         * Construit un véritable aperçu en direct (mis à l'échelle desktop) du fichier HTML local de chaque modèle
+         */
+        function buildTemplateMiniPreview(site, isEn) {
+            const sCat = isEn ? site.category_en : site.category;
+            const themes = {
+                restaurant: {
+                    frameBg: 'bg-[#2c211b]',
+                    urlText: 'text-amber-100/80',
+                    badge: 'bg-[#b5542d]/30 text-amber-100 border-[#b5542d]/50'
+                },
+                artisan: {
+                    frameBg: 'bg-[#182232]',
+                    urlText: 'text-slate-300',
+                    badge: 'bg-amber-500/20 text-amber-300 border-amber-400/30'
+                },
+                corporate: {
+                    frameBg: 'bg-[#162740]',
+                    urlText: 'text-slate-300',
+                    badge: 'bg-sky-500/20 text-sky-200 border-sky-400/30'
+                },
+                ecommerce: {
+                    frameBg: 'bg-[#193326]',
+                    urlText: 'text-cream-200',
+                    badge: 'bg-emerald-500/20 text-emerald-200 border-emerald-400/30'
+                }
+            };
+            const theme = themes[site.layout] || themes.ecommerce;
+
+            return `
+            <div class="${theme.frameBg} p-4 border-b border-ink-900/10">
+                <div class="flex items-center justify-between mb-3 gap-2">
+                    <div class="flex gap-1.5 shrink-0">
+                        <span class="w-2.5 h-2.5 rounded-full bg-terracotta-500"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span>
+                    </div>
+                    <div class="px-2 py-0.5 rounded bg-white/10 text-[10px] ${theme.urlText} font-mono truncate">${site.file}</div>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${theme.badge} shrink-0">${sCat}</span>
+                </div>
+                <div class="relative rounded-xl overflow-hidden bg-white h-52 border border-white/15 shadow-inner">
+                    <iframe
+                        src="${site.file}"
+                        title="Aperçu de ${site.name}"
+                        loading="lazy"
+                        scrolling="no"
+                        tabindex="-1"
+                        class="w-[357.15%] h-[357.15%] origin-top-left scale-[0.28] border-0 pointer-events-none select-none bg-white"
+                    ></iframe>
+                </div>
+            </div>`;
+        }
+
+        /**
+         * Génère dynamiquement les cartes du catalogue de modèles de base
+         */
         function renderTemplates() {
             const grid = document.getElementById('templates-grid');
+            if (!grid) return;
             const t = translations[currentLang];
+            const isEn = currentLang === 'en';
 
             grid.innerHTML = websitesData.map(site => {
-                const sName = (currentLang === 'en' && site.name_en) ? site.name_en : site.name;
-                const sCat = currentLang === 'fr' ? site.category : site.category_en;
-                const sStyles = currentLang === 'fr' ? site.styles : site.styles_en;
-                const sDesc = currentLang === 'fr' ? site.desc : site.desc_en;
-                const sHero = (currentLang === 'en' && site.heroTitle_en) ? site.heroTitle_en : site.heroTitle;
+                const sName = (isEn && site.name_en) ? site.name_en : site.name;
+                const sCat = isEn ? site.category_en : site.category;
+                const sStyles = isEn ? site.styles_en : site.styles;
+                const sDesc = isEn ? site.desc_en : site.desc;
 
                 if (site.id === 'custom') {
                     return `
@@ -1486,19 +1568,13 @@
                 return `
                 <article class="rounded-3xl bg-white border border-ink-900/15 overflow-hidden flex flex-col justify-between card-hover group shadow-sm">
                     <div>
-                        <div class="relative cursor-pointer" onclick="openPreviewModal(${site.id})">
-                            <div class="relative w-full h-52 bg-gradient-to-br ${site.bgClass} p-5 flex flex-col justify-between text-white">
-                                <div class="flex items-center justify-between border-b border-white/15 pb-2.5">
-                                    <div class="flex gap-1.5"><span class="w-2 h-2 rounded-full bg-terracotta-500"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-forest-600"></span></div>
-                                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white/15">${sCat}</span>
-                                </div>
-                                <div class="my-auto py-2">
-                                    <p class="font-serif italic text-2xl sm:text-3xl text-white leading-tight">${sHero}</p>
-                                </div>
-                                <div class="flex items-center justify-between text-xs text-cream-200 pt-2 border-t border-white/10">
-                                    <span>${t.card_multi_sec}</span>
-                                    <span class="underline font-bold flex items-center gap-1">${t.card_click_test} <i data-lucide="maximize-2" class="w-3 h-3"></i></span>
-                                </div>
+                        <div class="relative cursor-pointer group/tpl" onclick="openPreviewModal(${site.id})">
+                            ${buildTemplateMiniPreview(site, isEn)}
+                            <div class="absolute inset-0 bg-gradient-to-t from-ink-900/75 via-transparent to-transparent opacity-0 group-hover/tpl:opacity-100 transition-opacity flex items-end justify-center pb-6">
+                                <span class="px-3.5 py-2 rounded-xl bg-white text-ink-900 font-bold text-xs shadow-lg flex items-center gap-1.5">
+                                    <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-terracotta-500"></i>
+                                    <span>${t.card_click_test}</span>
+                                </span>
                             </div>
                         </div>
                         <div class="p-6">
@@ -1523,79 +1599,58 @@
             lucide.createIcons();
         }
 
+        /**
+         * Ouvre le grand pop-up d'aperçu en chargeant directement le fichier HTML local du modèle
+         */
         function openPreviewModal(siteId) {
             const site = websitesData.find(s => s.id === siteId);
-            if (!site) return;
-            const isEn = currentLang === 'en';
+            if (!site || !site.file) return;
 
-            document.getElementById('preview-url').textContent = `Aperçu — ${site.name}`;
+            document.getElementById('preview-url').textContent = `${site.name} — ${site.file}`;
             document.getElementById('preview-order-btn').onclick = () => { closePreviewModal(); openOrderModal(site.id, 'full_pack'); };
 
-            let richMockup = '';
-            if (site.layout === 'restaurant') {
-                richMockup = `
-                    <div class="bg-stone-950 text-stone-100 rounded-2xl overflow-hidden shadow-xl border border-stone-800">
-                        <div class="px-6 py-4 border-b border-stone-800 flex items-center justify-between">
-                            <span class="font-serif italic text-2xl text-amber-300">L'Atelier Gourmand</span>
-                            <span class="px-3.5 py-1.5 rounded-lg bg-amber-600 text-white text-xs font-bold">${isEn ? 'Book a table' : 'Réserver une table'}</span>
-                        </div>
-                        <div class="p-8 sm:p-14 text-center bg-gradient-to-b from-stone-900 to-stone-950 border-b border-stone-800">
-                            <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">${isEn ? 'Seasonal Bistronomy' : 'Bistronomie de saison'}</span>
-                            <h2 class="font-serif italic text-4xl sm:text-5xl text-white mt-2 mb-4">${isEn ? 'Honest cuisine crafted from local producers' : 'Une cuisine sincère, issue de producteurs locaux'}</h2>
-                        </div>
-                        <div class="p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 bg-stone-900/50">
-                            <div>
-                                <h3 class="font-serif italic text-2xl text-amber-300 mb-4 border-b border-stone-800 pb-2">${isEn ? 'Starters & Mains' : 'Entrées & Plats du moment'}</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex justify-between"><span>${isEn ? 'Chestnut velouté & roasted hazelnuts' : 'Velouté de châtaignes & noisettes torréfiées'}</span><span class="font-bold text-amber-300">12 €</span></div>
-                                    <div class="flex justify-between"><span>${isEn ? 'Roasted sea bass, celeriac mousseline' : 'Filet de bar rôti, mousseline de céleri'}</span><span class="font-bold text-amber-300">26 €</span></div>
-                                </div>
-                            </div>
-                            <div class="bg-stone-900 p-6 rounded-2xl border border-stone-800">
-                                <h3 class="font-display font-bold text-base text-white mb-3">${isEn ? 'Built-in Table Booking' : 'Module de réservation intégré'}</h3>
-                                <div class="w-full py-2.5 rounded-lg bg-amber-600 text-center text-xs font-bold text-white">${isEn ? 'Confirm instantly (0% fee)' : 'Confirmer sans frais'}</div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            } else if (site.layout === 'artisan') {
-                richMockup = `
-                    <div class="bg-white text-stone-900 rounded-2xl overflow-hidden shadow-xl border border-stone-200">
-                        <div class="px-6 py-4 bg-stone-900 text-white flex items-center justify-between">
-                            <span class="font-display font-bold text-lg">BÂTISSEUR <span class="text-amber-500">PRO</span></span>
-                            <span class="text-xs font-bold bg-amber-500 text-stone-950 px-3 py-1.5 rounded-lg">${isEn ? 'Free Quote' : 'Devis Gratuit'}</span>
-                        </div>
-                        <div class="p-8 sm:p-12 bg-stone-100 border-b border-stone-200">
-                            <span class="px-2.5 py-1 rounded bg-amber-100 text-amber-900 text-xs font-bold">${isEn ? '10-Year Warranty & Certified Contractor' : 'Garantie Décennale & Certifié RGE'}</span>
-                            <h2 class="font-display font-bold text-3xl sm:text-4xl mt-3 mb-3">${isEn ? 'Interior renovation, insulation & general masonry' : 'Rénovation intérieure, isolation & maçonnerie générale'}</h2>
-                        </div>
-                    </div>
-                `;
-            } else {
-                const sHero = isEn && site.heroTitle_en ? site.heroTitle_en : site.heroTitle;
-                const sDesc = isEn ? site.desc_en : site.desc;
-                richMockup = `
-                    <div class="bg-white text-ink-900 rounded-2xl overflow-hidden shadow-xl border border-ink-900/15">
-                        <div class="px-6 py-4 border-b border-ink-900/10 flex items-center justify-between">
-                            <span class="font-display font-bold text-lg">${site.name}</span>
-                            <span class="px-3.5 py-1.5 rounded-lg bg-ink-900 text-white text-xs font-bold">${isEn ? 'Primary Action' : 'Action principale'}</span>
-                        </div>
-                        <div class="p-8 sm:p-12 bg-cream-100 text-center">
-                            <h2 class="font-serif italic text-4xl text-ink-900 mb-3">${sHero}</h2>
-                            <p class="text-sm text-ink-600 max-w-xl mx-auto">${sDesc}</p>
-                        </div>
-                    </div>
-                `;
-            }
+            document.getElementById('preview-content').innerHTML = `
+                <iframe
+                    id="preview-iframe"
+                    src="${site.file}"
+                    title="Aperçu interactif de ${site.name}"
+                    class="w-full h-full border-0 bg-white transition-all duration-300"
+                ></iframe>
+            `;
 
-            document.getElementById('preview-content').innerHTML = richMockup;
+            setPreviewViewport('desktop');
             document.getElementById('preview-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             lucide.createIcons();
         }
 
+        /**
+         * Bascule l'aperçu du pop-up entre le format PC (plein cadre) et Mobile (390px)
+         */
+        function setPreviewViewport(mode) {
+            const iframe = document.getElementById('preview-iframe');
+            const btnDesktop = document.getElementById('preview-btn-desktop');
+            const btnMobile = document.getElementById('preview-btn-mobile');
+            if (!iframe) return;
+
+            if (mode === 'mobile') {
+                iframe.className = "w-[390px] max-w-full h-full border-x border-ink-900/15 bg-white shadow-2xl transition-all duration-300";
+                if (btnMobile && btnDesktop) {
+                    btnMobile.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white flex items-center gap-1.5 transition-all";
+                    btnDesktop.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 flex items-center gap-1.5 transition-all";
+                }
+            } else {
+                iframe.className = "w-full h-full border-0 bg-white transition-all duration-300";
+                if (btnMobile && btnDesktop) {
+                    btnDesktop.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white flex items-center gap-1.5 transition-all";
+                    btnMobile.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 flex items-center gap-1.5 transition-all";
+                }
+            }
+        }
+
         function closePreviewModal() {
             document.getElementById('preview-modal').classList.add('hidden');
+            document.getElementById('preview-content').innerHTML = '';
             document.body.style.overflow = 'auto';
         }
 
@@ -1737,6 +1792,14 @@
             if (e.target === document.getElementById('order-modal')) closeOrderModal();
             if (e.target === document.getElementById('preview-modal')) closePreviewModal();
             if (e.target === document.getElementById('legal-modal')) closeLegalModal();
+        });
+
+        window.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                closePreviewModal();
+                closeOrderModal();
+                closeLegalModal();
+            }
         });
 
         window.addEventListener('DOMContentLoaded', () => {
