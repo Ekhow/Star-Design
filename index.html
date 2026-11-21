@@ -14,7 +14,8 @@
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+    <!-- Favicon Star Design (logo dans l'onglet) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141413'/%3E%3Cpath d='M16 5.5L18.8 12.8L26.5 16L18.8 19.2L16 26.5L13.2 19.2L5.5 16L13.2 12.8L16 5.5Z' fill='%23FAF7F2'/%3E%3C/svg%3E">
     
     <!-- Version figée de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -251,7 +252,7 @@
                                 </div>
                                 <p class="text-xs text-ink-600 mt-1.5 font-medium" data-i18n="offer4_sub_soon">Indisponible pour le moment</p>
                             </div>
-                            <p class="text-xs sm:text-sm text-ink-600 my-4 leading-relaxed" data-i18n="offer4_desc">Boutique en ligne, paiement sécurisé par carte bancaire et futur tableau de bord de gestion.</p>
+                            <p class="text-xs sm:text-sm text-ink-600 my-4 leading-relaxed" data-i18n="offer4_desc">Boutique en ligne, paiement sécurisé par carte bancaire et intégration Star Studio complète.</p>
                             <ul class="space-y-2.5 text-xs sm:text-sm text-ink-600 font-medium mb-6">
                                 <li class="flex items-start gap-2.5"><i data-lucide="clock" class="w-4 h-4 text-ink-400 shrink-0 mt-0.5"></i><span data-i18n="offer4_f1">Tout le pack Premium inclus</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="clock" class="w-4 h-4 text-ink-400 shrink-0 mt-0.5"></i><span data-i18n="offer4_f2">Paiements sécurisés en ligne (Stripe)</span></li>
@@ -275,14 +276,14 @@
             </div>
         </section>
 
-        <!-- ================= VÉRIFICATEUR DE NOM DE DOMAINE ================= -->
+        <!-- ================= VÉRIFICATEUR DE NOM DE DOMAINE DIRECT (DNS) ================= -->
         <section id="domaine" class="py-14 bg-cream-100 border-b border-ink-900/10">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="rounded-3xl bg-white border border-ink-900/15 p-6 sm:p-10 shadow-sm">
                     <div class="text-center max-w-xl mx-auto mb-6">
                         <span class="text-terracotta-500 font-bold text-xs uppercase tracking-widest" data-i18n="dom_eyebrow">Votre identité en ligne</span>
                         <h2 class="font-display text-2xl sm:text-3xl font-bold text-ink-900 mt-1" data-i18n="dom_title">Testez votre futur nom de domaine</h2>
-                        <p class="text-xs sm:text-sm text-ink-600 mt-2" data-i18n="dom_sub">Vérifiez la disponibilité de votre nom d'entreprise avant de lancer la création de votre site.</p>
+                        <p class="text-xs sm:text-sm text-ink-600 mt-2" data-i18n="dom_sub">Vérifiez instantanément la disponibilité de votre nom d'entreprise directement ici.</p>
                     </div>
 
                     <form onsubmit="checkDomain(event)" class="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
@@ -305,7 +306,7 @@
                         <div class="flex items-start gap-3">
                             <div id="domain-status-icon" class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5"></div>
                             <div>
-                                <div class="flex items-center gap-2">
+                                <div class="flex flex-wrap items-center gap-2">
                                     <p id="domain-result-name" class="font-display text-lg font-bold text-ink-900"></p>
                                     <span id="domain-status-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold"></span>
                                 </div>
@@ -348,14 +349,14 @@
                 <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
                     <span class="text-xs font-bold uppercase tracking-widest text-terracotta-500 block mb-2" data-i18n="real_eyebrow">Portfolio & Outils</span>
                     <h2 class="font-display text-3xl sm:text-5xl font-bold text-ink-900 tracking-tight" data-i18n="real_title">Nos réalisations récentes</h2>
-                    <p class="text-ink-600 text-sm mt-3" data-i18n="real_sub">Découvrez notre site client en ligne, notre outil web Better Note et nos projets en cours de développement.</p>
+                    <p class="text-ink-600 text-sm mt-3" data-i18n="real_sub">Découvrez notre site client en ligne ainsi que nos applications web interactives conçues par le studio.</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Projet 1 : Client Réel (Carte graphique statique, robuste et sans iframe) -->
+                    <!-- Projet 1 : Client Réel (Raccord visuel christophe-jeannin.fr) -->
                     <article class="rounded-3xl bg-white border border-ink-900/15 overflow-hidden shadow-sm flex flex-col justify-between card-hover group">
                         <div>
-                            <div class="bg-ink-900 p-4 border-b border-ink-900/10">
+                            <div class="bg-[#0e1926] p-4 border-b border-ink-900/10">
                                 <div class="flex items-center justify-between mb-3 gap-2">
                                     <div class="flex items-center gap-1.5 shrink-0">
                                         <span class="w-2.5 h-2.5 rounded-full bg-terracotta-500"></span>
@@ -369,25 +370,33 @@
                                     <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0" data-i18n="real1_badge">Site Client</span>
                                 </div>
 
-                                <!-- Aperçu graphique statique -->
-                                <a href="https://christophe-jeannin.fr/" target="_blank" rel="noopener noreferrer" class="block rounded-xl bg-gradient-to-br from-zinc-800 via-zinc-900 to-black p-5 text-white h-48 flex flex-col justify-between border border-white/15 group/preview" aria-label="Visiter christophe-jeannin.fr">
-                                    <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
-                                        <span class="font-display font-bold text-xs tracking-widest uppercase text-cream-200">CHRISTOPHE JEANNIN</span>
-                                        <div class="flex gap-2 text-[10px] text-zinc-400">
-                                            <span data-i18n="real1_nav1">Présentation</span>
-                                            <span data-i18n="real1_nav2">Contact</span>
+                                <!-- Aperçu graphique fidèle au site Christophe Jeannin -->
+                                <a href="https://christophe-jeannin.fr/" target="_blank" rel="noopener noreferrer" class="block rounded-xl overflow-hidden bg-white h-48 flex flex-col border border-white/15 shadow-inner group/preview" aria-label="Visiter christophe-jeannin.fr">
+                                    <!-- Barre de navigation blanche du site -->
+                                    <div class="bg-white px-3 py-1.5 flex items-center justify-between border-b border-stone-200 shrink-0">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="text-[#b8985a] text-[10px]">𝄞</span>
+                                            <span class="text-[8px] font-bold tracking-[0.16em] text-[#141e2a]">CHRISTOPHE JEANNIN</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <span class="px-1.5 py-0.5 rounded border border-stone-200 text-[7px] font-semibold text-stone-700 flex items-center gap-1">
+                                                <span class="w-1 h-1 rounded-full bg-stone-400"></span>Écouter
+                                            </span>
+                                            <span class="px-1 py-0.5 rounded border border-stone-200 text-[7px] font-bold text-stone-700">EN</span>
                                         </div>
                                     </div>
-                                    <div class="my-auto space-y-1.5">
-                                        <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-terracotta-500/20 text-terracotta-100 border border-terracotta-500/30" data-i18n="real1_type">Portfolio & Vitrine</span>
-                                        <p class="font-serif italic text-2xl text-white leading-tight" data-i18n="real1_hero">Site vitrine sur-mesure & responsive</p>
+
+                                    <!-- Hero bleu nuit avec ambiance concertiste & violoncelle -->
+                                    <div class="relative flex-grow bg-gradient-to-b from-[#0b1522] via-[#122234] to-[#080f18] flex flex-col items-center justify-center px-3 text-center overflow-hidden">
+                                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_60%,rgba(146,78,34,0.28),transparent_62%)]"></div>
+                                        <p class="relative z-10 text-white text-sm font-medium tracking-[0.22em] uppercase drop-shadow">CHRISTOPHE JEANNIN</p>
+                                        <p class="relative z-10 font-serif italic text-[11px] text-stone-200/90 mt-1">Violoncelliste Concertiste &amp; Enseignant</p>
                                     </div>
-                                    <div class="flex items-center justify-between text-[11px] text-zinc-400 pt-2 border-t border-white/10">
-                                        <span>HTTPS • Mobile First</span>
-                                        <span class="text-white font-bold flex items-center gap-1 group-hover/preview:text-terracotta-500 transition-colors">
-                                            <span data-i18n="real1_visit_short">Ouvrir</span>
-                                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                                        </span>
+
+                                    <!-- Bandeau Biographie blanc avec filet doré -->
+                                    <div class="bg-[#fcfbf9] py-2.5 flex flex-col items-center justify-center shrink-0 border-t border-stone-100">
+                                        <span class="text-[8px] font-bold tracking-[0.2em] text-[#1c2633] uppercase">BIOGRAPHIE</span>
+                                        <span class="w-4 h-[1.5px] bg-[#b8985a] mt-1"></span>
                                     </div>
                                 </a>
                             </div>
@@ -407,47 +416,83 @@
                         </div>
                     </article>
 
-                    <!-- Projet 2 : Better Note (Redirection vers BetterNote.html) -->
+                    <!-- Projet 2 : Better Note (Raccord visuel BetterNote.html) -->
                     <article class="rounded-3xl bg-white border border-ink-900/15 overflow-hidden shadow-sm flex flex-col justify-between card-hover">
                         <div>
-                            <div class="bg-[#0b1329] p-4 border-b border-ink-900/10">
+                            <div class="bg-[#07101f] p-4 border-b border-ink-900/10">
                                 <div class="flex items-center justify-between mb-3">
                                     <div class="flex gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-terracotta-500"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span><span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span></div>
-                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30" data-i18n="real2_badge">Outil Web</span>
+                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30" data-i18n="real2_badge">Démo</span>
                                 </div>
-                                <!-- Aperçu graphique inspiré de Better Note -->
-                                <div class="rounded-xl bg-[#070b19] p-3 text-white h-48 flex flex-col justify-between border border-blue-500/20 shadow-inner">
-                                    <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                                        <div class="flex items-center gap-2">
-                                            <div class="w-6 h-6 rounded-lg bg-amber-500 flex items-center justify-center text-xs font-bold">✏️</div>
-                                            <span class="font-display font-bold text-xs tracking-wide">Better Note</span>
+
+                                <!-- Aperçu graphique fidèle à Better Note -->
+                                <a href="BetterNote.html" class="block rounded-xl overflow-hidden bg-[#040a15] text-white h-48 flex border border-sky-500/25 shadow-inner">
+                                    <!-- Barre latérale gauche -->
+                                    <div class="w-[36%] bg-[#071121] border-r border-sky-500/15 p-2 flex flex-col gap-1.5 shrink-0">
+                                        <div class="flex items-center gap-1.5 pb-1 border-b border-white/5">
+                                            <div class="w-4 h-4 rounded bg-gradient-to-br from-sky-500 to-amber-500 flex items-center justify-center text-[8px]">✏️</div>
+                                            <span class="font-display font-bold text-[9px] text-white truncate">Better Note</span>
                                         </div>
-                                        <span class="text-[10px] text-blue-400 font-mono">Ctrl+N</span>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 my-auto">
-                                        <div class="bg-[#0b1329] p-2 rounded-lg border border-white/10 space-y-1">
-                                            <div class="w-12 h-2 bg-blue-500/40 rounded"></div>
-                                            <div class="w-8 h-1.5 bg-white/20 rounded"></div>
-                                        </div>
-                                        <div class="col-span-2 bg-[#0b1329] p-2 rounded-lg border border-white/10 flex flex-col justify-between">
-                                            <div class="flex justify-between items-center">
-                                                <span class="text-[10px] bg-blue-500/30 text-blue-300 px-1.5 py-0.5 rounded font-mono">#AAA#</span>
-                                                <span class="text-[10px] text-emerald-400">● Enregistré</span>
+                                        <span class="text-[7px] text-sky-400 font-medium">Bonjour, Flo</span>
+                                        <div class="w-full py-1 rounded bg-[#0294d6] text-center text-[7px] font-bold text-white shadow-sm">+ Nouvelle note</div>
+                                        <div class="w-full py-0.5 rounded bg-[#0c1a30] border border-sky-500/20 text-center text-[6.5px] text-slate-300">✉ E-mail d'absence</div>
+                                        <!-- Carte note active -->
+                                        <div class="mt-auto rounded bg-[#0b1b33] border border-sky-500/50 p-1.5 space-y-1">
+                                            <div class="flex items-center justify-between gap-1">
+                                                <span class="text-[7px] font-bold text-white truncate">Nouveau client</span>
+                                                <span class="text-[6px] px-1 rounded bg-teal-500/25 text-teal-300 font-mono">#AAA#</span>
                                             </div>
-                                            <div class="space-y-1">
-                                                <div class="w-full h-1.5 bg-white/30 rounded"></div>
-                                                <div class="w-3/4 h-1.5 bg-white/20 rounded"></div>
-                                            </div>
+                                            <div class="text-[6px] text-sky-300/70 font-mono">2026-11-18 08:21</div>
+                                        </div>
+                                        <div class="rounded bg-[#060f1e] border border-white/10 p-1">
+                                            <div class="text-[7px] font-semibold text-slate-300">test</div>
                                         </div>
                                     </div>
-                                    <div class="flex justify-between items-center text-[10px] text-stone-400 pt-1 border-t border-white/10">
-                                        <span>Bonjour ! 👋</span>
-                                        <span class="text-blue-400 font-semibold">0 mots</span>
+
+                                    <!-- Zone éditeur principale étoilée -->
+                                    <div class="flex-grow flex flex-col justify-between bg-[#030812] relative overflow-hidden">
+                                        <!-- En-tête de la note -->
+                                        <div class="px-2 py-1.5 bg-[#071121] border-b border-white/10 flex items-center justify-between gap-1">
+                                            <span class="text-[8px] font-bold text-white truncate">Nouveau client</span>
+                                            <div class="flex items-center gap-1 shrink-0">
+                                                <span class="text-[6.5px] px-1 py-0.5 rounded bg-[#0d1c33] border border-sky-500/25 text-slate-200 font-mono">#AAA#</span>
+                                                <span class="text-[6.5px] px-1 py-0.5 rounded bg-[#0d1c33] border border-indigo-500/30 text-indigo-300 font-mono">904962</span>
+                                                <span class="text-[6.5px] px-1 py-0.5 rounded bg-[#0d1c33] border border-white/10 text-slate-300">● Faible</span>
+                                            </div>
+                                        </div>
+                                        <!-- Barre de formatage -->
+                                        <div class="px-2 py-1 bg-[#081326] border-b border-white/5 flex items-center gap-2 text-[7px] text-slate-400">
+                                            <span>Normal ▾</span>
+                                            <span class="font-bold">B</span>
+                                            <span class="italic">I</span>
+                                            <span class="underline">U</span>
+                                            <span class="line-through">S</span>
+                                        </div>
+
+                                        <!-- Fond étoilé + Bulle Plumy -->
+                                        <div class="flex-grow relative p-2 flex items-end justify-end" style="background-image: radial-gradient(rgba(125,211,252,0.35) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 26px 26px, 19px 19px; background-position: 0 0, 9px 11px;">
+                                            <div class="flex items-end gap-1.5">
+                                                <div class="bg-[#0a172c]/95 border border-sky-500/35 rounded-lg p-1.5 max-w-[105px] shadow-md">
+                                                    <div class="text-[6px] font-bold text-sky-400 uppercase tracking-wider">ASTUCE DE PLUMY</div>
+                                                    <div class="text-[6.5px] text-slate-200 leading-tight mt-0.5">Bonjour ! Cliquez sur moi !</div>
+                                                </div>
+                                                <div class="w-5 h-6 rounded-md bg-gradient-to-b from-sky-400 to-amber-400 border border-white/40 flex items-center justify-center text-[8px] shadow shrink-0">✒️</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Barre de statut inférieure -->
+                                        <div class="px-2 py-1 bg-[#060e1d] border-t border-white/10 flex items-center justify-between text-[6.5px] text-sky-300/80">
+                                            <span>Enregistré</span>
+                                            <span>0 mots | Zoom 100%</span>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="p-6">
-                                <h3 class="font-display text-xl font-bold text-ink-900 mb-2">Better Note</h3>
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-display text-xl font-bold text-ink-900">Better Note</h3>
+                                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded-lg bg-cream-100 text-ink-800 border border-ink-900/10" data-i18n="real2_type">Prise de notes</span>
+                                </div>
                                 <p class="text-ink-600 text-sm leading-relaxed" data-i18n="real2_desc">Application web de prise de notes rapide avec gestion des balises, mode sombre immersif et gestion des e-mails d'absence.</p>
                             </div>
                         </div>
@@ -459,49 +504,133 @@
                         </div>
                     </article>
 
-                    <!-- Projet 3 : Futur Dashboard de gestion (Teaser) -->
-                    <article class="rounded-3xl bg-white border-2 border-dashed border-ink-900/20 overflow-hidden shadow-sm flex flex-col justify-between">
+                    <!-- Projet 3 : Star Studio (Raccord visuel StarBoard.html) -->
+                    <article class="rounded-3xl bg-white border border-ink-900/15 overflow-hidden shadow-sm flex flex-col justify-between card-hover">
                         <div>
-                            <div class="bg-forest-900 p-4 border-b border-ink-900/10">
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-terracotta-500"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span><span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span></div>
-                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-400/20 text-amber-200 border border-amber-400/30" data-i18n="real3_badge">En préparation</span>
+                            <div class="bg-[#0f1424] p-4 border-b border-ink-900/10">
+                                <div class="flex items-center justify-between mb-3 gap-2">
+                                    <div class="flex gap-1.5 shrink-0">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-terracotta-500"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span>
+                                    </div>
+                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/25 text-indigo-200 border border-indigo-400/40" data-i18n="real3_badge">Démo</span>
                                 </div>
-                                <div class="rounded-xl bg-gradient-to-br from-forest-800 to-ink-900 p-5 text-white h-48 flex flex-col justify-between border border-white/10">
-                                    <div class="flex justify-between items-center text-xs text-cream-200 font-mono">
-                                        <span>DASHBOARD STUDIO</span>
-                                        <span data-i18n="real3_type">Gestion & Suivi</span>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 my-auto">
-                                        <div class="p-2.5 rounded-lg bg-white/10 border border-white/10 text-center">
-                                            <div class="text-xs font-bold text-emerald-300">RDV</div>
-                                            <div class="h-1.5 bg-white/20 rounded mt-1.5"></div>
+
+                                <!-- Aperçu graphique fidèle à Star Studio -->
+                                <a href="StarBoard.html" class="block rounded-xl overflow-hidden bg-[#f4f6fb] h-48 flex border border-white/15 shadow-inner group/star">
+                                    <!-- Sidebar sombre gauche -->
+                                    <div class="w-[30%] bg-[#0f1423] text-white p-2 flex flex-col justify-between shrink-0">
+                                        <div class="space-y-1.5">
+                                            <div class="flex items-center gap-1 pb-1 border-b border-white/10">
+                                                <span class="w-3.5 h-3.5 rounded bg-indigo-500/30 text-amber-300 flex items-center justify-center text-[7px]">✦</span>
+                                                <div class="leading-none">
+                                                    <div class="text-[7px] font-bold tracking-wider">STAR STUDIO</div>
+                                                    <div class="text-[5px] text-amber-300 font-semibold">BY STAR DESIGN</div>
+                                                </div>
+                                            </div>
+                                            <div class="px-1.5 py-1 rounded bg-[#5b4ef5] text-[6.5px] font-bold text-white truncate">Vue d'ensemble</div>
+                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Clients & CRM</span><span class="text-slate-400">3</span></div>
+                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Devis & Fact.</span><span class="text-amber-300">1</span></div>
+                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Stock & Vitrine</span><span class="text-rose-300">2</span></div>
+                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Emplois du tps</span><span class="text-indigo-300">1</span></div>
+                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Équipe</span><span class="text-emerald-300">4</span></div>
                                         </div>
-                                        <div class="p-2.5 rounded-lg bg-white/10 border border-white/10 text-center">
-                                            <div class="text-xs font-bold text-amber-300">Devis</div>
-                                            <div class="h-1.5 bg-white/20 rounded mt-1.5"></div>
-                                        </div>
-                                        <div class="p-2.5 rounded-lg bg-white/10 border border-white/10 text-center">
-                                            <div class="text-xs font-bold text-terracotta-100">Stats</div>
-                                            <div class="h-1.5 bg-white/20 rounded mt-1.5"></div>
+                                        <div class="p-1 rounded bg-white/5 border border-indigo-400/20 text-[5.5px] text-indigo-200 truncate">
+                                            Mode Admin / Dir.
                                         </div>
                                     </div>
-                                    <div class="flex gap-2">
-                                        <span class="text-[11px] px-2 py-0.5 rounded bg-white/10" data-i18n="real3_tag1">Espace client</span>
-                                        <span class="text-[11px] px-2 py-0.5 rounded bg-white/10" data-i18n="real3_tag2">Suivi d'activité</span>
+
+                                    <!-- Contenu clair principal -->
+                                    <div class="flex-grow flex flex-col bg-[#f8fafc] text-slate-900 overflow-hidden">
+                                        <!-- Topbar -->
+                                        <div class="bg-white px-2 py-1 border-b border-slate-200 flex items-center justify-between gap-1">
+                                            <div class="px-1.5 py-0.5 rounded bg-slate-100 text-[6px] text-slate-400 truncate w-20">🔍 Rechercher...</div>
+                                            <div class="flex items-center gap-1 shrink-0">
+                                                <span class="px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[5.5px] font-bold">• DÉMO</span>
+                                                <span class="px-1.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-[5.5px] font-bold border border-indigo-200">Admin</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Corps Dashboard -->
+                                        <div class="p-2 space-y-1.5 flex-grow">
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-[8.5px] font-bold text-slate-900">Vue d'ensemble</span>
+                                                <div class="flex gap-1">
+                                                    <span class="px-1.5 py-0.5 rounded bg-[#5b4ef5] text-white text-[5.5px] font-bold">+ Devis</span>
+                                                    <span class="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[5.5px] font-bold">+ RDV</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- 4 KPI Cards -->
+                                            <div class="grid grid-cols-4 gap-1">
+                                                <div class="bg-white p-1 rounded border border-slate-200/80">
+                                                    <div class="text-[4.5px] text-slate-400 uppercase font-bold">CA Estimé</div>
+                                                    <div class="text-[7px] font-bold text-slate-900">2 200 €</div>
+                                                    <div class="text-[4.5px] text-emerald-600 font-semibold">1 réglée</div>
+                                                </div>
+                                                <div class="bg-white p-1 rounded border border-slate-200/80">
+                                                    <div class="text-[4.5px] text-slate-400 uppercase font-bold">Devis</div>
+                                                    <div class="text-[7px] font-bold text-slate-900">1</div>
+                                                    <div class="text-[4.5px] text-amber-600 font-semibold">1 600 €</div>
+                                                </div>
+                                                <div class="bg-white p-1 rounded border border-slate-200/80">
+                                                    <div class="text-[4.5px] text-slate-400 uppercase font-bold">Stock bas</div>
+                                                    <div class="text-[7px] font-bold text-slate-900">2</div>
+                                                    <div class="text-[4.5px] text-rose-600 font-semibold">1 rupture</div>
+                                                </div>
+                                                <div class="bg-white p-1 rounded border border-slate-200/80">
+                                                    <div class="text-[4.5px] text-slate-400 uppercase font-bold">Équipe</div>
+                                                    <div class="text-[7px] font-bold text-slate-900">3 / 4</div>
+                                                    <div class="text-[4.5px] text-indigo-600 font-semibold">En poste</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 2 Colonnes Équipe & Tâches -->
+                                            <div class="grid grid-cols-2 gap-1.5">
+                                                <div class="bg-white p-1.5 rounded border border-slate-200/80 space-y-1">
+                                                    <div class="text-[5.5px] font-bold text-slate-700">Équipe du jour</div>
+                                                    <div class="flex items-center justify-between text-[5.5px]">
+                                                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-indigo-500 text-white flex items-center justify-center text-[4.5px] font-bold">AM</span>Alex M.</span>
+                                                        <span class="px-1 rounded bg-emerald-100 text-emerald-700 font-bold text-[4.5px]">En poste</span>
+                                                    </div>
+                                                    <div class="flex items-center justify-between text-[5.5px]">
+                                                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-purple-500 text-white flex items-center justify-center text-[4.5px] font-bold">SB</span>Samira B.</span>
+                                                        <span class="px-1 rounded bg-emerald-100 text-emerald-700 font-bold text-[4.5px]">En poste</span>
+                                                    </div>
+                                                </div>
+                                                <div class="bg-white p-1.5 rounded border border-slate-200/80 space-y-1">
+                                                    <div class="text-[5.5px] font-bold text-slate-700">Tâches prioritaires</div>
+                                                    <div class="flex items-center justify-between gap-1 text-[5px]">
+                                                        <span class="px-1 rounded bg-rose-100 text-rose-600 font-bold">HAUTE</span>
+                                                        <span class="truncate text-slate-600">Planches matériaux</span>
+                                                    </div>
+                                                    <div class="flex items-center justify-between gap-1 text-[5px]">
+                                                        <span class="px-1 rounded bg-amber-100 text-amber-700 font-bold">NORM.</span>
+                                                        <span class="truncate text-slate-600">Relancer DEV-014</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
+
                             <div class="p-6">
-                                <h3 class="font-display text-xl font-bold text-ink-900 mb-2" data-i18n="real3_title">Dashboard de gestion</h3>
-                                <p class="text-ink-600 text-sm leading-relaxed" data-i18n="real3_desc">Nous préparons un tableau de bord complet pour permettre à nos clients de suivre leurs demandes, rendez-vous et contenus en toute autonomie.</p>
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-display text-xl font-bold text-ink-900">Star Studio</h3>
+                                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-600/20" data-i18n="real3_type">Dashboard</span>
+                                </div>
+                                <p class="text-ink-600 text-sm leading-relaxed mb-3" data-i18n="real3_desc">
+                                    Application web de gestion interne sur-mesure en 7 modules : devis/factures en 1 clic, stock & vitrine multi-photos, calendrier (.ics), gestion d'équipe par droits et journal d'audit.
+                                </p>
                             </div>
                         </div>
                         <div class="px-6 pb-6 pt-3 border-t border-ink-900/10">
-                            <button type="button" disabled class="w-full py-3 rounded-xl bg-cream-200/70 text-ink-600 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-not-allowed">
-                                <i data-lucide="clock" class="w-4 h-4"></i>
-                                <span data-i18n="badge_soon">Bientôt disponible</span>
-                            </button>
+                            <a href="StarBoard.html" class="w-full py-3 rounded-xl bg-[#0f1423] hover:bg-[#5b4ef5] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
+                                <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                                <span data-i18n="real3_btn">Tester Star Studio</span>
+                            </a>
                         </div>
                     </article>
                 </div>
@@ -878,7 +1007,7 @@
         <p>Ce site est hébergé par <strong>IONOS SARL</strong>, 7 place de la Gare, BP 70109, 57200 Sarreguemines Cedex, France (https://www.ionos.fr) ou via <strong>GitHub Pages</strong> (GitHub, Inc.) selon l'environnement de déploiement.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">3. Propriété intellectuelle</h4>
-        <p>L'ensemble de ce site (structure, charte graphique, textes, code source et démonstrateurs) relève de la législation française sur le droit d'auteur et la propriété intellectuelle. Toute reproduction totale ou partielle sans autorisation écrite préalable est interdite.</p>
+        <p>L'ensemble de ce site (structure, charte graphique, textes, code source, outils Better Note et Star Studio) relève de la législation française sur le droit d'auteur et la propriété intellectuelle. Toute reproduction totale ou partielle sans autorisation écrite préalable est interdite.</p>
     </template>
 
     <template id="template-privacy-fr">
@@ -886,7 +1015,7 @@
         <p>Dans le cadre de l'utilisation du formulaire de contact et de demande de devis, Star Design collecte uniquement les données strictement nécessaires au traitement de votre demande : nom/entreprise, adresse email, numéro de téléphone (optionnel) et descriptif du besoin.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">2. Services tiers techniques</h4>
-        <p>Pour assurer l'affichage et le fonctionnement du site, des ressources techniques sont chargées depuis des services tiers susceptibles de recevoir votre adresse IP technique : <strong>Google Fonts</strong> (polices de caractères), <strong>Tailwind CDN</strong> (feuilles de style), <strong>unpkg</strong> (icônes Lucide) et <strong>Web3Forms</strong> (acheminement du formulaire lorsqu'activé). Aucun traceur publicitaire n'est installé.</p>
+        <p>Pour assurer l'affichage et le fonctionnement du site, des ressources techniques sont chargées depuis des services tiers susceptibles de recevoir votre adresse IP technique : <strong>Google Fonts</strong> (polices de caractères), <strong>Tailwind CDN</strong> (feuilles de style), <strong>unpkg</strong> (icônes Lucide), <strong>Google Public DNS</strong> (vérification de disponibilité de nom de domaine) et <strong>Web3Forms</strong> (acheminement du formulaire lorsqu'activé). Aucun traceur publicitaire n'est installé.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">3. Finalité, durée de conservation et droits</h4>
         <p>Vos données servent uniquement à répondre à vos demandes commerciales et ne sont jamais revendues. Les données prospects sont conservées <strong>3 ans maximum</strong> après le dernier contact. Conformément au RGPD, vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à : <span class="js-email-text font-semibold"></span>.</p>
@@ -920,7 +1049,7 @@
         <p>This website is hosted by <strong>IONOS SARL</strong> (France / EU) or <strong>GitHub Pages</strong> depending on the deployment environment.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">3. Intellectual Property</h4>
-        <p>All content on this website (layout, design, text, source code, and demos) is protected by copyright and intellectual property laws.</p>
+        <p>All content on this website (layout, design, text, source code, Better Note, and Star Studio) is protected by copyright and intellectual property laws.</p>
     </template>
 
     <template id="template-privacy-en">
@@ -928,7 +1057,7 @@
         <p>When you use our contact form, Star Design only collects data strictly necessary to process your inquiry: name/company, email address, phone number (optional), and project description.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">2. Third-Party Technical Services</h4>
-        <p>Technical assets are loaded from third-party providers that may receive your IP address: <strong>Google Fonts</strong>, <strong>Tailwind CDN</strong>, <strong>unpkg</strong> (Lucide icons), and <strong>Web3Forms</strong> (when enabled for form delivery). No advertising trackers are used.</p>
+        <p>Technical assets are loaded from third-party providers that may receive your IP address: <strong>Google Fonts</strong>, <strong>Tailwind CDN</strong>, <strong>unpkg</strong> (Lucide icons), <strong>Google Public DNS</strong> (domain availability check), and <strong>Web3Forms</strong> (when enabled for form delivery). No advertising trackers are used.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">3. Retention and Your Rights</h4>
         <p>Your data is never sold and is deleted after a maximum of <strong>3 years</strong> following the last contact. To exercise your GDPR rights, contact us at: <span class="js-email-text font-semibold"></span>.</p>
@@ -956,7 +1085,7 @@
             phoneDisplay: "+33 6 00 00 00 00",
             phoneRaw: "+33600000000",
             whatsappNumber: "33600000000",
-            web3formsKey: "VOTRE_CLE_WEB3FORMS_ICI" // Remplacez par votre clé gratuite web3forms.com
+            web3formsKey: "0f7ffe75-d664-4fc6-bbac-4c851cf7bca2" // Remplacez par votre clé gratuite web3forms.com
         };
 
         let currentLang = 'fr';
@@ -1059,7 +1188,7 @@
                 offer3_f1: "Tout le pack Essentiel inclus", offer3_f2: "Nom de domaine inclus (.fr, .com) + email pro", offer3_f3: "Module de prise de RDV ou réservation de table", offer3_f4: "Optimisation SEO local + aide fiche Google", offer3_f5: "Modifications traitées en priorité",
 
                 offer4_name: "Pro", offer4_badge: "Vente en ligne", badge_soon: "Bientôt disponible", offer4_price_soon: "En préparation", offer4_sub_soon: "Indisponible pour le moment",
-                offer4_desc: "Boutique en ligne, paiement sécurisé par carte bancaire et futur tableau de bord de gestion.",
+                offer4_desc: "Boutique en ligne, paiement sécurisé par carte bancaire et intégration Star Studio complète.",
                 offer4_f1: "Tout le pack Premium inclus", offer4_f2: "Paiements sécurisés en ligne (Stripe)", offer4_f3: "Catalogue produits ou prestations", offer4_f4: "Dashboard de gestion dédié",
                 btn_unavailable: "Indisponible pour le moment",
 
@@ -1067,22 +1196,23 @@
                 disclaimer_pricing: "Tous les tarifs sont affichés en Euros (€). TVA non applicable, art. 293 B du CGI. Pour les formules en abonnement, après les 12 mois d'engagement, vous pouvez récupérer votre nom de domaine gratuitement et racheter les fichiers sources du site pour un forfait unique de 99 €.",
 
                 dom_eyebrow: "Votre identité en ligne", dom_title: "Testez votre futur nom de domaine",
-                dom_sub: "Vérifiez la disponibilité de votre nom d'entreprise avant de lancer la création de votre site.",
-                dom_btn: "Vérifier", dom_res_label: "Domaine sélectionné", dom_res_hint: "Vérifiez sa disponibilité en direct sur IONOS ou joignez-le à votre demande.",
-                dom_check_ext: "Vérifier sur IONOS", dom_use_btn: "Utiliser pour mon site",
+                dom_sub: "Vérifiez instantanément la disponibilité de votre nom d'entreprise directement ici.",
+                dom_btn: "Vérifier", dom_use_btn: "Utiliser pour mon site",
 
                 custom_tag: "Architecture & Développement spécifique", custom_title: "Un besoin métier spécifique ? Parlons-en.",
                 custom_desc: "Simulateur de devis en ligne, connexion d'outils (Calendly, Brevo, Notion) ou petite application web interne : nous étudions votre besoin gratuitement.",
                 custom_btn: "Demander une étude gratuite",
 
                 real_eyebrow: "Portfolio & Outils", real_title: "Nos réalisations récentes",
-                real_sub: "Découvrez notre site client en ligne, notre outil web Better Note et nos projets en cours de développement.",
-                real1_badge: "Site Client", real1_type: "Portfolio & Vitrine", real1_nav1: "Présentation", real1_nav2: "Contact", real1_hero: "Site vitrine sur-mesure & responsive", real1_visit_short: "Ouvrir",
+                real_sub: "Découvrez notre site client en ligne ainsi que nos applications web interactives conçues par le studio.",
+                real1_badge: "Site Client", real1_type: "Vitrine", real1_nav1: "Présentation", real1_nav2: "Contact", real1_hero: "Site vitrine sur-mesure & responsive", real1_visit_short: "Ouvrir",
                 real1_desc: "Création d'un site vitrine professionnel sur-mesure, optimisé pour la lecture sur mobile et tablette avec formulaire de prise de contact directe.",
                 real1_btn: "Visiter christophe-jeannin.fr",
-                real2_badge: "Outil Web", real2_desc: "Application web de prise de notes rapide avec gestion des balises, mode sombre immersif et gestion des e-mails d'absence.", real2_btn: "Ouvrir BetterNote",
-                real3_badge: "En préparation", real3_type: "Gestion & Suivi", real3_tag1: "Espace client", real3_tag2: "Suivi d'activité", real3_title: "Dashboard de gestion",
-                real3_desc: "Nous préparons un tableau de bord complet pour permettre à nos clients de suivre leurs demandes, rendez-vous et contenus en toute autonomie.",
+                real2_badge: "Outil Web", real2_type: "Prise de notes", real2_desc: "Application web de prise de notes rapide avec gestion des balises, mode sombre immersif et gestion des e-mails d'absence.", real2_btn: "Ouvrir BetterNote",
+                real3_badge: "Démo Interactive", real3_mode: "Admin / Employé", real3_kpi1: "CRM RGPD", real3_kpi2: "Devis & PDF", real3_kpi3: "Planning", real3_modules: "7 modules • Stock • Équipe • Audit",
+                real3_type: "Dashboard",
+                real3_desc: "Application web de gestion interne sur-mesure en 7 modules : CRM conforme RGPD, devis/factures en 1 clic, stock & vitrine multi-photos, calendrier (.ics), gestion d'équipe par droits et journal d'audit.",
+                real3_tag1: "CRM & Devis", real3_tag2: "Stock & Vitrine", real3_tag3: "Mode Démo Admin/Employé", real3_btn: "Tester Star Studio",
 
                 cat_eyebrow: "4 Architectures complètes", cat_title: "Nos modèles de base personnalisables",
                 cat_sub: "Plutôt que des dizaines de coquilles vides, nous avons conçu 4 structures complètes et éprouvées que nous adaptons à vos couleurs, vos textes et votre métier.",
@@ -1135,7 +1265,7 @@
                 offer3_f1: "Everything in Essential included", offer3_f2: "Domain name included (.fr, .com) + pro email", offer3_f3: "Online appointment or table booking module", offer3_f4: "Local SEO optimization + Google Business help", offer3_f5: "Priority edit handling",
 
                 offer4_name: "Pro", offer4_badge: "Online Store", badge_soon: "Coming soon", offer4_price_soon: "In progress", offer4_sub_soon: "Unavailable for now",
-                offer4_desc: "Online store, secure card payments, and upcoming management dashboard.",
+                offer4_desc: "Online store, secure card payments, and full Star Studio integration.",
                 offer4_f1: "Everything in Premium included", offer4_f2: "Secure online payments (Stripe)", offer4_f3: "Product or service catalog", offer4_f4: "Dedicated management dashboard",
                 btn_unavailable: "Unavailable for now",
 
@@ -1143,22 +1273,23 @@
                 disclaimer_pricing: "All prices are billed in Euros (€). VAT not applicable (French CGI art. 293 B). For subscription plans, after the 12-month commitment, you can transfer your domain for free and buy out the static source files for a one-time 99 € fee.",
 
                 dom_eyebrow: "Your online identity", dom_title: "Test your future domain name",
-                dom_sub: "Check if your business name is available before starting your website.",
-                dom_btn: "Check", dom_res_label: "Selected domain", dom_res_hint: "Check live availability on IONOS or attach it to your inquiry.",
-                dom_check_ext: "Check on IONOS", dom_use_btn: "Use for my website",
+                dom_sub: "Instantly check if your business name is available right here.",
+                dom_btn: "Check", dom_use_btn: "Use for my website",
 
                 custom_tag: "Custom Architecture & Development", custom_title: "Need a specific business feature? Let's talk.",
                 custom_desc: "Online quote calculators, tool integrations (Calendly, Brevo, Notion) or internal web apps: we review your needs for free.",
                 custom_btn: "Request a free study",
 
                 real_eyebrow: "Portfolio & Tools", real_title: "Recent projects",
-                real_sub: "Discover our live client website, our Better Note web tool, and upcoming studio projects.",
+                real_sub: "Discover our live client website as well as the interactive web apps built by our studio.",
                 real1_badge: "Client Site", real1_type: "Portfolio & Showcase", real1_nav1: "About", real1_nav2: "Contact", real1_hero: "Custom responsive showcase website", real1_visit_short: "Open",
                 real1_desc: "Creation of a custom professional showcase website, optimized for mobile and tablet reading with a direct contact form.",
                 real1_btn: "Visit christophe-jeannin.fr",
-                real2_badge: "Web Tool", real2_desc: "Fast web-based note-taking app with tag management, immersive dark mode, and out-of-office email templates.", real2_btn: "Open BetterNote",
-                real3_badge: "In progress", real3_type: "Management", real3_tag1: "Client portal", real3_tag2: "Activity tracking", real3_title: "Management Dashboard",
-                real3_desc: "We are building a full dashboard to let our clients track their inquiries, bookings, and content independently.",
+                real2_badge: "Web Tool", real2_type: "Note Taking", real2_desc: "Fast web-based note-taking app with tag management, immersive dark mode, and out-of-office email templates.", real2_btn: "Open BetterNote",
+                real3_badge: "Interactive Demo", real3_mode: "Admin / Employee", real3_kpi1: "GDPR CRM", real3_kpi2: "Quotes & PDF", real3_kpi3: "Schedule", real3_modules: "7 modules • Stock • Team • Audit",
+                real3_type: "All-in-One Dashboard",
+                real3_desc: "Custom 7-module internal management web app: GDPR-compliant CRM, 1-click quotes/invoices, stock & multi-photo showcase, calendar (.ics), role-based team rights, and audit log.",
+                real3_tag1: "CRM & Quotes", real3_tag2: "Stock & Showcase", real3_tag3: "Admin/Employee Demo", real3_btn: "Try Star Studio",
 
                 cat_eyebrow: "4 Complete Layouts", cat_title: "Customizable base architectures",
                 cat_sub: "Rather than dozens of empty shells, we built 4 complete, proven structures that we tailor to your colors, copy, and industry.",
@@ -1191,6 +1322,9 @@
             }
         };
 
+        /**
+         * Injecte les coordonnées centralisées (SITE_CONFIG) dans tous les éléments dédiés
+         */
         function hydrateConfig() {
             document.getElementById('web3forms-key').value = SITE_CONFIG.web3formsKey;
             document.querySelectorAll('.js-email-text').forEach(el => el.textContent = SITE_CONFIG.email);
@@ -1202,6 +1336,9 @@
             });
         }
 
+        /**
+         * Change la langue de l'interface (FR / EN) tout en conservant la devise €
+         */
         function setLanguage(lang) {
             currentLang = lang;
             document.documentElement.lang = lang;
@@ -1233,6 +1370,9 @@
             renderTemplates();
         }
 
+        /**
+         * Vérifie la disponibilité d'un nom de domaine directement via Google Public DNS (DoH)
+         */
         async function checkDomain(event) {
             event.preventDefault();
             const raw = document.getElementById('domain-input').value.trim().toLowerCase();
@@ -1250,7 +1390,6 @@
             const iconEl = document.getElementById('domain-status-icon');
             const useBtn = document.getElementById('domain-use-btn');
 
-            // État de chargement
             resultBox.classList.remove('hidden');
             nameEl.textContent = checkedDomainFull;
             badgeEl.textContent = isEn ? "Checking..." : "Vérification...";
