@@ -14,8 +14,8 @@
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Favicon Star Design (logo dans l'onglet) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141413'/%3E%3Cpath d='M16 5.5L18.8 12.8L26.5 16L18.8 19.2L16 26.5L13.2 19.2L5.5 16L13.2 12.8L16 5.5Z' fill='%23FAF7F2'/%3E%3C/svg%3E">
+    <!-- Favicon Star Design (logo géométrique avec éclat terracotta) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23141413'/%3E%3Crect x='3' y='3' width='26' height='26' rx='6.5' fill='none' stroke='%23FAF7F2' stroke-opacity='0.18' stroke-width='1'/%3E%3Cpath d='M15 6L17.4 12.6L24 15L17.4 17.4L15 24L12.6 17.4L6 15L12.6 12.6L15 6Z' fill='%23FAF7F2'/%3E%3Ccircle cx='23.5' cy='8.5' r='2.3' fill='%23D94E34'/%3E%3C/svg%3E">
     
     <!-- Version figée de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -65,8 +65,12 @@
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-cream-100/95 border-b border-ink-900/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2.5 group shrink-0" aria-label="Star Design">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-ink-900 text-cream-100 flex items-center justify-center shadow-sm group-hover:bg-terracotta-500 transition-colors">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5L14.8 8.8L22.5 12L14.8 15.2L12 22.5L9.2 15.2L1.5 12L9.2 8.8L12 1.5Z" /></svg>
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-ink-900 text-cream-100 flex items-center justify-center shadow-sm ring-1 ring-ink-900/10 group-hover:scale-105 transition-transform">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <rect x="2.5" y="2.5" width="27" height="27" rx="7" stroke="currentColor" stroke-opacity="0.18" stroke-width="1.2"/>
+                        <path d="M15 6L17.4 12.6L24 15L17.4 17.4L15 24L12.6 17.4L6 15L12.6 12.6L15 6Z" fill="currentColor"/>
+                        <circle cx="23.5" cy="8.5" r="2.3" class="fill-terracotta-500"/>
+                    </svg>
                 </div>
                 <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-ink-900">Star<span class="text-terracotta-500">Design</span>.</span>
             </a>
@@ -217,19 +221,36 @@
                             </div>
                             <div class="py-5 border-b border-white/15">
                                 <div class="flex items-baseline gap-1.5">
-                                    <span class="font-display text-4xl font-bold tracking-tighter text-white">29 €</span>
+                                    <span id="premium-price-value" class="font-display text-4xl font-bold tracking-tighter text-white">29 €</span>
                                     <span class="text-xs text-terracotta-400 font-bold" data-i18n="per_month">/ mois</span>
                                 </div>
                                 <p class="text-xs text-cream-200 mt-1.5 font-semibold" data-i18n="sub_commit">Engagement 12 mois • Création incluse (0 €)</p>
                             </div>
                             <p class="text-xs sm:text-sm text-cream-200 my-4 leading-relaxed" data-i18n="offer3_desc">Pour les artisans, restaurants et libéraux qui veulent générer des réservations et des devis.</p>
-                            <ul class="space-y-2.5 text-xs sm:text-sm text-cream-100 font-medium mb-6">
+                            <ul class="space-y-2.5 text-xs sm:text-sm text-cream-100 font-medium mb-4">
                                 <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5"></i><span data-i18n="offer3_f1">Tout le pack Essentiel inclus</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5"></i><span data-i18n="offer3_f2">Nom de domaine inclus (.fr, .com) + email pro</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5"></i><span data-i18n="offer3_f3">Module de prise de RDV ou réservation de table</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5"></i><span data-i18n="offer3_f4">Optimisation SEO local + aide fiche Google</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5"></i><span data-i18n="offer3_f5">Modifications traitées en priorité</span></li>
                             </ul>
+
+                            <!-- Option Dashboard Star Studio (+20 €/mois) -->
+                            <div class="mb-6 space-y-2">
+                                <label id="premium-opt-box" class="p-3 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 flex items-center justify-between gap-2.5 cursor-pointer transition-all">
+                                    <div class="flex items-center gap-2.5">
+                                        <input type="checkbox" id="premium-dashboard-toggle" onchange="togglePremiumDashboard(this.checked)" class="w-4 h-4 accent-terracotta-500 rounded cursor-pointer shrink-0">
+                                        <div>
+                                            <div class="text-xs font-bold text-white leading-tight" data-i18n="offer3_opt_title">Option Dashboard Star Studio</div>
+                                            <div class="text-[11px] text-cream-200/80" data-i18n="offer3_opt_sub">CRM, devis, stock &amp; planning</div>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-bold text-terracotta-400 shrink-0">+20 €</span>
+                                </label>
+                                <p class="text-[11px] text-cream-200/85 leading-relaxed px-1" data-i18n="offer3_opt_explain">
+                                    Votre espace de gestion privé (clients, devis, stock, planning, équipe), entièrement personnalisable selon votre activité.
+                                </p>
+                            </div>
                         </div>
                         <div class="pt-4 border-t border-white/15">
                             <button type="button" onclick="openOrderModal(null, 'full_pack')" class="w-full py-3.5 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md">
@@ -271,7 +292,7 @@
                 </div>
 
                 <p class="text-center text-xs text-ink-600 mt-8 max-w-3xl mx-auto leading-relaxed" data-i18n="disclaimer_pricing">
-                    Tous les tarifs sont affichés en Euros (€). TVA non applicable, art. 293 B du CGI. Pour les formules en abonnement, après les 12 mois d'engagement, vous pouvez récupérer votre nom de domaine gratuitement et racheter les fichiers sources du site pour un forfait unique de 99 €.
+                    Tous les tarifs sont affichés en Euros (€). TVA non applicable, art. 293 B du CGI. Pour les formules en abonnement, après les 12 mois d'engagement, vous pouvez récupérer votre nom de domaine gratuitement et racheter les fichiers sources du site pour un forfait unique de 40 €. En cas de fermeture de notre entreprise, la récupération complète est gratuite.
                 </p>
             </div>
         </section>
@@ -372,7 +393,6 @@
 
                                 <!-- Aperçu graphique fidèle au site Christophe Jeannin -->
                                 <a href="https://christophe-jeannin.fr/" target="_blank" rel="noopener noreferrer" class="block rounded-xl overflow-hidden bg-white h-48 flex flex-col border border-white/15 shadow-inner group/preview" aria-label="Visiter christophe-jeannin.fr">
-                                    <!-- Barre de navigation blanche du site -->
                                     <div class="bg-white px-3 py-1.5 flex items-center justify-between border-b border-stone-200 shrink-0">
                                         <div class="flex items-center gap-1.5">
                                             <span class="text-[#b8985a] text-[10px]">𝄞</span>
@@ -386,14 +406,12 @@
                                         </div>
                                     </div>
 
-                                    <!-- Hero bleu nuit avec ambiance concertiste & violoncelle -->
                                     <div class="relative flex-grow bg-gradient-to-b from-[#0b1522] via-[#122234] to-[#080f18] flex flex-col items-center justify-center px-3 text-center overflow-hidden">
                                         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_60%,rgba(146,78,34,0.28),transparent_62%)]"></div>
                                         <p class="relative z-10 text-white text-sm font-medium tracking-[0.22em] uppercase drop-shadow">CHRISTOPHE JEANNIN</p>
                                         <p class="relative z-10 font-serif italic text-[11px] text-stone-200/90 mt-1">Violoncelliste Concertiste &amp; Enseignant</p>
                                     </div>
 
-                                    <!-- Bandeau Biographie blanc avec filet doré -->
                                     <div class="bg-[#fcfbf9] py-2.5 flex flex-col items-center justify-center shrink-0 border-t border-stone-100">
                                         <span class="text-[8px] font-bold tracking-[0.2em] text-[#1c2633] uppercase">BIOGRAPHIE</span>
                                         <span class="w-4 h-[1.5px] bg-[#b8985a] mt-1"></span>
@@ -427,7 +445,6 @@
 
                                 <!-- Aperçu graphique fidèle à Better Note -->
                                 <a href="BetterNote.html" class="block rounded-xl overflow-hidden bg-[#040a15] text-white h-48 flex border border-sky-500/25 shadow-inner">
-                                    <!-- Barre latérale gauche -->
                                     <div class="w-[36%] bg-[#071121] border-r border-sky-500/15 p-2 flex flex-col gap-1.5 shrink-0">
                                         <div class="flex items-center gap-1.5 pb-1 border-b border-white/5">
                                             <div class="w-4 h-4 rounded bg-gradient-to-br from-sky-500 to-amber-500 flex items-center justify-center text-[8px]">✏️</div>
@@ -436,7 +453,6 @@
                                         <span class="text-[7px] text-sky-400 font-medium">Bonjour, Flo</span>
                                         <div class="w-full py-1 rounded bg-[#0294d6] text-center text-[7px] font-bold text-white shadow-sm">+ Nouvelle note</div>
                                         <div class="w-full py-0.5 rounded bg-[#0c1a30] border border-sky-500/20 text-center text-[6.5px] text-slate-300">✉ E-mail d'absence</div>
-                                        <!-- Carte note active -->
                                         <div class="mt-auto rounded bg-[#0b1b33] border border-sky-500/50 p-1.5 space-y-1">
                                             <div class="flex items-center justify-between gap-1">
                                                 <span class="text-[7px] font-bold text-white truncate">Nouveau client</span>
@@ -449,9 +465,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Zone éditeur principale étoilée -->
                                     <div class="flex-grow flex flex-col justify-between bg-[#030812] relative overflow-hidden">
-                                        <!-- En-tête de la note -->
                                         <div class="px-2 py-1.5 bg-[#071121] border-b border-white/10 flex items-center justify-between gap-1">
                                             <span class="text-[8px] font-bold text-white truncate">Nouveau client</span>
                                             <div class="flex items-center gap-1 shrink-0">
@@ -460,7 +474,6 @@
                                                 <span class="text-[6.5px] px-1 py-0.5 rounded bg-[#0d1c33] border border-white/10 text-slate-300">● Faible</span>
                                             </div>
                                         </div>
-                                        <!-- Barre de formatage -->
                                         <div class="px-2 py-1 bg-[#081326] border-b border-white/5 flex items-center gap-2 text-[7px] text-slate-400">
                                             <span>Normal ▾</span>
                                             <span class="font-bold">B</span>
@@ -469,7 +482,6 @@
                                             <span class="line-through">S</span>
                                         </div>
 
-                                        <!-- Fond étoilé + Bulle Plumy -->
                                         <div class="flex-grow relative p-2 flex items-end justify-end" style="background-image: radial-gradient(rgba(125,211,252,0.35) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 26px 26px, 19px 19px; background-position: 0 0, 9px 11px;">
                                             <div class="flex items-end gap-1.5">
                                                 <div class="bg-[#0a172c]/95 border border-sky-500/35 rounded-lg p-1.5 max-w-[105px] shadow-md">
@@ -480,7 +492,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- Barre de statut inférieure -->
                                         <div class="px-2 py-1 bg-[#060e1d] border-t border-white/10 flex items-center justify-between text-[6.5px] text-sky-300/80">
                                             <span>Enregistré</span>
                                             <span>0 mots | Zoom 100%</span>
@@ -519,7 +530,6 @@
 
                                 <!-- Aperçu graphique fidèle à Star Studio -->
                                 <a href="StarBoard.html" class="block rounded-xl overflow-hidden bg-[#f4f6fb] h-48 flex border border-white/15 shadow-inner group/star">
-                                    <!-- Sidebar sombre gauche -->
                                     <div class="w-[30%] bg-[#0f1423] text-white p-2 flex flex-col justify-between shrink-0">
                                         <div class="space-y-1.5">
                                             <div class="flex items-center gap-1 pb-1 border-b border-white/10">
@@ -530,9 +540,9 @@
                                                 </div>
                                             </div>
                                             <div class="px-1.5 py-1 rounded bg-[#5b4ef5] text-[6.5px] font-bold text-white truncate">Vue d'ensemble</div>
-                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Clients & CRM</span><span class="text-slate-400">3</span></div>
-                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Devis & Fact.</span><span class="text-amber-300">1</span></div>
-                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Stock & Vitrine</span><span class="text-rose-300">2</span></div>
+                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Clients &amp; CRM</span><span class="text-slate-400">3</span></div>
+                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Devis &amp; Fact.</span><span class="text-amber-300">1</span></div>
+                                            <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Stock &amp; Vitrine</span><span class="text-rose-300">2</span></div>
                                             <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Emplois du tps</span><span class="text-indigo-300">1</span></div>
                                             <div class="px-1.5 py-0.5 text-[6px] text-slate-300 flex justify-between"><span>Équipe</span><span class="text-emerald-300">4</span></div>
                                         </div>
@@ -541,9 +551,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Contenu clair principal -->
                                     <div class="flex-grow flex flex-col bg-[#f8fafc] text-slate-900 overflow-hidden">
-                                        <!-- Topbar -->
                                         <div class="bg-white px-2 py-1 border-b border-slate-200 flex items-center justify-between gap-1">
                                             <div class="px-1.5 py-0.5 rounded bg-slate-100 text-[6px] text-slate-400 truncate w-20">🔍 Rechercher...</div>
                                             <div class="flex items-center gap-1 shrink-0">
@@ -552,7 +560,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- Corps Dashboard -->
                                         <div class="p-2 space-y-1.5 flex-grow">
                                             <div class="flex items-center justify-between">
                                                 <span class="text-[8.5px] font-bold text-slate-900">Vue d'ensemble</span>
@@ -562,7 +569,6 @@
                                                 </div>
                                             </div>
 
-                                            <!-- 4 KPI Cards -->
                                             <div class="grid grid-cols-4 gap-1">
                                                 <div class="bg-white p-1 rounded border border-slate-200/80">
                                                     <div class="text-[4.5px] text-slate-400 uppercase font-bold">CA Estimé</div>
@@ -586,7 +592,6 @@
                                                 </div>
                                             </div>
 
-                                            <!-- 2 Colonnes Équipe & Tâches -->
                                             <div class="grid grid-cols-2 gap-1.5">
                                                 <div class="bg-white p-1.5 rounded border border-slate-200/80 space-y-1">
                                                     <div class="text-[5.5px] font-bold text-slate-700">Équipe du jour</div>
@@ -668,9 +673,9 @@
                         <div>
                             <div class="w-12 h-12 rounded-2xl bg-ink-900 text-white font-display font-bold text-lg flex items-center justify-center mb-6">01</div>
                             <h3 class="font-display text-xl font-bold text-ink-900 mb-3" data-i18n="step1_title">Brief & Choix de l'offre</h3>
-                            <p class="text-ink-600 text-sm leading-relaxed" data-i18n="step1_desc">Remplissez le formulaire ou écrivez-nous sur WhatsApp. Nous faisons le point gratuitement pendant 20 minutes sur vos objectifs, vos textes et votre identité visuelle.</p>
+                            <p class="text-ink-600 text-sm leading-relaxed" data-i18n="step1_desc">Remplissez le formulaire ou écrivez-nous par email. Nous faisons le point gratuitement sur vos objectifs, vos textes et votre identité visuelle.</p>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-ink-900/10 text-xs font-bold text-terracotta-500 flex items-center gap-1.5"><i data-lucide="phone-call" class="w-4 h-4"></i><span data-i18n="step1_tag">Échange initial gratuit et sans engagement</span></div>
+                        <div class="mt-6 pt-4 border-t border-ink-900/10 text-xs font-bold text-terracotta-500 flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4"></i><span data-i18n="step1_tag">Échange initial gratuit et sans engagement</span></div>
                     </div>
                     <div class="p-6 sm:p-8 rounded-3xl bg-white border border-ink-900/15 shadow-sm flex flex-col justify-between">
                         <div>
@@ -711,14 +716,21 @@
                     <div class="border border-ink-900/15 rounded-2xl p-5 sm:p-6 bg-cream-50">
                         <h3 class="font-display font-bold text-base sm:text-lg text-ink-900" data-i18n="faq_q2">Comment fonctionnent les modifications incluses dans l'abonnement ?</h3>
                         <p class="text-sm text-ink-600 mt-2 leading-relaxed" data-i18n="faq_a2">
-                            Pour nos formules avec abonnement (Essentiel et Premium), vous pouvez nous demander des changements de textes, de tarifs, d'horaires ou de photos par simple email ou WhatsApp. Nous les effectuons en général sous quelques jours ouvrés (avec traitement prioritaire en Premium).
+                            Pour nos formules avec abonnement (Essentiel et Premium), vous pouvez nous demander des changements de textes, de tarifs, d'horaires ou de photos par simple email. Nous les effectuons en général sous quelques jours ouvrés (avec traitement prioritaire en Premium).
                         </p>
                     </div>
 
                     <div class="border border-ink-900/15 rounded-2xl p-5 sm:p-6 bg-cream-50">
                         <h3 class="font-display font-bold text-base sm:text-lg text-ink-900" data-i18n="faq_q3">Que se passe-t-il après les 12 mois d'engagement ?</h3>
                         <p class="text-sm text-ink-600 mt-2 leading-relaxed" data-i18n="faq_a3">
-                            L'engagement initial de 12 mois nous permet d'inclure la création du site à 0 €. Au bout de 12 mois, l'abonnement se poursuit sans engagement (résiliable avec un préavis de 30 jours). Vous pouvez aussi récupérer gratuitement votre nom de domaine et racheter les fichiers sources statiques de votre site pour un forfait unique de 99 €.
+                            L'engagement initial de 12 mois nous permet d'inclure la création du site à 0 €. Au bout de 12 mois, l'abonnement se poursuit sans engagement (résiliable avec un préavis de 30 jours). Vous pouvez aussi récupérer gratuitement votre nom de domaine et racheter les fichiers sources statiques de votre site pour un forfait unique de 40 €.
+                        </p>
+                    </div>
+
+                    <div class="border border-ink-900/15 rounded-2xl p-5 sm:p-6 bg-cream-50">
+                        <h3 class="font-display font-bold text-base sm:text-lg text-ink-900" data-i18n="faq_q5">Que devient mon site si Star Design cesse son activité ?</h3>
+                        <p class="text-sm text-ink-600 mt-2 leading-relaxed" data-i18n="faq_a5">
+                            En cas de fermeture de notre entreprise, vous êtes prévenu par email avec un préavis minimum de 60 jours. Avant la fermeture, nous vous transférons gratuitement votre nom de domaine et l'intégralité des fichiers sources de votre site et de vos outils (dont le Dashboard) sous licence libre (open-source). L'hébergement, la maintenance et les mises à jour s'arrêtent alors à la date de fermeture.
                         </p>
                     </div>
 
@@ -739,8 +751,12 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 pb-8 border-b border-ink-900/10">
                 <div>
                     <div class="flex items-center gap-3 mb-3">
-                        <div class="w-8 h-8 rounded-lg bg-ink-900 text-white flex items-center justify-center">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5L14.8 8.8L22.5 12L14.8 15.2L12 22.5L9.2 15.2L1.5 12L9.2 8.8L12 1.5Z" /></svg>
+                        <div class="w-8 h-8 rounded-lg bg-ink-900 text-cream-100 flex items-center justify-center">
+                            <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                <rect x="2.5" y="2.5" width="27" height="27" rx="7" stroke="currentColor" stroke-opacity="0.18" stroke-width="1.2"/>
+                                <path d="M15 6L17.4 12.6L24 15L17.4 17.4L15 24L12.6 17.4L6 15L12.6 12.6L15 6Z" fill="currentColor"/>
+                                <circle cx="23.5" cy="8.5" r="2.3" class="fill-terracotta-500"/>
+                            </svg>
                         </div>
                         <span class="font-display font-bold text-ink-900 text-lg">Star<span class="text-terracotta-500">Design</span>.</span>
                     </div>
@@ -767,11 +783,7 @@
                             <i data-lucide="mail" class="w-4 h-4 text-terracotta-500"></i>
                             <a href="#" class="js-email-link hover:underline font-semibold"><span class="js-email-text"></span></a>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="phone" class="w-4 h-4 text-terracotta-500"></i>
-                            <a href="#" class="js-phone-link hover:underline font-semibold"><span class="js-phone-text"></span></a>
-                        </li>
-                        <li class="text-ink-600 pt-1" data-i18n="footer_hours">Réponse en soirée et le week-end selon nos disponibilités</li>
+                        <li class="text-ink-600 pt-1" data-i18n="footer_hours">Échanges par email uniquement • Réponse selon nos disponibilités</li>
                     </ul>
                 </div>
             </div>
@@ -794,10 +806,6 @@
                 <span class="font-display font-bold text-sm text-ink-900" data-i18n="qc_title">Parlons de votre projet</span>
                 <button type="button" onclick="toggleQuickContact()" class="text-ink-400 hover:text-ink-900" aria-label="Fermer"><i data-lucide="x" class="w-4 h-4"></i></button>
             </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="js-whatsapp-link w-full py-2.5 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-2.5 transition-all">
-                <i data-lucide="message-circle" class="w-4 h-4"></i>
-                <span data-i18n="qc_wa">Écrire sur WhatsApp</span>
-            </a>
             <button type="button" onclick="toggleQuickContact(); openOrderModal(null, 'questions');" class="w-full py-2.5 px-3.5 rounded-xl bg-ink-900 hover:bg-terracotta-500 text-white text-xs font-bold flex items-center gap-2.5 transition-all">
                 <i data-lucide="send" class="w-4 h-4"></i>
                 <span data-i18n="qc_form">Envoyer un message / Devis</span>
@@ -809,8 +817,8 @@
         </div>
 
         <button type="button" onclick="toggleQuickContact()" class="bg-ink-900 hover:bg-terracotta-500 text-white px-5 py-3.5 rounded-full shadow-xl flex items-center gap-2.5 transition-all ml-auto">
-            <i data-lucide="message-circle" class="w-5 h-5"></i>
-            <span class="font-display font-bold text-xs sm:text-sm" data-i18n="chat_btn_text">Contact & WhatsApp</span>
+            <i data-lucide="mail" class="w-5 h-5"></i>
+            <span class="font-display font-bold text-xs sm:text-sm" data-i18n="chat_btn_text">Contact & Email</span>
         </button>
     </div>
 
@@ -927,8 +935,17 @@
                                 <input type="radio" name="site_plan" value="Premium (29€/mois - 12 mois)" id="radio-plan-full" class="w-4 h-4 accent-terracotta-500">
                                 <span class="font-display font-bold text-ink-900 text-xs sm:text-sm" data-i18n="plan3_title">Premium (Domaine + Prise de RDV + SEO local)</span>
                             </div>
-                            <span class="font-display font-bold text-xs sm:text-sm text-terracotta-600 shrink-0">29 € <span data-i18n="per_month">/ mois</span></span>
+                            <span class="font-display font-bold text-xs sm:text-sm text-terracotta-600 shrink-0"><span id="modal-premium-price-val">29 €</span> <span data-i18n="per_month">/ mois</span></span>
                         </div>
+                    </label>
+
+                    <!-- Sous-option Dashboard pour Premium -->
+                    <label id="modal-dashboard-opt-wrap" class="ml-4 p-2.5 rounded-xl border border-terracotta-500/35 bg-terracotta-50/40 flex items-center justify-between gap-2 cursor-pointer transition-all">
+                        <div class="flex items-center gap-2.5">
+                            <input type="checkbox" id="modal-dashboard-checkbox" onchange="togglePremiumDashboard(this.checked)" class="w-4 h-4 accent-terracotta-500 rounded cursor-pointer shrink-0">
+                            <span class="text-xs font-bold text-ink-900" data-i18n="modal_opt_dash">+ Option Dashboard Star Studio (espace de gestion personnalisable : CRM, devis, stock, planning)</span>
+                        </div>
+                        <span class="text-xs font-bold text-terracotta-600 shrink-0">+20 € <span data-i18n="per_month">/ mois</span></span>
                     </label>
 
                     <div class="block p-3 rounded-2xl border-2 border-dashed border-ink-900/15 bg-cream-100/70 opacity-70 cursor-not-allowed">
@@ -950,21 +967,6 @@
                     <div>
                         <label for="client-email" class="block text-xs font-bold text-ink-800 mb-1" data-i18n="modal_email_label">Votre Email *</label>
                         <input type="email" id="client-email" name="email" required placeholder="contact@entreprise.fr" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-ink-900/15 text-ink-900 text-sm focus:outline-none focus:border-ink-900">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                        <label for="client-phone" class="block text-xs font-bold text-ink-800 mb-1" data-i18n="modal_phone_label">Téléphone (optionnel)</label>
-                        <input type="tel" id="client-phone" name="phone" placeholder="Ex: +33 6 12 34 56 78" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-ink-900/15 text-ink-900 text-sm focus:outline-none focus:border-ink-900">
-                    </div>
-                    <div>
-                        <label for="client-pref" class="block text-xs font-bold text-ink-800 mb-1" data-i18n="modal_pref_label">Préférence de rappel</label>
-                        <select id="client-pref" name="contact_preference" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-ink-900/15 text-ink-900 text-sm focus:outline-none focus:border-ink-900">
-                            <option value="Email" data-i18n="modal_pref_email">Par Email</option>
-                            <option value="Téléphone" data-i18n="modal_pref_phone">Par Téléphone</option>
-                            <option value="WhatsApp" data-i18n="modal_pref_wa">Par WhatsApp</option>
-                        </select>
                     </div>
                 </div>
 
@@ -1012,11 +1014,12 @@
     <!-- Templates Légaux FR -->
     <template id="template-mentions-fr">
         <h4 class="font-display font-bold text-base text-ink-900">1. Éditeur du site</h4>
-        <p>Le site <strong>Star Design</strong> est édité par : [À COMPLÉTER — Statut juridique : si micro-entreprise, indiquer le nom du titulaire unique ; si activité exercée à deux associés, indiquer la raison sociale de la société (SAS/SARL) et le capital social].<br>
+        <p>Le site <strong>Star Design</strong> est édité par : [À COMPLÉTER — Statut juridique : si micro-entreprise, indiquer le nom du titulaire unique + mention « EI » ; si activité exercée à deux associés, indiquer la raison sociale de la société (SAS/SARL) et le capital social].<br>
         Immatriculation : <strong>SIRET / SIREN : [À COMPLÉTER]</strong>.<br>
         Siège social : [Adresse postale à compléter].<br>
         Directeur de la publication : [Nom et Prénom].<br>
-        Contact : <span class="js-email-text font-semibold"></span> • Téléphone : <span class="js-phone-text font-semibold"></span>.<br>
+        Contact privilégié : <span class="js-email-text font-semibold"></span><br>
+        Téléphone (mention légale obligatoire — art. 1-1 LCEN) : <span class="js-phone-text font-semibold"></span>.<br>
         TVA non applicable, article 293 B du Code général des impôts (CGI).</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">2. Hébergeur du site</h4>
@@ -1028,7 +1031,7 @@
 
     <template id="template-privacy-fr">
         <h4 class="font-display font-bold text-base text-ink-900">1. Collecte des données personnelles (RGPD)</h4>
-        <p>Dans le cadre de l'utilisation du formulaire de contact et de demande de devis, Star Design collecte uniquement les données strictement nécessaires au traitement de votre demande : nom/entreprise, adresse email, numéro de téléphone (optionnel) et descriptif du besoin.</p>
+        <p>Dans le cadre de l'utilisation du formulaire de contact et de demande de devis, Star Design collecte uniquement les données strictement nécessaires au traitement de votre demande : nom/entreprise, adresse email et descriptif du besoin.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">2. Services tiers techniques</h4>
         <p>Pour assurer l'affichage et le fonctionnement du site, des ressources techniques sont chargées depuis des services tiers susceptibles de recevoir votre adresse IP technique : <strong>Google Fonts</strong> (polices de caractères), <strong>Tailwind CDN</strong> (feuilles de style), <strong>unpkg</strong> (icônes Lucide), <strong>Google Public DNS</strong> (vérification de disponibilité de nom de domaine) et <strong>Web3Forms</strong> (acheminement du formulaire lorsqu'activé). Aucun traceur publicitaire n'est installé.</p>
@@ -1044,21 +1047,28 @@
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">2. Tarifs et modalités de paiement</h4>
         <p>Les prix sont exprimés en Euros (€) hors taxes (TVA non applicable, art. 293 B du CGI) :
         <br>• <strong>Formule Site Seul (99 €) :</strong> Paiement unique (50 % à la commande, 50 % à la livraison des fichiers sources).
-        <br>• <strong>Formules par abonnement (Essentiel à 15 €/mois, Premium à 29 €/mois) :</strong> Prélèvement mensuel ou virement mensuel.</p>
+        <br>• <strong>Formules par abonnement (Essentiel à 15 €/mois, Premium à 29 €/mois, option Dashboard Star Studio à +20 €/mois sur Premium) :</strong> Prélèvement mensuel ou virement mensuel.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">3. Durée d'engagement et résiliation</h4>
         <p>Les formules en abonnement comportent une période d'<strong>engagement initial ferme de douze (12) mois</strong>. À l'issue de cette première année, le contrat se poursuit sans engagement et peut être résilié à tout moment par email avec un préavis de trente (30) jours.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">4. Propriété du site et du nom de domaine</h4>
         <p>• Pour la formule <strong>Site Seul</strong>, le client est pleinement propriétaire du code livré dès le paiement intégral.<br>
-        • Pour les formules en <strong>abonnement</strong>, à l'issue de la période initiale de 12 mois, le client peut demander gratuitement le code de transfert (Auth-Code) de son nom de domaine et racheter les fichiers sources statiques de son site pour un forfait de cession de <strong>99 €</strong>.</p>
+        • Pour les formules en <strong>abonnement</strong>, à l'issue de la période initiale de 12 mois, le client peut demander gratuitement le code de transfert (Auth-Code) de son nom de domaine et racheter les fichiers sources statiques de son site pour un forfait de cession unique de <strong>40 €</strong>.</p>
+
+        <h4 class="font-display font-bold text-base text-ink-900 mt-4">5. Cessation d'activité (fermeture de l'entreprise)</h4>
+        <p>Dans l'hypothèse où Star Design cesserait définitivement son activité, le prestataire s'engage à en informer ses clients par écrit (email) avec un <strong>préavis minimum de soixante (60) jours calendaires</strong> avant la date effective de fermeture.<br>
+        • La facturation des abonnements cesse automatiquement à la date de fermeture (avec remboursement au prorata des sommes éventuellement versées d'avance).<br>
+        • Avant la fermeture, chaque client pourra récupérer <strong>gratuitement</strong> son nom de domaine (code de transfert Auth-Code) ainsi que l'intégralité des fichiers sources de son site web et de ses outils associés (y compris le Dashboard Star Studio le cas échéant), mis à disposition en l'état sous <strong>licence libre / open-source (licence MIT)</strong>.<br>
+        • À compter de la date effective de fermeture, Star Design met fin de manière définitive à l'hébergement, à la maintenance ainsi qu'aux mises à jour des sites et outils livrés, sans autre indemnité de part et d'autre.</p>
     </template>
 
     <!-- Templates Légaux EN -->
     <template id="template-mentions-en">
         <h4 class="font-display font-bold text-base text-ink-900">1. Website Publisher</h4>
         <p>The <strong>Star Design</strong> website is published by: [TO BE COMPLETED — Legal entity details, SIRET/SIREN number, registered address].<br>
-        Contact: <span class="js-email-text font-semibold"></span> • Phone: <span class="js-phone-text font-semibold"></span>.<br>
+        Preferred contact: <span class="js-email-text font-semibold"></span><br>
+        Phone (mandatory legal notice under French LCEN art. 1-1): <span class="js-phone-text font-semibold"></span>.<br>
         VAT not applicable, Article 293 B of the French General Tax Code (CGI).</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">2. Hosting Provider</h4>
@@ -1070,7 +1080,7 @@
 
     <template id="template-privacy-en">
         <h4 class="font-display font-bold text-base text-ink-900">1. Personal Data Collection (GDPR)</h4>
-        <p>When you use our contact form, Star Design only collects data strictly necessary to process your inquiry: name/company, email address, phone number (optional), and project description.</p>
+        <p>When you use our contact form, Star Design only collects data strictly necessary to process your inquiry: name/company, email address, and project description.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">2. Third-Party Technical Services</h4>
         <p>Technical assets are loaded from third-party providers that may receive your IP address: <strong>Google Fonts</strong>, <strong>Tailwind CDN</strong>, <strong>unpkg</strong> (Lucide icons), <strong>Google Public DNS</strong> (domain availability check), and <strong>Web3Forms</strong> (when enabled for form delivery). No advertising trackers are used.</p>
@@ -1086,10 +1096,13 @@
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">2. Pricing and Payment</h4>
         <p>All prices are billed in Euros (€) — VAT not applicable (French CGI art. 293 B):<br>
         • <strong>Site Only Plan (99 €):</strong> One-time payment (50% upon order, 50% upon delivery).<br>
-        • <strong>Subscription Plans (Essential at 15 €/mo, Premium at 29 €/mo):</strong> Monthly billing.</p>
+        • <strong>Subscription Plans (Essential at 15 €/mo, Premium at 29 €/mo, optional Star Studio Dashboard at +20 €/mo on Premium):</strong> Monthly billing.</p>
 
         <h4 class="font-display font-bold text-base text-ink-900 mt-4">3. Commitment and Buyout</h4>
-        <p>Subscription plans include a <strong>12-month initial commitment</strong>, then renew month-to-month (30 days' notice to cancel). After 12 months, you may request your domain transfer code (Auth-Code) free of charge and buy out the static source files for a one-time <strong>99 €</strong> fee.</p>
+        <p>Subscription plans include a <strong>12-month initial commitment</strong>, then renew month-to-month (30 days' notice to cancel). After 12 months, you may request your domain transfer code (Auth-Code) free of charge and buy out the static source files for a one-time <strong>40 €</strong> fee.</p>
+
+        <h4 class="font-display font-bold text-base text-ink-900 mt-4">4. Business Closure</h4>
+        <p>Should Star Design permanently cease its activity, clients will be notified by email at least <strong>sixty (60) calendar days</strong> prior to closure. Subscription billing stops on the closure date (with pro-rata refund if applicable). Before closure, clients receive their domain transfer code (Auth-Code) and all source files for their website and tools (including Star Studio Dashboard) <strong>free of charge under an open-source license (MIT)</strong>, provided as-is. Hosting, maintenance, and updates permanently end on the closure date.</p>
     </template>
 
     <!-- ================= LOGIQUE JAVASCRIPT ================= -->
@@ -1098,76 +1111,65 @@
         // Modifiez ces valeurs ici uniquement avant la mise en ligne :
         const SITE_CONFIG = {
             email: "contact@stardesign.fr",
-            phoneDisplay: "+33 6 00 00 00 00",
-            phoneRaw: "+33600000000",
-            whatsappNumber: "33600000000",
+            phoneLegalOnly: "+33 6 00 00 00 00", // Affiché uniquement dans les Mentions Légales (obligation LCEN)
             web3formsKey: "VOTRE_CLE_WEB3FORMS_ICI" // Remplacez par votre clé gratuite web3forms.com
         };
 
         let currentLang = 'fr';
         let selectedPlan = 'full_pack';
+        let premiumDashboardEnabled = false;
         let checkedDomainFull = '';
+        let currentPreviewViewport = 'desktop';
 
+        // ================= CATALOGUE DES 4 MODÈLES LOCAUX =================
         const websitesData = [
             {
                 id: 1,
                 name: "L'Atelier Gourmand",
-                file: "AtelierGourmand.html",
                 category: "Restauration & Café",
                 category_en: "Restaurant & Cafe",
-                layout: 'restaurant',
+                file: "AtelierGourmand.html",
+                frameBg: "bg-[#6f351f]",
                 styles: ["Carte du jour", "Réservation table", "Horaires & Accès"],
                 styles_en: ["Daily Menu", "Table Booking", "Hours & Map"],
-                heroTitle: "Cuisine de saison & réservation directe",
-                heroTitle_en: "Seasonal cuisine & direct table booking",
                 desc: "Conçu pour les restaurants, bistrots et boulangeries : carte lisible sans PDF lourd et réservation en ligne sans commission.",
-                desc_en: "Built for restaurants and bistros: mobile-friendly menu and commission-free table reservations.",
-                bgClass: "from-forest-900 via-forest-800 to-ink-900"
+                desc_en: "Built for restaurants and bistros: mobile-friendly menu and commission-free table reservations."
             },
             {
                 id: 2,
                 name: "Bâtisseur Pro",
-                file: "BatisseurPro.html",
                 category: "Artisan & BTP",
                 category_en: "Trades & Construction",
-                layout: 'artisan',
+                file: "BatisseurPro.html",
+                frameBg: "bg-[#192334]",
                 styles: ["Demande de devis", "Galerie chantiers", "Garanties RGE"],
                 styles_en: ["Quote Request", "Project Gallery", "Certifications"],
-                heroTitle: "Vos travaux en toute confiance",
-                heroTitle_en: "Reliable craftsmanship & clear quotes",
                 desc: "Pensé pour les artisans du bâtiment, paysagistes et dépanneurs : valorise vos réalisations et génère des demandes de devis qualifiées.",
-                desc_en: "Designed for contractors and tradespeople: showcases past work and captures qualified quote requests.",
-                bgClass: "from-stone-900 via-amber-950 to-ink-900"
+                desc_en: "Designed for contractors and tradespeople: showcases past work and captures qualified quote requests."
             },
             {
                 id: 3,
                 name: "Cabinet Horizon",
-                file: "CabinetHorizon.html",
                 category: "Libéral & Conseil",
                 category_en: "Consulting & Practice",
-                layout: 'corporate',
+                file: "CabinetHorizon.html",
+                frameBg: "bg-[#162d4c]",
                 styles: ["Prise de RDV", "Présentation expertises", "Sobriété"],
                 styles_en: ["Appointment Booking", "Expertise", "Clean Design"],
-                heroTitle: "Accompagnement & prise de rendez-vous",
-                heroTitle_en: "Professional guidance & online scheduling",
                 desc: "Idéal pour les praticiens, avocats, consultants et agences immobilières cherchant une image sobre, rassurante et un agenda synchronisé.",
-                desc_en: "Ideal for practitioners, lawyers, and consultants seeking a trustworthy presence and online scheduling.",
-                bgClass: "from-slate-900 via-slate-800 to-ink-900"
+                desc_en: "Ideal for practitioners, lawyers, and consultants seeking a trustworthy presence and online scheduling."
             },
             {
                 id: 4,
                 name: "Maison Botanica",
-                file: "MaisonBotanica.html",
                 category: "Boutique Vitrine",
                 category_en: "Showcase Store",
-                layout: 'ecommerce',
+                file: "MaisonBotanica.html",
+                frameBg: "bg-[#1a3a2a]",
                 styles: ["Catalogue produits", "Commande / Devis", "Click & Collect"],
                 styles_en: ["Product Catalog", "Order / Quote", "Click & Collect"],
-                heroTitle: "Présentez vos créations en ligne",
-                heroTitle_en: "Showcase your products online",
                 desc: "Une mise en page fluide avec fiches produits détaillées, idéale pour présenter vos créations et recevoir des précommandes.",
-                desc_en: "A clean layout with detailed product cards, ideal for showcasing your work and taking pre-orders.",
-                bgClass: "from-terracotta-700 via-ink-800 to-ink-900"
+                desc_en: "A clean layout with detailed product cards, ideal for showcasing your work and taking pre-orders."
             },
             {
                 id: 'custom',
@@ -1175,16 +1177,14 @@
                 name_en: "100% Custom Architecture",
                 category: "Sur-Mesure",
                 category_en: "100% Custom",
-                layout: 'custom',
                 styles: ["Cahier des charges", "Design exclusif", "Fonctionnalités dédiées"],
                 styles_en: ["Custom Spec", "Exclusive Design", "Custom Features"],
-                heroTitle: "Votre idée, notre code.",
-                heroTitle_en: "Your vision, our code.",
                 desc: "Vous avez une maquette précise ou un besoin spécifique ? Nous partons d'une feuille blanche pour créer votre site.",
                 desc_en: "Have a specific mockup or custom workflow in mind? We build your site from scratch."
             }
         ];
 
+        // ================= DICTIONNAIRE DE TRADUCTIONS FR / EN =================
         const translations = {
             fr: {
                 nav_pricing: "Nos Formules", nav_domain: "Domaine", nav_real: "Réalisations", nav_catalog: "Modèles", nav_faq: "FAQ", nav_contact: "Nous contacter",
@@ -1206,6 +1206,8 @@
                 offer3_name: "Premium", offer3_badge: "RDV & Domaine", badge_pop: "Complet",
                 offer3_desc: "Pour les artisans, restaurants et libéraux qui veulent générer des réservations et des devis.",
                 offer3_f1: "Tout le pack Essentiel inclus", offer3_f2: "Nom de domaine inclus (.fr, .com) + email pro", offer3_f3: "Module de prise de RDV ou réservation de table", offer3_f4: "Optimisation SEO local + aide fiche Google", offer3_f5: "Modifications traitées en priorité",
+                offer3_opt_title: "Option Dashboard Star Studio", offer3_opt_sub: "CRM, devis, stock & planning",
+                offer3_opt_explain: "Votre espace de gestion privé (clients, devis, stock, planning, équipe), entièrement personnalisable selon votre activité.",
 
                 offer4_name: "Pro", offer4_badge: "Vente en ligne", badge_soon: "Bientôt disponible", offer4_price_soon: "En préparation", offer4_sub_soon: "Indisponible pour le moment",
                 offer4_desc: "Boutique en ligne, paiement sécurisé par carte bancaire et intégration Star Studio complète.",
@@ -1213,7 +1215,7 @@
                 btn_unavailable: "Indisponible pour le moment",
 
                 per_month: "/ mois", btn_choose: "Choisir cette offre",
-                disclaimer_pricing: "Tous les tarifs sont affichés en Euros (€). TVA non applicable, art. 293 B du CGI. Pour les formules en abonnement, après les 12 mois d'engagement, vous pouvez récupérer votre nom de domaine gratuitement et racheter les fichiers sources du site pour un forfait unique de 99 €.",
+                disclaimer_pricing: "Tous les tarifs sont affichés en Euros (€). TVA non applicable, art. 293 B du CGI. Pour les formules en abonnement, après les 12 mois d'engagement, vous pouvez récupérer votre nom de domaine gratuitement et racheter les fichiers sources du site pour un forfait unique de 40 €. En cas de fermeture de notre entreprise, la récupération complète est gratuite.",
 
                 dom_eyebrow: "Votre identité en ligne", dom_title: "Testez votre futur nom de domaine",
                 dom_sub: "Vérifiez instantanément la disponibilité de votre nom d'entreprise directement ici.",
@@ -1225,41 +1227,45 @@
 
                 real_eyebrow: "Portfolio & Outils", real_title: "Nos réalisations récentes",
                 real_sub: "Découvrez notre site client en ligne ainsi que nos applications web interactives conçues par le studio.",
-                real1_badge: "Site Client", real1_type: "Portfolio & Vitrine", real1_nav1: "Présentation", real1_nav2: "Contact", real1_hero: "Site vitrine sur-mesure & responsive", real1_visit_short: "Ouvrir",
+                real1_badge: "Site Client", real1_type: "Portfolio & Vitrine",
                 real1_desc: "Création d'un site vitrine professionnel sur-mesure, optimisé pour la lecture sur mobile et tablette avec formulaire de prise de contact directe.",
                 real1_btn: "Visiter christophe-jeannin.fr",
-                real2_badge: "Outil Web", real2_type: "Prise de notes", real2_desc: "Application web de prise de notes rapide avec gestion des balises, mode sombre immersif et gestion des e-mails d'absence.", real2_btn: "Ouvrir BetterNote",
-                real3_badge: "Démo Interactive", real3_mode: "Admin / Employé", real3_kpi1: "CRM RGPD", real3_kpi2: "Devis & PDF", real3_kpi3: "Planning", real3_modules: "7 modules • Stock • Équipe • Audit",
-                real3_type: "Dashboard Tout-en-un",
+                real2_badge: "Outil Web", real2_type: "Prise de notes",
+                real2_desc: "Application web de prise de notes rapide avec gestion des balises, mode sombre immersif et gestion des e-mails d'absence.",
+                real2_btn: "Ouvrir BetterNote",
+                real3_badge: "Démo Interactive", real3_type: "Dashboard Tout-en-un",
                 real3_desc: "Application web de gestion interne sur-mesure en 7 modules : CRM conforme RGPD, devis/factures en 1 clic, stock & vitrine multi-photos, calendrier (.ics), gestion d'équipe par droits et journal d'audit.",
-                real3_tag1: "CRM & Devis", real3_tag2: "Stock & Vitrine", real3_tag3: "Mode Démo Admin/Employé", real3_btn: "Tester Star Studio",
+                real3_tag1: "CRM & Devis", real3_tag2: "Stock & Vitrine", real3_tag3: "Mode Démo Admin/Employé",
+                real3_btn: "Tester Star Studio",
 
                 cat_eyebrow: "4 Architectures complètes", cat_title: "Nos modèles de base personnalisables",
                 cat_sub: "Plutôt que des dizaines de coquilles vides, nous avons conçu 4 structures complètes et éprouvées que nous adaptons à vos couleurs, vos textes et votre métier.",
-                card_preview_btn: "Voir la maquette complète", card_choose_btn: "Choisir ce modèle", card_multi_sec: "Maquette multi-sections", card_click_test: "Cliquer pour tester", card_custom_btn: "Demander un devis sur-mesure",
+                card_preview_btn: "Voir la maquette complète", card_choose_btn: "Choisir ce modèle", card_click_test: "Cliquer pour tester", card_custom_btn: "Demander un devis sur-mesure",
 
                 proc_eyebrow: "Simple, Humain & Transparent", proc_title: "Comment nous travaillons ensemble", proc_sub: "De votre premier message jusqu'à la mise en ligne, tout se déroule en 3 étapes claires.",
-                step1_title: "Brief & Choix de l'offre", step1_desc: "Remplissez le formulaire ou écrivez-nous sur WhatsApp. Nous faisons le point gratuitement pendant 20 minutes sur vos objectifs, vos textes et votre identité visuelle.", step1_tag: "Échange initial gratuit et sans engagement",
+                step1_title: "Brief & Choix de l'offre", step1_desc: "Remplissez le formulaire ou écrivez-nous par email. Nous faisons le point gratuitement sur vos objectifs, vos textes et votre identité visuelle.", step1_tag: "Échange initial gratuit et sans engagement",
                 step2_title: "Développement & Validation", step2_desc: "Nous développons votre site sur un lien privé de prévisualisation. Vous testez le rendu sur mobile et ordinateur, et nous ajustons les détails selon vos retours.", step2_tag: "Lien d'aperçu privé avant publication",
                 step3_title: "Mise en ligne clé en main", step3_desc: "Nous connectons votre nom de domaine, activons le certificat HTTPS, soumettons le site à Google et assurons le suivi technique tout au long de l'année.", step3_tag: "Mise en ligne soignée",
 
                 faq_eyebrow: "Réponses claires", faq_title: "Foire Aux Questions (FAQ)",
                 faq_q1: "Combien de temps faut-il pour mettre mon site en ligne ?", faq_a1: "En général, nous livrons une première version sous une semaine dès réception de vos éléments (textes ou trame de vos services, logo et photos). Nous prenons ensuite le temps d'ajuster ensemble les derniers détails avant la mise en ligne.",
-                faq_q2: "Comment fonctionnent les modifications incluses dans l'abonnement ?", faq_a2: "Pour nos formules avec abonnement (Essentiel et Premium), vous pouvez nous demander des changements de textes, de tarifs, d'horaires ou de photos par simple email ou WhatsApp. Nous les effectuons en général sous quelques jours ouvrés (avec traitement prioritaire en Premium).",
-                faq_q3: "Que se passe-t-il après les 12 mois d'engagement ?", faq_a3: "L'engagement initial de 12 mois nous permet d'inclure la création du site à 0 €. Au bout de 12 mois, l'abonnement se poursuit sans engagement (résiliable avec un préavis de 30 jours). Vous pouvez aussi récupérer gratuitement votre nom de domaine et racheter les fichiers sources statiques de votre site pour un forfait unique de 99 €.",
+                faq_q2: "Comment fonctionnent les modifications incluses dans l'abonnement ?", faq_a2: "Pour nos formules avec abonnement (Essentiel et Premium), vous pouvez nous demander des changements de textes, de tarifs, d'horaires ou de photos par simple email. Nous les effectuons en général sous quelques jours ouvrés (avec traitement prioritaire en Premium).",
+                faq_q3: "Que se passe-t-il après les 12 mois d'engagement ?", faq_a3: "L'engagement initial de 12 mois nous permet d'inclure la création du site à 0 €. Au bout de 12 mois, l'abonnement se poursuit sans engagement (résiliable avec un préavis de 30 jours). Vous pouvez aussi récupérer gratuitement votre nom de domaine et racheter les fichiers sources statiques de votre site pour un forfait unique de 40 €.",
+                faq_q5: "Que devient mon site si Star Design cesse son activité ?", faq_a5: "En cas de fermeture de notre entreprise, vous êtes prévenu par email avec un préavis minimum de 60 jours. Avant la fermeture, nous vous transférons gratuitement votre nom de domaine et l'intégralité des fichiers sources de votre site et de vos outils (dont le Dashboard) sous licence libre (open-source). L'hébergement, la maintenance et les mises à jour s'arrêtent alors à la date de fermeture.",
                 faq_q4: "Quelle est notre infrastructure d'hébergement et de sécurité ?", faq_a4: "Nos sites sont hébergés en Union Européenne (IONOS / serveurs certifiés ISO 27001 en France et en Allemagne, conformes au RGPD). Nous activons systématiquement le chiffrement HTTPS (SSL) et des sauvegardes régulières.",
 
                 footer_desc: "Studio de conception de sites web sur-mesure pour indépendants, artisans, restaurateurs et PME.",
                 footer_nav_title: "Navigation", footer_link1: "Formules & Tarifs", footer_link_dom: "Vérifier un domaine", footer_link2: "Réalisations", footer_link3: "Modèles de base", footer_link4: "Questions fréquentes",
-                footer_contact_title: "Contact direct", footer_hours: "Réponse en soirée et le week-end selon nos disponibilités",
+                footer_contact_title: "Contact direct", footer_hours: "Échanges par email uniquement • Réponse selon nos disponibilités",
                 footer_copyright: "© 2026 Star Design. Tous droits réservés.", footer_legal: "Mentions Légales", footer_privacy: "Politique de Confidentialité (RGPD)", footer_cgv: "Conditions Générales de Vente (CGV)",
 
-                qc_title: "Parlons de votre projet", qc_wa: "Écrire sur WhatsApp", qc_form: "Envoyer un message / Devis", chat_btn_text: "Contact & WhatsApp",
+                qc_title: "Parlons de votre projet", qc_form: "Envoyer un message / Devis", chat_btn_text: "Contact & Email",
                 cookie_title: "Respect de votre vie privée (RGPD)", cookie_desc: "Ce site utilise uniquement le stockage local essentiel à vos préférences (langue, choix cookies). Aucun traceur publicitaire n'est activé.", cookie_accept: "Accepter", cookie_essential: "Essentiels uniquement",
 
                 preview_choose_btn: "Choisir cette architecture", modal_title: "Démarrer votre projet", modal_subtitle: "Échange gratuit et sans engagement immédiat", modal_selected_label: "Base sélectionnée", modal_choose_plan_label: "Choisissez votre formule * :",
                 plan0_title: "J'ai des questions / Demande de devis sur-mesure", plan_free: "Gratuit", plan1_title: "Site Seul (Fichiers HTML livrés, sans abonnement)", plan2_title: "Essentiel (Création + Hébergement + Maintenance)", plan3_title: "Premium (Domaine + Prise de RDV + SEO local)", plan4_title: "Pro (Boutique + Paiements en ligne)",
-                modal_name_label: "Votre nom / Entreprise *", modal_email_label: "Votre Email *", modal_phone_label: "Téléphone (optionnel)", modal_pref_label: "Préférence de rappel", modal_pref_email: "Par Email", modal_pref_phone: "Par Téléphone", modal_pref_wa: "Par WhatsApp",
+                modal_opt_dash: "+ Option Dashboard Star Studio (espace de gestion personnalisable : CRM, devis, stock, planning)",
+                modal_name_label: "Votre nom / Entreprise *", modal_email_label: "Votre Email *",
                 modal_msg_label: "Décrivez votre activité et vos besoins *", modal_rgpd_1: "J'accepte que mes coordonnées soient utilisées par Star Design uniquement pour répondre à ma demande, conformément à la", modal_rgpd_link: "politique de confidentialité", modal_submit_btn: "Envoyer ma demande",
                 success_title: "Votre demande a bien été transmise !", success_desc: "Merci ! Notre équipe a bien reçu vos informations et vous recontactera rapidement.", success_close: "Fermer"
             },
@@ -1283,6 +1289,8 @@
                 offer3_name: "Premium", offer3_badge: "Booking & Domain", badge_pop: "Complete",
                 offer3_desc: "For trades, restaurants, and professionals looking to capture bookings and quotes.",
                 offer3_f1: "Everything in Essential included", offer3_f2: "Domain name included (.fr, .com) + pro email", offer3_f3: "Online appointment or table booking module", offer3_f4: "Local SEO optimization + Google Business help", offer3_f5: "Priority edit handling",
+                offer3_opt_title: "Star Studio Dashboard Add-on", offer3_opt_sub: "CRM, quotes, stock & schedule",
+                offer3_opt_explain: "Your private management workspace (clients, quotes, stock, schedule, team), fully customizable for your business.",
 
                 offer4_name: "Pro", offer4_badge: "Online Store", badge_soon: "Coming soon", offer4_price_soon: "In progress", offer4_sub_soon: "Unavailable for now",
                 offer4_desc: "Online store, secure card payments, and full Star Studio integration.",
@@ -1290,7 +1298,7 @@
                 btn_unavailable: "Unavailable for now",
 
                 per_month: "/ mo", btn_choose: "Choose this plan",
-                disclaimer_pricing: "All prices are billed in Euros (€). VAT not applicable (French CGI art. 293 B). For subscription plans, after the 12-month commitment, you can transfer your domain for free and buy out the static source files for a one-time 99 € fee.",
+                disclaimer_pricing: "All prices are billed in Euros (€). VAT not applicable (French CGI art. 293 B). For subscription plans, after the 12-month commitment, you can transfer your domain for free and buy out the static source files for a one-time 40 € fee. If our business closes, full recovery is free.",
 
                 dom_eyebrow: "Your online identity", dom_title: "Test your future domain name",
                 dom_sub: "Instantly check if your business name is available right here.",
@@ -1301,49 +1309,53 @@
                 custom_btn: "Request a free study",
 
                 real_eyebrow: "Portfolio & Tools", real_title: "Recent projects",
-                real_sub: "Discover our live client website as well as the interactive web apps built by our studio.",
-                real1_badge: "Client Site", real1_type: "Portfolio & Showcase", real1_nav1: "About", real1_nav2: "Contact", real1_hero: "Custom responsive showcase website", real1_visit_short: "Open",
+                real_sub: "Discover our live client website as well as interactive web apps designed by our studio.",
+                real1_badge: "Client Site", real1_type: "Portfolio & Showcase",
                 real1_desc: "Creation of a custom professional showcase website, optimized for mobile and tablet reading with a direct contact form.",
                 real1_btn: "Visit christophe-jeannin.fr",
-                real2_badge: "Web Tool", real2_type: "Note Taking", real2_desc: "Fast web-based note-taking app with tag management, immersive dark mode, and out-of-office email templates.", real2_btn: "Open BetterNote",
-                real3_badge: "Interactive Demo", real3_mode: "Admin / Employee", real3_kpi1: "GDPR CRM", real3_kpi2: "Quotes & PDF", real3_kpi3: "Schedule", real3_modules: "7 modules • Stock • Team • Audit",
-                real3_type: "All-in-One Dashboard",
-                real3_desc: "Custom 7-module internal management web app: GDPR-compliant CRM, 1-click quotes/invoices, stock & multi-photo showcase, calendar (.ics), role-based team rights, and audit log.",
-                real3_tag1: "CRM & Quotes", real3_tag2: "Stock & Showcase", real3_tag3: "Admin/Employee Demo", real3_btn: "Try Star Studio",
+                real2_badge: "Web Tool", real2_type: "Note-taking",
+                real2_desc: "Fast web-based note-taking app with tag management, immersive dark mode, and out-of-office email templates.",
+                real2_btn: "Open BetterNote",
+                real3_badge: "Interactive Demo", real3_type: "All-in-One Dashboard",
+                real3_desc: "Custom 7-module internal management web app: GDPR-compliant CRM, 1-click quotes/invoices, multi-photo stock & showcase, calendar (.ics), role-based team permissions, and audit log.",
+                real3_tag1: "CRM & Quotes", real3_tag2: "Stock & Showcase", real3_tag3: "Admin/Employee Demo",
+                real3_btn: "Try Star Studio",
 
                 cat_eyebrow: "4 Complete Layouts", cat_title: "Customizable base architectures",
                 cat_sub: "Rather than dozens of empty shells, we built 4 complete, proven structures that we tailor to your colors, copy, and industry.",
-                card_preview_btn: "Preview full layout", card_choose_btn: "Select this model", card_multi_sec: "Multi-section layout", card_click_test: "Click to preview", card_custom_btn: "Request a custom quote",
+                card_preview_btn: "Preview full layout", card_choose_btn: "Select this model", card_click_test: "Click to preview", card_custom_btn: "Request a custom quote",
 
                 proc_eyebrow: "Simple, Human & Transparent", proc_title: "How we work together", proc_sub: "From your first message to going live, everything happens in 3 clear steps.",
-                step1_title: "Brief & Plan Selection", step1_desc: "Fill out the form or message us on WhatsApp. We review your goals, text, and visual identity together during a free 20-minute call.", step1_tag: "Free initial consultation, no obligation",
+                step1_title: "Brief & Plan Selection", step1_desc: "Fill out the form or email us. We review your goals, text, and visual identity together for free.", step1_tag: "Free initial consultation, no obligation",
                 step2_title: "Development & Review", step2_desc: "We build your website on a private preview link. You test the layout on mobile and desktop, and we fine-tune the details based on your feedback.", step2_tag: "Private preview link before launch",
                 step3_title: "Turnkey Launch", step3_desc: "We connect your domain name, activate the HTTPS certificate, submit the site to Google, and handle technical maintenance all year long.", step3_tag: "Careful launch",
 
                 faq_eyebrow: "Clear Answers", faq_title: "Frequently Asked Questions (FAQ)",
                 faq_q1: "How long does it take to launch my website?", faq_a1: "Usually, we deliver a first version within a week after receiving your materials (service descriptions, logo, and photos). We then refine the details together before going live.",
-                faq_q2: "How do the edits included in the subscription work?", faq_a2: "For our subscription plans (Essential and Premium), you can request text, pricing, schedule, or photo updates via email or WhatsApp. We typically complete them within a few business days (with priority handling in Premium).",
-                faq_q3: "What happens after the 12-month commitment?", faq_a3: "The initial 12-month commitment allows us to include website creation at 0 €. After 12 months, your subscription continues month-to-month (30 days' notice to cancel). You can also transfer your domain for free and buy out the static source files for a one-time 99 € fee.",
+                faq_q2: "How do the edits included in the subscription work?", faq_a2: "For our subscription plans (Essential and Premium), you can request text, pricing, schedule, or photo updates via email. We typically complete them within a few business days (with priority handling in Premium).",
+                faq_q3: "What happens after the 12-month commitment?", faq_a3: "The initial 12-month commitment allows us to include website creation at 0 €. After 12 months, your subscription continues month-to-month (30 days' notice to cancel). You can also transfer your domain for free and buy out the static source files for a one-time 40 € fee.",
+                faq_q5: "What happens to my site if Star Design closes?", faq_a5: "If our business permanently closes, we notify you by email at least 60 days in advance. Before closure, we transfer your domain name and deliver all source files for your website and tools (including the Dashboard) free of charge under an open-source license (MIT). Hosting, maintenance, and updates end on the closure date.",
                 faq_q4: "What hosting and security infrastructure do we use?", faq_a4: "Our websites are hosted in the European Union (IONOS / ISO 27001 certified servers in France and Germany, GDPR compliant). Every site includes HTTPS (SSL) encryption and regular backups.",
 
                 footer_desc: "Custom web design studio for freelancers, tradespeople, restaurants, and small businesses.",
                 footer_nav_title: "Navigation", footer_link1: "Plans & Pricing", footer_link_dom: "Domain checker", footer_link2: "Portfolio", footer_link3: "Base Models", footer_link4: "FAQ",
-                footer_contact_title: "Direct Contact", footer_hours: "Replies in evenings & weekends based on availability",
+                footer_contact_title: "Direct Contact", footer_hours: "Email communication only • Replies based on availability",
                 footer_copyright: "© 2026 Star Design. All rights reserved.", footer_legal: "Legal Notice", footer_privacy: "Privacy Policy (GDPR)", footer_cgv: "Terms of Sale",
 
-                qc_title: "Let's discuss your project", qc_wa: "Chat on WhatsApp", qc_form: "Send a message / Quote", chat_btn_text: "Contact & WhatsApp",
+                qc_title: "Let's discuss your project", qc_form: "Send a message / Quote", chat_btn_text: "Contact & Email",
                 cookie_title: "Your Privacy (GDPR)", cookie_desc: "This website only uses essential local storage for your preferences (language, cookie choice). No advertising trackers are used.", cookie_accept: "Accept", cookie_essential: "Essential only",
 
                 preview_choose_btn: "Select this architecture", modal_title: "Start your project", modal_subtitle: "Free chat, no immediate commitment", modal_selected_label: "Selected base", modal_choose_plan_label: "Choose your plan *:",
                 plan0_title: "I have questions / Custom quote request", plan_free: "Free", plan1_title: "Site Only (HTML files delivered, no subscription)", plan2_title: "Essential (Creation + Hosting + Maintenance)", plan3_title: "Premium (Domain + Booking + Local SEO)", plan4_title: "Pro (Online Store + Card Payments)",
-                modal_name_label: "Your Name / Company *", modal_email_label: "Your Email *", modal_phone_label: "Phone (optional)", modal_pref_label: "Preferred contact method", modal_pref_email: "By Email", modal_pref_phone: "By Phone", modal_pref_wa: "By WhatsApp",
+                modal_opt_dash: "+ Star Studio Dashboard Add-on (customizable workspace: CRM, quotes, stock, schedule)",
+                modal_name_label: "Your Name / Company *", modal_email_label: "Your Email *",
                 modal_msg_label: "Describe your business and needs *", modal_rgpd_1: "I agree that my contact details will be used by Star Design solely to reply to my inquiry, in accordance with the", modal_rgpd_link: "privacy policy", modal_submit_btn: "Send my request",
                 success_title: "Your request has been sent!", success_desc: "Thank you! Our team has received your details and will get back to you shortly.", success_close: "Close"
             }
         };
 
         /**
-         * Injecte les coordonnées centralisées (email, téléphone, WhatsApp, clé formulaire) dans le DOM
+         * Injecte les coordonnées centralisées (email, téléphone légal, clé formulaire) dans le DOM
          */
         function hydrateConfig() {
             const keyInput = document.getElementById('web3forms-key');
@@ -1351,15 +1363,11 @@
 
             document.querySelectorAll('.js-email-text').forEach(el => el.textContent = SITE_CONFIG.email);
             document.querySelectorAll('.js-email-link').forEach(el => el.href = `mailto:${SITE_CONFIG.email}`);
-            document.querySelectorAll('.js-phone-text').forEach(el => el.textContent = SITE_CONFIG.phoneDisplay);
-            document.querySelectorAll('.js-phone-link').forEach(el => el.href = `tel:${SITE_CONFIG.phoneRaw}`);
-            document.querySelectorAll('.js-whatsapp-link').forEach(el => {
-                el.href = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=Bonjour%20Star%20Design,%20nous%20souhaiterions%20discuter%20d'un%20projet%20de%20site%20web.`;
-            });
+            document.querySelectorAll('.js-phone-text').forEach(el => el.textContent = SITE_CONFIG.phoneLegalOnly);
         }
 
         /**
-         * Bascule l'interface entre le français (fr) et l'anglais (en)
+         * Bascule l'interface complète entre français et anglais
          */
         function setLanguage(lang) {
             currentLang = lang;
@@ -1390,6 +1398,38 @@
             });
 
             renderTemplates();
+        }
+
+        /**
+         * Active / désactive l'option Dashboard Star Studio (+20 €/mois) sur l'offre Premium
+         */
+        function togglePremiumDashboard(enabled) {
+            premiumDashboardEnabled = Boolean(enabled);
+            const priceText = premiumDashboardEnabled ? "49 €" : "29 €";
+
+            const cardToggle = document.getElementById('premium-dashboard-toggle');
+            const modalToggle = document.getElementById('modal-dashboard-checkbox');
+            const cardPrice = document.getElementById('premium-price-value');
+            const modalPrice = document.getElementById('modal-premium-price-val');
+            const optBox = document.getElementById('premium-opt-box');
+            const radioFull = document.getElementById('radio-plan-full');
+
+            if (cardToggle) cardToggle.checked = premiumDashboardEnabled;
+            if (modalToggle) modalToggle.checked = premiumDashboardEnabled;
+            if (cardPrice) cardPrice.textContent = priceText;
+            if (modalPrice) modalPrice.textContent = priceText;
+
+            if (optBox) {
+                optBox.className = premiumDashboardEnabled
+                    ? "p-3 rounded-2xl bg-terracotta-500/25 border border-terracotta-500 flex items-center justify-between gap-2.5 cursor-pointer transition-all"
+                    : "p-3 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 flex items-center justify-between gap-2.5 cursor-pointer transition-all";
+            }
+
+            if (radioFull) {
+                radioFull.value = premiumDashboardEnabled
+                    ? "Premium + Option Dashboard Star Studio (49€/mois - 12 mois)"
+                    : "Premium (29€/mois - 12 mois)";
+            }
         }
 
         /**
@@ -1425,9 +1465,7 @@
             try {
                 const response = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(checkedDomainFull)}&type=NS`);
                 const data = await response.json();
-
-                // Status 3 = NXDOMAIN (le domaine n'existe pas dans les DNS)
-                const isAvailable = (data.Status === 3);
+                const isAvailable = (data.Status === 3); // NXDOMAIN
 
                 if (isAvailable) {
                     badgeEl.textContent = isEn ? "Likely available" : "Semble disponible";
@@ -1449,7 +1487,7 @@
                     useBtn.classList.add('hidden');
                 }
             } catch (err) {
-                badgeEl.textContent = isEn ? "Error" : "Erreur";
+                badgeEl.textContent = isEn ? "Unavailable" : "Indisponible";
                 badgeEl.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800";
                 hintEl.textContent = isEn
                     ? "Unable to check right now. You can still include this domain in your request."
@@ -1463,7 +1501,7 @@
         }
 
         /**
-         * Ouvre la modale de commande en pré-remplissant le nom de domaine testé
+         * Pré-remplit le formulaire de contact avec le nom de domaine testé
          */
         function orderWithDomain() {
             openOrderModal(null, 'full_pack');
@@ -1477,72 +1515,17 @@
         }
 
         /**
-         * Construit un véritable aperçu en direct (mis à l'échelle desktop) du fichier HTML local de chaque modèle
-         */
-        function buildTemplateMiniPreview(site, isEn) {
-            const sCat = isEn ? site.category_en : site.category;
-            const themes = {
-                restaurant: {
-                    frameBg: 'bg-[#2c211b]',
-                    urlText: 'text-amber-100/80',
-                    badge: 'bg-[#b5542d]/30 text-amber-100 border-[#b5542d]/50'
-                },
-                artisan: {
-                    frameBg: 'bg-[#182232]',
-                    urlText: 'text-slate-300',
-                    badge: 'bg-amber-500/20 text-amber-300 border-amber-400/30'
-                },
-                corporate: {
-                    frameBg: 'bg-[#162740]',
-                    urlText: 'text-slate-300',
-                    badge: 'bg-sky-500/20 text-sky-200 border-sky-400/30'
-                },
-                ecommerce: {
-                    frameBg: 'bg-[#193326]',
-                    urlText: 'text-cream-200',
-                    badge: 'bg-emerald-500/20 text-emerald-200 border-emerald-400/30'
-                }
-            };
-            const theme = themes[site.layout] || themes.ecommerce;
-
-            return `
-            <div class="${theme.frameBg} p-4 border-b border-ink-900/10">
-                <div class="flex items-center justify-between mb-3 gap-2">
-                    <div class="flex gap-1.5 shrink-0">
-                        <span class="w-2.5 h-2.5 rounded-full bg-terracotta-500"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span>
-                    </div>
-                    <div class="px-2 py-0.5 rounded bg-white/10 text-[10px] ${theme.urlText} font-mono truncate">${site.file}</div>
-                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${theme.badge} shrink-0">${sCat}</span>
-                </div>
-                <div class="relative rounded-xl overflow-hidden bg-white h-52 border border-white/15 shadow-inner">
-                    <iframe
-                        src="${site.file}"
-                        title="Aperçu de ${site.name}"
-                        loading="lazy"
-                        scrolling="no"
-                        tabindex="-1"
-                        class="w-[357.15%] h-[357.15%] origin-top-left scale-[0.28] border-0 pointer-events-none select-none bg-white"
-                    ></iframe>
-                </div>
-            </div>`;
-        }
-
-        /**
-         * Génère dynamiquement les cartes du catalogue de modèles de base
+         * Génère les cartes du catalogue avec aperçu live mis à l'échelle des fichiers locaux
          */
         function renderTemplates() {
             const grid = document.getElementById('templates-grid');
-            if (!grid) return;
             const t = translations[currentLang];
-            const isEn = currentLang === 'en';
 
             grid.innerHTML = websitesData.map(site => {
-                const sName = (isEn && site.name_en) ? site.name_en : site.name;
-                const sCat = isEn ? site.category_en : site.category;
-                const sStyles = isEn ? site.styles_en : site.styles;
-                const sDesc = isEn ? site.desc_en : site.desc;
+                const sName = (currentLang === 'en' && site.name_en) ? site.name_en : site.name;
+                const sCat = currentLang === 'fr' ? site.category : site.category_en;
+                const sStyles = currentLang === 'fr' ? site.styles : site.styles_en;
+                const sDesc = currentLang === 'fr' ? site.desc : site.desc_en;
 
                 if (site.id === 'custom') {
                     return `
@@ -1568,15 +1551,34 @@
                 return `
                 <article class="rounded-3xl bg-white border border-ink-900/15 overflow-hidden flex flex-col justify-between card-hover group shadow-sm">
                     <div>
-                        <div class="relative cursor-pointer group/tpl" onclick="openPreviewModal(${site.id})">
-                            ${buildTemplateMiniPreview(site, isEn)}
-                            <div class="absolute inset-0 bg-gradient-to-t from-ink-900/75 via-transparent to-transparent opacity-0 group-hover/tpl:opacity-100 transition-opacity flex items-end justify-center pb-6">
-                                <span class="px-3.5 py-2 rounded-xl bg-white text-ink-900 font-bold text-xs shadow-lg flex items-center gap-1.5">
-                                    <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-terracotta-500"></i>
-                                    <span>${t.card_click_test}</span>
-                                </span>
+                        <div class="${site.frameBg} p-4 border-b border-ink-900/10 cursor-pointer" onclick="openPreviewModal(${site.id})">
+                            <div class="flex items-center justify-between mb-3 gap-2">
+                                <div class="flex gap-1.5 shrink-0">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-terracotta-500"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span>
+                                </div>
+                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-white/15 text-white truncate">${sCat}</span>
+                            </div>
+
+                            <!-- Vrai aperçu desktop mis à l'échelle du fichier HTML local -->
+                            <div class="relative rounded-xl overflow-hidden bg-white h-48 border border-white/20 shadow-inner">
+                                <iframe
+                                    src="${site.file}"
+                                    title="Aperçu de ${sName}"
+                                    loading="lazy"
+                                    tabindex="-1"
+                                    class="w-[357%] h-[357%] origin-top-left scale-[0.28] border-0 pointer-events-none select-none bg-white">
+                                </iframe>
+                                <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/35 transition-colors flex items-center justify-center">
+                                    <span class="opacity-0 group-hover:opacity-100 transition-opacity px-3.5 py-2 rounded-xl bg-white text-ink-900 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                                        <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-terracotta-500"></i>
+                                        ${t.card_click_test}
+                                    </span>
+                                </div>
                             </div>
                         </div>
+
                         <div class="p-6">
                             <h3 class="font-display text-xl font-bold text-ink-900 mb-2">${sName}</h3>
                             <p class="text-ink-600 text-sm mb-4 leading-relaxed">${sDesc}</p>
@@ -1600,22 +1602,26 @@
         }
 
         /**
-         * Ouvre le grand pop-up d'aperçu en chargeant directement le fichier HTML local du modèle
+         * Ouvre le grand pop-up d'aperçu avec le fichier HTML local dans un iframe
          */
         function openPreviewModal(siteId) {
             const site = websitesData.find(s => s.id === siteId);
             if (!site || !site.file) return;
 
             document.getElementById('preview-url').textContent = `${site.name} — ${site.file}`;
-            document.getElementById('preview-order-btn').onclick = () => { closePreviewModal(); openOrderModal(site.id, 'full_pack'); };
+            document.getElementById('preview-order-btn').onclick = () => {
+                closePreviewModal();
+                openOrderModal(site.id, 'full_pack');
+            };
 
-            document.getElementById('preview-content').innerHTML = `
+            const container = document.getElementById('preview-content');
+            container.innerHTML = `
                 <iframe
-                    id="preview-iframe"
+                    id="preview-live-iframe"
                     src="${site.file}"
-                    title="Aperçu interactif de ${site.name}"
-                    class="w-full h-full border-0 bg-white transition-all duration-300"
-                ></iframe>
+                    title="Maquette interactive ${site.name}"
+                    class="w-full h-full border-0 bg-white transition-all duration-300 shadow-lg">
+                </iframe>
             `;
 
             setPreviewViewport('desktop');
@@ -1625,35 +1631,45 @@
         }
 
         /**
-         * Bascule l'aperçu du pop-up entre le format PC (plein cadre) et Mobile (390px)
+         * Bascule l'aperçu du pop-up entre vue PC (100%) et vue Mobile (390px)
          */
         function setPreviewViewport(mode) {
-            const iframe = document.getElementById('preview-iframe');
-            const btnDesktop = document.getElementById('preview-btn-desktop');
-            const btnMobile = document.getElementById('preview-btn-mobile');
-            if (!iframe) return;
+            currentPreviewViewport = mode;
+            const iframe = document.getElementById('preview-live-iframe');
+            const btnDesk = document.getElementById('preview-btn-desktop');
+            const btnMob = document.getElementById('preview-btn-mobile');
 
-            if (mode === 'mobile') {
-                iframe.className = "w-[390px] max-w-full h-full border-x border-ink-900/15 bg-white shadow-2xl transition-all duration-300";
-                if (btnMobile && btnDesktop) {
-                    btnMobile.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white flex items-center gap-1.5 transition-all";
-                    btnDesktop.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 flex items-center gap-1.5 transition-all";
+            if (btnDesk && btnMob) {
+                if (mode === 'mobile') {
+                    btnMob.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white flex items-center gap-1.5 transition-all";
+                    btnDesk.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 flex items-center gap-1.5 transition-all";
+                } else {
+                    btnDesk.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white flex items-center gap-1.5 transition-all";
+                    btnMob.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 flex items-center gap-1.5 transition-all";
                 }
-            } else {
-                iframe.className = "w-full h-full border-0 bg-white transition-all duration-300";
-                if (btnMobile && btnDesktop) {
-                    btnDesktop.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-900 text-white flex items-center gap-1.5 transition-all";
-                    btnMobile.className = "px-2.5 py-1 rounded-lg text-xs font-bold text-ink-600 hover:text-ink-900 flex items-center gap-1.5 transition-all";
+            }
+
+            if (iframe) {
+                if (mode === 'mobile') {
+                    iframe.className = "w-[390px] max-w-full h-[94%] border-4 border-ink-900 rounded-[2rem] bg-white transition-all duration-300 shadow-2xl";
+                } else {
+                    iframe.className = "w-full h-full border-0 bg-white transition-all duration-300 shadow-lg";
                 }
             }
         }
 
+        /**
+         * Ferme la modale d'aperçu et vide l'iframe pour libérer la mémoire
+         */
         function closePreviewModal() {
             document.getElementById('preview-modal').classList.add('hidden');
             document.getElementById('preview-content').innerHTML = '';
             document.body.style.overflow = 'auto';
         }
 
+        /**
+         * Ouvre la modale de devis / commande
+         */
         function openOrderModal(siteId, defaultPlan) {
             const isEn = currentLang === 'en';
             let projectName = isEn ? 'Custom Website' : 'Site Personnalisé';
@@ -1671,6 +1687,7 @@
             document.getElementById('form-error-msg').classList.add('hidden');
 
             selectPlan(defaultPlan || 'full_pack');
+            togglePremiumDashboard(premiumDashboardEnabled);
             document.getElementById('order-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
@@ -1680,6 +1697,9 @@
             document.body.style.overflow = 'auto';
         }
 
+        /**
+         * Met à jour le style actif de la formule sélectionnée dans la modale
+         */
         function selectPlan(planKey) {
             selectedPlan = planKey;
             const baseClass = "block p-3 rounded-2xl border-2 border-ink-900/15 bg-white cursor-pointer hover:border-ink-900/40 transition-all";
@@ -1694,8 +1714,16 @@
             document.getElementById('radio-plan-html').checked = (planKey === 'html_only');
             document.getElementById('radio-plan-maint').checked = (planKey === 'maintenance');
             document.getElementById('radio-plan-full').checked = (planKey === 'full_pack');
+
+            const dashWrap = document.getElementById('modal-dashboard-opt-wrap');
+            if (dashWrap) {
+                dashWrap.classList.toggle('hidden', planKey !== 'full_pack');
+            }
         }
 
+        /**
+         * Soumet la demande via Web3Forms ou ouvre le client mail par défaut si la clé n'est pas configurée
+         */
         async function submitOrder(event) {
             event.preventDefault();
             const form = document.getElementById('order-form');
@@ -1712,8 +1740,6 @@
                 const body = encodeURIComponent(
                     `Nom / Entreprise : ${formData.get('name')}\n` +
                     `Email : ${formData.get('email')}\n` +
-                    `Téléphone : ${formData.get('phone') || 'N/A'}\n` +
-                    `Préférence : ${formData.get('contact_preference')}\n` +
                     `Formule : ${formData.get('site_plan')}\n` +
                     `Modèle : ${formData.get('project_model')}\n\n` +
                     `Message :\n${formData.get('message')}`
@@ -1805,6 +1831,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             hydrateConfig();
             renderTemplates();
+            togglePremiumDashboard(false);
             lucide.createIcons();
             if (!localStorage.getItem('stardesign_cookie_consent')) {
                 document.getElementById('cookie-banner').classList.remove('hidden');
